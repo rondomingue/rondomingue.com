@@ -1,0 +1,29 @@
+---
+layout: base.njk
+title: Work
+navActive: work
+bodyClass: page-work
+---
+
+<section class="work-index">
+  <div class="work-index-header">
+    <span class="section-label">Work</span>
+    <span class="section-count">{{ projects | length }} projects</span>
+  </div>
+
+  <div class="work-grid work-grid--full">
+    {% for project in projects %}
+    <a class="work-card" href="/work/{{ project.slug }}/">
+      <div class="work-card-img" style="background-image: url('/{{ project.thumb }}')"></div>
+      <div class="work-card-overlay"></div>
+      <div class="work-card-info">
+        <div class="work-card-tags">
+          {% for tag in project.tags %}<span class="work-tag">{{ tag }}</span>{% endfor %}
+          <span class="work-tag">{{ project.year }}</span>
+        </div>
+        <div class="work-card-title">{{ project.title }}</div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
