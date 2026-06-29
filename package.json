@@ -1,7 +1,7 @@
 {
   "name": "rondomingue-com",
   "version": "1.0.0",
-  "description": "Ron Domingue's portfolio — rondomingue.com",
+  "description": "Ron Domingue portfolio — rondomingue.com",
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy"
