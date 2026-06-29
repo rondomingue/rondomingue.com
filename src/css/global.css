@@ -131,6 +131,38 @@ img { display: block; max-width: 100%; }
 .footer-nav a:hover { color: var(--accent); }
 
 /* ─────────────────────────────────────────────
+   PRELOADER
+───────────────────────────────────────────── */
+.preloader {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+
+.preloader.loaded {
+  opacity: 0;
+}
+
+.preloader-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: preloader-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes preloader-pulse {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.4); }
+}
+
+/* ─────────────────────────────────────────────
    HERO — HOME
 ───────────────────────────────────────────── */
 .hero {
@@ -206,9 +238,10 @@ img { display: block; max-width: 100%; }
 
 .hero-title {
   font-family: 'din-2014', sans-serif;
-  font-weight: 200;
-  font-size: clamp(32px, 4.5vw, 64px);
-  letter-spacing: 0.06em;
+  font-weight: 300;
+  font-size: clamp(24px, 3vw, 44px);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   line-height: 1;
   color: var(--text);
   margin-bottom: 12px;

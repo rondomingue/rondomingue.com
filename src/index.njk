@@ -6,9 +6,15 @@ bodyClass: page-home
 <!-- HERO -->
 <section class="hero">
 
+  <!-- Preloader — fades out once Vimeo is ready -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-dot"></div>
+  </div>
+
   <!-- Vimeo background reel -->
   <div class="hero-video-wrap">
     <iframe
+      id="vimeo-bg"
       class="hero-video"
       src="https://player.vimeo.com/video/{{ site.vimeoReel }}?background=1&autoplay=1&loop=1&muted=1&quality=1080p"
       allow="autoplay; fullscreen"
@@ -233,6 +239,29 @@ bodyClass: page-home
   }
 
   loadExposure();
+
+  // ── Vimeo preloader ─────────────────────────────────────────────
+  const preloader = document.getElementById('preloader');
+
+  function dismissPreloader() {
+    preloader.classList.add('loaded');
+    setTimeout(() => preloader.remove(), 900);
+  }
+
+  // Listen for Vimeo player ready signal
+  window.addEventListener('message', function(e) {
+    if (e.origin.includes('vimeo.com')) {
+      try {
+        const data = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
+        if (data.event === 'ready' || data.event === 'playProgress') {
+          dismissPreloader();
+        }
+      } catch(err) {}
+    }
+  });
+
+  // Fallback — dismiss after 4s regardless
+  setTimeout(dismissPreloader, 4000);
 
   // ── Scroll hint ─────────────────────────────────────────────────
   window.addEventListener('scroll', () => {
