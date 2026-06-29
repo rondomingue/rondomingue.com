@@ -39,8 +39,8 @@ bodyClass: page-home
     </p>
 
     <div class="hero-cta">
-      <a href="/work/" class="btn-ghost">Work</a>
-      <a href="/about/" class="btn-ghost">About</a>
+      <a href="{{ '/work/' | url }}" class="btn-ghost">Work</a>
+      <a href="{{ '/about/' | url }}" class="btn-ghost">About</a>
       <a href="{{ site.fieldGuideUrl }}" class="btn-ghost" target="_blank">Field Guide</a>
     </div>
 
@@ -221,14 +221,14 @@ bodyClass: page-home
       const tcEl = document.getElementById('exposure-eyebrow');
       tcEl.style.opacity = '1';
       function tickExposure() {
-        tcEl.textContent = `${condition} / ${sunLabel} / T2.8 / 1/24S / ISO 800 / ${nd}`;
+        tcEl.textContent = `${condition} / ${sunLabel} / T2.8 / 1/48S / ISO 800 / ${nd}`;
         requestAnimationFrame(tickExposure);
       }
       tickExposure();
     } catch(e) {
       const tcEl = document.getElementById('exposure-eyebrow');
       tcEl.style.opacity = '1';
-      tcEl.textContent = 'CLEAR / NIGHT / T2.8 / 1/24S / ISO 800 / NO ND';
+      tcEl.textContent = 'CLEAR / NIGHT / T2.8 / 1/48S / ISO 800 / NO ND';
     }
   }
 

@@ -207,8 +207,8 @@ img { display: block; max-width: 100%; }
 .hero-title {
   font-family: 'din-2014', sans-serif;
   font-weight: 200;
-  font-size: clamp(42px, 7vw, 96px);
-  letter-spacing: 0.04em;
+  font-size: clamp(32px, 4.5vw, 64px);
+  letter-spacing: 0.06em;
   line-height: 1;
   color: var(--text);
   margin-bottom: 12px;
