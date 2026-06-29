@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if title %}{{ title }} — {% endif %}{{ site.siteName }}</title>
   <meta name="description" content="{{ description or site.description }}">
-  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="{{ '/css/global.css' | url }}">
   <link rel="stylesheet" href="https://use.typekit.net/xhf1nbc.css">
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
   <!-- Google Analytics -->

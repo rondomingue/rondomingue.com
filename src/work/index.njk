@@ -13,8 +13,8 @@ bodyClass: page-work
 
   <div class="work-grid work-grid--full">
     {% for project in projects %}
-    <a class="work-card" href="/work/{{ project.slug }}/">
-      <div class="work-card-img" style="background-image: url('/{{ project.thumb }}')"></div>
+    <a class="work-card" href="{{ ('/work/' + project.slug + '/') | url }}">
+      <div class="work-card-img" style="background-image: url('{{ ('/' + project.thumb) | url }}')"></div>
       <div class="work-card-overlay"></div>
       <div class="work-card-info">
         <div class="work-card-tags">

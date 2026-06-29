@@ -1,13 +1,11 @@
 module.exports = function(eleventyConfig) {
-  // Pass through static assets
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/fonts");
-
-  // Watch CSS for changes
   eleventyConfig.addWatchTarget("src/css/");
 
   return {
+    pathPrefix: "/rondomingue.com/",
     dir: {
       input: "src",
       output: "_site",

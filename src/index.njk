@@ -27,7 +27,7 @@ bodyClass: page-home
 
     <h1 class="hero-title">
       <span class="hero-emblem-wrap">
-        <img src="/images/misc/Thai-Emblem_white.png" class="hero-emblem" alt="">
+        <img src="{{ '/images/misc/Thai-Emblem_white.png' | url }}" class="hero-emblem" alt="">
       </span>
       Ron <em>Domingue</em>
     </h1>
@@ -91,8 +91,8 @@ bodyClass: page-home
 
   <div class="work-grid">
     {% for project in projects %}
-    <a class="work-card {% if loop.first %}work-card--featured{% endif %}" href="/work/{{ project.slug }}/">
-      <div class="work-card-img" style="background-image: url('/{{ project.thumb }}')"></div>
+    <a class="work-card {% if loop.first %}work-card--featured{% endif %}" href="{{ ('/work/' + project.slug + '/') | url }}">
+      <div class="work-card-img" style="background-image: url('{{ ('/' + project.thumb) | url }}')"></div>
       <div class="work-card-overlay"></div>
       <div class="work-card-info">
         <div class="work-card-tags">
