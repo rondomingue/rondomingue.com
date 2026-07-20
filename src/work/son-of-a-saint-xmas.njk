@@ -1,0 +1,116 @@
+---
+layout: base.njk
+title: Son of a Saint Xmas
+description: Son of a Saint holiday event photography by Ron Domingue.
+bodyClass: page-photography page-unlinked-gallery
+permalink: work/son-of-a-saint-xmas/index.html
+eleventyExcludeFromCollections: true
+---
+
+<section class="illustration-index photography-index">
+  <header class="illustration-header">
+    <div>
+      <span class="section-label">Event photography</span>
+      <h1>Son of a Saint Xmas</h1>
+    </div>
+    <div class="illustration-intro">
+      <p>A holiday celebration photographed for Son of a Saint in New Orleans.</p>
+      <span>{{ sonOfASaintPhotos | length }} photographs</span>
+    </div>
+  </header>
+
+  <div class="illustration-filters" aria-label="Filter photographs by orientation">
+    <button class="illustration-filter active" type="button" data-orientation="all">All</button>
+    <button class="illustration-filter" type="button" data-orientation="portrait">Portrait</button>
+    <button class="illustration-filter" type="button" data-orientation="landscape">Landscape</button>
+  </div>
+
+  <div class="illustration-mosaic">
+    {% for photograph in sonOfASaintPhotos %}
+    <figure class="illustration-tile" data-orientation="{{ photograph.orientation }}">
+      <button class="illustration-open" type="button" aria-label="Open photograph {{ loop.index }}">
+        <img
+          src="{{ ('/' + photograph.src) | url }}"
+          alt="{{ photograph.alt }}"
+          width="{{ photograph.width }}"
+          height="{{ photograph.height }}"
+          loading="lazy">
+        <span class="illustration-tile-meta">
+          <span>Photograph {{ loop.index }}</span>
+          <span>{{ photograph.orientation }}</span>
+        </span>
+      </button>
+    </figure>
+    {% endfor %}
+  </div>
+</section>
+
+<div class="illustration-lightbox" aria-hidden="true">
+  <button class="illustration-lightbox-close" type="button" aria-label="Close photograph">Close</button>
+  <button class="illustration-lightbox-nav illustration-lightbox-prev" type="button" aria-label="Previous photograph">Prev</button>
+  <figure>
+    <img class="illustration-lightbox-image" src="" alt="">
+    <figcaption class="illustration-lightbox-caption"></figcaption>
+  </figure>
+  <button class="illustration-lightbox-nav illustration-lightbox-next" type="button" aria-label="Next photograph">Next</button>
+</div>
+
+<script src="{{ '/js/mosaic-motion.js' | url }}"></script>
+<script>
+  (() => {
+    const filters = document.querySelector('.illustration-filters');
+    const tiles = [...document.querySelectorAll('.illustration-tile')];
+    const lightbox = document.querySelector('.illustration-lightbox');
+    const image = lightbox.querySelector('.illustration-lightbox-image');
+    const caption = lightbox.querySelector('.illustration-lightbox-caption');
+    const closeButton = lightbox.querySelector('.illustration-lightbox-close');
+    let visibleTiles = tiles;
+    let activeIndex = 0;
+
+    filters.addEventListener('click', event => {
+      const button = event.target.closest('.illustration-filter');
+      if (!button) return;
+      filters.querySelectorAll('.illustration-filter').forEach(item => item.classList.remove('active'));
+      button.classList.add('active');
+      const orientation = button.dataset.orientation;
+      window.animateMosaicFilter(tiles, orientation, filters).then(() => {
+        visibleTiles = tiles.filter(tile => !tile.hidden);
+      });
+    });
+
+    const render = index => {
+      activeIndex = (index + visibleTiles.length) % visibleTiles.length;
+      const source = visibleTiles[activeIndex].querySelector('img');
+      image.src = source.currentSrc || source.src;
+      image.alt = source.alt;
+      caption.textContent = `Photograph ${activeIndex + 1} / ${visibleTiles.length}`;
+    };
+
+    const open = tile => {
+      visibleTiles = tiles.filter(item => !item.hidden);
+      render(visibleTiles.indexOf(tile));
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.documentElement.classList.add('lightbox-open');
+      closeButton.focus();
+    };
+
+    const close = () => {
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.documentElement.classList.remove('lightbox-open');
+    };
+
+    tiles.forEach(tile => tile.querySelector('.illustration-open').addEventListener('click', () => open(tile)));
+    closeButton.addEventListener('click', close);
+    lightbox.querySelector('.illustration-lightbox-prev').addEventListener('click', () => render(activeIndex - 1));
+    lightbox.querySelector('.illustration-lightbox-next').addEventListener('click', () => render(activeIndex + 1));
+    lightbox.addEventListener('click', event => { if (event.target === lightbox) close(); });
+    document.addEventListener('keydown', event => {
+      if (!lightbox.classList.contains('active')) return;
+      if (event.key === 'Escape') close();
+      if (event.key === 'ArrowLeft') render(activeIndex - 1);
+      if (event.key === 'ArrowRight') render(activeIndex + 1);
+    });
+  })();
+</script>

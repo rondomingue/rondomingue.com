@@ -3,112 +3,673 @@
     "title": "Ravens Isle",
     "slug": "ravens-isle",
     "year": "2024",
-    "tags": ["UE5", "Cinematic", "Environment", "Storm", "Color"],
+    "tags": [
+      "UE5",
+      "Cinematic",
+      "Environment",
+      "Storm",
+      "Color"
+    ],
     "thumb": "images/work/ravens-isle.png",
     "vimeo": "P_hXaVLEV2w",
-    "summary": "Ravens Isle is a short cinematic built in Unreal Engine 5, set on a storm-battered island fortress clinging to sea cliffs.",
+    "summary": "Ravens Isle is a short cinematic built in Unreal Engine 5, set on a storm-battered island fortress clinging to sea cliffs. Towers rise through the fog, lightning fractures the horizon, and ravens circle against a cold teal sky.",
     "description": [
-      "Towers rise through the fog, lightning fractures the horizon, and ravens circle against a cold teal sky. The piece is a study in atmosphere, pushing Lumen global illumination and Ultra Dynamic Sky's storm system to build a scene that feels genuinely foreboding.",
-      "Color was finished through a Linear ACES pipeline with Dehancer film emulation, pulling the image toward cold, overexposed highlights and deep crushed shadows."
+      "The only signs of life are the dim flicker of candlelit windows and the wind snapping at the battlements and slow figure moving between the boats. The piece is a study in atmosphere, pushing Lumen global illumination and Ultra Dynamic Sky's storm system to build a scene that feels genuinely foreboding. No dialogue, no characters. Just the island, the storm, and the silence beneath it.",
+      "Color graded in DaVinci Resolve through a Linear-ACES pipeline with Dehancer film emulation, pulling the image toward cold, overexposed highlights and deep crushed shadows."
     ],
-    "processTags": ["Unreal Engine 5", "Lumen", "Nanite", "Ultra Dynamic Sky", "DaVinci Resolve", "ACES", "Dehancer"],
-    "images": []
+    "processTags": [
+      "Unreal Engine 5",
+      "Lumen",
+      "Nanite",
+      "Ultra Dynamic Sky",
+      "DaVinci Resolve",
+      "ACES",
+      "Dehancer"
+    ],
+    "images": [
+      "images/work/ravens-isle/Still-2026-06-04-231655_1.1.1.webp",
+      "images/work/ravens-isle/Still-2026-06-05-032403_2.1.3.webp",
+      "images/work/ravens-isle/image_720-1.webp",
+      "images/work/ravens-isle/Still-2026-05-26-125804_1.1.1.webp",
+      "images/work/ravens-isle/Still-2026-05-27-203006_1.1.3.webp"
+    ],
+    "format": "Cinematic environment study",
+    "sourcePage": "https://www.rondomingue.com/work/ravens-isle",
+    "nativeVideo": {
+      "id": "9958a1b6-3fb4-419c-9323-a43c3359b62b",
+      "durationSeconds": 90.041667,
+      "sourcePage": "https://www.rondomingue.com/work/ravens-isle"
+    }
   },
   {
     "title": "Desert Silence",
     "slug": "desert-silence",
     "year": "2024",
-    "tags": ["UE5", "Cinematic", "Environment", "Desert", "Atmosphere"],
+    "tags": [
+      "UE5",
+      "Cinematic",
+      "Environment",
+      "Desert",
+      "Atmosphere"
+    ],
     "thumb": "images/work/desert-silence.webp",
     "vimeo": "gyDP4i_UdcY",
-    "summary": "A dry, minimal environment study focused on heat, distance, and silence.",
+    "summary": "Desert Silence is a short cinematic piece exploring solitude and atmosphere in a sun-bleached desert environment. Built entirely in Unreal Engine 5 using Lumen global illumination and volumetric lighting, the film follows the quiet of an ancient desert settlement and crumbling architecture, wind-swept dunes, and the stillness of a figure alone by fire as night falls.",
     "description": [
-      "Desert Silence explores scale through negative space: washed terrain, long atmospheric falloff, and a palette designed to feel sun-bleached without becoming flat.",
-      "The piece centers on restraint, using camera movement, haze, and subtle light shifts to make an empty landscape feel charged."
+      "Color graded in DaVinci Resolve through a Linear-ACES pipeline with Dehancer film emulation, bringing a textured, analog warmth to the renders. No post-compositing, what you see came out of the engine."
     ],
-    "processTags": ["Unreal Engine 5", "Environment Art", "Lighting", "Atmosphere", "Color"],
-    "images": []
+    "processTags": [
+      "Unreal Engine 5",
+      "Environment Art",
+      "Lighting",
+      "Atmosphere",
+      "Color"
+    ],
+    "images": [
+      "images/work/desert-silence/Still-2026-05-21-211936_1.1.9.webp",
+      "images/work/desert-silence/image_720-3.webp",
+      "images/work/desert-silence/image_720-2.webp",
+      "images/work/desert-silence/image_720-1.webp",
+      "images/work/desert-silence/Screenshot-2026-05-22-at-11.12.45-AM.webp",
+      "images/work/desert-silence/image_720.webp",
+      "images/work/desert-silence/Still-2026-05-21-211917_1.1.4.webp"
+    ],
+    "format": "Cinematic environment study",
+    "sourcePage": "https://www.rondomingue.com/work/desert-silence",
+    "nativeVideo": {
+      "id": "30fc843c-c0c4-4064-a2ac-8d40d0a1f1b9",
+      "durationSeconds": 60.041667,
+      "sourcePage": "https://www.rondomingue.com/work/desert-silence"
+    }
   },
   {
     "title": "Dark Star",
     "slug": "dark-star",
     "year": "2024",
-    "tags": ["UE5", "Cinematic", "Sci-Fi", "Environment", "Lighting"],
+    "tags": [
+      "UE5",
+      "Cinematic",
+      "Sci-Fi",
+      "Environment",
+      "Lighting"
+    ],
     "thumb": "images/work/dark-star.webp",
     "vimeo": "2vdD53dA1dA",
-    "summary": "A science-fiction cinematic study built around hard shadow, scale, and controlled light.",
+    "summary": "Dark Star is a short cinematic built in Unreal Engine 5, set in the gravitational pull of a collapsing star. Capital ships drift in the foreground as light bends around a dying sun, its accretion disk casting copper and amber across the debris field. A moon tumbles slowly through the middle distance. Nothing explodes. Nothing attacks. Just the weight of something enormous, slowly ending.",
     "description": [
-      "Dark Star leans into industrial silhouettes and low-key lighting, using the frame as a way to reveal only enough information for the environment to feel massive.",
-      "The work is focused on mood, surface response, and the tension between graphic composition and cinematic realism."
+      "The piece explores scale and stillness in deep space, using Space Creator Pro and Lumen to build a physically grounded environment where the lighting does all the storytelling. Color graded in DaVinci Resolve through a Linear-ACES pipeline."
     ],
-    "processTags": ["Unreal Engine 5", "Sci-Fi", "Lighting", "Cinematic Framing", "Color"],
-    "images": []
+    "processTags": [
+      "Unreal Engine 5",
+      "Sci-Fi",
+      "Lighting",
+      "Cinematic Framing",
+      "Color"
+    ],
+    "images": [
+      "images/work/dark-star/Still-2026-06-05-121700_1.1.1.webp",
+      "images/work/dark-star/image_720.webp"
+    ],
+    "format": "Cinematic environment study",
+    "sourcePage": "https://www.rondomingue.com/work/dark-star",
+    "nativeVideo": {
+      "id": "00413a92-3fc5-4ee6-ad71-da841049af96",
+      "durationSeconds": 60.041667,
+      "sourcePage": "https://www.rondomingue.com/work/dark-star"
+    }
   },
   {
     "title": "Temple of the Sun",
     "slug": "temple-of-the-sun",
     "year": "2023",
-    "tags": ["UE5", "Cinematic", "Environment", "Temple", "Lighting"],
+    "tags": [
+      "UE5",
+      "Cinematic",
+      "Environment",
+      "Temple",
+      "Lighting"
+    ],
     "thumb": "images/work/temple-of-the-sun.webp",
     "vimeo": "icHBlydH1f0",
-    "summary": "A temple environment study shaped by warm light, ancient geometry, and cinematic scale.",
+    "summary": "Temple of the Sun is a short cinematic built in Unreal Engine 5, set deep within a forgotten Hindu temple complex reclaimed by forest and time. Light breaks through the jungle canopy in thick shafts, falling across ancient columns, cracked stone, and still water. The staircase rises toward something just out of reach. The film moves between two states of the same space — the temple as it once stood, and the ruin it became. No characters, no conflict. Just light, atmosphere, and the weight of something sacred slowly returning to the earth. Rendered with Lumen global illumination and Nanite geometry, color graded in DaVinci Resolve through a Linear-ACES pipeline with Dehancer film emulation.",
     "description": [
       "Temple of the Sun uses architecture as the main storytelling device, balancing hard-edged forms with dust, warmth, and ritual atmosphere.",
       "The project studies how light can define the emotional read of a place before the viewer understands its function."
     ],
-    "processTags": ["Unreal Engine 5", "Environment Art", "Architecture", "Lighting", "Atmosphere"],
-    "images": []
+    "processTags": [
+      "Unreal Engine 5",
+      "Environment Art",
+      "Architecture",
+      "Lighting",
+      "Atmosphere"
+    ],
+    "images": [
+      "images/work/temple-of-the-sun/Screenshot-2026-05-19-at-2.02.01-PM.webp",
+      "images/work/temple-of-the-sun/image.webp",
+      "images/work/temple-of-the-sun/image-1.webp",
+      "images/work/temple-of-the-sun/Still-2026-05-18-094106_1.1.3.webp"
+    ],
+    "format": "Cinematic environment study",
+    "sourcePage": "https://www.rondomingue.com/work/temple-of-the-sun",
+    "nativeVideo": {
+      "id": "11e24912-562a-41d1-8e35-e3837660d599",
+      "durationSeconds": 60.125,
+      "sourcePage": "https://www.rondomingue.com/work/temple-of-the-sun"
+    }
   },
   {
     "title": "Haunted Swamp",
     "slug": "haunted-swamp",
     "year": "2023",
-    "tags": ["UE5", "Cinematic", "Environment", "Swamp", "Atmosphere"],
+    "tags": [
+      "UE5",
+      "Cinematic",
+      "Environment",
+      "Swamp",
+      "Atmosphere"
+    ],
     "thumb": "images/work/haunted-swamp.webp",
     "vimeo": "MJL8IqGHe2M",
-    "summary": "A Southern gothic swamp study built around fog, water, and uneasy stillness.",
+    "summary": "Haunted Swamp is a short cinematic built in Unreal Engine 5, set in the dead of a fog-choked night somewhere deep in the American South. A plantation house sits back from the tree line, its windows burning with dim candlelight. Bare branches cut across the frame. Gravestones disappear into the mist. Nothing moves. Nothing has to.",
     "description": [
-      "Haunted Swamp focuses on density: trees, fog, water reflection, and soundless atmosphere working together to make the frame feel humid and alive.",
-      "The scene is treated like a cinematic location rather than a fantasy set, with natural details carrying most of the tension."
+      "The piece leans entirely on atmosphere — volumetric fog, Lumen-lit interior light spilling through glass, and Ultra Dynamic Sky's overcast night system doing the heavy lifting. The color treatment keeps everything cold and desaturated except for those amber windows, which draw the eye like the only warmth left in the world.",
+      "Color graded in DaVinci Resolve through a Linear-ACES pipeline with Dehancer film emulation."
     ],
-    "processTags": ["Unreal Engine 5", "Environment Art", "Fog", "Water", "Lighting"],
-    "images": []
+    "processTags": [
+      "Unreal Engine 5",
+      "Environment Art",
+      "Fog",
+      "Water",
+      "Lighting"
+    ],
+    "images": [
+      "images/work/haunted-swamp/Still-2026-06-04-225201_1.2.1.webp",
+      "images/work/haunted-swamp/Still-2026-06-04-223740_1.2.3.webp"
+    ],
+    "format": "Cinematic environment study",
+    "sourcePage": "https://www.rondomingue.com/work/haunted-swamp",
+    "nativeVideo": {
+      "id": "f581de15-e18d-4800-a467-6ebb81c430b8",
+      "durationSeconds": 60.041667,
+      "sourcePage": "https://www.rondomingue.com/work/haunted-swamp"
+    }
   },
   {
     "title": "Cold Warnings",
     "slug": "cold-warnings",
     "year": "2023",
-    "tags": ["UE5", "Cinematic", "Environment", "Cold", "Atmosphere"],
+    "tags": [
+      "UE5",
+      "Cinematic",
+      "Environment",
+      "Cold",
+      "Atmosphere"
+    ],
     "thumb": "images/work/cold-warnings.webp",
     "vimeo": "gbZAz9QDxB8",
-    "summary": "A cold-weather cinematic study of isolation, warning signs, and environmental pressure.",
+    "summary": "Cold Warnings is a short cinematic built in Unreal Engine 5, set at a remote arctic research station at the edge of the world. Massive radio dishes tilt toward a sky that offers nothing back. A cargo plane sits forgotten in the snow. Somewhere in the base, lights are still on. Nobody answers.",
     "description": [
-      "Cold Warnings builds its mood through reduced color, heavy air, and a landscape that feels dangerous without needing spectacle.",
-      "The piece is about atmosphere as narrative: the environment tells the viewer what happened, or what might be coming."
+      "The piece is built entirely around unease, the kind that comes not from what you see but what the environment implies. A station this equipped, this isolated, still running but completely still. Ultra Dynamic Sky handles the overcast arctic conditions, with Lumen pulling every surface into a cold, flat light that leaves nowhere to hide.",
+      "Color graded in DaVinci Resolve through a Linear-ACES pipeline with Dehancer film emulation."
     ],
-    "processTags": ["Unreal Engine 5", "Environment Art", "Cold Palette", "Lighting", "Atmosphere"],
-    "images": []
+    "processTags": [
+      "Unreal Engine 5",
+      "Environment Art",
+      "Cold Palette",
+      "Lighting",
+      "Atmosphere"
+    ],
+    "images": [
+      "images/work/cold-warnings/Still-2026-05-06-111652_1.1.1.webp",
+      "images/work/cold-warnings/Screenshot-2026-05-06-at-11.18.07-AM.webp",
+      "images/work/cold-warnings/image-2.webp",
+      "images/work/cold-warnings/image-1.webp",
+      "images/work/cold-warnings/Screenshot-2026-05-06-at-11.15.40-AM.webp"
+    ],
+    "format": "Cinematic environment study",
+    "sourcePage": "https://www.rondomingue.com/work/cold-warnings",
+    "nativeVideo": {
+      "id": "c2a1338f-1fcf-412b-93a8-3677418a4767",
+      "durationSeconds": 60.125,
+      "sourcePage": "https://www.rondomingue.com/work/cold-warnings"
+    }
   },
   {
     "title": "Ghost Signals",
     "slug": "ghost-signals",
     "year": "2026",
-    "tags": ["UE5", "Cinematic", "Environment", "Cyberpunk", "Atmosphere", "Sci-Fi"],
+    "tags": [
+      "UE5",
+      "Cinematic",
+      "Environment",
+      "Cyberpunk",
+      "Atmosphere",
+      "Sci-Fi"
+    ],
     "thumb": "images/work/ghost-signals.webp",
     "video": {
       "provider": "vimeo",
       "id": "1210942007"
     },
-    "summary": "The look comes from deliberately broken optics.",
+    "summary": "A short cinematic built in Unreal Engine 5, inside a city still broadcasting to no one.",
     "description": [
-      "Anamorphic 50mm glass that halates and streaks in neon light, chromatic aberration at the frame edges, gate weave, light leaks that arrive uninvited. Lumen pulls the color across wet surfaces and into the dark between buildings."
+      "Neon cuts through haze that has no origin. Signage scrolls across a figure who doesn't look up. Somewhere above the alley, a screen cycles through an advertisement for something that no longer exists. The infrastructure of communication, running perfectly, with nothing left to say. The city isn't abandoned. It just stopped requiring an audience.",
+      "The look comes from deliberately broken optics. Anamorphic 50mm glass that halates and streaks in neon light, chromatic aberration at the frame edges, gate weave, light leaks that arrive uninvited. Lumen pulls the color across wet surfaces and into the dark between buildings.",
+      "The KitBash3D Cyberpunk kit and Bigmediumsmall's Tokyo Alley Artis series build the world, everything rendered in-engine, no compositing after the fact. The imperfections aren't added. They're what the glass remembers.",
+      "Color graded in DaVinci Resolve."
     ],
-    "processTags": ["Unreal Engine 5", "Environment Art", "Cold Palette", "Lighting", "Atmosphere"],
+    "processTags": [
+      "Unreal Engine 5",
+      "Environment Art",
+      "Cold Palette",
+      "Lighting",
+      "Atmosphere"
+    ],
     "images": [
       "images/work/ghost-signals/Still+2026-06-08+123140_1.1.4.webp",
       "images/work/ghost-signals/Still+2026-06-08+123326_1.1.1.webp",
       "images/work/ghost-signals/Still+2026-06-08+123354_1.1.2.png.webp",
-      "images/work/ghost-signals/Still+2026-06-08+123524_1.1.1.png.webp"
+      "images/work/ghost-signals/Still+2026-06-08+123524_1.1.1.png.webp",
+      "images/work/ghost-signals/Still-2026-06-08-123621_1.1.1.webp",
+      "images/work/ghost-signals/Screenshot-2026-06-08-at-12.30.18-PM.webp"
+    ],
+    "format": "Cinematic environment study",
+    "sourcePage": "https://www.rondomingue.com/work/ghost-signals",
+    "nativeVideo": {
+      "id": "61c41efb-c34a-4e73-a608-1577da067853",
+      "durationSeconds": 56.583333,
+      "sourcePage": "https://www.rondomingue.com/work/ghost-signals"
+    }
+  },
+  {
+    "title": "The Colony",
+    "slug": "the-colony",
+    "year": "2026",
+    "tags": [
+      "UE5",
+      "Cinematic",
+      "Environment",
+      "Lunar",
+      "Moon",
+      "Sci-Fi"
+    ],
+    "thumb": "images/work/colony.png",
+    "summary": "A perpetual lunar sunset, built in Unreal Engine 5, set at Shackleton Extraction Facility on the lunar south pole; a He-3 and hydrogen mining operation on the Gerlache Ridge.",
+    "description": [
+      "Not everyone made it back inside.",
+      "Lighting is entirely practical, the sun locked two degrees above the horizon, raking across the regolith and never moving. No atmosphere to scatter it, no air to carry sound. Lumen handles the bounce into the shadowed undercuts, the only warmth in the frame.",
+      "Environment built with Kitbash3D Minerva and Space Colony kits. Astronauts by BigMediumSmall Astronova.",
+      "Color graded in DaVinci Resolve through a Linear-ACES pipeline with Dehancer film emulation."
+    ],
+    "processTags": [
+      "Unreal Engine 5",
+      "Environment Art",
+      "Cold Palette",
+      "Lighting",
+      "Atmosphere"
+    ],
+    "images": [
+      "images/work/the-colony/Still-2026-06-12-155428_1.1.3.webp",
+      "images/work/the-colony/Still-2026-06-12-155428_1.1.1.webp",
+      "images/work/the-colony/image-7.webp",
+      "images/work/the-colony/image-6.webp",
+      "images/work/the-colony/image-5.webp",
+      "images/work/the-colony/image-4.webp",
+      "images/work/the-colony/image-3.webp",
+      "images/work/the-colony/Still-2026-06-12-155428_1.1.2.webp"
+    ],
+    "format": "Cinematic environment study",
+    "sourcePage": "https://www.rondomingue.com/work/the-colony",
+    "nativeVideo": {
+      "id": "633650d1-d19a-4140-972e-78eef6662af5",
+      "durationSeconds": 130.041667,
+      "sourcePage": "https://www.rondomingue.com/work/the-colony"
+    }
+  },
+  {
+    "title": "Knight and Squire",
+    "slug": "storyboards",
+    "year": "2026",
+    "tags": [
+      "Storyboards",
+      "Cinematic",
+      "Narrative",
+      "Batman"
+    ],
+    "thumb": "images/work/storyboards/Frame_1.webp",
+    "summary": "This storyboard sequence explores the classic Batman and Robin dynamic within a rain-soaked Gotham, emphasizing pursuit, teamwork, and iconic silhouettes. The action centers on a high-speed vehicle chase featuring the Batmobile and Batcycle, using cinematic framing and clear spatial storytelling to contrast Batman’s power with Robin’s agility. The sequence focuses on mood, scale, and action clarity while staying true to the visual language and mythology of Batman and Robin, communicating tone, pacing, and visual intent in a concise, production-ready format.",
+    "description": [],
+    "processTags": [
+      "Storyboarding",
+      "Visual Development",
+      "Action",
+      "Sequential Art"
+    ],
+    "format": "Storyboard sequence",
+    "sourcePage": "https://www.rondomingue.com/work/storyboards",
+    "images": [
+      "images/work/storyboards/Frame_1.webp",
+      "images/work/storyboards/Frame_2.webp",
+      "images/work/storyboards/Frame_3.webp",
+      "images/work/storyboards/Frame_4.webp",
+      "images/work/storyboards/Frame_5.webp",
+      "images/work/storyboards/Frame_7.webp",
+      "images/work/storyboards/Frame_8.webp",
+      "images/work/storyboards/Frame_6.webp"
+    ]
+  },
+  {
+    "title": "Hangar 5",
+    "slug": "hangar-5",
+    "year": "2026",
+    "tags": [
+      "Cinema 4D",
+      "Environment",
+      "Sci-Fi",
+      "Arnold"
+    ],
+    "thumb": "images/work/hangar-5/Hanger_5_043023-New_Take_12.webp",
+    "subtitle": "A 3D environment built in Cinema 4D, inside a facility that services things too large to fully see.",
+    "summary": "The number on the wall tells you there are at least four others. A ground crew figure stands near the landing strut of something that fills most of the frame, not inspecting it exactly, just present near it, the way people stand near things they can't do much about. Pipes run everywhere, purposefully or not. The amber light suggests heat, or age, or both. Whatever comes and goes from here, it isn't small.",
+    "description": [
+      "The piece was rendered using Arnold's toon shader in Cinema 4D, which reduces light and shadow to crisp, graphic silhouettes rather than reaching for photorealism. The environment is built from Bigmediumsmall's Modelshop Greebles, hundreds of modular sci-fi hull components, panels, and mechanical clusters assembled into a space that reads as operational rather than decorative. The toon pass makes the density of the kit legible in a way photorealism often buries."
+    ],
+    "processTags": [
+      "Cinema 4D",
+      "Arnold",
+      "Environment Art",
+      "Toon Shading"
+    ],
+    "format": "3D environment study",
+    "sourcePage": "https://www.rondomingue.com/work/hangar-5",
+    "images": [
+      "images/work/hangar-5/Hanger_5_043023-New_Take_12.webp",
+      "images/work/hangar-5/Hanger_5_043023-New_Take_1.webp",
+      "images/work/hangar-5/Hanger_5_043023-New_Take_2.webp",
+      "images/work/hangar-5/Hanger_5_043023-New_Take_3.webp",
+      "images/work/hangar-5/Hanger_5_043023-New_Take_4.webp",
+      "images/work/hangar-5/Hanger_5_043023-New_Take_5.webp",
+      "images/work/hangar-5/Hanger_5_043023-New_Take_7.webp",
+      "images/work/hangar-5/Hanger_5_043023-New_Take_8.webp",
+      "images/work/hangar-5/Hanger_5_043023-New_Take_9.webp",
+      "images/work/hangar-5/Hanger_5_043023-New_Take_10.webp",
+      "images/work/hangar-5/Hanger_5_043023-New_Take_13.webp",
+      "images/work/hangar-5/Hanger_5_043023-New_Take_14.webp",
+      "images/work/hangar-5/Hanger_5_043023-New_Take_15.webp",
+      "images/work/hangar-5/Hanger_5_043023-New_Take_16.webp",
+      "images/work/hangar-5/Hanger_5_043023-New_Take_17.webp",
+      "images/work/hangar-5/Hanger_5_043023-New_Take_11.webp"
+    ]
+  },
+  {
+    "title": "Aerospace HUD",
+    "slug": "aerospace-hud",
+    "year": "2026",
+    "tags": [
+      "FUI",
+      "Motion Design",
+      "Aerospace",
+      "HUD"
+    ],
+    "thumb": "images/work/aerospace-hud/HUD_002_Cam_006.webp",
+    "subtitle": "A layered targeting system, built frame by frame",
+    "summary": "Somewhere between the clouds and whatever comes next, a system wakes. Concentric rings materialize from nothing. Data resolves at the edges. A reticle finds its center. The target is already there before the acquisition is confirmed.",
+    "description": [
+      "Aerospace HUD is a motion design exercise in information architecture and threat geometry. Each frame was constructed as a discrete state: dormant, boot, loading, active, alert, critical. The design language draws from real avionics aesthetics — dashed bounding brackets, hexagonal sensor housings, cascading status lines, a targeting bloom that moves from neutral to thermal red as lock progresses. No transitions were assumed. Every layer was built to hold independently before compositing into sequence.",
+      "The HUD overlay was designed entirely in Adobe Illustrator, animated and staged in After Effects, with final compositing in Photoshop. No AI generation. No stock overlays. Every element drawn from scratch."
+    ],
+    "processTags": [
+      "Illustrator",
+      "After Effects",
+      "Photoshop",
+      "Information Design"
+    ],
+    "format": "Motion design system",
+    "sourcePage": "https://www.rondomingue.com/work/aerospace-hud",
+    "images": [
+      "images/work/aerospace-hud/HUD_002_Cam_006.webp",
+      "images/work/aerospace-hud/HUD_002_Cam_011.webp",
+      "images/work/aerospace-hud/HUD_002_Cam_010.webp",
+      "images/work/aerospace-hud/HUD_002_Cam_008.webp",
+      "images/work/aerospace-hud/HUD_002_Cam_007.webp",
+      "images/work/aerospace-hud/HUD_002_Cam_004.webp",
+      "images/work/aerospace-hud/HUD_002_Cam_002.webp",
+      "images/work/aerospace-hud/HUD_002_Cam_009.webp",
+      "images/work/aerospace-hud/HUD_002_Cam_001.webp",
+      "images/work/aerospace-hud/HUD_002_Cam_003.webp",
+      "images/work/aerospace-hud/HUD_002_Cam_005.webp",
+      "images/work/aerospace-hud/HUD_002_Cam_000.webp",
+      "images/work/aerospace-hud/HUD_001_ABoot.webp",
+      "images/work/aerospace-hud/HUD_001_ALoading.webp",
+      "images/work/aerospace-hud/HUD_001_ADormant.webp",
+      "images/work/aerospace-hud/HUD_001_BActive.webp",
+      "images/work/aerospace-hud/HUD_001_AActive.webp",
+      "images/work/aerospace-hud/HUD_001_BRAW.webp",
+      "images/work/aerospace-hud/HUD_001_AAlert.webp",
+      "images/work/aerospace-hud/HUD_001_BAlert.webp",
+      "images/work/aerospace-hud/HUD_001_ACritical.webp",
+      "images/work/aerospace-hud/nattipat-vesvarute-P0I-8lfP8kc-unsplash.webp"
+    ]
+  },
+  {
+    "title": "Data Cubes",
+    "slug": "data-cubes",
+    "year": "2026",
+    "tags": [
+      "Cinema 4D",
+      "Octane",
+      "Procedural",
+      "FUI"
+    ],
+    "thumb": "images/work/data-cubes/GlassUI-Volume_003_Main0242.webp",
+    "subtitle": "Procedural forms that hold light",
+    "summary": "Isolated forms rendered in pure void. Emissive edges catch teal and amber light against absolute black, implying a system without explaining what it does. No ground plane. No sky. Nothing to give it context and nothing that needs any.",
+    "description": [
+      "Data Cubes is a procedural object study built in Cinema 4D and rendered in Octane. Inspired by the work of Toros Kose, the piece explores how much a single geometric form can hold before it stops being abstract.",
+      "Color graded in DaVinci Resolve through an ACES pipeline."
+    ],
+    "processTags": [
+      "Cinema 4D",
+      "Octane",
+      "Procedural Design",
+      "ACES"
+    ],
+    "format": "Procedural object study",
+    "sourcePage": "https://www.rondomingue.com/work/data-cubes",
+    "images": [
+      "images/work/data-cubes/GlassUI-Volume_003_Main0242.webp",
+      "images/work/data-cubes/GlassUI-Volume_003_Cam8_0242.webp",
+      "images/work/data-cubes/GlassUI-Volume_003_Cam6_0242.webp",
+      "images/work/data-cubes/GlassUI-Volume_003_Cam7_0242.webp",
+      "images/work/data-cubes/GlassUI-Volume_003_Cam5_0242.webp",
+      "images/work/data-cubes/GlassUI-Volume_003_Cam1_0242.webp",
+      "images/work/data-cubes/GlassUI_Cam3.webp",
+      "images/work/data-cubes/GlassUI_Cam1.webp",
+      "images/work/data-cubes/GlassUI_02_Cam4.webp",
+      "images/work/data-cubes/GlassUI_Cam10.webp",
+      "images/work/data-cubes/GlassUI_Cam8.webp",
+      "images/work/data-cubes/GlassUI_Cam9.webp",
+      "images/work/data-cubes/GlassUI_Cam4.webp",
+      "images/work/data-cubes/GlassUI_Cam5.webp",
+      "images/work/data-cubes/GlassUI_Cam2.webp"
+    ]
+  },
+  {
+    "title": "Futuristic Interface Substrate",
+    "slug": "fui-subtrate",
+    "year": "2026",
+    "tags": [
+      "FUI",
+      "Cinema 4D",
+      "Procedural",
+      "Octane"
+    ],
+    "thumb": "images/work/fui-subtrate/Untitled_1.1.1.jpg.webp",
+    "subtitle": "EMMISIVE STRUCTURES",
+    "summary": "Isolated forms rendered in pure void. Emissive edges catch teal and amber light against absolute black, implying a system without explaining what it does. No ground plane. No sky. Nothing to give it context and nothing that needs any.",
+    "description": [
+      "Inspired by the procedural work of Toros Kose, this series explores how much a single geometric form can hold before it stops being abstract. The substrate suggests circuitry, architecture, topography — never committing to any of them. Each frame is a study in emissive restraint: how little light it takes to make something feel inhabited.",
+      "Color graded in DaVinci Resolve through an ACES pipeline."
+    ],
+    "processTags": [
+      "Cinema 4D",
+      "Octane",
+      "Emissive Materials",
+      "ACES"
+    ],
+    "format": "Procedural interface study",
+    "sourcePage": "https://www.rondomingue.com/work/fui-subtrate",
+    "images": [
+      "images/work/fui-subtrate/Untitled_1.1.1.jpg.webp",
+      "images/work/fui-subtrate/Untitled_1.1.12.webp",
+      "images/work/fui-subtrate/Untitled_1.1.20.webp",
+      "images/work/fui-subtrate/Untitled_1.1.23.webp",
+      "images/work/fui-subtrate/Untitled_1.1.2.webp",
+      "images/work/fui-subtrate/Untitled_1.2.1.webp"
+    ]
+  },
+  {
+    "title": "F-35 Scan",
+    "slug": "f35-scan",
+    "year": "2026",
+    "tags": [
+      "FUI",
+      "Cinema 4D",
+      "Aerospace",
+      "Octane"
+    ],
+    "thumb": "images/work/f35-scan/FUICam_010.webp",
+    "subtitle": "The geometry of acquisition.",
+    "summary": "The system doesn't search. It confirms. A silhouette resolves out of noise, brackets find their edges, and the geometry of acquisition assembles itself one layer at a time.",
+    "description": [
+      "F-35 Scan is a study in information design of how a strategic operation might analyze a threat through a visualization.",
+      "Designed and rendered entirely in Cinema 4D with Octane. No AI generation. No stock elements. Every layer constructed from scratch."
+    ],
+    "processTags": [
+      "Cinema 4D",
+      "Octane",
+      "Information Design",
+      "Motion Design"
+    ],
+    "format": "Information design study",
+    "sourcePage": "https://www.rondomingue.com/work/f35-scan",
+    "images": [
+      "images/work/f35-scan/FUICam_010.webp",
+      "images/work/f35-scan/FUICam_007.webp",
+      "images/work/f35-scan/FUICam_005.webp",
+      "images/work/f35-scan/FUICam_002.webp",
+      "images/work/f35-scan/F-35_HUD_01.webp"
+    ]
+  },
+  {
+    "title": "Grid State",
+    "slug": "grid-state",
+    "year": "2026",
+    "tags": [
+      "Cinema 4D",
+      "FUI",
+      "Environment",
+      "Lighting"
+    ],
+    "thumb": "images/work/grid-state/BG_008.webp",
+    "subtitle": "Maximum signal. Zero known source.",
+    "summary": "There are architectures that exist below the interface — lattices of logic and light that process without pause, indifferent to the presence of anyone watching. Grid State is a descent into that space. Glass panels catch signals that have no origin. Dot matrices hold patterns that suggest meaning without offering it. The red is not a warning. It was always red.",
+    "description": [
+      "Every surface was built and lit without shortcuts. No AI generation, no stock compositing — geometry, glass materials, and volumetric light authored from scratch to feel like something that exists somewhere, running something, for reasons that remain unspecified.",
+      "Color graded through DaVinci Resolve on an ACES pipeline with Dehancer film emulation over an S-Log3 base."
+    ],
+    "processTags": [
+      "Cinema 4D",
+      "Glass Materials",
+      "Volumetric Light",
+      "DaVinci Resolve"
+    ],
+    "format": "Abstract environment study",
+    "sourcePage": "https://www.rondomingue.com/work/grid-state",
+    "images": [
+      "images/work/grid-state/BG_008.webp",
+      "images/work/grid-state/BG_009.webp",
+      "images/work/grid-state/BG_007.webp",
+      "images/work/grid-state/BG_006.webp",
+      "images/work/grid-state/BG_005.webp",
+      "images/work/grid-state/BG_003.webp",
+      "images/work/grid-state/BG_002.webp",
+      "images/work/grid-state/BG_001.webp",
+      "images/work/grid-state/BG_004.webp"
+    ]
+  },
+  {
+    "title": "Libération!",
+    "slug": "liberation",
+    "year": "2026",
+    "tags": [
+      "UE5",
+      "Cinematic",
+      "Historical",
+      "Environment"
+    ],
+    "thumb": "images/work/liberation/Still-2026-06-02-114514_1.3.2.webp",
+    "summary": "Paris, August 1944, The Liberation of Paris during World War II. For this one I really wanted that found footage feeling like something that was actually shot on Super 8 by someone who happened to be there.",
+    "description": [
+      "The base world is a game environment that I pushed further with Kitbash3D elements, and the Tiger I is from TurboSquid, weathered and placed close enough to the lens that the grain does the rest.",
+      "I added hardware Ray Tracing with Lumen doing the heavy lifting on atmosphere along with Ultra Dynamic Sky adding the “fog of war.” Color graded in DaVinci Resolve, sitting in faded amber and ash with the fire allowed to blow out the way old film always did.",
+      "No AI, no compositing all particles are in engine."
+    ],
+    "processTags": [
+      "Unreal Engine 5",
+      "Lumen",
+      "Ultra Dynamic Sky",
+      "DaVinci Resolve"
+    ],
+    "format": "Historical cinematic",
+    "sourcePage": "https://www.rondomingue.com/work/liberation",
+    "images": [
+      "images/work/liberation/Still-2026-06-02-114514_1.3.2.webp",
+      "images/work/liberation/Still-2026-06-02-114924_1.1.1.webp",
+      "images/work/liberation/Still-2026-06-02-114225_1.4.1.webp",
+      "images/work/liberation/Still-2026-06-02-114253_1.3.1.webp",
+      "images/work/liberation/Still-2026-06-02-114530_1.7.1.webp",
+      "images/work/liberation/Still-2026-06-02-114554_1.5.1.webp",
+      "images/work/liberation/Screenshot-2026-06-09-at-11.15.12-AM.webp",
+      "images/work/liberation/image-2.webp",
+      "images/work/liberation/image-1.webp",
+      "images/work/liberation/image.webp",
+      "images/work/liberation/Still-2026-06-02-114542_1.6.1.webp"
+    ],
+    "nativeVideo": {
+      "id": "4bb9ea6b-46f9-4af2-b7a9-6c6ce2e2e562",
+      "durationSeconds": 209.875,
+      "sourcePage": "https://www.rondomingue.com/work/liberation"
+    }
+  },
+  {
+    "title": "Outbreak",
+    "slug": "outbreak",
+    "year": "2026",
+    "tags": [
+      "UE5",
+      "Cinematic",
+      "Environment",
+      "Horror"
+    ],
+    "thumb": "images/work/outbreak/Still-2026-07-13-185527_1.1.1.webp",
+    "summary": "An abandoned hospital after an outbreak from a mysterious disease and nothing seems to be left behind. Color graded in DaVinci Resolve through a Linear-ACES pipeline with Dehancer film emulation.",
+    "description": [],
+    "processTags": [
+      "Unreal Engine 5",
+      "Environment Art",
+      "DaVinci Resolve",
+      "Dehancer"
+    ],
+    "format": "Cinematic environment study",
+    "sourcePage": "https://www.rondomingue.com/work/outbreak",
+    "images": [
+      "images/work/outbreak/Still-2026-07-13-185527_1.1.1.webp",
+      "images/work/outbreak/Still-2026-07-13-185804_1.1.1.webp",
+      "images/work/outbreak/image-5.webp",
+      "images/work/outbreak/image-4.webp",
+      "images/work/outbreak/image-3.webp",
+      "images/work/outbreak/HighresScreenshot00001.webp"
     ]
   }
 ]

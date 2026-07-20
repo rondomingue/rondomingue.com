@@ -20,6 +20,7 @@ bodyClass: page-work page-project
         {% for tag in project.tags %}<span>{{ tag }}</span>{% endfor %}
       </div>
       <h1>{{ project.title }}</h1>
+      {% if project.subtitle %}<p class="project-subtitle">{{ project.subtitle }}</p>{% endif %}
     </div>
 
     <div class="project-copy">
@@ -55,6 +56,15 @@ bodyClass: page-work page-project
   </div>
   {% endif %}
 
+  {% if project.nativeVideo and project.nativeVideo.sourcePage %}
+  <div class="project-video-source">
+    <span class="project-video-source-label">Original film</span>
+    <a href="{{ project.nativeVideo.sourcePage }}" target="_blank" rel="noopener">
+      Watch on the original Squarespace project page
+    </a>
+  </div>
+  {% endif %}
+
   {% if project.images and project.images.length %}
   <section class="project-gallery" aria-label="{{ project.title }} image gallery">
     {% for image in project.images %}
@@ -74,7 +84,7 @@ bodyClass: page-work page-project
   <section class="project-meta">
     <div>
       <span class="project-meta-label">Format</span>
-      <p>Cinematic environment study</p>
+      <p>{{ project.format or "Cinematic environment study" }}</p>
     </div>
     <div>
       <span class="project-meta-label">Tools</span>
