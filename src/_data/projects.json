@@ -3,48 +3,112 @@
     "title": "Ravens Isle",
     "slug": "ravens-isle",
     "year": "2024",
-    "tags": ["UE5", "Cinematic"],
-    "thumb": "images/work/ravens-isle.jpg",
-    "vimeo": "P_hXaVLEV2w"
+    "tags": ["UE5", "Cinematic", "Environment", "Storm", "Color"],
+    "thumb": "images/work/ravens-isle.png",
+    "vimeo": "P_hXaVLEV2w",
+    "summary": "Ravens Isle is a short cinematic built in Unreal Engine 5, set on a storm-battered island fortress clinging to sea cliffs.",
+    "description": [
+      "Towers rise through the fog, lightning fractures the horizon, and ravens circle against a cold teal sky. The piece is a study in atmosphere, pushing Lumen global illumination and Ultra Dynamic Sky's storm system to build a scene that feels genuinely foreboding.",
+      "Color was finished through a Linear ACES pipeline with Dehancer film emulation, pulling the image toward cold, overexposed highlights and deep crushed shadows."
+    ],
+    "processTags": ["Unreal Engine 5", "Lumen", "Nanite", "Ultra Dynamic Sky", "DaVinci Resolve", "ACES", "Dehancer"],
+    "images": []
   },
   {
     "title": "Desert Silence",
     "slug": "desert-silence",
     "year": "2024",
-    "tags": ["UE5", "Cinematic"],
-    "thumb": "images/work/desert-silence.jpg",
-    "vimeo": "gyDP4i_UdcY"
+    "tags": ["UE5", "Cinematic", "Environment", "Desert", "Atmosphere"],
+    "thumb": "images/work/desert-silence.webp",
+    "vimeo": "gyDP4i_UdcY",
+    "summary": "A dry, minimal environment study focused on heat, distance, and silence.",
+    "description": [
+      "Desert Silence explores scale through negative space: washed terrain, long atmospheric falloff, and a palette designed to feel sun-bleached without becoming flat.",
+      "The piece centers on restraint, using camera movement, haze, and subtle light shifts to make an empty landscape feel charged."
+    ],
+    "processTags": ["Unreal Engine 5", "Environment Art", "Lighting", "Atmosphere", "Color"],
+    "images": []
   },
   {
     "title": "Dark Star",
     "slug": "dark-star",
     "year": "2024",
-    "tags": ["UE5", "Cinematic"],
-    "thumb": "images/work/dark-star.jpg",
-    "vimeo": "2vdD53dA1dA"
+    "tags": ["UE5", "Cinematic", "Sci-Fi", "Environment", "Lighting"],
+    "thumb": "images/work/dark-star.webp",
+    "vimeo": "2vdD53dA1dA",
+    "summary": "A science-fiction cinematic study built around hard shadow, scale, and controlled light.",
+    "description": [
+      "Dark Star leans into industrial silhouettes and low-key lighting, using the frame as a way to reveal only enough information for the environment to feel massive.",
+      "The work is focused on mood, surface response, and the tension between graphic composition and cinematic realism."
+    ],
+    "processTags": ["Unreal Engine 5", "Sci-Fi", "Lighting", "Cinematic Framing", "Color"],
+    "images": []
   },
   {
     "title": "Temple of the Sun",
     "slug": "temple-of-the-sun",
     "year": "2023",
-    "tags": ["UE5", "Cinematic"],
-    "thumb": "images/work/temple-of-the-sun.jpg",
-    "vimeo": "icHBlydH1f0"
+    "tags": ["UE5", "Cinematic", "Environment", "Temple", "Lighting"],
+    "thumb": "images/work/temple-of-the-sun.webp",
+    "vimeo": "icHBlydH1f0",
+    "summary": "A temple environment study shaped by warm light, ancient geometry, and cinematic scale.",
+    "description": [
+      "Temple of the Sun uses architecture as the main storytelling device, balancing hard-edged forms with dust, warmth, and ritual atmosphere.",
+      "The project studies how light can define the emotional read of a place before the viewer understands its function."
+    ],
+    "processTags": ["Unreal Engine 5", "Environment Art", "Architecture", "Lighting", "Atmosphere"],
+    "images": []
   },
   {
     "title": "Haunted Swamp",
     "slug": "haunted-swamp",
     "year": "2023",
-    "tags": ["UE5", "Cinematic"],
-    "thumb": "images/work/haunted-swamp.jpg",
-    "vimeo": "MJL8IqGHe2M"
+    "tags": ["UE5", "Cinematic", "Environment", "Swamp", "Atmosphere"],
+    "thumb": "images/work/haunted-swamp.webp",
+    "vimeo": "MJL8IqGHe2M",
+    "summary": "A Southern gothic swamp study built around fog, water, and uneasy stillness.",
+    "description": [
+      "Haunted Swamp focuses on density: trees, fog, water reflection, and soundless atmosphere working together to make the frame feel humid and alive.",
+      "The scene is treated like a cinematic location rather than a fantasy set, with natural details carrying most of the tension."
+    ],
+    "processTags": ["Unreal Engine 5", "Environment Art", "Fog", "Water", "Lighting"],
+    "images": []
   },
   {
     "title": "Cold Warnings",
     "slug": "cold-warnings",
     "year": "2023",
-    "tags": ["UE5", "Cinematic"],
-    "thumb": "images/work/cold-warnings.jpg",
-    "vimeo": "gbZAz9QDxB8"
+    "tags": ["UE5", "Cinematic", "Environment", "Cold", "Atmosphere"],
+    "thumb": "images/work/cold-warnings.webp",
+    "vimeo": "gbZAz9QDxB8",
+    "summary": "A cold-weather cinematic study of isolation, warning signs, and environmental pressure.",
+    "description": [
+      "Cold Warnings builds its mood through reduced color, heavy air, and a landscape that feels dangerous without needing spectacle.",
+      "The piece is about atmosphere as narrative: the environment tells the viewer what happened, or what might be coming."
+    ],
+    "processTags": ["Unreal Engine 5", "Environment Art", "Cold Palette", "Lighting", "Atmosphere"],
+    "images": []
+  },
+  {
+    "title": "Ghost Signals",
+    "slug": "ghost-signals",
+    "year": "2026",
+    "tags": ["UE5", "Cinematic", "Environment", "Cyberpunk", "Atmosphere", "Sci-Fi"],
+    "thumb": "images/work/ghost-signals.webp",
+    "video": {
+      "provider": "vimeo",
+      "id": "1210942007"
+    },
+    "summary": "The look comes from deliberately broken optics.",
+    "description": [
+      "Anamorphic 50mm glass that halates and streaks in neon light, chromatic aberration at the frame edges, gate weave, light leaks that arrive uninvited. Lumen pulls the color across wet surfaces and into the dark between buildings."
+    ],
+    "processTags": ["Unreal Engine 5", "Environment Art", "Cold Palette", "Lighting", "Atmosphere"],
+    "images": [
+      "images/work/ghost-signals/Still+2026-06-08+123140_1.1.4.webp",
+      "images/work/ghost-signals/Still+2026-06-08+123326_1.1.1.webp",
+      "images/work/ghost-signals/Still+2026-06-08+123354_1.1.2.png.webp",
+      "images/work/ghost-signals/Still+2026-06-08+123524_1.1.1.png.webp"
+    ]
   }
 ]

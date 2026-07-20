@@ -1,0 +1,168 @@
+---
+layout: base.njk
+pagination:
+  data: projects
+  size: 1
+  alias: project
+permalink: "work/{{ project.slug }}/index.html"
+title: "{{ project.title }}"
+navActive: work
+bodyClass: page-work page-project
+---
+
+<article class="project-detail">
+  <a class="project-back" href="{{ '/work/' | url }}">Back to Work</a>
+
+  <header class="project-intro">
+    <div class="project-title-block">
+      <div class="project-kicker">
+        <span>{{ project.year }}</span>
+        {% for tag in project.tags %}<span>{{ tag }}</span>{% endfor %}
+      </div>
+      <h1>{{ project.title }}</h1>
+    </div>
+
+    <div class="project-copy">
+      <p class="project-summary">{{ project.summary }}</p>
+      {% for paragraph in project.description %}
+      <p>{{ paragraph }}</p>
+      {% endfor %}
+      <div class="project-tags">
+        {% for tag in project.processTags %}
+        <span>{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </div>
+  </header>
+
+  {% if project.video and project.video.id %}
+  <div class="project-player">
+    <iframe
+      src="{% if project.video.provider == 'vimeo' %}https://player.vimeo.com/video/{{ project.video.id }}{% else %}https://www.youtube.com/embed/{{ project.video.id }}?rel=0&modestbranding=1{% endif %}"
+      title="{{ project.title }}"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+  {% elif project.vimeo %}
+  <div class="project-player">
+    <iframe
+      src="https://www.youtube.com/embed/{{ project.vimeo }}?rel=0&modestbranding=1"
+      title="{{ project.title }}"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+  {% endif %}
+
+  {% if project.images and project.images.length %}
+  <section class="project-gallery" aria-label="{{ project.title }} image gallery">
+    {% for image in project.images %}
+    {% set imageSrc = image.src or image %}
+    <figure class="project-gallery-item{% if loop.first %} project-gallery-item--wide{% endif %}">
+      <button class="project-gallery-button" type="button" data-gallery-index="{{ loop.index0 }}" aria-label="Open image {{ loop.index }} of {{ project.images.length }}">
+        <img src="{{ ('/' + imageSrc) | url }}" alt="{{ image.alt or project.title }}" loading="lazy">
+      </button>
+      {% if image.caption %}
+      <figcaption>{{ image.caption }}</figcaption>
+      {% endif %}
+    </figure>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  <section class="project-meta">
+    <div>
+      <span class="project-meta-label">Format</span>
+      <p>Cinematic environment study</p>
+    </div>
+    <div>
+      <span class="project-meta-label">Tools</span>
+      <p>{{ project.tags | join(", ") }}</p>
+    </div>
+    <div>
+      <span class="project-meta-label">Year</span>
+      <p>{{ project.year }}</p>
+    </div>
+  </section>
+</article>
+
+{% if project.images and project.images.length %}
+<div class="project-lightbox" aria-hidden="true">
+  <button class="project-lightbox-close" type="button" aria-label="Close image">Close</button>
+  <button class="project-lightbox-nav project-lightbox-prev" type="button" aria-label="Previous image">Prev</button>
+  <figure class="project-lightbox-frame">
+    <img class="project-lightbox-image" src="" alt="">
+    <figcaption class="project-lightbox-caption"></figcaption>
+  </figure>
+  <button class="project-lightbox-nav project-lightbox-next" type="button" aria-label="Next image">Next</button>
+</div>
+
+<script>
+  (() => {
+    const galleryItems = [...document.querySelectorAll('.project-gallery-item')];
+    const lightbox = document.querySelector('.project-lightbox');
+    if (!galleryItems.length || !lightbox) return;
+
+    const image = lightbox.querySelector('.project-lightbox-image');
+    const caption = lightbox.querySelector('.project-lightbox-caption');
+    const closeButton = lightbox.querySelector('.project-lightbox-close');
+    const prevButton = lightbox.querySelector('.project-lightbox-prev');
+    const nextButton = lightbox.querySelector('.project-lightbox-next');
+    const openButtons = galleryItems.map(item => item.querySelector('.project-gallery-button'));
+    let activeIndex = 0;
+
+    const getItemData = index => {
+      const item = galleryItems[index];
+      const itemImage = item.querySelector('img');
+      const itemCaption = item.querySelector('figcaption');
+      return {
+        src: itemImage.currentSrc || itemImage.src,
+        alt: itemImage.alt,
+        caption: itemCaption ? itemCaption.textContent : ''
+      };
+    };
+
+    const render = index => {
+      activeIndex = (index + galleryItems.length) % galleryItems.length;
+      const item = getItemData(activeIndex);
+      image.src = item.src;
+      image.alt = item.alt;
+      caption.textContent = item.caption || `${activeIndex + 1} / ${galleryItems.length}`;
+    };
+
+    const openLightbox = index => {
+      render(index);
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.documentElement.classList.add('lightbox-open');
+      closeButton.focus();
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.documentElement.classList.remove('lightbox-open');
+      openButtons[activeIndex].focus();
+    };
+
+    openButtons.forEach((button, index) => {
+      button.addEventListener('click', () => openLightbox(index));
+    });
+
+    closeButton.addEventListener('click', closeLightbox);
+    prevButton.addEventListener('click', () => render(activeIndex - 1));
+    nextButton.addEventListener('click', () => render(activeIndex + 1));
+    lightbox.addEventListener('click', event => {
+      if (event.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', event => {
+      if (!lightbox.classList.contains('active')) return;
+      if (event.key === 'Escape') closeLightbox();
+      if (event.key === 'ArrowLeft') render(activeIndex - 1);
+      if (event.key === 'ArrowRight') render(activeIndex + 1);
+    });
+  })();
+</script>
+{% endif %}

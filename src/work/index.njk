@@ -11,9 +11,13 @@ bodyClass: page-work
     <span class="section-count">{{ projects | length }} projects</span>
   </div>
 
+  <div class="work-filters" aria-label="Filter work by tag">
+    <button class="work-filter active" type="button" data-filter="all">All</button>
+  </div>
+
   <div class="work-grid work-grid--full">
     {% for project in projects %}
-    <a class="work-card" href="{{ ('/work/' + project.slug + '/') | url }}">
+    <a class="work-card" href="{{ ('/work/' + project.slug + '/') | url }}" data-tags="{{ project.tags | join('|') }}">
       <div class="work-card-img" style="background-image: url('{{ ('/' + project.thumb) | url }}')"></div>
       <div class="work-card-overlay"></div>
       <div class="work-card-info">
@@ -27,3 +31,30 @@ bodyClass: page-work
     {% endfor %}
   </div>
 </section>
+
+<script>
+  const filterHost = document.querySelector('.work-filters');
+  const workCards = [...document.querySelectorAll('.work-card')];
+  const tags = [...new Set(workCards.flatMap(card => card.dataset.tags.split('|')))].sort();
+
+  tags.forEach(tag => {
+    const button = document.createElement('button');
+    button.className = 'work-filter';
+    button.type = 'button';
+    button.dataset.filter = tag;
+    button.textContent = tag;
+    filterHost.appendChild(button);
+  });
+
+  filterHost.addEventListener('click', event => {
+    const button = event.target.closest('.work-filter');
+    if (!button) return;
+    filterHost.querySelectorAll('.work-filter').forEach(item => item.classList.remove('active'));
+    button.classList.add('active');
+    const filter = button.dataset.filter;
+    workCards.forEach(card => {
+      const visible = filter === 'all' || card.dataset.tags.split('|').includes(filter);
+      card.hidden = !visible;
+    });
+  });
+</script>

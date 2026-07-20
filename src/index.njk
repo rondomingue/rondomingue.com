@@ -8,7 +8,15 @@ bodyClass: page-home
 
   <!-- Preloader — fades out once Vimeo is ready -->
   <div class="preloader" id="preloader">
-    <div class="preloader-dot"></div>
+    <div class="preloader-lockup" aria-label="Loading reel">
+      <div class="preloader-meta">
+        <span>Signal Strength</span>
+        <span id="preloader-progress">00%</span>
+      </div>
+      <div class="preloader-bar">
+        <span id="preloader-bar-fill"></span>
+      </div>
+    </div>
   </div>
 
   <!-- Vimeo background reel -->
@@ -242,8 +250,24 @@ bodyClass: page-home
 
   // ── Vimeo preloader ─────────────────────────────────────────────
   const preloader = document.getElementById('preloader');
+  const preloaderProgress = document.getElementById('preloader-progress');
+  const preloaderBarFill = document.getElementById('preloader-bar-fill');
+  let preloaderValue = 0;
+  let preloaderDismissed = false;
+
+  const preloaderTimer = setInterval(() => {
+    if (preloaderDismissed) return;
+    preloaderValue = Math.min(92, preloaderValue + Math.ceil(Math.random() * 9));
+    preloaderProgress.textContent = `${String(preloaderValue).padStart(2, '0')}%`;
+    preloaderBarFill.style.width = `${preloaderValue}%`;
+  }, 180);
 
   function dismissPreloader() {
+    if (preloaderDismissed || !preloader) return;
+    preloaderDismissed = true;
+    clearInterval(preloaderTimer);
+    preloaderProgress.textContent = '100%';
+    preloaderBarFill.style.width = '100%';
     preloader.classList.add('loaded');
     setTimeout(() => preloader.remove(), 900);
   }
@@ -261,11 +285,11 @@ bodyClass: page-home
   });
 
   // Fallback — dismiss after 4s regardless
-  setTimeout(dismissPreloader, 4000);
+  setTimeout(dismissPreloader, 4200);
 
   // ── Scroll hint ─────────────────────────────────────────────────
   window.addEventListener('scroll', () => {
     const hint = document.getElementById('scroll-hint');
-    if (hint) hint.style.opacity = window.scrollY > 60 ? '0' : '1';
+    if (hint) hint.style.opacity = window.scrollY > 60 ? '0' : '0.38';
   }, { passive: true });
 </script>
