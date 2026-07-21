@@ -726,6 +726,11 @@ img { display: block; max-width: 100%; }
   border-bottom: 1px solid var(--border);
 }
 
+.work-index-header .section-label {
+  margin: 0;
+  font-weight: 400;
+}
+
 .work-filters {
   display: flex;
   flex-wrap: wrap;
@@ -1267,7 +1272,7 @@ img { display: block; max-width: 100%; }
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding: 28px 0;
+  padding: 0 0 28px;
 }
 
 .illustration-filter {
