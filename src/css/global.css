@@ -1301,6 +1301,32 @@ img { display: block; max-width: 100%; }
   filter: invert(90%) hue-rotate(180deg) brightness(0.72) contrast(1.18) saturate(0.55);
 }
 
+.about-colophon {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  align-items: baseline;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  color: var(--text-faint);
+}
+
+.about-colophon-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.about-colophon p {
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.6;
+  letter-spacing: 0.025em;
+}
+
 /* ─────────────────────────────────────────────
    ILLUSTRATION MOSAIC
 ───────────────────────────────────────────── */
