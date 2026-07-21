@@ -116,14 +116,15 @@ bodyClass: page-home
 </div>
 
 <!-- WORK GRID -->
+{% set homepageProjects = projects | randomProjects(6) %}
 <section class="work-section" id="work">
   <div class="work-header">
     <span class="section-label">Selected Work</span>
-    <span class="section-count">{{ projects | length }} projects</span>
+    <a class="section-count" href="{{ '/work/' | url }}">View all {{ projects | length }} projects</a>
   </div>
 
   <div class="work-grid">
-    {% for project in projects %}
+    {% for project in homepageProjects %}
     <a class="work-card {% if loop.first %}work-card--featured{% endif %}" href="{{ ('/work/' + project.slug + '/') | url }}">
       <div class="work-card-img" style="background-image: url('{{ ('/' + project.thumb) | url }}')"></div>
       <div class="work-card-overlay"></div>
