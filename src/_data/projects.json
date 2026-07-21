@@ -458,6 +458,48 @@
     ]
   },
   {
+    "title": "HUD Schema Signal",
+    "slug": "hud-schema-signal",
+    "year": "2026",
+    "tags": [
+      "FUI",
+      "HUD",
+      "Cinema 4D",
+      "Octane"
+    ],
+    "thumb": "images/work/hud-schema-signal/Head.jpg",
+    "subtitle": "Generated interface schematics staged as cinematic signal space",
+    "summary": "A dense HUD and FUI study built from generated SVG and PNG interface systems, then staged in Cinema 4D and rendered through Octane as layered signal glass, reticles, readouts, and acquisition geometry.",
+    "description": [
+      "HUD Schema Signal treats the interface as a physical field instead of a flat overlay. Vector schematics, generated PNG elements, reticle systems, grid states, and small typographic data fragments are arranged in depth so the camera moves through information rather than simply looking at it.",
+      "The project was assembled from generated SVGs and PNGs, staged in Cinema 4D, and rendered with Octane. The result sits between heads-up display design, fictional user interface language, and abstract information architecture."
+    ],
+    "processTags": [
+      "Generated SVG",
+      "Generated PNG",
+      "Cinema 4D",
+      "Octane",
+      "FUI Design"
+    ],
+    "format": "HUD / FUI render study",
+    "sourcePage": "https://www.rondomingue.com/work/hud-schema-signal",
+    "images": [
+      "images/work/hud-schema-signal/Head.jpg",
+      "images/work/hud-schema-signal/Prime.jpg",
+      "images/work/hud-schema-signal/09.jpg",
+      "images/work/hud-schema-signal/10.jpg",
+      "images/work/hud-schema-signal/01.jpg",
+      "images/work/hud-schema-signal/02.jpg",
+      "images/work/hud-schema-signal/03.jpg",
+      "images/work/hud-schema-signal/04.jpg",
+      "images/work/hud-schema-signal/05.jpg",
+      "images/work/hud-schema-signal/06.jpg",
+      "images/work/hud-schema-signal/07.jpg",
+      "images/work/hud-schema-signal/08.jpg",
+      "images/work/hud-schema-signal/hud-schema-signal-3599@3x.jpg"
+    ]
+  },
+  {
     "title": "Data Cubes",
     "slug": "data-cubes",
     "year": "2026",
