@@ -21,6 +21,11 @@ bodyClass: page-work page-project
       </div>
       <h1>{{ project.title }}</h1>
       {% if project.subtitle %}<p class="project-subtitle">{{ project.subtitle }}</p>{% endif %}
+      {% if project.liveUrl %}
+      <a class="project-live-button" href="{{ project.liveUrl }}" target="_blank" rel="noopener">
+        View live site ↗
+      </a>
+      {% endif %}
     </div>
 
     <div class="project-copy">
@@ -35,15 +40,6 @@ bodyClass: page-work page-project
       </div>
     </div>
   </header>
-
-  {% if project.liveUrl %}
-  <div class="project-video-source">
-    <span class="project-video-source-label">Live project</span>
-    <a href="{{ project.liveUrl }}" target="_blank" rel="noopener">
-      Launch {{ project.title }} ↗
-    </a>
-  </div>
-  {% endif %}
 
   {% if project.video and project.video.id %}
   <div class="project-player">

@@ -778,5 +778,44 @@
         "alt": "MSY movement log and selected aircraft detail interface"
       }
     ]
+  },
+  {
+    "title": "Elemental Blocks",
+    "slug": "elemental-blocks",
+    "year": "2026",
+    "tags": [
+      "Interface",
+      "Data Visualization",
+      "Science",
+      "Sonification"
+    ],
+    "thumb": "images/work/elemental-blocks/elemental-hero.jpg",
+    "liveUrl": "https://interfaces.rondomingue.com/periodic-table.html",
+    "summary": "An interactive periodic table that turns all 118 elements into an explorable system of atomic data, practical applications, nucleosynthesis stories, and synthesized sound.",
+    "description": [
+      "Each tile presents atomic number, mass, electron configuration, oxidation states, category, and phase, then opens a detailed view with common applications, discovery history, and name origin.",
+      "The sonification system maps atomic number to pitch, period to octave, and chemical category to chord shape and waveform, giving every element a distinct synthesized voice."
+    ],
+    "processTags": [
+      "UI/UX Design",
+      "Interactive Education",
+      "Data Visualization",
+      "Web Audio"
+    ],
+    "format": "Interactive scientific reference",
+    "images": [
+      {
+        "src": "images/work/elemental-blocks/elemental-hero.jpg",
+        "alt": "Elemental Blocks interactive periodic table interface"
+      },
+      {
+        "src": "images/work/elemental-blocks/elemental-interface-01.jpg",
+        "alt": "Interactive periodic table showing all 118 elements and nucleosynthesis introduction"
+      },
+      {
+        "src": "images/work/elemental-blocks/elemental-interface-02.jpg",
+        "alt": "Mercury detail panel with atomic properties and common applications"
+      }
+    ]
   }
 ]
