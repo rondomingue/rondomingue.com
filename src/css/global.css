@@ -135,7 +135,7 @@ img { display: block; max-width: 100%; }
 }
 
 .page-home .header-nav {
-  gap: 28px;
+  gap: 36px;
 }
 
 .page-about .site-header,
@@ -1547,7 +1547,6 @@ img { display: block; max-width: 100%; }
   .header-nav .nav-link--external { display: none; }
   .page-home .site-header { height: 70px; padding: 0 16px; }
   .page-home .header-nav { width: 100%; gap: 12px; justify-content: flex-end; }
-  .page-home .header-nav .nav-link { font-size: 8px; letter-spacing: 0.045em; }
   .page-home .header-nav .nav-link--external { display: inline; }
   .header-logo span { display: none; }
   .hero-title { font-size: 42px; }
