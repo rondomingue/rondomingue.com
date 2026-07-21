@@ -90,6 +90,14 @@ img { display: block; max-width: 100%; }
 
 .page-home .site-header {
   display: flex;
+  background: radial-gradient(
+    ellipse 72% 150% at 100% 0%,
+    rgba(3, 4, 6, 0.34) 0%,
+    rgba(3, 4, 6, 0.14) 48%,
+    rgba(3, 4, 6, 0) 78%
+  );
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .page-home .header-inner {
