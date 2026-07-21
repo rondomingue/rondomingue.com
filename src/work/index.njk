@@ -35,50 +35,58 @@ bodyClass: page-work
   </div>
 </section>
 
-<script src="{{ '/js/shuffle-gallery.js' | url }}"></script>
 <script>
-  const filterHost = document.querySelector('.work-filters');
-  const workGrid = document.querySelector('.work-grid');
-  const workCards = window.shuffleChildren(workGrid, '.work-card');
-  const tags = [...new Set(workCards.flatMap(card => card.dataset.tags.split('|')))].sort();
+  (() => {
+    const filterHost = document.querySelector('.work-filters');
+    const workGrid = document.querySelector('.work-grid');
+    const workCards = [...workGrid.querySelectorAll('.work-card')];
 
-  tags.forEach(tag => {
-    const button = document.createElement('button');
-    button.className = 'work-filter';
-    button.type = 'button';
-    button.dataset.filter = tag;
-    button.textContent = tag;
-    filterHost.appendChild(button);
-  });
+    for (let index = workCards.length - 1; index > 0; index -= 1) {
+      const randomIndex = Math.floor(Math.random() * (index + 1));
+      [workCards[index], workCards[randomIndex]] = [workCards[randomIndex], workCards[index]];
+    }
+    workCards.forEach(card => workGrid.appendChild(card));
 
-  const applyFilter = filter => {
-    filterHost.querySelectorAll('.work-filter').forEach(item => item.classList.remove('active'));
-    const activeButton = [...filterHost.querySelectorAll('.work-filter')]
-      .find(item => item.dataset.filter === filter);
-    if (activeButton) activeButton.classList.add('active');
-    workCards.forEach(card => {
-      const visible = filter === 'all' || card.dataset.tags.split('|').includes(filter);
-      card.hidden = !visible;
+    const tags = [...new Set(workCards.flatMap(card => card.dataset.tags.split('|')))].sort();
+
+    tags.forEach(tag => {
+      const button = document.createElement('button');
+      button.className = 'work-filter';
+      button.type = 'button';
+      button.dataset.filter = tag;
+      button.textContent = tag;
+      filterHost.appendChild(button);
     });
-  };
 
-  filterHost.addEventListener('click', event => {
-    const button = event.target.closest('.work-filter');
-    if (!button) return;
-    applyFilter(button.dataset.filter);
-  });
+    const applyFilter = filter => {
+      filterHost.querySelectorAll('.work-filter').forEach(item => item.classList.remove('active'));
+      const activeButton = [...filterHost.querySelectorAll('.work-filter')]
+        .find(item => item.dataset.filter === filter);
+      if (activeButton) activeButton.classList.add('active');
+      workCards.forEach(card => {
+        const visible = filter === 'all' || card.dataset.tags.split('|').includes(filter);
+        card.hidden = !visible;
+      });
+    };
 
-  const filterFromCardTag = event => {
-    const tag = event.target.closest('.work-tag-filter');
-    if (!tag) return;
-    event.preventDefault();
-    event.stopPropagation();
-    applyFilter(tag.dataset.filter);
-  };
+    filterHost.addEventListener('click', event => {
+      const button = event.target.closest('.work-filter');
+      if (!button) return;
+      applyFilter(button.dataset.filter);
+    });
 
-  workGrid.addEventListener('click', filterFromCardTag);
-  workGrid.addEventListener('keydown', event => {
-    if (event.key !== 'Enter' && event.key !== ' ') return;
-    filterFromCardTag(event);
-  });
+    const filterFromCardTag = event => {
+      const tag = event.target.closest('.work-tag-filter');
+      if (!tag) return;
+      event.preventDefault();
+      event.stopPropagation();
+      applyFilter(tag.dataset.filter);
+    };
+
+    workGrid.addEventListener('click', filterFromCardTag);
+    workGrid.addEventListener('keydown', event => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      filterFromCardTag(event);
+    });
+  })();
 </script>

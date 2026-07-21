@@ -1549,8 +1549,7 @@ img { display: block; max-width: 100%; }
   .hero-cta { flex-direction: column; align-items: flex-start; }
   .reel-shadowbox { padding: 16px; }
   .reel-shadowbox-header { padding-inline: 14px 8px; }
-  .work-filters { gap: 6px; }
-  .work-filter { padding: 7px 10px; }
+  .work-filters { display: none; }
   .project-detail { padding-left: 18px; padding-right: 18px; }
   .project-tags { padding: 14px; }
   .illustration-mosaic { columns: 1; }
