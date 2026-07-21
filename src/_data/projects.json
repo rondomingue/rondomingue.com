@@ -710,5 +710,30 @@
       "Cinematic"
     ],
     "format": "Cinematic environment study"
+  },
+  {
+    "title": "The Wastelands",
+    "slug": "wastelands",
+    "year": "2026",
+    "tags": [
+      "UE5",
+      "Cinematic",
+      "Environment",
+      "Post-Apocalyptic"
+    ],
+    "thumb": "images/work/wastelands/wastelands.jpg",
+    "video": {
+      "provider": "youtube",
+      "id": "R1ysAzHyz1k"
+    },
+    "summary": "A cinematic journey through a desolate wasteland, built around ruined environments, atmospheric light, and post-apocalyptic visual storytelling.",
+    "description": [],
+    "processTags": [
+      "Unreal Engine 5",
+      "Environment Art",
+      "Lighting",
+      "Cinematic"
+    ],
+    "format": "Cinematic environment study"
   }
 ]
