@@ -35,9 +35,11 @@ bodyClass: page-work
   </div>
 </section>
 
+<script src="{{ '/js/shuffle-gallery.js' | url }}"></script>
 <script>
   const filterHost = document.querySelector('.work-filters');
-  const workCards = [...document.querySelectorAll('.work-card')];
+  const workGrid = document.querySelector('.work-grid');
+  const workCards = window.shuffleChildren(workGrid, '.work-card');
   const tags = [...new Set(workCards.flatMap(card => card.dataset.tags.split('|')))].sort();
 
   tags.forEach(tag => {

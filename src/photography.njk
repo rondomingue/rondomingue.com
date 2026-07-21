@@ -52,11 +52,13 @@ permalink: photography/index.html
   <button class="illustration-lightbox-nav illustration-lightbox-next" type="button" aria-label="Next photograph">Next</button>
 </div>
 
+<script src="{{ '/js/shuffle-gallery.js' | url }}"></script>
 <script src="{{ '/js/mosaic-motion.js' | url }}"></script>
 <script>
   (() => {
     const filters = document.querySelector('.illustration-filters');
-    const tiles = [...document.querySelectorAll('.illustration-tile')];
+    const mosaic = document.querySelector('.illustration-mosaic');
+    const tiles = window.shuffleChildren(mosaic, '.illustration-tile');
     const lightbox = document.querySelector('.illustration-lightbox');
     const image = lightbox.querySelector('.illustration-lightbox-image');
     const caption = lightbox.querySelector('.illustration-lightbox-caption');

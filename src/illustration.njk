@@ -53,11 +53,13 @@ permalink: illustration/index.html
   <button class="illustration-lightbox-nav illustration-lightbox-next" type="button" aria-label="Next artwork">Next</button>
 </div>
 
+<script src="{{ '/js/shuffle-gallery.js' | url }}"></script>
 <script src="{{ '/js/mosaic-motion.js' | url }}"></script>
 <script>
   (() => {
     const filters = document.querySelector('.illustration-filters');
-    const tiles = [...document.querySelectorAll('.illustration-tile')];
+    const mosaic = document.querySelector('.illustration-mosaic');
+    const tiles = window.shuffleChildren(mosaic, '.illustration-tile');
     const lightbox = document.querySelector('.illustration-lightbox');
     const lightboxImage = lightbox.querySelector('.illustration-lightbox-image');
     const lightboxCaption = lightbox.querySelector('.illustration-lightbox-caption');
