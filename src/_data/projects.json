@@ -53,7 +53,10 @@
       "Atmosphere"
     ],
     "thumb": "images/work/desert-silence.webp",
-    "vimeo": "gyDP4i_UdcY",
+    "video": {
+      "provider": "vimeo",
+      "id": "1197009763"
+    },
     "summary": "Desert Silence is a short cinematic piece exploring solitude and atmosphere in a sun-bleached desert environment. Built entirely in Unreal Engine 5 using Lumen global illumination and volumetric lighting, the film follows the quiet of an ancient desert settlement and crumbling architecture, wind-swept dunes, and the stillness of a figure alone by fire as night falls.",
     "description": [
       "Color graded in DaVinci Resolve through a Linear-ACES pipeline with Dehancer film emulation, bringing a textured, analog warmth to the renders. No post-compositing, what you see came out of the engine."
