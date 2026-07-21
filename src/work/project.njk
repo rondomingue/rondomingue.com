@@ -36,6 +36,15 @@ bodyClass: page-work page-project
     </div>
   </header>
 
+  {% if project.liveUrl %}
+  <div class="project-video-source">
+    <span class="project-video-source-label">Live project</span>
+    <a href="{{ project.liveUrl }}" target="_blank" rel="noopener">
+      Launch {{ project.title }} ↗
+    </a>
+  </div>
+  {% endif %}
+
   {% if project.video and project.video.id %}
   <div class="project-player">
     <iframe

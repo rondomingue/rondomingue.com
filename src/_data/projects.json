@@ -735,5 +735,48 @@
       "Cinematic"
     ],
     "format": "Cinematic environment study"
+  },
+  {
+    "title": "MSY // Sector Asset",
+    "slug": "msy-sector-asset",
+    "year": "2026",
+    "tags": [
+      "Interface",
+      "Data Visualization",
+      "Aviation",
+      "Real-Time"
+    ],
+    "thumb": "images/work/msy/msy-hero.jpg",
+    "liveUrl": "https://interfaces.rondomingue.com/msy.html",
+    "summary": "A real-time aviation data interface centered on Louis Armstrong New Orleans International Airport, bringing live aircraft tracks, weather, movement logs, carrier activity, and system telemetry into a cinematic command display.",
+    "description": [
+      "The interface transforms live Airplanes.live aircraft data, Open-Meteo weather, and Carto/OpenStreetMap mapping into a focused operational view of New Orleans airspace.",
+      "Monochrome typography, grid overlays, event logs, and aircraft detail panels create a functional FUI system that balances dense information with legibility and atmosphere."
+    ],
+    "processTags": [
+      "UI/UX Design",
+      "Data Visualization",
+      "Real-Time Data",
+      "FUI"
+    ],
+    "format": "Interactive data interface",
+    "images": [
+      {
+        "src": "images/work/msy/msy-hero.jpg",
+        "alt": "MSY Sector Asset aviation tracking interface overview"
+      },
+      {
+        "src": "images/work/msy/msy-interface-01.jpg",
+        "alt": "Live MSY airspace map with aircraft tracks around New Orleans"
+      },
+      {
+        "src": "images/work/msy/msy-interface-02.jpg",
+        "alt": "MSY weather, event log, and active aircraft data panels"
+      },
+      {
+        "src": "images/work/msy/msy-interface-03.jpg",
+        "alt": "MSY movement log and selected aircraft detail interface"
+      }
+    ]
   }
 ]
