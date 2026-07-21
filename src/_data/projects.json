@@ -500,6 +500,42 @@
     ]
   },
   {
+    "title": "Redline Acquisition",
+    "slug": "redline-acquisition",
+    "year": "2026",
+    "tags": [
+      "FUI",
+      "HUD",
+      "Cinema 4D",
+      "Octane"
+    ],
+    "thumb": "images/work/redline-acquisition/Head.jpg",
+    "subtitle": "A redline targeting field built from layered HUD geometry",
+    "summary": "A cinematic HUD and FUI render study built around red acquisition arcs, nested reticle systems, dense telemetry fields, and glass-like interface depth.",
+    "description": [
+      "Redline Acquisition extends the HUD schema series into a warmer, more urgent signal state. White reticle rings and calibration ticks sit inside red sweep geometry, while background telemetry, brackets, scale marks, and alphanumeric fragments recede into a layered targeting field.",
+      "The selected frames emphasize the strongest range of the set: a full system overview, oblique camera passes, macro reticle details, and atmospheric depth-of-field studies. The artwork was staged in Cinema 4D and rendered with Octane from generated SVG and PNG interface elements."
+    ],
+    "processTags": [
+      "Generated SVG",
+      "Generated PNG",
+      "Cinema 4D",
+      "Octane",
+      "FUI Design"
+    ],
+    "format": "HUD / FUI render study",
+    "sourcePage": "https://www.rondomingue.com/work/redline-acquisition",
+    "images": [
+      "images/work/redline-acquisition/Head.jpg",
+      "images/work/redline-acquisition/09.jpg",
+      "images/work/redline-acquisition/10.jpg",
+      "images/work/redline-acquisition/Prime.jpg",
+      "images/work/redline-acquisition/08.jpg",
+      "images/work/redline-acquisition/01.jpg",
+      "images/work/redline-acquisition/06.jpg"
+    ]
+  },
+  {
     "title": "Data Cubes",
     "slug": "data-cubes",
     "year": "2026",
