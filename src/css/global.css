@@ -1418,9 +1418,50 @@ img { display: block; max-width: 100%; }
 .illustration-lightbox-image { max-width: 100%; max-height: calc(100vh - 120px); object-fit: contain; }
 .illustration-lightbox-caption { color: var(--text-dim); font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; }
 .illustration-lightbox-close { position: absolute; top: 22px; right: 28px; }
-.illustration-lightbox-close,
-.illustration-lightbox-nav { border: 1px solid var(--border); background: var(--surface); color: var(--text); padding: 10px 14px; font-family: 'Space Mono', monospace; font-size: 9px; text-transform: uppercase; cursor: pointer; }
-.illustration-lightbox-nav { height: 52px; }
+.illustration-lightbox-close { border: 1px solid var(--border); background: var(--surface); color: var(--text); padding: 10px 14px; font-family: 'Space Mono', monospace; font-size: 9px; text-transform: uppercase; cursor: pointer; }
+
+.illustration-lightbox-nav {
+  position: relative;
+  width: 80px;
+  height: 84px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--accent);
+  font-size: 0;
+  cursor: pointer;
+  opacity: 0.34;
+  transition: opacity 0.2s ease;
+}
+
+.illustration-lightbox-nav::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+}
+
+.illustration-lightbox-nav:hover,
+.illustration-lightbox-nav:focus-visible {
+  opacity: 0.78;
+  outline: none;
+}
+
+.illustration-lightbox-nav:focus-visible::before {
+  filter: drop-shadow(0 0 8px rgba(200,40,154,0.45));
+}
+
+.illustration-lightbox-prev::before {
+  transform: translate(-35%, -50%) rotate(225deg);
+}
+
+.illustration-lightbox-next::before {
+  transform: translate(-65%, -50%) rotate(45deg);
+}
 
 /* ─────────────────────────────────────────────
    RESPONSIVE
