@@ -924,5 +924,48 @@
         "alt": "Amyloid and tau risk layer in the Alzheimer MRI review interface"
       }
     ]
+  },
+  {
+    "title": "Cargo Meridian // Middle East",
+    "slug": "cargo-meridian-middle-east",
+    "year": "2026",
+    "tags": [
+      "Interface",
+      "Logistics",
+      "Data Visualization",
+      "FUI"
+    ],
+    "thumb": "images/work/cargo-meridian/cargo-hero.jpg",
+    "liveUrl": "https://interfaces.rondomingue.com/cargo/",
+    "summary": "An interactive freight-network interface mapping active shipments, shipping routes, and logistics assets across the Middle East in a cinematic operational display.",
+    "description": [
+      "The regional map connects Gulf ports and inland hubs with bilingual geographic labels, live shipment positions, route status, and operational metrics for load, fuel, and estimated arrival.",
+      "Shipments, Routes, and Assets views reorganize the same network into focused logistics panels, balancing dense transportation data with a restrained amber command-interface aesthetic."
+    ],
+    "processTags": [
+      "UI/UX Design",
+      "Logistics Visualization",
+      "Interactive Mapping",
+      "FUI"
+    ],
+    "format": "Interactive logistics interface",
+    "images": [
+      {
+        "src": "images/work/cargo-meridian/cargo-hero.jpg",
+        "alt": "Cargo Meridian Middle East freight network interface artwork"
+      },
+      {
+        "src": "images/work/cargo-meridian/cargo-shipments.jpg",
+        "alt": "Cargo Meridian shipments dashboard and Middle East freight map"
+      },
+      {
+        "src": "images/work/cargo-meridian/cargo-routes.jpg",
+        "alt": "Cargo Meridian active regional routes view"
+      },
+      {
+        "src": "images/work/cargo-meridian/cargo-assets.jpg",
+        "alt": "Cargo Meridian freight vessels and assets view"
+      }
+    ]
   }
 ]
