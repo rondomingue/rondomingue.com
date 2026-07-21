@@ -55,7 +55,7 @@ bodyClass: page-home
     <div class="hero-cta">
       <a href="{{ '/work/' | url }}" class="btn-ghost">Work</a>
       <a href="{{ '/about/' | url }}" class="btn-ghost">About</a>
-      <a href="{{ site.fieldGuideUrl }}" class="btn-ghost" target="_blank">Field Guide</a>
+      <button class="btn-ghost" id="reel-open" type="button" aria-haspopup="dialog" aria-controls="reel-shadowbox">Reel</button>
     </div>
 
     <div class="hero-social">
@@ -95,6 +95,25 @@ bodyClass: page-home
   </div>
 
 </section>
+
+<div class="reel-shadowbox" id="reel-shadowbox" role="dialog" aria-modal="true" aria-labelledby="reel-title" hidden>
+  <div class="reel-shadowbox-panel">
+    <div class="reel-shadowbox-header">
+      <h2 id="reel-title">Ron Domingue — Reel</h2>
+      <button class="reel-shadowbox-close" id="reel-close" type="button" aria-label="Close reel">Close</button>
+    </div>
+    <div class="reel-shadowbox-player">
+      <iframe
+        id="reel-player"
+        title="Ron Domingue reel"
+        data-src="https://player.vimeo.com/video/{{ site.featuredReel }}?autoplay=1&title=0&byline=0&portrait=0"
+        src="about:blank"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
 
 <!-- WORK GRID -->
 <section class="work-section" id="work">
@@ -286,6 +305,35 @@ bodyClass: page-home
 
   // Fallback — dismiss after 4s regardless
   setTimeout(dismissPreloader, 4200);
+
+  // ── Featured reel shadowbox ────────────────────────────────────
+  const reelOpen = document.getElementById('reel-open');
+  const reelShadowbox = document.getElementById('reel-shadowbox');
+  const reelClose = document.getElementById('reel-close');
+  const reelPlayer = document.getElementById('reel-player');
+
+  function openReel() {
+    reelShadowbox.hidden = false;
+    reelPlayer.src = reelPlayer.dataset.src;
+    document.body.classList.add('reel-is-open');
+    reelClose.focus();
+  }
+
+  function closeReel() {
+    reelShadowbox.hidden = true;
+    reelPlayer.src = 'about:blank';
+    document.body.classList.remove('reel-is-open');
+    reelOpen.focus();
+  }
+
+  reelOpen.addEventListener('click', openReel);
+  reelClose.addEventListener('click', closeReel);
+  reelShadowbox.addEventListener('click', (event) => {
+    if (event.target === reelShadowbox) closeReel();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !reelShadowbox.hidden) closeReel();
+  });
 
   // ── Scroll hint ─────────────────────────────────────────────────
   window.addEventListener('scroll', () => {
