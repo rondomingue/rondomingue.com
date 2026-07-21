@@ -3,6 +3,10 @@
 
   requestAnimationFrame(() => document.body.classList.add('page-entered'));
 
+  document.querySelectorAll('.illustration-mosaic img').forEach((image) => {
+    image.classList.remove('media-reveal', 'is-media-loaded');
+  });
+
   const images = document.querySelectorAll('main img:not(.project-lightbox-image):not(.illustration-lightbox-image)');
   images.forEach((image) => {
     if (image.closest('.illustration-mosaic')) return;
