@@ -847,6 +847,15 @@ img { display: block; max-width: 100%; }
 }
 .project-back:hover { color: var(--accent); }
 
+.project-back-footer {
+  max-width: 1440px;
+  margin: 48px auto 0;
+}
+
+.project-back--bottom {
+  margin-bottom: 0;
+}
+
 .project-intro {
   display: grid;
   grid-template-columns: minmax(260px, 0.42fr) minmax(360px, 0.58fr);

@@ -111,6 +111,10 @@ bodyClass: page-work page-project
       <p>{{ project.year }}</p>
     </div>
   </section>
+
+  <div class="project-back-footer">
+    <a class="project-back project-back--bottom" href="{{ '/work/' | url }}">Back to Work</a>
+  </div>
 </article>
 
 {% if project.images and project.images.length %}
