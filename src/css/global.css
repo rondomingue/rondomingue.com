@@ -731,12 +731,15 @@ img { display: block; max-width: 100%; }
   font-weight: 400;
 }
 
-.section-description {
-  max-width: 760px;
-  margin: 0 0 20px;
-  color: var(--text-dim);
-  font-size: 13px;
-  line-height: 1.65;
+.work-index > .section-description,
+.illustration-index > .section-description {
+  display: block;
+  max-width: 680px;
+  margin: 0 0 28px;
+  color: var(--text-faint);
+  font-size: 11px;
+  line-height: 1.7;
+  letter-spacing: 0.025em;
 }
 
 .work-filters {
