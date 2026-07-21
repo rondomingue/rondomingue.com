@@ -1217,5 +1217,36 @@
         "alt": "Landfall hurricane record and Gulf cities risk index"
       }
     ]
+  },
+  {
+    "title": "SPEC//FORGE — Procedural Asset Generator",
+    "slug": "spec-forge-procedural-asset-generator",
+    "year": "2026",
+    "tags": [
+      "Interface",
+      "Generative Design",
+      "Typography",
+      "FUI"
+    ],
+    "thumb": "images/work/spec-forge/spec-forge-hero.png",
+    "liveUrl": "https://interfaces.rondomingue.com/spec-forge.html",
+    "summary": "A seed-driven design instrument for generating production-ready cyberpunk graphics, interface panels, labels, posters, and contact sheets from a flexible visual system.",
+    "description": [
+      "SPEC//FORGE turns modular layouts, palettes, symbols, recurring language, and controlled randomness into a fast generative workflow. Users can lock or reroll a seed, select from interface and editorial archetypes, tune format and grain, and create individual assets or dense contact sheets.",
+      "A curated symbol library and reusable vocabulary keep each result visually related while preserving variation. Finished compositions export as editable SVG files or pixel-accurate 2× PNGs, connecting exploratory interface design with practical production output."
+    ],
+    "processTags": [
+      "UI/UX Design",
+      "Procedural Design",
+      "Generative Systems",
+      "SVG Export"
+    ],
+    "format": "Interactive procedural graphics generator",
+    "images": [
+      {
+        "src": "images/work/spec-forge/spec-forge-hero.png",
+        "alt": "SPEC//FORGE procedural cyberpunk interface and asset generator"
+      }
+    ]
   }
 ]
