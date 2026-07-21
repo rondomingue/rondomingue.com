@@ -25,7 +25,7 @@ bodyClass: page-work
       <div class="work-card-overlay"></div>
       <div class="work-card-info">
         <div class="work-card-tags">
-          {% for tag in project.tags %}<span class="work-tag">{{ tag }}</span>{% endfor %}
+          {% for tag in project.tags %}<span class="work-tag work-tag-filter" role="button" tabindex="0" data-filter="{{ tag }}" aria-label="Filter work by {{ tag }}">{{ tag }}</span>{% endfor %}
           <span class="work-tag">{{ project.year }}</span>
         </div>
         <div class="work-card-title">{{ project.title }}</div>
@@ -51,15 +51,34 @@ bodyClass: page-work
     filterHost.appendChild(button);
   });
 
-  filterHost.addEventListener('click', event => {
-    const button = event.target.closest('.work-filter');
-    if (!button) return;
+  const applyFilter = filter => {
     filterHost.querySelectorAll('.work-filter').forEach(item => item.classList.remove('active'));
-    button.classList.add('active');
-    const filter = button.dataset.filter;
+    const activeButton = [...filterHost.querySelectorAll('.work-filter')]
+      .find(item => item.dataset.filter === filter);
+    if (activeButton) activeButton.classList.add('active');
     workCards.forEach(card => {
       const visible = filter === 'all' || card.dataset.tags.split('|').includes(filter);
       card.hidden = !visible;
     });
+  };
+
+  filterHost.addEventListener('click', event => {
+    const button = event.target.closest('.work-filter');
+    if (!button) return;
+    applyFilter(button.dataset.filter);
+  });
+
+  const filterFromCardTag = event => {
+    const tag = event.target.closest('.work-tag-filter');
+    if (!tag) return;
+    event.preventDefault();
+    event.stopPropagation();
+    applyFilter(tag.dataset.filter);
+  };
+
+  workGrid.addEventListener('click', filterFromCardTag);
+  workGrid.addEventListener('keydown', event => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    filterFromCardTag(event);
   });
 </script>

@@ -740,6 +740,16 @@ img { display: block; max-width: 100%; }
   margin-right: 6px;
   opacity: 0.4;
 }
+.work-tag-filter {
+  cursor: pointer;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+.work-tag-filter:hover,
+.work-tag-filter:focus-visible {
+  color: #ff4fc3;
+  text-shadow: 0 0 8px rgba(200, 40, 154, 0.45);
+  outline: none;
+}
 
 .work-card-title {
   font-family: 'din-2014', sans-serif;
