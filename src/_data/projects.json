@@ -817,5 +817,69 @@
         "alt": "Mercury detail panel with atomic properties and common applications"
       }
     ]
+  },
+  {
+    "title": "Outbreaks: Global Epidemic Intelligence",
+    "slug": "outbreaks-global-epidemic-intelligence",
+    "year": "2026",
+    "tags": [
+      "Interface",
+      "Data Visualization",
+      "Public Health",
+      "Editorial"
+    ],
+    "thumb": "images/work/outbreaks-global-epidemic-intelligence/outbreaks-hero.jpg",
+    "liveLinks": [
+      {
+        "label": "View live dashboard",
+        "url": "https://interfaces.rondomingue.com/outbreaks.html"
+      },
+      {
+        "label": "View Epidemic Record",
+        "url": "https://interfaces.rondomingue.com/disease-sunburst.html"
+      }
+    ],
+    "summary": "A multi-page epidemic intelligence and data-visualization system combining current surveillance, outbreak geography, pathogen history, pandemic research, and two millennia of disease records.",
+    "description": [
+      "The live dashboard organizes active outbreak signals, geographic hotspots, risk, chronology, and case trajectories into an editorial surveillance atlas designed for dense but legible reading.",
+      "Linked Chronicle and Great Plagues features extend the system into historical storytelling, while the Epidemic Record compares 29 pathogens across 2,000 years through an interactive radial visualization with scaled, equal, and individual disease views."
+    ],
+    "processTags": [
+      "UI/UX Design",
+      "Data Visualization",
+      "Research",
+      "Interactive Storytelling"
+    ],
+    "format": "Interactive editorial data atlas",
+    "images": [
+      {
+        "src": "images/work/outbreaks-global-epidemic-intelligence/outbreaks-hero.jpg",
+        "alt": "Outbreaks Global Epidemic Intelligence radial visualization"
+      },
+      {
+        "src": "images/work/outbreaks-global-epidemic-intelligence/outbreaks-dashboard.jpg",
+        "alt": "Global Epidemic Intelligence dashboard with active surveillance and world hotspot map"
+      },
+      {
+        "src": "images/work/outbreaks-global-epidemic-intelligence/outbreaks-chronicle.jpg",
+        "alt": "Pathogen Chronicle documenting the history and geography of hemorrhagic fevers"
+      },
+      {
+        "src": "images/work/outbreaks-global-epidemic-intelligence/outbreaks-great-plagues.jpg",
+        "alt": "Great Plagues historical feature about pandemics that reshaped civilization"
+      },
+      {
+        "src": "images/work/outbreaks-global-epidemic-intelligence/outbreaks-record-scaled.jpg",
+        "alt": "Epidemic Record radial visualization with disease impact scaled by estimated deaths"
+      },
+      {
+        "src": "images/work/outbreaks-global-epidemic-intelligence/outbreaks-record-equal.jpg",
+        "alt": "Epidemic Record equal comparison view across 29 pathogens"
+      },
+      {
+        "src": "images/work/outbreaks-global-epidemic-intelligence/outbreaks-record-detail.jpg",
+        "alt": "Epidemic Record COVID-19 detail panel with mortality, vaccine, and status information"
+      }
+    ]
   }
 ]

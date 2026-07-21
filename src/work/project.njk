@@ -21,10 +21,20 @@ bodyClass: page-work page-project
       </div>
       <h1>{{ project.title }}</h1>
       {% if project.subtitle %}<p class="project-subtitle">{{ project.subtitle }}</p>{% endif %}
-      {% if project.liveUrl %}
-      <a class="project-live-button" href="{{ project.liveUrl }}" target="_blank" rel="noopener">
-        View live site ↗
-      </a>
+      {% if project.liveLinks or project.liveUrl %}
+      <div class="project-live-links">
+        {% if project.liveLinks %}
+          {% for link in project.liveLinks %}
+          <a class="project-live-button" href="{{ link.url }}" target="_blank" rel="noopener">
+            {{ link.label }} ↗
+          </a>
+          {% endfor %}
+        {% else %}
+          <a class="project-live-button" href="{{ project.liveUrl }}" target="_blank" rel="noopener">
+            View live site ↗
+          </a>
+        {% endif %}
+      </div>
       {% endif %}
     </div>
 

@@ -40,10 +40,16 @@ img { display: block; max-width: 100%; }
   line-height: 1.45;
 }
 
+.project-live-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
 .project-live-button {
   display: inline-flex;
   align-items: center;
-  margin-top: 24px;
   padding: 12px 18px;
   border: 1px solid rgba(79, 200, 232, 0.45);
   color: var(--cyan);
