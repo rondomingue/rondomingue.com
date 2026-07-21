@@ -615,6 +615,10 @@
       "Environment"
     ],
     "thumb": "images/work/liberation/Still-2026-06-02-114514_1.3.2.webp",
+    "video": {
+      "provider": "youtube",
+      "id": "fq9buqv2A6U"
+    },
     "summary": "Paris, August 1944, The Liberation of Paris during World War II. For this one I really wanted that found footage feeling like something that was actually shot on Super 8 by someone who happened to be there.",
     "description": [
       "The base world is a game environment that I pushed further with Kitbash3D elements, and the Tiger I is from TurboSquid, weathered and placed close enough to the lens that the grain does the rest.",
