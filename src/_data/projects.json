@@ -1131,5 +1131,48 @@
         "alt": "Capitol Ledger ranked disclosure table with estimates and confidence indicators"
       }
     ]
+  },
+  {
+    "title": "Every Moment Votes — 2026 Midterm Elections",
+    "slug": "every-moment-votes-2026-midterm-elections",
+    "year": "2026",
+    "tags": [
+      "Interface",
+      "Data Visualization",
+      "Civic",
+      "Editorial"
+    ],
+    "thumb": "images/work/every-moment-votes/every-moment-votes-hero.jpg",
+    "liveUrl": "https://interfaces.rondomingue.com/everymomentvotes.html",
+    "summary": "A non-partisan civic information experience connecting the 2026 U.S. midterm election to national races, Louisiana turnout, close historical margins, and practical voting resources.",
+    "description": [
+      "Every Moment Votes turns sourced election data into an editorial journey from the national ballot to the voter’s immediate community. Maps compare House representation and 2026 Senate contests before focusing on Louisiana’s 64 parishes and midterm participation.",
+      "A state-by-state Senate guide, historic close-election margins, turnout comparisons, and official registration links make the stakes tangible without endorsing candidates or parties. National figures cite public research and election sources; parish-level dot sizes and turnout shading are illustrative design data."
+    ],
+    "processTags": [
+      "UI/UX Design",
+      "Civic Information",
+      "Interactive Mapping",
+      "Editorial Data Storytelling"
+    ],
+    "format": "Interactive civic data story",
+    "images": [
+      {
+        "src": "images/work/every-moment-votes/every-moment-votes-hero.jpg",
+        "alt": "Every Moment Votes election map interface artwork"
+      },
+      {
+        "src": "images/work/every-moment-votes/every-moment-votes-overview.jpg",
+        "alt": "Every Moment Votes 2026 midterm overview and national election map"
+      },
+      {
+        "src": "images/work/every-moment-votes/every-moment-votes-louisiana.jpg",
+        "alt": "Every Moment Votes national turnout comparison and Louisiana parish map"
+      },
+      {
+        "src": "images/work/every-moment-votes/every-moment-votes-senate.jpg",
+        "alt": "Every Moment Votes Louisiana turnout summary and state-by-state Senate ballot"
+      }
+    ]
   }
 ]
