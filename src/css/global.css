@@ -93,7 +93,7 @@ img { display: block; max-width: 100%; }
 }
 
 .page-home .header-inner {
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
 
 .page-home .header-logo {
@@ -1369,7 +1369,7 @@ img { display: block; max-width: 100%; }
   .header-nav .nav-link { font-size: 10px; letter-spacing: 0.08em; }
   .header-nav .nav-link--external { display: none; }
   .page-home .site-header { height: 70px; padding: 0 16px; }
-  .page-home .header-nav { width: 100%; gap: 0; justify-content: space-between; }
+  .page-home .header-nav { width: 100%; gap: 12px; justify-content: flex-end; }
   .page-home .header-nav .nav-link { font-size: 8px; letter-spacing: 0.045em; }
   .page-home .header-nav .nav-link--external { display: inline; }
   .header-logo span { display: none; }
