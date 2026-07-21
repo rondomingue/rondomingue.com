@@ -1092,5 +1092,44 @@
         "alt": "MissionLaunch science and telescope mission filter with focused launch timeline"
       }
     ]
+  },
+  {
+    "title": "Capitol Ledger — Political Finance Observatory",
+    "slug": "capitol-ledger-political-finance-observatory",
+    "year": "2026",
+    "tags": [
+      "Interface",
+      "Data Visualization",
+      "Finance",
+      "FUI"
+    ],
+    "thumb": "images/work/capitol-ledger/capitol-ledger-hero.jpg",
+    "liveUrl": "https://interfaces.rondomingue.com/capitol-ledger.html",
+    "summary": "A political-finance observatory separating public disclosure records, calculated market estimates, asset relationships, and benchmark comparisons in a dense analytical interface.",
+    "description": [
+      "Capitol Ledger maps a curated demonstration dataset of political financial disclosures into ranked records, ownership lanes, sector allocation, issuer context, and disclosure-to-market-value flows.",
+      "Sorting and owner filters expose gains, losses, disclosed size, recency, and performance relative to the S&P 500. Method notes, confidence ratings, source plans, and separate valuation lanes keep official records distinct from calculated estimates and indirect exposure; the project does not allege misconduct."
+    ],
+    "processTags": [
+      "UI/UX Design",
+      "Financial Visualization",
+      "Network Mapping",
+      "Data Transparency"
+    ],
+    "format": "Interactive political-finance dashboard",
+    "images": [
+      {
+        "src": "images/work/capitol-ledger/capitol-ledger-hero.jpg",
+        "alt": "Capitol Ledger political-finance flow visualization artwork"
+      },
+      {
+        "src": "images/work/capitol-ledger/capitol-ledger-flow.jpg",
+        "alt": "Capitol Ledger disclosure year and owner flow map"
+      },
+      {
+        "src": "images/work/capitol-ledger/capitol-ledger-records.jpg",
+        "alt": "Capitol Ledger ranked disclosure table with estimates and confidence indicators"
+      }
+    ]
   }
 ]
