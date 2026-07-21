@@ -97,7 +97,10 @@
       "Lighting"
     ],
     "thumb": "images/work/dark-star.webp",
-    "vimeo": "2vdD53dA1dA",
+    "video": {
+      "provider": "vimeo",
+      "id": "1197014140"
+    },
     "summary": "Dark Star is a short cinematic built in Unreal Engine 5, set in the gravitational pull of a collapsing star. Capital ships drift in the foreground as light bends around a dying sun, its accretion disk casting copper and amber across the debris field. A moon tumbles slowly through the middle distance. Nothing explodes. Nothing attacks. Just the weight of something enormous, slowly ending.",
     "description": [
       "The piece explores scale and stillness in deep space, using Space Creator Pro and Lumen to build a physically grounded environment where the lighting does all the storytelling. Color graded in DaVinci Resolve through a Linear-ACES pipeline."
