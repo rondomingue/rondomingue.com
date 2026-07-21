@@ -1010,5 +1010,44 @@
         "alt": "TRANSIT potentially hazardous near-Earth object tracking state"
       }
     ]
+  },
+  {
+    "title": "LEXICON — Vocabulary Observatory",
+    "slug": "lexicon-vocabulary-observatory",
+    "year": "2026",
+    "tags": [
+      "Interface",
+      "Typography",
+      "Education",
+      "Interactive"
+    ],
+    "thumb": "images/work/lexicon-vocabulary/lexicon-hero.jpg",
+    "liveUrl": "https://interfaces.rondomingue.com/vocabulary.html",
+    "summary": "An interactive vocabulary-estimation instrument that combines adaptive word testing, immediate linguistic context, and editorial typography in a focused learning interface.",
+    "description": [
+      "LEXICON samples core through rare vocabulary across selectable quiz lengths, updating a provisional word estimate as users identify definitions and move through increasing levels of difficulty.",
+      "Each answer reveals pronunciation, etymology, useful neighboring terms, and an antonym, while recently studied words become a quiet reading list. Serif display typography and structured sans-serif controls give the educational experience an editorial, observatory-like character."
+    ],
+    "processTags": [
+      "UI/UX Design",
+      "Educational Interface",
+      "Editorial Typography",
+      "Interactive Assessment"
+    ],
+    "format": "Interactive vocabulary assessment",
+    "images": [
+      {
+        "src": "images/work/lexicon-vocabulary/lexicon-hero.jpg",
+        "alt": "LEXICON vocabulary observatory interface artwork"
+      },
+      {
+        "src": "images/work/lexicon-vocabulary/lexicon-quiz.jpg",
+        "alt": "LEXICON vocabulary quiz with selectable assessment lengths"
+      },
+      {
+        "src": "images/work/lexicon-vocabulary/lexicon-answer-detail.jpg",
+        "alt": "LEXICON correct-answer feedback, vocabulary estimate, and recently studied word"
+      }
+    ]
   }
 ]
