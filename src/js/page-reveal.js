@@ -5,6 +5,7 @@
 
   const images = document.querySelectorAll('main img:not(.project-lightbox-image):not(.illustration-lightbox-image)');
   images.forEach((image) => {
+    if (image.closest('.illustration-mosaic')) return;
     image.classList.add('media-reveal');
     const reveal = () => image.classList.add('is-media-loaded');
     if (image.complete) reveal();

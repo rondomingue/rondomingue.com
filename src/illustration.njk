@@ -31,7 +31,8 @@ permalink: illustration/index.html
           alt="{{ artwork.alt }}"
           width="{{ artwork.width }}"
           height="{{ artwork.height }}"
-          loading="lazy">
+          loading="{% if loop.index <= 8 %}eager{% else %}lazy{% endif %}"
+          {% if loop.index <= 4 %}fetchpriority="high"{% endif %}>
         <span class="illustration-tile-meta">
           <span>{{ artwork.alt }}</span>
           <span>{{ artwork.orientation }}</span>

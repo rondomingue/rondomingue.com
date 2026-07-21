@@ -30,7 +30,8 @@ permalink: photography/index.html
           alt="{{ photograph.alt }}"
           width="{{ photograph.width }}"
           height="{{ photograph.height }}"
-          loading="lazy">
+          loading="{% if loop.index <= 8 %}eager{% else %}lazy{% endif %}"
+          {% if loop.index <= 4 %}fetchpriority="high"{% endif %}>
         <span class="illustration-tile-meta">
           <span>Photograph {{ loop.index }}</span>
           <span>{{ photograph.orientation }}</span>
