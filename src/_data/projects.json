@@ -967,5 +967,48 @@
         "alt": "Cargo Meridian freight vessels and assets view"
       }
     ]
+  },
+  {
+    "title": "TRANSIT // LIVE",
+    "slug": "transit-near-earth-object-tracking",
+    "year": "2026",
+    "tags": [
+      "Interface",
+      "Space",
+      "Data Visualization",
+      "FUI"
+    ],
+    "thumb": "images/work/transit/transit-hero.jpg",
+    "liveUrl": "https://interfaces.rondomingue.com/transit.html",
+    "summary": "An interactive near-Earth-object tracking system visualizing orbital paths, upcoming close approaches, and potentially hazardous objects across the inner solar system.",
+    "description": [
+      "TRANSIT organizes NASA and JPL near-Earth-object data into a live heliocentric display, combining an interactive Three.js orbital model with approach distance, velocity, estimated diameter, magnitude, and encounter timing.",
+      "Selecting an object connects its trajectory to a dedicated procedural model and risk profile, while the approach log and timeline keep safe and potentially hazardous encounters legible within a dense cinematic command interface."
+    ],
+    "processTags": [
+      "UI/UX Design",
+      "Orbital Visualization",
+      "Three.js",
+      "Interactive Data"
+    ],
+    "format": "Interactive orbital tracking interface",
+    "images": [
+      {
+        "src": "images/work/transit/transit-hero.jpg",
+        "alt": "TRANSIT near-Earth-object tracking interface artwork"
+      },
+      {
+        "src": "images/work/transit/transit-overview.jpg",
+        "alt": "TRANSIT inner solar system orbital overview and close-approach log"
+      },
+      {
+        "src": "images/work/transit/transit-selected-object.jpg",
+        "alt": "TRANSIT selected near-Earth object with orbital and physical data"
+      },
+      {
+        "src": "images/work/transit/transit-hazardous-object.jpg",
+        "alt": "TRANSIT potentially hazardous near-Earth object tracking state"
+      }
+    ]
   }
 ]
