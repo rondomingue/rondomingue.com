@@ -1049,5 +1049,48 @@
         "alt": "LEXICON correct-answer feedback, vocabulary estimate, and recently studied word"
       }
     ]
+  },
+  {
+    "title": "MissionLaunch — Upcoming Space Missions",
+    "slug": "missionlaunch-upcoming-space-missions",
+    "year": "2026",
+    "tags": [
+      "Interface",
+      "Space",
+      "Data Visualization",
+      "FUI"
+    ],
+    "thumb": "images/work/missionlaunch/missionlaunch-hero.jpg",
+    "liveUrl": "https://interfaces.rondomingue.com/missionlaunch.html",
+    "summary": "A live mission-operations interface connecting upcoming launch windows, orbital spacecraft, provider activity, and countdown data in one global command display.",
+    "description": [
+      "MissionLaunch organizes a live launch feed into mission-type and agency filters, pairing upcoming vehicles, providers, pads, launch status, and countdowns with a mapped view of orbital infrastructure.",
+      "Tracked spacecraft including the ISS, Hubble, JWST, Sentinel, and TDRS reveal dedicated orbital context, while the launch timeline and agency-load display make dense mission scheduling legible at a glance."
+    ],
+    "processTags": [
+      "UI/UX Design",
+      "Mission Visualization",
+      "Interactive Mapping",
+      "Live Data"
+    ],
+    "format": "Interactive space mission dashboard",
+    "images": [
+      {
+        "src": "images/work/missionlaunch/missionlaunch-hero.jpg",
+        "alt": "MissionLaunch upcoming space missions interface artwork"
+      },
+      {
+        "src": "images/work/missionlaunch/missionlaunch-overview.jpg",
+        "alt": "MissionLaunch live launch overview, orbital map, countdown, and agency activity"
+      },
+      {
+        "src": "images/work/missionlaunch/missionlaunch-jwst.jpg",
+        "alt": "MissionLaunch JWST spacecraft selection and Sun-Earth L2 orbital context"
+      },
+      {
+        "src": "images/work/missionlaunch/missionlaunch-science-filter.jpg",
+        "alt": "MissionLaunch science and telescope mission filter with focused launch timeline"
+      }
+    ]
   }
 ]
