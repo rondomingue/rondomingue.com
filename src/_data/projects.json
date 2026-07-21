@@ -881,5 +881,48 @@
         "alt": "Epidemic Record COVID-19 detail panel with mortality, vaccine, and status information"
       }
     ]
+  },
+  {
+    "title": "Neurodegenerative: Alzheimer MRI Review",
+    "slug": "neurodegenerative-alzheimer-mri-review",
+    "year": "2026",
+    "tags": [
+      "Interface",
+      "Data Visualization",
+      "Medical",
+      "FUI"
+    ],
+    "thumb": "images/work/neurodegenerative-alzheimer-mri-review/brain-hero.jpg",
+    "liveUrl": "https://interfaces.rondomingue.com/brain.html",
+    "summary": "An interactive clinical-orientation interface for reviewing Alzheimer-associated structural MRI patterns, cognitive regions, and research indicators within a dense, cinematic diagnostic display.",
+    "description": [
+      "The system combines an axial MRI contact sheet with selectable hippocampal, ventricular, cortical, and amyloid review layers, structural disease markers, regional correlation, and a continuously updating analysis log.",
+      "ADNI, OASIS, and HCP references provide the research context. All measurements and scores are demonstration values for interface exploration, and the experience is presented as a visual orientation model rather than diagnostic output."
+    ],
+    "processTags": [
+      "UI/UX Design",
+      "Medical Visualization",
+      "MRI",
+      "Interactive Data"
+    ],
+    "format": "Clinical orientation interface",
+    "images": [
+      {
+        "src": "images/work/neurodegenerative-alzheimer-mri-review/brain-hero.jpg",
+        "alt": "Neurodegenerative Alzheimer MRI review interface artwork"
+      },
+      {
+        "src": "images/work/neurodegenerative-alzheimer-mri-review/brain-overview.jpg",
+        "alt": "Alzheimer structural MRI review dashboard with axial contact sheet and regional indicators"
+      },
+      {
+        "src": "images/work/neurodegenerative-alzheimer-mri-review/brain-ventricles.jpg",
+        "alt": "Ventricular analysis state in the Alzheimer MRI review interface"
+      },
+      {
+        "src": "images/work/neurodegenerative-alzheimer-mri-review/brain-amyloid.jpg",
+        "alt": "Amyloid and tau risk layer in the Alzheimer MRI review interface"
+      }
+    ]
   }
 ]
