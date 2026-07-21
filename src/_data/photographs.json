@@ -579,5 +579,26 @@
     "width": 2000,
     "height": 1333,
     "orientation": "landscape"
+  },
+  {
+    "src": "images/work/photography/DSC01130.jpg",
+    "alt": "Photography by Ron Domingue — 84",
+    "width": 2048,
+    "height": 1152,
+    "orientation": "landscape"
+  },
+  {
+    "src": "images/work/photography/DSC02127.jpg",
+    "alt": "Photography by Ron Domingue — 85",
+    "width": 2048,
+    "height": 1365,
+    "orientation": "landscape"
+  },
+  {
+    "src": "images/work/photography/DSC02129.jpg",
+    "alt": "Photography by Ron Domingue — 86",
+    "width": 2048,
+    "height": 1365,
+    "orientation": "landscape"
   }
 ]
