@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.add('motion-ready');</script>
   <title>{% if title %}{{ title }} — {% endif %}{{ site.siteName }}</title>
   <meta name="description" content="{{ description or site.description }}">
   <link rel="icon" type="image/png" href="{{ '/images/favicon.png' | url }}">
@@ -27,6 +28,8 @@
   </main>
 
   {% include "footer.njk" %}
+
+  <script src="{{ '/js/page-reveal.js' | url }}" defer></script>
 
 </body>
 </html>

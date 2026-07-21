@@ -87,12 +87,12 @@ bodyClass: page-home
   </div>
 
   <!-- Scroll hint -->
-  <div class="scroll-hint" id="scroll-hint">
+  <button class="scroll-hint" id="scroll-hint" type="button" aria-label="View selected work">
     <svg viewBox="0 0 24 32" fill="none">
       <line x1="12" y1="2" x2="12" y2="26" stroke="rgba(238,238,240,0.5)" stroke-width="1.5" stroke-linecap="round"/>
       <polyline points="4,18 12,27 20,18" fill="none" stroke="rgba(238,238,240,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-  </div>
+  </button>
 
 </section>
 
@@ -336,8 +336,18 @@ bodyClass: page-home
   });
 
   // ── Scroll hint ─────────────────────────────────────────────────
+  const scrollHint = document.getElementById('scroll-hint');
+  scrollHint.addEventListener('click', () => {
+    document.getElementById('work').scrollIntoView({
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      block: 'start'
+    });
+  });
+
   window.addEventListener('scroll', () => {
-    const hint = document.getElementById('scroll-hint');
-    if (hint) hint.style.opacity = window.scrollY > 60 ? '0' : '0.38';
+    if (scrollHint) {
+      scrollHint.style.opacity = window.scrollY > 60 ? '0' : '0.38';
+      scrollHint.style.pointerEvents = window.scrollY > 60 ? 'none' : 'auto';
+    }
   }, { passive: true });
 </script>
