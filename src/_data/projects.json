@@ -1174,5 +1174,48 @@
         "alt": "Every Moment Votes Louisiana turnout summary and state-by-state Senate ballot"
       }
     ]
+  },
+  {
+    "title": "Landfall — Tropical Cyclone Operations",
+    "slug": "landfall-tropical-cyclone-operations",
+    "year": "2026",
+    "tags": [
+      "Interface",
+      "Data Visualization",
+      "Weather",
+      "FUI"
+    ],
+    "thumb": "images/work/landfall/landfall-hero.jpg",
+    "liveUrl": "https://interfaces.rondomingue.com/landfall.html",
+    "summary": "A Gulf of Mexico tropical-cyclone operations interface combining forecast tracks, coastal conditions, historical hurricanes, and regional exposure in a cinematic command display.",
+    "description": [
+      "Landfall organizes tropical weather intelligence into a dense operational dashboard centered on the Gulf Coast. The primary map combines projected paths with basin status, New Orleans weather, Gulf water temperatures, tide gauges, advisories, and storm-signal references.",
+      "Interactive historical tracks reveal peak wind, minimum pressure, landfalls, and recorded fixes for major hurricanes, while a Gulf-city risk index compares coastal exposure. The experience draws on NHC, NWS, NOAA CO-OPS, map, radar, and satellite sources to connect live monitoring with historical context."
+    ],
+    "processTags": [
+      "UI/UX Design",
+      "Weather Visualization",
+      "Interactive Mapping",
+      "Operational Dashboard"
+    ],
+    "format": "Interactive tropical-cyclone dashboard",
+    "images": [
+      {
+        "src": "images/work/landfall/landfall-hero.jpg",
+        "alt": "Landfall Gulf hurricane tracking interface artwork"
+      },
+      {
+        "src": "images/work/landfall/landfall-overview.jpg",
+        "alt": "Landfall tropical cyclone operations overview with projected Gulf track"
+      },
+      {
+        "src": "images/work/landfall/landfall-katrina.jpg",
+        "alt": "Landfall Hurricane Katrina historical track and storm record"
+      },
+      {
+        "src": "images/work/landfall/landfall-history.jpg",
+        "alt": "Landfall hurricane record and Gulf cities risk index"
+      }
+    ]
   }
 ]
