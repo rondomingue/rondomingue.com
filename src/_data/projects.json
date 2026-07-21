@@ -685,5 +685,30 @@
       "images/work/outbreak/image-3.webp",
       "images/work/outbreak/HighresScreenshot00001.webp"
     ]
+  },
+  {
+    "title": "Medieval Village",
+    "slug": "medieval-village",
+    "year": "2026",
+    "tags": [
+      "UE5",
+      "Cinematic",
+      "Environment",
+      "Medieval"
+    ],
+    "thumb": "images/work/medieval-village/medieval-village.jpg",
+    "video": {
+      "provider": "youtube",
+      "id": "L14VfvI3l1c"
+    },
+    "summary": "A cinematic medieval village environment shaped through atmospheric lighting, period detail, and immersive visual storytelling.",
+    "description": [],
+    "processTags": [
+      "Unreal Engine 5",
+      "Environment Art",
+      "Lighting",
+      "Cinematic"
+    ],
+    "format": "Cinematic environment study"
   }
 ]
