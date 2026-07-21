@@ -1,5 +1,103 @@
 [
   {
+    "src": "images/illustration/anne.png",
+    "alt": "Anne",
+    "width": 1237,
+    "height": 2200,
+    "orientation": "portrait"
+  },
+  {
+    "src": "images/illustration/cityscape-002.png",
+    "alt": "Cityscape 002",
+    "width": 2200,
+    "height": 1238,
+    "orientation": "landscape"
+  },
+  {
+    "src": "images/illustration/dsc09086.png",
+    "alt": "DSC09086",
+    "width": 1237,
+    "height": 2200,
+    "orientation": "portrait"
+  },
+  {
+    "src": "images/illustration/dr-john.png",
+    "alt": "Dr. John",
+    "width": 2200,
+    "height": 2200,
+    "orientation": "square"
+  },
+  {
+    "src": "images/illustration/evolution.png",
+    "alt": "Evolution",
+    "width": 2110,
+    "height": 2200,
+    "orientation": "square"
+  },
+  {
+    "src": "images/illustration/img-1157.png",
+    "alt": "IMG 1157",
+    "width": 1423,
+    "height": 2200,
+    "orientation": "portrait"
+  },
+  {
+    "src": "images/illustration/joi-and-k.png",
+    "alt": "Joi and K",
+    "width": 2200,
+    "height": 1650,
+    "orientation": "landscape"
+  },
+  {
+    "src": "images/illustration/leah-chase.png",
+    "alt": "Leah Chase",
+    "width": 2200,
+    "height": 2200,
+    "orientation": "square"
+  },
+  {
+    "src": "images/illustration/steph.png",
+    "alt": "Steph",
+    "width": 1487,
+    "height": 2200,
+    "orientation": "portrait"
+  },
+  {
+    "src": "images/illustration/untitled-artwork-2.png",
+    "alt": "Untitled Artwork 2",
+    "width": 2200,
+    "height": 1237,
+    "orientation": "landscape"
+  },
+  {
+    "src": "images/illustration/untitled-artwork-3.png",
+    "alt": "Untitled Artwork 3",
+    "width": 2200,
+    "height": 2200,
+    "orientation": "square"
+  },
+  {
+    "src": "images/illustration/untitled-artwork.png",
+    "alt": "Untitled Artwork",
+    "width": 2200,
+    "height": 2153,
+    "orientation": "square"
+  },
+  {
+    "src": "images/illustration/walton-goggins.png",
+    "alt": "Walton Goggins",
+    "width": 2200,
+    "height": 1649,
+    "orientation": "landscape"
+  },
+  {
+    "src": "images/illustration/background.png",
+    "alt": "Background",
+    "width": 1644,
+    "height": 2200,
+    "orientation": "portrait"
+  },
+  {
     "src": "images/illustration/BookCort.webp",
     "alt": "Book Cort",
     "width": 1920,
