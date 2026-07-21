@@ -663,6 +663,10 @@
       "Horror"
     ],
     "thumb": "images/work/outbreak/Still-2026-07-13-185527_1.1.1.webp",
+    "video": {
+      "provider": "youtube",
+      "id": "DVAV6p-oJrk"
+    },
     "summary": "An abandoned hospital after an outbreak from a mysterious disease and nothing seems to be left behind. Color graded in DaVinci Resolve through a Linear-ACES pipeline with Dehancer film emulation.",
     "description": [],
     "processTags": [
