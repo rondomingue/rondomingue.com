@@ -7,7 +7,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addWatchTarget("src/js/");
 
   return {
-    pathPrefix: "/rondomingue.com/",
+    pathPrefix: "/",
     dir: {
       input: "src",
       output: "_site",
