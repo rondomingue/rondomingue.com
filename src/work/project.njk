@@ -5,7 +5,8 @@ pagination:
   size: 1
   alias: project
 permalink: "work/{{ project.slug }}/index.html"
-title: "{{ project.title }}"
+eleventyComputed:
+  title: "{{ project.title }}"
 navActive: work
 bodyClass: page-work page-project
 ---
