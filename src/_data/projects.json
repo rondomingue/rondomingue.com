@@ -1,5 +1,45 @@
 [
   {
+    "title": "Signal Lattice",
+    "slug": "signal-lattice",
+    "year": "2026",
+    "tags": [
+      "FUI",
+      "HUD",
+      "Interface",
+      "Systems",
+      "Motion"
+    ],
+    "thumb": "images/work/signal-lattice/Head.png",
+    "summary": "Signal Lattice is a cinematic HUD/FUI study built around dense orange navigation overlays, scan readouts, and layered glass-panel interface depth.",
+    "description": [
+      "A compact interface study focused on parallax, opacity, grid density, and warm avionics-style system graphics. The sequence explores how abstract readouts and targeting structures can feel tactile and dimensional when treated like photographed glass rather than flat UI."
+    ],
+    "processTags": [
+      "HUD Design",
+      "FUI",
+      "Interface Systems",
+      "Compositing",
+      "Cinematic UI"
+    ],
+    "images": [
+      "images/work/signal-lattice/Head.png",
+      "images/work/signal-lattice/Prime.png",
+      "images/work/signal-lattice/01.png",
+      "images/work/signal-lattice/02.png",
+      "images/work/signal-lattice/03.png",
+      "images/work/signal-lattice/04.png",
+      "images/work/signal-lattice/05.png",
+      "images/work/signal-lattice/06.png",
+      "images/work/signal-lattice/07.png",
+      "images/work/signal-lattice/08.png",
+      "images/work/signal-lattice/09.png",
+      "images/work/signal-lattice/10.png"
+    ],
+    "format": "HUD / FUI interface study",
+    "sourcePage": "https://www.rondomingue.com/work/signal-lattice"
+  },
+  {
     "title": "Ravens Isle",
     "slug": "ravens-isle",
     "year": "2024",
