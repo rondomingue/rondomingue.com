@@ -212,64 +212,56 @@
     "alt": "MFS007",
     "width": 750,
     "height": 1111,
-    "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1597371262032-19W4IM2O6HL40ATWPDVN/MFS007.jpg"
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/Dracula-_001.webp",
     "alt": "Dracula",
     "width": 1200,
     "height": 1800,
-    "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1497630553696-PSBITD69MEQK2GE438SP/Dracula-_001.jpg"
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/111317_Epictetus_Poster_Blue.webp",
     "alt": "111317 Epictetus Poster Blue",
     "width": 1200,
     "height": 1800,
-    "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1544742051902-YMI1MO32DMC38YZZWGSJ/111317_Epictetus_Poster_Blue.jpg"
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/WWII03.webp",
     "alt": "WWII03",
     "width": 2200,
     "height": 1237,
-    "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1490392968213-BKW404K8JA4T1TE9BG4Y/WWII03.jpg"
+    "orientation": "landscape"
   },
   {
     "src": "images/illustration/illustration-1447186889202.webp",
     "alt": "Illustration 22",
     "width": 1024,
     "height": 832,
-    "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1447186889202-7ON2VFOJDR1EOB8M1O91/image-asset.jpeg"
+    "orientation": "landscape"
   },
   {
     "src": "images/illustration/illustration-1429730639602.webp",
     "alt": "Illustration 23",
     "width": 1920,
     "height": 1242,
-    "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1429730639602-13XTPROW9J5B8Z23CM2O/image-asset.jpeg"
+    "orientation": "landscape"
   },
   {
     "src": "images/illustration/FQ001.webp",
     "alt": "FQ001",
     "width": 2200,
     "height": 2200,
-    "orientation": "square",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1467844282808-WKJLIB1XK0GBVNBC4830/FQ001.jpg"
+    "orientation": "square"
   },
   {
     "src": "images/illustration/032017_Fats_002.webp",
     "alt": "032017 Fats",
     "width": 1200,
     "height": 1200,
-    "orientation": "square",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1492727537265-INJUQJ5V58SBDGMHE6LM/032017_Fats_002.jpg"
+    "orientation": "square"
   },
   {
     "src": "images/illustration/header.webp",
