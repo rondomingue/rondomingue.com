@@ -6,7 +6,7 @@
     "height": 2200,
     "orientation": "portrait"
   },
-    {
+  {
     "src": "images/illustration/Spinner2049.jpg",
     "alt": "Blade Runner 2049 Spinner",
     "width": 1500,
@@ -149,7 +149,7 @@
     "alt": "National Champioship Mural",
     "width": 1920,
     "height": 1164,
-    "orientation": "landscape"  
+    "orientation": "landscape"
   },
   {
     "src": "images/illustration/ECa38H1UwAAiMhK.webp",
@@ -230,14 +230,6 @@
     "height": 1800,
     "orientation": "portrait",
     "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1544742051902-YMI1MO32DMC38YZZWGSJ/111317_Epictetus_Poster_Blue.jpg"
-  },
-  {
-    "src": "images/illustration/IMG_0580.webp",
-    "alt": "Illustration 20",
-    "width": 1238,
-    "height": 2200,
-    "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1544824295244-U8P9SXWU2GPJOZQDWYVA/IMG_0580.png"
   },
   {
     "src": "images/illustration/WWII03.webp",
