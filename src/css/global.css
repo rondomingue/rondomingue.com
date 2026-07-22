@@ -620,6 +620,10 @@ img { display: block; max-width: 100%; }
   color: var(--text-faint);
 }
 
+.section-count-number {
+  color: var(--magenta);
+}
+
 .work-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
