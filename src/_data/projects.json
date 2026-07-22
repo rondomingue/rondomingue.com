@@ -1,5 +1,46 @@
 [
   {
+    "title": "White Noise Telemetry",
+    "slug": "white-noise-telemetry",
+    "year": "2026",
+    "tags": [
+      "FUI",
+      "HUD",
+      "Interface",
+      "Monochrome",
+      "Motion"
+    ],
+    "thumb": "images/work/white-noise-telemetry/Head.png",
+    "summary": "White Noise Telemetry is a monochrome HUD/FUI study built from luminous scan lines, blurred diagnostic panels, and layered instrument readouts suspended in depth.",
+    "description": [
+      "The series pushes interface graphics toward a photographic, overexposed signal aesthetic. Dense panels, buffer labels, calibration readouts, and graph structures are treated like glass, light, and optical noise instead of flat UI elements.",
+      "The restrained black-and-white palette emphasizes depth of field, bloom, and parallax, creating a technical display system that feels observed through a lens rather than rendered directly on screen."
+    ],
+    "processTags": [
+      "HUD Design",
+      "FUI",
+      "Interface Systems",
+      "Monochrome Look Development",
+      "Compositing"
+    ],
+    "images": [
+      "images/work/white-noise-telemetry/Head.png",
+      "images/work/white-noise-telemetry/Prime.png",
+      "images/work/white-noise-telemetry/01.png",
+      "images/work/white-noise-telemetry/02.png",
+      "images/work/white-noise-telemetry/03.png",
+      "images/work/white-noise-telemetry/04.png",
+      "images/work/white-noise-telemetry/05.png",
+      "images/work/white-noise-telemetry/06.png",
+      "images/work/white-noise-telemetry/07.png",
+      "images/work/white-noise-telemetry/08.png",
+      "images/work/white-noise-telemetry/09.png",
+      "images/work/white-noise-telemetry/10.png"
+    ],
+    "format": "Monochrome HUD / FUI interface study",
+    "sourcePage": "https://www.rondomingue.com/work/white-noise-telemetry"
+  },
+  {
     "title": "Signal Lattice",
     "slug": "signal-lattice",
     "year": "2026",
