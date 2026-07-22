@@ -14,39 +14,44 @@
     "orientation": "landscape"
   },
   {
-    "src": "images/photography/DSC00124.webp",
+    "src": "images/photography/honeybee-001.webp",
     "alt": "Photography by Ron Domingue — 3",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Honeybee"
   },
   {
     "src": "images/photography/tg-fairgrounds-001.webp",
     "alt": "Photography by Ron Domingue — 4",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Thankgiving Day Fairgrounds"
   },
   {
     "src": "images/photography/tg-fairgrounds-002.webp",
     "alt": "Photography by Ron Domingue — 5",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Thankgiving Day Fairgrounds"
   },
   {
-    "src": "images/photography/DSC00153.webp",
+    "src": "images/photography/tg-fairgrounds-003.webp",
     "alt": "Photography by Ron Domingue — 6",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Thankgiving Day Fairgrounds"
   },
   {
     "src": "images/photography/DSC00692-2.webp",
     "alt": "Photography by Ron Domingue — 7",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Thankgiving Day Fairgrounds"
   },
   {
     "src": "images/photography/CECDE78A-74A8-47A5-AB10-A197F5FE72FE.webp",
@@ -74,14 +79,16 @@
     "alt": "Photography by Ron Domingue — 11",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "New Orleans"
   },
   {
     "src": "images/photography/DSC00213.webp",
     "alt": "Photography by Ron Domingue — 12",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Street Cars New Orleans"
   },
   {
     "src": "images/photography/DSC00216.webp",

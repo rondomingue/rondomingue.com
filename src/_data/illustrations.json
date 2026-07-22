@@ -15,7 +15,7 @@
   },
   {
     "src": "images/illustration/dsc09086.png",
-    "alt": "DSC09086",
+    "alt": "Procreate",
     "width": 1237,
     "height": 2200,
     "orientation": "portrait"
@@ -35,11 +35,21 @@
     "orientation": "square"
   },
   {
+    "src": "images/illustration/BookCort.webp",
+    "alt": "Children's Book",
+    "width": 1920,
+    "height": 1600,
+    "orientation": "landscape",
+    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1769551686906-3VAUNAGREA113IF6SIC7/BookCort.jpg",
+    "caption": "Shoi-Ming and the Golden Kite"
+  },
+  {
     "src": "images/illustration/img-1157.png",
-    "alt": "IMG 1157",
+    "alt": "Children's Book",
     "width": 1423,
     "height": 2200,
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "caption": "Shoi-Ming and the Golden Kite"
   },
   {
     "src": "images/illustration/joi-and-k.png",
@@ -77,7 +87,7 @@
     "orientation": "square"
   },
   {
-    "src": "images/illustration/untitled-artwork.png",
+    "src": "images/illustration/paul.png",
     "alt": "Untitled Artwork",
     "width": 2200,
     "height": 2153,
@@ -98,14 +108,6 @@
     "orientation": "portrait"
   },
   {
-    "src": "images/illustration/BookCort.webp",
-    "alt": "Book Cort",
-    "width": 1920,
-    "height": 1600,
-    "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1769551686906-3VAUNAGREA113IF6SIC7/BookCort.jpg"
-  },
-  {
     "src": "images/illustration/illustration-1696889517342.webp",
     "alt": "Illustration 2",
     "width": 1152,
@@ -123,7 +125,7 @@
   },
   {
     "src": "images/illustration/illustration-1633811038218.webp",
-    "alt": "Illustration 4",
+    "alt": "Dune Poster",
     "width": 1466,
     "height": 2200,
     "orientation": "portrait",

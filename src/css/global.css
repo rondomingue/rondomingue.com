@@ -760,6 +760,37 @@ img { display: block; max-width: 100%; }
   line-height: 1.1;
 }
 
+.work-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 34px;
+}
+
+.work-more-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 13px 28px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  background: rgba(238,238,240,0.02);
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.work-more-button:hover,
+.work-more-button:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(200,40,154,0.06);
+  outline: none;
+}
+
 /* ─────────────────────────────────────────────
    WORK INDEX PAGE
 ───────────────────────────────────────────── */

@@ -439,11 +439,14 @@ const appHtml = `<!doctype html>
     .card { background:var(--panel); border:1px solid var(--line); border-radius:8px; overflow:hidden; box-shadow:0 1px 0 rgba(0,0,0,.03); }
     .card.missing-file { border-color:#d8a29a; }
     .thumb { aspect-ratio:4/3; background:#e5ded5; display:block; width:100%; object-fit:cover; }
-    .meta { padding:10px; display:grid; gap:9px; }
-    .name { font-size:13px; font-weight:680; overflow-wrap:anywhere; }
-    .detail { color:var(--muted); font-size:12px; display:flex; flex-wrap:wrap; gap:6px; }
-    .card-actions { display:flex; flex-wrap:wrap; gap:6px; }
-    .card-actions button,.card-actions select { min-height:32px; padding:5px 7px; font-size:12px; }
+    .meta { padding:12px; display:grid; gap:10px; }
+    .name { font-size:13px; font-weight:680; overflow-wrap:anywhere; line-height:1.25; }
+    .detail { color:var(--muted); font-size:12px; display:flex; flex-wrap:wrap; gap:6px; line-height:1.35; }
+    .meta label { display:grid; gap:5px; color:var(--muted); font-size:12px; }
+    .meta label input { width:100%; min-width:0; background:#fff; }
+    .card-actions { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; }
+    .card-actions button,.card-actions select { min-height:32px; width:100%; padding:5px 7px; font-size:12px; }
+    .card-actions .wide { grid-column:span 2; }
     .section-title { margin:24px 0 10px; font-size:16px; }
     .empty { padding:18px; background:var(--panel); border:1px solid var(--line); border-radius:8px; color:var(--muted); font-size:14px; }
     .project-form { padding:12px; display:grid; gap:10px; }
@@ -496,7 +499,7 @@ const appHtml = `<!doctype html>
         if (state.filter === "missing-file") return !item.exists;
         return true;
       });
-      el("content").innerHTML = '<div class="grid">' + items.map(item => '<article class="card ' + (item.exists ? "" : "missing-file") + '">' + (item.exists ? '<img class="thumb" src="' + item.url + '" alt="' + escapeHtml(item.alt) + '" loading="lazy">' : '<div class="thumb"></div>') + '<div class="meta"><div class="name">' + (item.index + 1) + '. ' + escapeHtml(fileName(item.src)) + '</div><div class="detail"><span>' + escapeHtml(item.caption || item.alt) + '</span><span>' + item.orientation + '</span><span>' + item.width + ' x ' + item.height + '</span></div><label><span>Caption</span><input name="caption" value="' + escapeHtml(item.caption || '') + '"></label>' + (state.collection === 'illustration' ? '<label><span>Alt text</span><input name="alt" value="' + escapeHtml(item.alt || '') + '"></label>' : '') + '<div class="card-actions"><button data-action="save-gallery-item" data-src="' + escapeHtml(item.src) + '">Save Text</button><button data-action="up" data-src="' + escapeHtml(item.src) + '">Up</button><button data-action="down" data-src="' + escapeHtml(item.src) + '">Down</button><button data-action="regen" data-src="' + escapeHtml(item.src) + '">Meta</button><button data-action="rename-image" data-src="' + escapeHtml(item.src) + '">Rename</button><button class="danger" data-action="remove" data-src="' + escapeHtml(item.src) + '">Remove JSON</button></div></div></article>').join("") + "</div>";
+      el("content").innerHTML = '<div class="grid">' + items.map(item => '<article class="card ' + (item.exists ? "" : "missing-file") + '">' + (item.exists ? '<img class="thumb" src="' + item.url + '" alt="' + escapeHtml(item.alt) + '" loading="lazy">' : '<div class="thumb"></div>') + '<div class="meta"><div class="name">' + (item.index + 1) + '. ' + escapeHtml(fileName(item.src)) + '</div><div class="detail"><span>' + escapeHtml(item.caption || item.alt) + '</span><span>' + item.orientation + '</span><span>' + item.width + ' x ' + item.height + '</span></div><label><span>Caption</span><input name="caption" value="' + escapeHtml(item.caption || '') + '"></label>' + (state.collection === 'illustration' ? '<label><span>Alt text</span><input name="alt" value="' + escapeHtml(item.alt || '') + '"></label>' : '') + '<div class="card-actions"><button class="primary wide" data-action="save-gallery-item" data-src="' + escapeHtml(item.src) + '">Save Text</button><button data-action="up" data-src="' + escapeHtml(item.src) + '">Up</button><button data-action="down" data-src="' + escapeHtml(item.src) + '">Down</button><button data-action="regen" data-src="' + escapeHtml(item.src) + '">Meta</button><button data-action="rename-image" data-src="' + escapeHtml(item.src) + '">Rename</button><button class="danger" data-action="remove" data-src="' + escapeHtml(item.src) + '">Remove JSON</button></div></div></article>').join("") + "</div>";
       el("secondary").innerHTML = '<h2 class="section-title">Missing From JSON</h2>' + (state.data.missing.length ? '<div class="grid">' + state.data.missing.map(item => '<article class="card"><img class="thumb" src="' + item.url + '" alt="" loading="lazy"><div class="meta"><div class="name">' + escapeHtml(fileName(item.src)) + '</div></div></article>').join("") + '</div>' : '<div class="empty">No missing files. The folder and JSON match.</div>') + '<h2 class="section-title">Orphaned JSON Entries</h2>' + (state.data.orphaned.length ? '<div class="empty">' + state.data.orphaned.map(item => escapeHtml(item.src)).join("<br>") + '</div>' : '<div class="empty">No orphaned JSON entries.</div>');
     };
     const projectOptions = selected => state.data.files.map(file => '<option value="' + escapeHtml(file.src) + '"' + (file.src === selected ? " selected" : "") + '>' + escapeHtml(file.src) + '</option>').join("");
