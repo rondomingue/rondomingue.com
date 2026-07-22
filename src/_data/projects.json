@@ -7,7 +7,6 @@
       "Cinema 4D",
       "Octane",
       "Concept Art",
-      "Film Study",
       "Cyberpunk",
       "Environment",
       "Sci-Fi"
@@ -45,10 +44,9 @@
       "Cinema 4D",
       "Octane",
       "FUI",
-      "Concept",
-      "Cyberpunk",
       "Interface",
       "Data Visualization",
+      "Cyberpunk",
       "Sci-Fi"
     ],
     "thumb": "images/work/data-haven/01.png",
@@ -88,8 +86,8 @@
       "FUI",
       "HUD",
       "Interface",
+      "Motion Design",
       "Monochrome",
-      "Motion",
       "Cyberpunk",
       "Sci-Fi"
     ],
@@ -130,8 +128,7 @@
       "FUI",
       "HUD",
       "Interface",
-      "Systems",
-      "Motion",
+      "Motion Design",
       "Cyberpunk",
       "Sci-Fi"
     ],
@@ -171,8 +168,8 @@
       "UE5",
       "Cinematic",
       "Environment",
-      "Storm",
-      "Color"
+      "Atmosphere",
+      "Storm"
     ],
     "thumb": "images/work/ravens-isle/ravens-isle.png",
     "vimeo": "P_hXaVLEV2w",
@@ -212,7 +209,6 @@
       "UE5",
       "Cinematic",
       "Environment",
-      "Desert",
       "Atmosphere"
     ],
     "thumb": "images/work/desert-silence.webp",
@@ -254,9 +250,9 @@
     "tags": [
       "UE5",
       "Cinematic",
-      "Sci-Fi",
       "Environment",
       "Lighting",
+      "Sci-Fi",
       "Space",
       "Science"
     ],
@@ -295,8 +291,9 @@
       "UE5",
       "Cinematic",
       "Environment",
-      "Temple",
-      "Lighting"
+      "Lighting",
+      "Atmosphere",
+      "Historical"
     ],
     "thumb": "images/work/temple-of-the-sun.webp",
     "vimeo": "icHBlydH1f0",
@@ -333,8 +330,8 @@
       "UE5",
       "Cinematic",
       "Environment",
-      "Swamp",
-      "Atmosphere"
+      "Atmosphere",
+      "Horror"
     ],
     "thumb": "images/work/haunted-swamp.webp",
     "vimeo": "MJL8IqGHe2M",
@@ -369,7 +366,6 @@
       "UE5",
       "Cinematic",
       "Environment",
-      "Cold",
       "Atmosphere",
       "Science",
       "Sci-Fi"
@@ -410,8 +406,8 @@
       "UE5",
       "Cinematic",
       "Environment",
-      "Cyberpunk",
       "Atmosphere",
+      "Cyberpunk",
       "Sci-Fi",
       "Interface"
     ],
@@ -457,8 +453,6 @@
       "UE5",
       "Cinematic",
       "Environment",
-      "Lunar",
-      "Moon",
       "Sci-Fi",
       "Space",
       "Science"
@@ -503,7 +497,7 @@
       "Storyboards",
       "Cinematic",
       "Narrative",
-      "Batman"
+      "Concept Art"
     ],
     "thumb": "images/work/storyboards/Frame_1.webp",
     "summary": "This storyboard sequence explores the classic Batman and Robin dynamic within a rain-soaked Gotham, emphasizing pursuit, teamwork, and iconic silhouettes. The action centers on a high-speed vehicle chase featuring the Batmobile and Batcycle, using cinematic framing and clear spatial storytelling to contrast Batman’s power with Robin’s agility. The sequence focuses on mood, scale, and action clarity while staying true to the visual language and mythology of Batman and Robin, communicating tone, pacing, and visual intent in a concise, production-ready format.",
@@ -534,7 +528,6 @@
       "Cinema 4D",
       "Environment",
       "Sci-Fi",
-      "Arnold",
       "Aerospace",
       "Aviation"
     ],
@@ -576,12 +569,12 @@
     "year": "2026",
     "tags": [
       "FUI",
-      "Motion Design",
-      "Aerospace",
       "HUD",
       "Interface",
-      "Sci-Fi",
-      "Aviation"
+      "Motion Design",
+      "Aerospace",
+      "Aviation",
+      "Sci-Fi"
     ],
     "thumb": "images/work/aerospace-hud/HUD_002_Cam_006.webp",
     "subtitle": "A layered targeting system, built frame by frame",
@@ -629,9 +622,9 @@
     "tags": [
       "FUI",
       "HUD",
+      "Interface",
       "Cinema 4D",
       "Octane",
-      "Interface",
       "Cyberpunk",
       "Sci-Fi"
     ],
@@ -673,9 +666,9 @@
     "tags": [
       "FUI",
       "HUD",
+      "Interface",
       "Cinema 4D",
       "Octane",
-      "Interface",
       "Cyberpunk",
       "Sci-Fi"
     ],
@@ -755,10 +748,10 @@
     "slug": "fui-subtrate",
     "year": "2026",
     "tags": [
-      "FUI",
       "Cinema 4D",
-      "Procedural",
       "Octane",
+      "Procedural",
+      "FUI",
       "Interface",
       "Cyberpunk",
       "Sci-Fi"
@@ -791,12 +784,12 @@
     "slug": "f35-scan",
     "year": "2026",
     "tags": [
-      "FUI",
       "Cinema 4D",
-      "Aerospace",
       "Octane",
+      "FUI",
       "HUD",
       "Interface",
+      "Aerospace",
       "Aviation",
       "Sci-Fi"
     ],
@@ -829,9 +822,10 @@
     "tags": [
       "Cinema 4D",
       "FUI",
+      "HUD",
+      "Interface",
       "Environment",
       "Lighting",
-      "HUD",
       "Cyberpunk",
       "Sci-Fi"
     ],
@@ -868,8 +862,8 @@
     "tags": [
       "UE5",
       "Cinematic",
-      "Historical",
-      "Environment"
+      "Environment",
+      "Historical"
     ],
     "thumb": "images/work/liberation/Still-2026-06-02-114514_1.3.2.webp",
     "video": {
@@ -952,7 +946,7 @@
       "UE5",
       "Cinematic",
       "Environment",
-      "Medieval"
+      "Historical"
     ],
     "thumb": "images/work/medieval-village/medieval-village.jpg",
     "video": {
@@ -977,7 +971,8 @@
       "UE5",
       "Cinematic",
       "Environment",
-      "Post-Apocalyptic"
+      "Post-Apocalyptic",
+      "Sci-Fi"
     ],
     "thumb": "images/work/wastelands/wastelands.jpg",
     "video": {
@@ -1001,10 +996,11 @@
     "tags": [
       "Interface",
       "Data Visualization",
+      "FUI",
+      "Interactive",
       "Aviation",
       "Real-Time",
-      "FUI",
-      "Interactive"
+      "Logistics"
     ],
     "thumb": "images/work/msy/msy-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/msy.html",
@@ -1047,9 +1043,9 @@
       "Interface",
       "Data Visualization",
       "Science",
-      "Sonification",
       "Education",
-      "Interactive"
+      "Interactive",
+      "Sonification"
     ],
     "thumb": "images/work/elemental-blocks/elemental-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/periodic-table.html",
@@ -1087,12 +1083,12 @@
     "tags": [
       "Interface",
       "Data Visualization",
-      "Public Health",
-      "Editorial",
       "Science",
+      "Public Health",
       "Medical",
       "Education",
-      "Interactive"
+      "Interactive",
+      "Editorial"
     ],
     "thumb": "images/work/outbreaks-global-epidemic-intelligence/outbreaks-hero.jpg",
     "liveLinks": [
@@ -1155,9 +1151,9 @@
     "tags": [
       "Interface",
       "Data Visualization",
-      "Medical",
       "FUI",
       "Science",
+      "Medical",
       "Education",
       "Interactive"
     ],
@@ -1200,10 +1196,10 @@
     "year": "2026",
     "tags": [
       "Interface",
-      "Logistics",
       "Data Visualization",
       "FUI",
-      "Interactive"
+      "Interactive",
+      "Logistics"
     ],
     "thumb": "images/work/cargo-meridian/cargo-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/cargo/",
@@ -1244,11 +1240,13 @@
     "year": "2026",
     "tags": [
       "Interface",
-      "Space",
       "Data Visualization",
       "FUI",
+      "Interactive",
+      "Space",
       "Science",
-      "Interactive"
+      "Sci-Fi",
+      "Real-Time"
     ],
     "thumb": "images/work/transit/transit-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/transit.html",
@@ -1328,11 +1326,13 @@
     "year": "2026",
     "tags": [
       "Interface",
-      "Space",
       "Data Visualization",
       "FUI",
+      "Interactive",
+      "Space",
       "Science",
-      "Interactive"
+      "Sci-Fi",
+      "Real-Time"
     ],
     "thumb": "images/work/missionlaunch/missionlaunch-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/missionlaunch.html",
@@ -1374,9 +1374,9 @@
     "tags": [
       "Interface",
       "Data Visualization",
-      "Finance",
       "FUI",
       "Interactive",
+      "Finance",
       "Civic"
     ],
     "thumb": "images/work/capitol-ledger/capitol-ledger-hero.jpg",
@@ -1415,10 +1415,10 @@
     "tags": [
       "Interface",
       "Data Visualization",
-      "Civic",
-      "Editorial",
       "Education",
-      "Interactive"
+      "Interactive",
+      "Civic",
+      "Editorial"
     ],
     "thumb": "images/work/every-moment-votes/every-moment-votes-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/everymomentvotes.html",
@@ -1460,10 +1460,11 @@
     "tags": [
       "Interface",
       "Data Visualization",
-      "Weather",
       "FUI",
+      "Interactive",
+      "Weather",
       "Science",
-      "Interactive"
+      "Storm"
     ],
     "thumb": "images/work/landfall/landfall-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/landfall.html",
@@ -1504,11 +1505,13 @@
     "year": "2026",
     "tags": [
       "Interface",
-      "Generative Design",
-      "Typography",
       "FUI",
+      "Generative Design",
+      "Procedural",
+      "Typography",
       "Cyberpunk",
-      "Interactive"
+      "Interactive",
+      "Sci-Fi"
     ],
     "thumb": "images/work/spec-forge/spec-forge-hero.png",
     "liveUrl": "https://interfaces.rondomingue.com/spec-forge.html",
