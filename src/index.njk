@@ -349,10 +349,12 @@ bodyClass: page-home
     });
   });
 
-  window.addEventListener('scroll', () => {
-    if (scrollHint) {
-      scrollHint.style.opacity = window.scrollY > 60 ? '0' : '0.38';
-      scrollHint.style.pointerEvents = window.scrollY > 60 ? 'none' : 'auto';
-    }
-  }, { passive: true });
+  const hideScrollHint = () => {
+    if (!scrollHint) return;
+    scrollHint.style.opacity = '0';
+    scrollHint.style.pointerEvents = 'none';
+    window.removeEventListener('scroll', hideScrollHint);
+  };
+
+  window.addEventListener('scroll', hideScrollHint, { passive: true });
 </script>
