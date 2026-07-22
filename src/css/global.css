@@ -1678,13 +1678,21 @@ img { display: block; max-width: 100%; }
     display: none;
   }
   .header-logo span { display: none; }
+  .page-home .hero { min-height: 560px; }
+  .page-home .hero-content {
+    margin-bottom: 42vh;
+    transform: translateY(34%);
+  }
   .hero-title { font-size: 42px; }
   .page-home .hero-cta { flex-direction: row; align-items: flex-start; }
   .page-home .hero-cta a { display: none; }
+  .work-index { padding-top: 72px; }
+  .project-detail { padding: 72px 18px 80px; }
+  .illustration-index { padding-top: 76px; }
+  .about-content-col { padding-top: 34px; }
   .reel-shadowbox { padding: 16px; }
   .reel-shadowbox-header { padding-inline: 14px 8px; }
   .work-filters { display: none; }
-  .project-detail { padding-left: 18px; padding-right: 18px; }
   .project-tags { padding: 14px; }
   .illustration-mosaic { columns: 1; }
   .illustration-lightbox { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr auto; padding: 62px 16px 18px; }

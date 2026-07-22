@@ -7,7 +7,10 @@
       "Cinema 4D",
       "Octane",
       "Concept Art",
-      "Film Study"
+      "Film Study",
+      "Cyberpunk",
+      "Environment",
+      "Sci-Fi"
     ],
     "thumb": "images/work/blade-runner-spinner-2049/06.webp",
     "subtitle": "A Spinner study staged in a rain-soaked future city atmosphere.",
@@ -42,7 +45,11 @@
       "Cinema 4D",
       "Octane",
       "FUI",
-      "Concept"
+      "Concept",
+      "Cyberpunk",
+      "Interface",
+      "Data Visualization",
+      "Sci-Fi"
     ],
     "thumb": "images/work/data-haven/01.png",
     "subtitle": "A black-box city of encrypted storage towers and magenta signal logic",
@@ -82,7 +89,9 @@
       "HUD",
       "Interface",
       "Monochrome",
-      "Motion"
+      "Motion",
+      "Cyberpunk",
+      "Sci-Fi"
     ],
     "thumb": "images/work/white-noise-telemetry/Head.png",
     "summary": "White Noise Telemetry is a monochrome HUD/FUI study built from luminous scan lines, blurred diagnostic panels, and layered instrument readouts suspended in depth.",
@@ -122,7 +131,9 @@
       "HUD",
       "Interface",
       "Systems",
-      "Motion"
+      "Motion",
+      "Cyberpunk",
+      "Sci-Fi"
     ],
     "thumb": "images/work/signal-lattice/Head.png",
     "summary": "Signal Lattice is a cinematic HUD/FUI study built around dense orange navigation overlays, scan readouts, and layered glass-panel interface depth.",
@@ -245,7 +256,9 @@
       "Cinematic",
       "Sci-Fi",
       "Environment",
-      "Lighting"
+      "Lighting",
+      "Space",
+      "Science"
     ],
     "thumb": "images/work/dark-star.webp",
     "video": {
@@ -357,7 +370,9 @@
       "Cinematic",
       "Environment",
       "Cold",
-      "Atmosphere"
+      "Atmosphere",
+      "Science",
+      "Sci-Fi"
     ],
     "thumb": "images/work/cold-warnings.webp",
     "vimeo": "gbZAz9QDxB8",
@@ -397,7 +412,8 @@
       "Environment",
       "Cyberpunk",
       "Atmosphere",
-      "Sci-Fi"
+      "Sci-Fi",
+      "Interface"
     ],
     "thumb": "images/work/ghost-signals.webp",
     "video": {
@@ -443,7 +459,9 @@
       "Environment",
       "Lunar",
       "Moon",
-      "Sci-Fi"
+      "Sci-Fi",
+      "Space",
+      "Science"
     ],
     "thumb": "images/work/colony.png",
     "summary": "A perpetual lunar sunset, built in Unreal Engine 5, set at Shackleton Extraction Facility on the lunar south pole; a He-3 and hydrogen mining operation on the Gerlache Ridge.",
@@ -516,7 +534,9 @@
       "Cinema 4D",
       "Environment",
       "Sci-Fi",
-      "Arnold"
+      "Arnold",
+      "Aerospace",
+      "Aviation"
     ],
     "thumb": "images/work/hangar-5/Hanger_5_043023-New_Take_12.webp",
     "subtitle": "A 3D environment built in Cinema 4D, inside a facility that services things too large to fully see.",
@@ -558,7 +578,10 @@
       "FUI",
       "Motion Design",
       "Aerospace",
-      "HUD"
+      "HUD",
+      "Interface",
+      "Sci-Fi",
+      "Aviation"
     ],
     "thumb": "images/work/aerospace-hud/HUD_002_Cam_006.webp",
     "subtitle": "A layered targeting system, built frame by frame",
@@ -607,7 +630,10 @@
       "FUI",
       "HUD",
       "Cinema 4D",
-      "Octane"
+      "Octane",
+      "Interface",
+      "Cyberpunk",
+      "Sci-Fi"
     ],
     "thumb": "images/work/hud-schema-signal/Head.jpg",
     "subtitle": "Generated interface schematics staged as cinematic signal space",
@@ -648,7 +674,10 @@
       "FUI",
       "HUD",
       "Cinema 4D",
-      "Octane"
+      "Octane",
+      "Interface",
+      "Cyberpunk",
+      "Sci-Fi"
     ],
     "thumb": "images/work/redline-acquisition/Head.png",
     "subtitle": "A redline targeting field built from layered HUD geometry",
@@ -684,7 +713,10 @@
       "Cinema 4D",
       "Octane",
       "Procedural",
-      "FUI"
+      "FUI",
+      "Interface",
+      "Cyberpunk",
+      "Sci-Fi"
     ],
     "thumb": "images/work/data-cubes/GlassUI-Volume_003_Main0242.webp",
     "subtitle": "Procedural forms that hold light",
@@ -726,7 +758,10 @@
       "FUI",
       "Cinema 4D",
       "Procedural",
-      "Octane"
+      "Octane",
+      "Interface",
+      "Cyberpunk",
+      "Sci-Fi"
     ],
     "thumb": "images/work/fui-subtrate/Untitled_1.1.1.jpg.webp",
     "subtitle": "EMMISIVE STRUCTURES",
@@ -759,7 +794,11 @@
       "FUI",
       "Cinema 4D",
       "Aerospace",
-      "Octane"
+      "Octane",
+      "HUD",
+      "Interface",
+      "Aviation",
+      "Sci-Fi"
     ],
     "thumb": "images/work/f35-scan/FUICam_010.webp",
     "subtitle": "The geometry of acquisition.",
@@ -791,7 +830,10 @@
       "Cinema 4D",
       "FUI",
       "Environment",
-      "Lighting"
+      "Lighting",
+      "HUD",
+      "Cyberpunk",
+      "Sci-Fi"
     ],
     "thumb": "images/work/grid-state/BG_008.webp",
     "subtitle": "Maximum signal. Zero known source.",
@@ -874,7 +916,10 @@
       "UE5",
       "Cinematic",
       "Environment",
-      "Horror"
+      "Horror",
+      "Public Health",
+      "Medical",
+      "Science"
     ],
     "thumb": "images/work/outbreak/Still-2026-07-13-185527_1.1.1.webp",
     "video": {
@@ -957,7 +1002,9 @@
       "Interface",
       "Data Visualization",
       "Aviation",
-      "Real-Time"
+      "Real-Time",
+      "FUI",
+      "Interactive"
     ],
     "thumb": "images/work/msy/msy-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/msy.html",
@@ -1000,7 +1047,9 @@
       "Interface",
       "Data Visualization",
       "Science",
-      "Sonification"
+      "Sonification",
+      "Education",
+      "Interactive"
     ],
     "thumb": "images/work/elemental-blocks/elemental-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/periodic-table.html",
@@ -1039,7 +1088,11 @@
       "Interface",
       "Data Visualization",
       "Public Health",
-      "Editorial"
+      "Editorial",
+      "Science",
+      "Medical",
+      "Education",
+      "Interactive"
     ],
     "thumb": "images/work/outbreaks-global-epidemic-intelligence/outbreaks-hero.jpg",
     "liveLinks": [
@@ -1103,7 +1156,10 @@
       "Interface",
       "Data Visualization",
       "Medical",
-      "FUI"
+      "FUI",
+      "Science",
+      "Education",
+      "Interactive"
     ],
     "thumb": "images/work/neurodegenerative-alzheimer-mri-review/brain-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/brain.html",
@@ -1146,7 +1202,8 @@
       "Interface",
       "Logistics",
       "Data Visualization",
-      "FUI"
+      "FUI",
+      "Interactive"
     ],
     "thumb": "images/work/cargo-meridian/cargo-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/cargo/",
@@ -1189,7 +1246,9 @@
       "Interface",
       "Space",
       "Data Visualization",
-      "FUI"
+      "FUI",
+      "Science",
+      "Interactive"
     ],
     "thumb": "images/work/transit/transit-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/transit.html",
@@ -1271,7 +1330,9 @@
       "Interface",
       "Space",
       "Data Visualization",
-      "FUI"
+      "FUI",
+      "Science",
+      "Interactive"
     ],
     "thumb": "images/work/missionlaunch/missionlaunch-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/missionlaunch.html",
@@ -1314,7 +1375,9 @@
       "Interface",
       "Data Visualization",
       "Finance",
-      "FUI"
+      "FUI",
+      "Interactive",
+      "Civic"
     ],
     "thumb": "images/work/capitol-ledger/capitol-ledger-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/capitol-ledger.html",
@@ -1353,7 +1416,9 @@
       "Interface",
       "Data Visualization",
       "Civic",
-      "Editorial"
+      "Editorial",
+      "Education",
+      "Interactive"
     ],
     "thumb": "images/work/every-moment-votes/every-moment-votes-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/everymomentvotes.html",
@@ -1396,7 +1461,9 @@
       "Interface",
       "Data Visualization",
       "Weather",
-      "FUI"
+      "FUI",
+      "Science",
+      "Interactive"
     ],
     "thumb": "images/work/landfall/landfall-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/landfall.html",
@@ -1439,7 +1506,9 @@
       "Interface",
       "Generative Design",
       "Typography",
-      "FUI"
+      "FUI",
+      "Cyberpunk",
+      "Interactive"
     ],
     "thumb": "images/work/spec-forge/spec-forge-hero.png",
     "liveUrl": "https://interfaces.rondomingue.com/spec-forge.html",
