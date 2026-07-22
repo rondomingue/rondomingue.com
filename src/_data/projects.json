@@ -34,11 +34,11 @@
       "images/work/ravens-isle/Still-2026-05-27-203006_1.1.3.webp"
     ],
     "format": "Cinematic environment study",
-    "sourcePage": "https://www.rondomingue.com/work/ravens-isle",
+    "sourcePage": "https://www.rondomingue.com/work/ravens-isle/ravens-isle",
     "nativeVideo": {
       "id": "9958a1b6-3fb4-419c-9323-a43c3359b62b",
       "durationSeconds": 90.041667,
-      "sourcePage": "https://www.rondomingue.com/work/ravens-isle"
+      "sourcePage": "https://www.rondomingue.com/work/ravens-isle/ravens-isle"
     }
   },
   {
@@ -526,13 +526,13 @@
     "format": "HUD / FUI render study",
     "sourcePage": "https://www.rondomingue.com/work/redline-acquisition",
     "images": [
-      "images/work/redline-acquisition/Head.jpg",
-      "images/work/redline-acquisition/09.jpg",
-      "images/work/redline-acquisition/10.jpg",
-      "images/work/redline-acquisition/Prime.jpg",
-      "images/work/redline-acquisition/08.jpg",
-      "images/work/redline-acquisition/01.jpg",
-      "images/work/redline-acquisition/06.jpg"
+      "images/work/redline-acquisition/Head.png",
+      "images/work/redline-acquisition/09.png",
+      "images/work/redline-acquisition/10.png",
+      "images/work/redline-acquisition/Prime.png",
+      "images/work/redline-acquisition/08.png",
+      "images/work/redline-acquisition/01.png",
+      "images/work/redline-acquisition/06.png"
     ]
   },
   {

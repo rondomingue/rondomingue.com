@@ -28,12 +28,13 @@ permalink: photography/index.html
         <img
           src="{{ ('/' + photograph.src) | url }}"
           alt="{{ photograph.alt }}"
+          data-caption="{{ photograph.caption or ('Photograph ' + loop.index) }}"
           width="{{ photograph.width }}"
           height="{{ photograph.height }}"
           loading="{% if loop.index <= 8 %}eager{% else %}lazy{% endif %}"
           {% if loop.index <= 4 %}fetchpriority="high"{% endif %}>
         <span class="illustration-tile-meta">
-          <span>Photograph {{ loop.index }}</span>
+          <span>{{ photograph.caption or ('Photograph ' + loop.index) }}</span>
           <span>{{ photograph.orientation }}</span>
         </span>
       </button>
@@ -86,7 +87,7 @@ permalink: photography/index.html
       const source = visibleTiles[activeIndex].querySelector('img');
       image.src = source.currentSrc || source.src;
       image.alt = source.alt;
-      caption.textContent = `Photograph ${activeIndex + 1} / ${visibleTiles.length}`;
+      caption.textContent = source.dataset.caption || `Photograph ${activeIndex + 1} / ${visibleTiles.length}`;
     };
 
     const open = tile => {

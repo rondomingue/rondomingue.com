@@ -29,12 +29,13 @@ permalink: illustration/index.html
         <img
           src="{{ ('/' + artwork.src) | url }}"
           alt="{{ artwork.alt }}"
+          data-caption="{{ artwork.caption or artwork.alt }}"
           width="{{ artwork.width }}"
           height="{{ artwork.height }}"
           loading="{% if loop.index <= 8 %}eager{% else %}lazy{% endif %}"
           {% if loop.index <= 4 %}fetchpriority="high"{% endif %}>
         <span class="illustration-tile-meta">
-          <span>{{ artwork.alt }}</span>
+          <span>{{ artwork.caption or artwork.alt }}</span>
           <span>{{ artwork.orientation }}</span>
         </span>
       </button>
@@ -87,7 +88,7 @@ permalink: illustration/index.html
       const image = visibleTiles[activeIndex].querySelector('img');
       lightboxImage.src = image.currentSrc || image.src;
       lightboxImage.alt = image.alt;
-      lightboxCaption.textContent = `${image.alt} — ${activeIndex + 1} / ${visibleTiles.length}`;
+      lightboxCaption.textContent = `${image.dataset.caption || image.alt} — ${activeIndex + 1} / ${visibleTiles.length}`;
     };
 
     const open = tile => {
