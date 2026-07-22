@@ -1364,6 +1364,42 @@
       {
         "src": "images/work/spec-forge/spec-forge-hero.png",
         "alt": "SPEC//FORGE procedural cyberpunk interface and asset generator"
+      },
+      {
+        "src": "images/work/spec-forge/specforge-neon-spec.png",
+        "alt": "SPEC//FORGE neon spec interface panel"
+      },
+      {
+        "src": "images/work/spec-forge/specforge-kiss-barcode.png",
+        "alt": "SPEC//FORGE barcode poster composition"
+      },
+      {
+        "src": "images/work/spec-forge/specforge-ghost-code.png",
+        "alt": "SPEC//FORGE ghost code interface layout"
+      },
+      {
+        "src": "images/work/spec-forge/specforge-derez-hud.png",
+        "alt": "SPEC//FORGE Derez HUD chart layout"
+      },
+      {
+        "src": "images/work/spec-forge/specforge-peri-5x5-sheet.png",
+        "alt": "SPEC//FORGE Peri 5x5 contact sheet"
+      },
+      {
+        "src": "images/work/spec-forge/specforge-coolant-chart.png",
+        "alt": "SPEC//FORGE coolant chart interface"
+      },
+      {
+        "src": "images/work/spec-forge/specforge-carbon-5x5-sheet.png",
+        "alt": "SPEC//FORGE carbon 5x5 contact sheet"
+      },
+      {
+        "src": "images/work/spec-forge/specforge-ghost-5x5-sheet.png",
+        "alt": "SPEC//FORGE ghost 5x5 contact sheet"
+      },
+      {
+        "src": "images/work/spec-forge/specforge-iota-10x10-sheet.png",
+        "alt": "SPEC//FORGE Iota 10x10 contact sheet"
       }
     ]
   }
