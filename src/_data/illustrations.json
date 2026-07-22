@@ -118,16 +118,14 @@
     "alt": "Illustration 2",
     "width": 1152,
     "height": 2048,
-    "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1696889517342-C0FISZGQ64Y6L8JXAZ51/image-asset.jpeg"
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/DUNE_Poster.webp",
     "alt": "DUNE Poster",
     "width": 1440,
     "height": 1800,
-    "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1695493770777-ZX4J75BVB7KJ2CZLYGIB/DUNE_Poster.jpg"
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/illustration-1633811038218.webp",
@@ -164,8 +162,7 @@
     "alt": "Louis print 02",
     "width": 1920,
     "height": 1920,
-    "orientation": "square",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1557416906437-5RZ553SJAHB5PIPILATZ/Louis_print_02.jpg"
+    "orientation": "square"
   },
   {
     "src": "images/illustration/MagazineStreet_01.webp",

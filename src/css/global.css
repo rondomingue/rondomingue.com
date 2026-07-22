@@ -621,7 +621,7 @@ img { display: block; max-width: 100%; }
 }
 
 .section-count-number {
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 .work-grid {
