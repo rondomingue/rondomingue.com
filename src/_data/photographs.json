@@ -4,14 +4,16 @@
     "alt": "Photography by Ron Domingue — 1",
     "width": 1125,
     "height": 2000,
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "caption": "Tuba Player"
   },
   {
     "src": "images/photography/DSC00107.webp",
     "alt": "Photography by Ron Domingue — 2",
     "width": 2000,
     "height": 1334,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Sazerac Bar"
   },
   {
     "src": "images/photography/honeybee-001.webp",
@@ -58,21 +60,24 @@
     "alt": "Photography by Ron Domingue — 8",
     "width": 2000,
     "height": 1330,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Macro Lens"
   },
   {
     "src": "images/photography/DSC00627.webp",
     "alt": "Photography by Ron Domingue — 9",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Friendsgiving"
   },
   {
     "src": "images/photography/DSC00672-2.webp",
     "alt": "Photography by Ron Domingue — 10",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Friendsgiving"
   },
   {
     "src": "images/photography/DSC00162.webp",
@@ -95,63 +100,72 @@
     "alt": "Photography by Ron Domingue — 13",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Cooks Parade Route"
   },
   {
     "src": "images/photography/DSC00746.webp",
     "alt": "Photography by Ron Domingue — 14",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Thankgiving Day Fairgrounds"
   },
   {
     "src": "images/photography/DSC00236.webp",
     "alt": "Photography by Ron Domingue — 15",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Mississippi River New Orleans"
   },
   {
     "src": "images/photography/DSC09372-2.webp",
     "alt": "Photography by Ron Domingue — 16",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Fairgrounds"
   },
   {
     "src": "images/photography/DSC00304.webp",
     "alt": "Photography by Ron Domingue — 17",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Memorial Terrorist Attack"
   },
   {
     "src": "images/photography/DSC00307.webp",
     "alt": "Photography by Ron Domingue — 18",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Memorial Terrorist Attack"
   },
   {
     "src": "images/photography/DSC00390.webp",
     "alt": "Photography by Ron Domingue — 19",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Kyle"
   },
   {
     "src": "images/photography/DSC00438.webp",
     "alt": "Photography by Ron Domingue — 20",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Snow Day NOLA"
   },
   {
     "src": "images/photography/DSC00441.webp",
     "alt": "Photography by Ron Domingue — 21",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Snow Day NOLA"
   },
   {
     "src": "images/photography/4B61D033-CBD1-4262-831A-3EFA4353C9A1.webp",

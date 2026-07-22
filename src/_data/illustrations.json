@@ -132,14 +132,6 @@
     "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1633811038218-5KP8XPHL9E7ERZUSLFX8/image-asset.jpeg"
   },
   {
-    "src": "images/illustration/illustration-1636123564204.webp",
-    "alt": "Illustration 5",
-    "width": 1467,
-    "height": 2200,
-    "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1636123564204-NNO8HYXR2K1TI6HRUEA6/image-asset.jpeg"
-  },
-  {
     "src": "images/illustration/illustration-1620315536921.webp",
     "alt": "Illustration 6",
     "width": 1424,
@@ -333,7 +325,7 @@
   },
   {
     "src": "images/illustration/IMG_0579.webp",
-    "alt": "Illustration 34",
+    "alt": "Eva",
     "width": 1649,
     "height": 2200,
     "orientation": "portrait",
@@ -341,7 +333,7 @@
   },
   {
     "src": "images/illustration/illustration-1447188354626.webp",
-    "alt": "Illustration 35",
+    "alt": "Khalessi & Drogo",
     "width": 1200,
     "height": 1641,
     "orientation": "portrait",
@@ -428,43 +420,11 @@
     "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1400261931722-V8J5GQG02CA6TF0GQM27/Indy.jpg"
   },
   {
-    "src": "images/illustration/Joan.webp",
-    "alt": "Joan",
-    "width": 736,
-    "height": 663,
-    "orientation": "square",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1400261063106-7COXHZ4GCXE5YQKVJYFO/Joan.jpg"
-  },
-  {
-    "src": "images/illustration/Betty.webp",
-    "alt": "Betty",
-    "width": 1200,
-    "height": 1200,
-    "orientation": "square",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1400264023085-QZ5Q3J67M1KHTQ5K8A1F/Betty.jpg"
-  },
-  {
     "src": "images/illustration/Breaking-Bad.webp",
     "alt": "Breaking Bad",
     "width": 736,
     "height": 499,
     "orientation": "landscape",
     "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1400262162084-EGFN2QY7QHBHAFIUVD0Q/Breaking+Bad.jpg"
-  },
-  {
-    "src": "images/illustration/SPR.webp",
-    "alt": "SPR",
-    "width": 736,
-    "height": 472,
-    "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1400262467457-BGV5X0K91BC9B1FGN1CR/SPR.jpg"
-  },
-  {
-    "src": "images/illustration/James.webp",
-    "alt": "James",
-    "width": 1919,
-    "height": 1335,
-    "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1400263112283-VKRM9BOHS0UUPZCFYAA3/James.jpg"
   }
 ]
