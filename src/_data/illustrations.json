@@ -7,6 +7,13 @@
     "orientation": "portrait"
   },
   {
+    "src": "images/illustration/Spinner2049.jpg",
+    "alt": "Blade Runner 2049 Spinner",
+    "width": 1500,
+    "height": 628,
+    "orientation": "landscape"
+  },
+  {
     "src": "images/illustration/cityscape-002.png",
     "alt": "Cityscape 002",
     "width": 2200,
@@ -32,7 +39,7 @@
     "alt": "Evolution",
     "width": 2110,
     "height": 2200,
-    "orientation": "square"
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/BookCort.webp",
@@ -40,7 +47,6 @@
     "width": 1920,
     "height": 1600,
     "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1769551686906-3VAUNAGREA113IF6SIC7/BookCort.jpg",
     "caption": "Shoi-Ming and the Golden Kite"
   },
   {
@@ -52,11 +58,18 @@
     "caption": "Shoi-Ming and the Golden Kite"
   },
   {
-    "src": "images/illustration/joi-and-k.png",
+    "src": "images/illustration/JoiAndK.jpg",
     "alt": "Joi and K",
-    "width": 2200,
-    "height": 1650,
+    "width": 1500,
+    "height": 1125,
     "orientation": "landscape"
+  },
+  {
+    "src": "images/illustration/Joi.jpg",
+    "alt": "Joi",
+    "width": 1500,
+    "height": 2667,
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/leah-chase.png",
@@ -136,23 +149,21 @@
     "alt": "Illustration 6",
     "width": 1424,
     "height": 2200,
-    "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1620315536921-22O7X9YRAXN30MGOOLHA/image-asset.jpeg"
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/NationalChampioship_Mural.webp",
     "alt": "National Champioship Mural",
     "width": 1920,
     "height": 1164,
-    "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1578685899393-3QGG1TR72ZJYS3WNBS3V/NationalChampioship_Mural.jpg"
+    "orientation": "landscape"
   },
   {
     "src": "images/illustration/ECa38H1UwAAiMhK.webp",
     "alt": "ECa38H1Uw AAi Mh K",
     "width": 1612,
     "height": 1763,
-    "orientation": "square",
+    "orientation": "portrait",
     "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1566518006516-NZFE0EDARCNGTHRR6WSG/ECa38H1UwAAiMhK.jpeg"
   },
   {
@@ -228,20 +239,22 @@
     "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1544742051902-YMI1MO32DMC38YZZWGSJ/111317_Epictetus_Poster_Blue.jpg"
   },
   {
-    "src": "images/illustration/IMG_0580.webp",
-    "alt": "Illustration 20",
+    "src": "images/illustration/joi.webp",
+    "alt": "Joi",
     "width": 1238,
     "height": 2200,
     "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1544824295244-U8P9SXWU2GPJOZQDWYVA/IMG_0580.png"
+    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1544824295244-U8P9SXWU2GPJOZQDWYVA/IMG_0580.png",
+    "caption": "Joi"
   },
   {
     "src": "images/illustration/WWII03.webp",
-    "alt": "WWII03",
+    "alt": "International Conference on WWII",
     "width": 2200,
     "height": 1237,
     "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1490392968213-BKW404K8JA4T1TE9BG4Y/WWII03.jpg"
+    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1490392968213-BKW404K8JA4T1TE9BG4Y/WWII03.jpg",
+    "caption": "International Conference on WWII"
   },
   {
     "src": "images/illustration/illustration-1447186889202.webp",
