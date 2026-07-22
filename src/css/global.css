@@ -455,7 +455,14 @@ img { display: block; max-width: 100%; }
 
 .reel-shadowbox-header h2 { color: rgba(238,238,240,0.58); }
 
-.reel-shadowbox-close {
+.reel-shadowbox-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reel-shadowbox-close,
+.reel-shadowbox-fullscreen {
   border: 0;
   padding: 8px;
   background: transparent;
@@ -463,7 +470,10 @@ img { display: block; max-width: 100%; }
   cursor: pointer;
 }
 
-.reel-shadowbox-close:hover { color: var(--accent); }
+.reel-shadowbox-close:hover,
+.reel-shadowbox-fullscreen:hover { color: var(--accent); }
+
+.reel-shadowbox-fullscreen { display: none; }
 
 .reel-shadowbox-player {
   position: relative;
@@ -1690,8 +1700,31 @@ img { display: block; max-width: 100%; }
   .project-detail { padding: 72px 18px 80px; }
   .illustration-index { padding-top: 76px; }
   .about-content-col { padding-top: 34px; }
-  .reel-shadowbox { padding: 16px; }
+  .reel-shadowbox {
+    padding: 12px;
+    place-items: center;
+  }
+  .reel-shadowbox-panel {
+    width: min(calc(100vw - 24px), calc((100dvh - 108px) * 16 / 9));
+    max-height: calc(100dvh - 24px);
+  }
+  .reel-shadowbox-panel:fullscreen {
+    width: 100vw;
+    height: 100vh;
+    border: 0;
+    border-radius: 0;
+    background: #000;
+  }
+  .reel-shadowbox-panel:fullscreen .reel-shadowbox-header {
+    height: 48px;
+  }
+  .reel-shadowbox-panel:fullscreen .reel-shadowbox-player {
+    height: calc(100vh - 48px);
+    aspect-ratio: auto;
+  }
   .reel-shadowbox-header { padding-inline: 14px 8px; }
+  .reel-shadowbox-header h2 { max-width: 42vw; }
+  .reel-shadowbox-fullscreen { display: inline-flex; }
   .work-filters { display: none; }
   .project-tags { padding: 14px; }
   .illustration-mosaic { columns: 1; }

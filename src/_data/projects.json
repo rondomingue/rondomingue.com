@@ -47,7 +47,8 @@
       "Interface",
       "Data Visualization",
       "Cyberpunk",
-      "Sci-Fi"
+      "Sci-Fi",
+      "Procedural"
     ],
     "thumb": "images/work/data-haven/01.png",
     "subtitle": "A black-box city of encrypted storage towers and magenta signal logic",
@@ -89,7 +90,8 @@
       "Motion Design",
       "Monochrome",
       "Cyberpunk",
-      "Sci-Fi"
+      "Sci-Fi",
+      "Procedural"
     ],
     "thumb": "images/work/white-noise-telemetry/Head.png",
     "summary": "White Noise Telemetry is a monochrome HUD/FUI study built from luminous scan lines, blurred diagnostic panels, and layered instrument readouts suspended in depth.",
@@ -130,7 +132,8 @@
       "Interface",
       "Motion Design",
       "Cyberpunk",
-      "Sci-Fi"
+      "Sci-Fi",
+      "Procedural"
     ],
     "thumb": "images/work/signal-lattice/Head.png",
     "summary": "Signal Lattice is a cinematic HUD/FUI study built around dense orange navigation overlays, scan readouts, and layered glass-panel interface depth.",
@@ -169,7 +172,8 @@
       "Cinematic",
       "Environment",
       "Atmosphere",
-      "Storm"
+      "Storm",
+      "Weather"
     ],
     "thumb": "images/work/ravens-isle/ravens-isle.png",
     "vimeo": "P_hXaVLEV2w",
@@ -368,7 +372,8 @@
       "Environment",
       "Atmosphere",
       "Science",
-      "Sci-Fi"
+      "Sci-Fi",
+      "Weather"
     ],
     "thumb": "images/work/cold-warnings.webp",
     "vimeo": "gbZAz9QDxB8",
@@ -626,7 +631,8 @@
       "Cinema 4D",
       "Octane",
       "Cyberpunk",
-      "Sci-Fi"
+      "Sci-Fi",
+      "Procedural"
     ],
     "thumb": "images/work/hud-schema-signal/Head.jpg",
     "subtitle": "Generated interface schematics staged as cinematic signal space",
@@ -670,7 +676,8 @@
       "Cinema 4D",
       "Octane",
       "Cyberpunk",
-      "Sci-Fi"
+      "Sci-Fi",
+      "Procedural"
     ],
     "thumb": "images/work/redline-acquisition/Head.png",
     "subtitle": "A redline targeting field built from layered HUD geometry",
@@ -754,7 +761,8 @@
       "FUI",
       "Interface",
       "Cyberpunk",
-      "Sci-Fi"
+      "Sci-Fi",
+      "HUD"
     ],
     "thumb": "images/work/fui-subtrate/Untitled_1.1.1.jpg.webp",
     "subtitle": "EMMISIVE STRUCTURES",
@@ -791,7 +799,8 @@
       "Interface",
       "Aerospace",
       "Aviation",
-      "Sci-Fi"
+      "Sci-Fi",
+      "Procedural"
     ],
     "thumb": "images/work/f35-scan/FUICam_010.webp",
     "subtitle": "The geometry of acquisition.",
@@ -827,7 +836,8 @@
       "Environment",
       "Lighting",
       "Cyberpunk",
-      "Sci-Fi"
+      "Sci-Fi",
+      "Procedural"
     ],
     "thumb": "images/work/grid-state/BG_008.webp",
     "subtitle": "Maximum signal. Zero known source.",
@@ -1000,7 +1010,8 @@
       "Interactive",
       "Aviation",
       "Real-Time",
-      "Logistics"
+      "Logistics",
+      "Monochrome"
     ],
     "thumb": "images/work/msy/msy-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/msy.html",
@@ -1045,7 +1056,8 @@
       "Science",
       "Education",
       "Interactive",
-      "Sonification"
+      "Sonification",
+      "Monochrome"
     ],
     "thumb": "images/work/elemental-blocks/elemental-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/periodic-table.html",
@@ -1088,7 +1100,8 @@
       "Medical",
       "Education",
       "Interactive",
-      "Editorial"
+      "Editorial",
+      "Historical"
     ],
     "thumb": "images/work/outbreaks-global-epidemic-intelligence/outbreaks-hero.jpg",
     "liveLinks": [
@@ -1155,7 +1168,8 @@
       "Science",
       "Medical",
       "Education",
-      "Interactive"
+      "Interactive",
+      "Public Health"
     ],
     "thumb": "images/work/neurodegenerative-alzheimer-mri-review/brain-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/brain.html",
@@ -1246,7 +1260,8 @@
       "Space",
       "Science",
       "Sci-Fi",
-      "Real-Time"
+      "Real-Time",
+      "Aerospace"
     ],
     "thumb": "images/work/transit/transit-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/transit.html",
@@ -1332,7 +1347,8 @@
       "Space",
       "Science",
       "Sci-Fi",
-      "Real-Time"
+      "Real-Time",
+      "Aerospace"
     ],
     "thumb": "images/work/missionlaunch/missionlaunch-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/missionlaunch.html",
@@ -1418,7 +1434,8 @@
       "Education",
       "Interactive",
       "Civic",
-      "Editorial"
+      "Editorial",
+      "Historical"
     ],
     "thumb": "images/work/every-moment-votes/every-moment-votes-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/everymomentvotes.html",
@@ -1464,7 +1481,8 @@
       "Interactive",
       "Weather",
       "Science",
-      "Storm"
+      "Storm",
+      "Historical"
     ],
     "thumb": "images/work/landfall/landfall-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/landfall.html",
