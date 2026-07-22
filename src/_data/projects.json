@@ -1,5 +1,39 @@
 [
   {
+    "title": "Data Haven",
+    "slug": "data-haven",
+    "year": "2026",
+    "tags": [
+      "Cinema 4D",
+      "Octane",
+      "FUI",
+      "Concept"
+    ],
+    "thumb": "images/work/data-haven/01.png",
+    "subtitle": "A black-box city of encrypted storage towers and magenta signal logic",
+    "summary": "Data Haven is a cinematic cube-city study built from stacked black data blocks, glowing magenta interface marks, shallow focus, and dense label systems.",
+    "description": [
+      "The series treats storage, identity, and machine-readable signage as architectural mass. Tall black modules become a miniature data district, with printed interface fragments, QR-like markings, and luminous pink indicators suggesting a private network of sealed information.",
+      "The selected frames emphasize macro scale, depth of field, reflective surfaces, and the contrast between soft photographic blur and precise technical labeling."
+    ],
+    "processTags": [
+      "Cinema 4D",
+      "Octane",
+      "FUI Design",
+      "Look Development",
+      "Cinematic UI"
+    ],
+    "format": "Cinematic FUI object study",
+    "sourcePage": "https://www.rondomingue.com/work/data-haven",
+    "images": [
+      "images/work/data-haven/01.png",
+      "images/work/data-haven/02.png",
+      "images/work/data-haven/03.png",
+      "images/work/data-haven/04.png",
+      "images/work/data-haven/05.png"
+    ]
+  },
+  {
     "title": "White Noise Telemetry",
     "slug": "white-noise-telemetry",
     "year": "2026",
