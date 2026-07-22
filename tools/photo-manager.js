@@ -526,7 +526,10 @@ const appHtml = `<!doctype html>
         }
         if (action === "save-gallery-item") {
           const card = button.closest(".card");
-          const metadata = Object.fromEntries(new FormData(card).entries());
+          const metadata = {};
+          card.querySelectorAll("input[name], textarea[name], select[name]").forEach(input => {
+            metadata[input.name] = input.value;
+          });
           await mutate("/api/gallery/save-item", { src, metadata }, "Text saved.");
         }
         if (action === "remove" && confirm("Remove this entry from JSON? The image file will stay in the folder.")) await mutate("/api/gallery/remove", { src }, "JSON entry removed.");
