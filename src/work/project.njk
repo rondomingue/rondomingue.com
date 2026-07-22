@@ -72,14 +72,6 @@ bodyClass: page-work page-project
   </div>
   {% endif %}
 
-  {% if project.nativeVideo and project.nativeVideo.sourcePage %}
-  <div class="project-video-source">
-    <span class="project-video-source-label">Original film</span>
-    <a href="{{ project.nativeVideo.sourcePage }}" target="_blank" rel="noopener">
-      Watch on the original Squarespace project page
-    </a>
-  </div>
-  {% endif %}
 
   {% if project.images and project.images.length %}
   <section class="project-gallery" aria-label="{{ project.title }} image gallery">

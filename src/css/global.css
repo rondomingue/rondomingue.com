@@ -66,32 +66,6 @@ img { display: block; max-width: 100%; }
   background: rgba(79, 200, 232, 0.08);
 }
 
-.project-video-source {
-  margin: 0 48px 64px;
-  padding: 20px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.project-video-source-label { color: var(--text-faint); }
-.project-video-source a { color: var(--cyan); }
-.project-video-source a:hover { color: var(--text); }
-
-@media (max-width: 640px) {
-  .project-video-source {
-    margin-inline: 24px;
-    align-items: flex-start;
-    flex-direction: column;
-  }
-}
 
 /* ─────────────────────────────────────────────
    HEADER
