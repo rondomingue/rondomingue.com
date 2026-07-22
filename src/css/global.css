@@ -445,7 +445,8 @@ img { display: block; max-width: 100%; }
 }
 
 .reel-shadowbox-header h2,
-.reel-shadowbox-close {
+.reel-shadowbox-close,
+.reel-shadowbox-fullscreen {
   font-family: 'Space Mono', monospace;
   font-size: 9px;
   font-weight: 400;
@@ -1598,10 +1599,13 @@ img { display: block; max-width: 100%; }
   .project-meta { grid-template-columns: 1fr; }
   .work-grid { grid-template-columns: 1fr; }
   .work-card--featured { grid-column: 1; }
-  .about-hero { grid-template-columns: 1fr; }
-  .about-photo-col { height: 60vh; }
+  .about-hero {
+    grid-template-columns: 1fr;
+    padding-top: 0;
+  }
+  .about-photo-col { height: min(54vh, 430px); }
   .about-photo-wrap { position: relative; top: 0; height: 100%; }
-  .about-content-col { padding: 48px 24px 64px; }
+  .about-content-col { padding: 38px 24px 64px; }
   .site-footer { padding: 20px 24px; }
   .illustration-index { padding: 108px 24px 72px; }
   .illustration-header { grid-template-columns: 1fr; gap: 28px; }
@@ -1708,18 +1712,30 @@ img { display: block; max-width: 100%; }
     width: min(calc(100vw - 24px), calc((100dvh - 108px) * 16 / 9));
     max-height: calc(100dvh - 24px);
   }
-  .reel-shadowbox-panel:fullscreen {
+  .reel-shadowbox.is-reel-expanded {
+    padding: 0;
+    background: #000;
+  }
+  .reel-shadowbox.is-reel-expanded .reel-shadowbox-panel,
+  .reel-shadowbox-panel:fullscreen,
+  .reel-shadowbox-panel:-webkit-full-screen {
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
+    max-height: none;
     border: 0;
     border-radius: 0;
     background: #000;
   }
-  .reel-shadowbox-panel:fullscreen .reel-shadowbox-header {
+  .reel-shadowbox.is-reel-expanded .reel-shadowbox-header,
+  .reel-shadowbox-panel:fullscreen .reel-shadowbox-header,
+  .reel-shadowbox-panel:-webkit-full-screen .reel-shadowbox-header {
     height: 48px;
   }
-  .reel-shadowbox-panel:fullscreen .reel-shadowbox-player {
-    height: calc(100vh - 48px);
+  .reel-shadowbox.is-reel-expanded .reel-shadowbox-player,
+  .reel-shadowbox-panel:fullscreen .reel-shadowbox-player,
+  .reel-shadowbox-panel:-webkit-full-screen .reel-shadowbox-player {
+    width: 100vw;
+    height: calc(100dvh - 48px);
     aspect-ratio: auto;
   }
   .reel-shadowbox-header { padding-inline: 14px 8px; }

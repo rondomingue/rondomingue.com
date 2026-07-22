@@ -326,15 +326,19 @@ bodyClass: page-home
   async function requestReelLandscape() {
     if (!mobileQuery.matches || !reelPanel) return;
 
+    reelShadowbox.classList.add('is-reel-expanded');
+    reelFullscreen.textContent = 'Expanded';
+
     try {
-      if (!document.fullscreenElement && reelPanel.requestFullscreen) {
-        await reelPanel.requestFullscreen();
+      const requestFullscreen = reelPanel.requestFullscreen || reelPanel.webkitRequestFullscreen;
+      if (!document.fullscreenElement && !document.webkitFullscreenElement && requestFullscreen) {
+        await requestFullscreen.call(reelPanel);
       }
       if (screen.orientation && screen.orientation.lock) {
         await screen.orientation.lock('landscape');
       }
     } catch (error) {
-      // Mobile browsers may block orientation lock unless fullscreen is available.
+      // The expanded class above is the dependable mobile fallback.
     }
   }
 
@@ -342,16 +346,18 @@ bodyClass: page-home
     reelShadowbox.hidden = false;
     reelPlayer.src = reelPlayer.dataset.src;
     document.body.classList.add('reel-is-open');
-    requestReelLandscape();
     reelClose.focus();
   }
 
   async function closeReel() {
     reelShadowbox.hidden = true;
+    reelShadowbox.classList.remove('is-reel-expanded');
+    reelFullscreen.textContent = 'Fullscreen';
     reelPlayer.src = 'about:blank';
     document.body.classList.remove('reel-is-open');
     if (screen.orientation && screen.orientation.unlock) screen.orientation.unlock();
     if (document.fullscreenElement && document.exitFullscreen) await document.exitFullscreen().catch(() => {});
+    else if (document.webkitFullscreenElement && document.webkitExitFullscreen) document.webkitExitFullscreen();
     reelOpen.focus();
   }
 
@@ -364,6 +370,14 @@ bodyClass: page-home
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && !reelShadowbox.hidden) closeReel();
   });
+  const syncFullscreenState = () => {
+    if (!document.fullscreenElement && !document.webkitFullscreenElement && !reelShadowbox.hidden) {
+      reelShadowbox.classList.remove('is-reel-expanded');
+      reelFullscreen.textContent = 'Fullscreen';
+    }
+  };
+  document.addEventListener('fullscreenchange', syncFullscreenState);
+  document.addEventListener('webkitfullscreenchange', syncFullscreenState);
 
   // ── Scroll hint ─────────────────────────────────────────────────
   const scrollHint = document.getElementById('scroll-hint');
