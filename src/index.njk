@@ -100,7 +100,10 @@ bodyClass: page-home
   <div class="reel-shadowbox-panel">
     <div class="reel-shadowbox-header">
       <h2 id="reel-title">Ron Domingue — Reel</h2>
-      <button class="reel-shadowbox-close" id="reel-close" type="button" aria-label="Close reel">Close</button>
+      <div class="reel-shadowbox-actions">
+        <button class="reel-shadowbox-fullscreen" id="reel-fullscreen" type="button" aria-label="Play reel fullscreen">Fullscreen</button>
+        <button class="reel-shadowbox-close" id="reel-close" type="button" aria-label="Close reel">Close</button>
+      </div>
     </div>
     <div class="reel-shadowbox-player">
       <iframe
@@ -315,23 +318,45 @@ bodyClass: page-home
   const reelOpen = document.getElementById('reel-open');
   const reelShadowbox = document.getElementById('reel-shadowbox');
   const reelClose = document.getElementById('reel-close');
+  const reelFullscreen = document.getElementById('reel-fullscreen');
   const reelPlayer = document.getElementById('reel-player');
+  const reelPanel = document.querySelector('.reel-shadowbox-panel');
+  const mobileQuery = window.matchMedia('(max-width: 600px)');
+
+  async function requestReelLandscape() {
+    if (!mobileQuery.matches || !reelPanel) return;
+
+    try {
+      if (!document.fullscreenElement && reelPanel.requestFullscreen) {
+        await reelPanel.requestFullscreen();
+      }
+      if (screen.orientation && screen.orientation.lock) {
+        await screen.orientation.lock('landscape');
+      }
+    } catch (error) {
+      // Mobile browsers may block orientation lock unless fullscreen is available.
+    }
+  }
 
   function openReel() {
     reelShadowbox.hidden = false;
     reelPlayer.src = reelPlayer.dataset.src;
     document.body.classList.add('reel-is-open');
+    requestReelLandscape();
     reelClose.focus();
   }
 
-  function closeReel() {
+  async function closeReel() {
     reelShadowbox.hidden = true;
     reelPlayer.src = 'about:blank';
     document.body.classList.remove('reel-is-open');
+    if (screen.orientation && screen.orientation.unlock) screen.orientation.unlock();
+    if (document.fullscreenElement && document.exitFullscreen) await document.exitFullscreen().catch(() => {});
     reelOpen.focus();
   }
 
   reelOpen.addEventListener('click', openReel);
+  reelFullscreen.addEventListener('click', requestReelLandscape);
   reelClose.addEventListener('click', closeReel);
   reelShadowbox.addEventListener('click', (event) => {
     if (event.target === reelShadowbox) closeReel();
