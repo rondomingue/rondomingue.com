@@ -386,6 +386,20 @@ const removeProjectImage = (slug, src) => {
   return true;
 };
 
+const moveProjectImage = (slug, src, direction) => {
+  const collection = collectionFor("projects");
+  const projects = readJson(collection.dataFile);
+  const project = projects.find(item => item.slug === slug);
+  if (!project) throw new Error("Project not found.");
+  project.images = project.images || [];
+  const index = project.images.findIndex(image => projectImageSrc(image) === src);
+  const targetIndex = direction === "left" ? index - 1 : index + 1;
+  if (index < 0 || targetIndex < 0 || targetIndex >= project.images.length) return false;
+  [project.images[index], project.images[targetIndex]] = [project.images[targetIndex], project.images[index]];
+  writeJson(collection.dataFile, projects);
+  return true;
+};
+
 const replaceImageReference = (value, oldSrc, newSrc) => {
   if (typeof value === "string") return value === oldSrc ? newSrc : value;
   if (value && typeof value === "object" && value.src === oldSrc) return { ...value, src: newSrc };
@@ -552,6 +566,9 @@ const appHtml = `<!doctype html>
     .mini button { position:absolute; min-height:24px; padding:2px 6px; background:rgba(7,8,10,.72); }
     .mini .mini-rename { top:4px; left:4px; }
     .mini .mini-remove { top:4px; right:4px; }
+    .mini .mini-left { left:4px; top:50%; transform:translateY(-50%); opacity:0; }
+    .mini .mini-right { right:4px; top:50%; transform:translateY(-50%); opacity:0; }
+    .mini:hover .mini-left, .mini:hover .mini-right, .mini:focus-within .mini-left, .mini:focus-within .mini-right { opacity:1; }
     .mini .mini-thumb { left:4px; right:4px; bottom:4px; width:auto; border-color:rgba(200,40,154,.42); background:rgba(200,40,154,.24); opacity:0; transform:translateY(6px); transition:opacity .18s ease, transform .18s ease; }
     .mini:hover .mini-thumb, .mini:focus-within .mini-thumb { opacity:1; transform:translateY(0); }
     .mini.is-current-thumb { border-color:rgba(200,40,154,.74); box-shadow:0 0 0 1px rgba(200,40,154,.22), 0 0 24px rgba(200,40,154,.22); }
@@ -627,7 +644,7 @@ const appHtml = `<!doctype html>
       el("content").innerHTML = '<div class="projects-grid">' + page.items.map(project => {
         const currentThumb = project.thumb || "";
         const cover = currentThumb ? '<img class="thumb project-thumb-preview" src="' + project.thumbUrl + '" alt="' + escapeHtml(project.title) + '" loading="lazy">' : '<div class="thumb project-thumb-preview"></div>';
-        return '<article class="card project-card"><div class="project-cover">' + cover + '<div class="project-cover-badge">Hero image</div></div><form class="project-form" data-slug="' + escapeHtml(project.slug) + '"><div class="name">' + (project.index + 1) + '. ' + escapeHtml(project.title) + '</div><div class="field-grid"><label><span>Title</span><input name="title" value="' + escapeHtml(project.title) + '"></label><label><span>Year</span><input name="year" value="' + escapeHtml(project.year) + '"></label></div><label><span>Slug</span><input name="slug" value="' + escapeHtml(project.slug) + '"></label><label><span>Hero image</span><select name="thumb">' + projectOptions(currentThumb) + '</select></label><label><span>Summary</span><textarea name="summary">' + escapeHtml(project.summary || "") + '</textarea></label><label><span>Description</span><textarea name="description">' + escapeHtml((project.description || []).join("\\n\\n")) + '</textarea></label><label><span>Tags, comma separated</span><input name="tags" value="' + escapeHtml((project.tags || []).join(", ")) + '"></label><label><span>Process tags, comma separated</span><input name="processTags" value="' + escapeHtml((project.processTags || []).join(", ")) + '"></label><label><span>Format</span><input name="format" value="' + escapeHtml(project.format || "") + '"></label><div class="card-actions"><button class="primary" data-action="save-project" type="button">Save</button><button data-action="project-up" type="button">Up</button><button data-action="project-down" type="button">Down</button>' + (currentThumb ? '<button data-action="rename-image" data-src="' + escapeHtml(currentThumb) + '" type="button">Rename Hero</button>' : '') + '</div><label><span>Add gallery image</span><select name="addImage"><option value="">Choose image</option>' + projectOptions("") + '</select></label><div class="card-actions"><button data-action="add-project-image" type="button">Add Image</button></div><div class="gallery-strip">' + project.imageItems.map(image => '<div class="mini ' + (image.src === currentThumb ? 'is-current-thumb' : '') + '"><img src="' + image.url + '" alt="" loading="lazy"><button class="mini-rename" data-action="rename-image" data-src="' + escapeHtml(image.src) + '" type="button">r</button><button class="danger mini-remove" data-action="remove-project-image" data-src="' + escapeHtml(image.src) + '" type="button">x</button><button class="mini-thumb" data-action="set-project-thumb" data-src="' + escapeHtml(image.src) + '" type="button">Use Hero</button></div>').join("") + '</div></form></article>';
+        return '<article class="card project-card"><div class="project-cover">' + cover + '<div class="project-cover-badge">Hero image</div></div><form class="project-form" data-slug="' + escapeHtml(project.slug) + '"><div class="name">' + (project.index + 1) + '. ' + escapeHtml(project.title) + '</div><div class="field-grid"><label><span>Title</span><input name="title" value="' + escapeHtml(project.title) + '"></label><label><span>Year</span><input name="year" value="' + escapeHtml(project.year) + '"></label></div><label><span>Slug</span><input name="slug" value="' + escapeHtml(project.slug) + '"></label><label><span>Hero image</span><select name="thumb">' + projectOptions(currentThumb) + '</select></label><label><span>Summary</span><textarea name="summary">' + escapeHtml(project.summary || "") + '</textarea></label><label><span>Description</span><textarea name="description">' + escapeHtml((project.description || []).join("\\n\\n")) + '</textarea></label><label><span>Tags, comma separated</span><input name="tags" value="' + escapeHtml((project.tags || []).join(", ")) + '"></label><label><span>Process tags, comma separated</span><input name="processTags" value="' + escapeHtml((project.processTags || []).join(", ")) + '"></label><label><span>Format</span><input name="format" value="' + escapeHtml(project.format || "") + '"></label><div class="card-actions"><button class="primary" data-action="save-project" type="button">Save</button><button data-action="project-up" type="button">Up</button><button data-action="project-down" type="button">Down</button>' + (currentThumb ? '<button data-action="rename-image" data-src="' + escapeHtml(currentThumb) + '" type="button">Rename Hero</button>' : '') + '</div><label><span>Add gallery image</span><select name="addImage"><option value="">Choose image</option>' + projectOptions("") + '</select></label><div class="card-actions"><button data-action="add-project-image" type="button">Add Image</button></div><div class="gallery-strip">' + project.imageItems.map(image => '<div class="mini ' + (image.src === currentThumb ? 'is-current-thumb' : '') + '"><img src="' + image.url + '" alt="" loading="lazy"><button class="mini-rename" data-action="rename-image" data-src="' + escapeHtml(image.src) + '" type="button">r</button><button class="danger mini-remove" data-action="remove-project-image" data-src="' + escapeHtml(image.src) + '" type="button">x</button><button class="mini-left" data-action="project-image-left" data-src="' + escapeHtml(image.src) + '" type="button">‹</button><button class="mini-right" data-action="project-image-right" data-src="' + escapeHtml(image.src) + '" type="button">›</button><button class="mini-thumb" data-action="set-project-thumb" data-src="' + escapeHtml(image.src) + '" type="button">Use Hero</button></div>').join("") + '</div></form></article>';
       }).join("") + "</div>";
       el("secondary").innerHTML = '<h2 class="section-title">Referenced Missing Files</h2>' + (state.data.missing.length ? '<div class="empty">' + state.data.missing.map(escapeHtml).join("<br>") + '</div>' : '<div class="empty">No missing project image references.</div>');
     };
@@ -686,6 +703,7 @@ const appHtml = `<!doctype html>
           else toast("No visible project pages to save.");
         }
         if (action === "project-up" || action === "project-down") await mutate("/api/project/move", { slug: form.dataset.slug, direction: action === "project-up" ? "up" : "down" }, "Project moved.");
+        if (action === "project-image-left" || action === "project-image-right") await mutate("/api/project/move-image", { slug: form.dataset.slug, src, direction: action === "project-image-left" ? "left" : "right" }, "Gallery image order updated.");
         if (action === "add-project-image") { const imageSrc = new FormData(form).get("addImage"); if (imageSrc) await mutate("/api/project/add-image", { slug: form.dataset.slug, src: imageSrc }, "Project image added."); }
         if (action === "remove-project-image" && confirm("Remove this image from the project gallery? The file will stay on disk.")) await mutate("/api/project/remove-image", { slug: form.dataset.slug, src }, "Project image removed.");
       } catch (error) { toast(error.message); }
@@ -743,6 +761,7 @@ const server = http.createServer(async (request, response) => {
     if (url.pathname === "/api/project/save-items") return sendJson(response, 200, { saved: saveProjects(body.updates || []), state: buildState("projects") });
     if (url.pathname === "/api/project/move") return sendJson(response, 200, { moved: moveProject(body.slug, body.direction), state: buildState("projects") });
     if (url.pathname === "/api/project/add-image") return sendJson(response, 200, { added: addProjectImage(body.slug, body.src), state: buildState("projects") });
+    if (url.pathname === "/api/project/move-image") return sendJson(response, 200, { moved: moveProjectImage(body.slug, body.src, body.direction), state: buildState("projects") });
     if (url.pathname === "/api/project/remove-image") return sendJson(response, 200, { removed: removeProjectImage(body.slug, body.src), state: buildState("projects") });
     sendText(response, 404, "Not found");
   } catch (error) {
