@@ -18,7 +18,7 @@ bodyClass: page-work page-project
     <div class="project-title-block">
       <div class="project-kicker">
         <span>{{ project.year }}</span>
-        {% for tag in project.tags %}{% if loop.index <= 4 %}<span>{{ tag }}</span>{% endif %}{% endfor %}
+        {% for tag in project.tags %}{% if loop.index <= 3 %}<span>{{ tag }}</span>{% endif %}{% endfor %}
       </div>
       <h1>{{ project.title }}</h1>
       {% if project.subtitle %}<p class="project-subtitle">{{ project.subtitle }}</p>{% endif %}
@@ -46,7 +46,7 @@ bodyClass: page-work page-project
       {% endfor %}
       <div class="project-tags">
         {% for tag in project.processTags %}
-        {% if loop.index <= 4 %}<span>{{ tag }}</span>{% endif %}
+        {% if loop.index <= 3 %}<span>{{ tag }}</span>{% endif %}
         {% endfor %}
       </div>
     </div>
@@ -96,7 +96,7 @@ bodyClass: page-work page-project
     </div>
     <div>
       <span class="project-meta-label">Tools</span>
-      <p>{% for tag in project.tags %}{% if loop.index <= 4 %}{% if not loop.first %}, {% endif %}{{ tag }}{% endif %}{% endfor %}</p>
+      <p>{% for tag in project.tags %}{% if loop.index <= 3 %}{% if not loop.first %}, {% endif %}{{ tag }}{% endif %}{% endfor %}</p>
     </div>
     <div>
       <span class="project-meta-label">Year</span>
