@@ -48,7 +48,8 @@
       "Data Visualization",
       "Cyberpunk",
       "Sci-Fi",
-      "Procedural"
+      "Procedural",
+      "Concept Art"
     ],
     "thumb": "images/work/data-haven/01.png",
     "subtitle": "A black-box city of encrypted storage towers and magenta signal logic",
@@ -173,7 +174,8 @@
       "Environment",
       "Atmosphere",
       "Storm",
-      "Weather"
+      "Weather",
+      "Concept Art"
     ],
     "thumb": "images/work/ravens-isle/ravens-isle.png",
     "vimeo": "P_hXaVLEV2w",
@@ -213,7 +215,8 @@
       "UE5",
       "Cinematic",
       "Environment",
-      "Atmosphere"
+      "Atmosphere",
+      "Concept Art"
     ],
     "thumb": "images/work/desert-silence.webp",
     "video": {
@@ -258,7 +261,8 @@
       "Lighting",
       "Sci-Fi",
       "Space",
-      "Science"
+      "Science",
+      "Concept Art"
     ],
     "thumb": "images/work/dark-star.webp",
     "video": {
@@ -297,7 +301,8 @@
       "Environment",
       "Lighting",
       "Atmosphere",
-      "Historical"
+      "Historical",
+      "Concept Art"
     ],
     "thumb": "images/work/temple-of-the-sun.webp",
     "vimeo": "icHBlydH1f0",
@@ -335,7 +340,8 @@
       "Cinematic",
       "Environment",
       "Atmosphere",
-      "Horror"
+      "Horror",
+      "Concept Art"
     ],
     "thumb": "images/work/haunted-swamp.webp",
     "vimeo": "MJL8IqGHe2M",
@@ -373,7 +379,8 @@
       "Atmosphere",
       "Science",
       "Sci-Fi",
-      "Weather"
+      "Weather",
+      "Concept Art"
     ],
     "thumb": "images/work/cold-warnings.webp",
     "vimeo": "gbZAz9QDxB8",
@@ -414,7 +421,8 @@
       "Atmosphere",
       "Cyberpunk",
       "Sci-Fi",
-      "Interface"
+      "Interface",
+      "Concept Art"
     ],
     "thumb": "images/work/ghost-signals.webp",
     "video": {
@@ -460,7 +468,8 @@
       "Environment",
       "Sci-Fi",
       "Space",
-      "Science"
+      "Science",
+      "Concept Art"
     ],
     "thumb": "images/work/colony.png",
     "summary": "A perpetual lunar sunset, built in Unreal Engine 5, set at Shackleton Extraction Facility on the lunar south pole; a He-3 and hydrogen mining operation on the Gerlache Ridge.",
@@ -534,7 +543,8 @@
       "Environment",
       "Sci-Fi",
       "Aerospace",
-      "Aviation"
+      "Aviation",
+      "Concept Art"
     ],
     "thumb": "images/work/hangar-5/Hanger_5_043023-New_Take_12.webp",
     "subtitle": "A 3D environment built in Cinema 4D, inside a facility that services things too large to fully see.",
@@ -579,7 +589,8 @@
       "Motion Design",
       "Aerospace",
       "Aviation",
-      "Sci-Fi"
+      "Sci-Fi",
+      "Concept Art"
     ],
     "thumb": "images/work/aerospace-hud/HUD_002_Cam_006.webp",
     "subtitle": "A layered targeting system, built frame by frame",
@@ -632,7 +643,8 @@
       "Octane",
       "Cyberpunk",
       "Sci-Fi",
-      "Procedural"
+      "Procedural",
+      "Concept Art"
     ],
     "thumb": "images/work/hud-schema-signal/Head.jpg",
     "subtitle": "Generated interface schematics staged as cinematic signal space",
@@ -677,7 +689,8 @@
       "Octane",
       "Cyberpunk",
       "Sci-Fi",
-      "Procedural"
+      "Procedural",
+      "Concept Art"
     ],
     "thumb": "images/work/redline-acquisition/Head.png",
     "subtitle": "A redline targeting field built from layered HUD geometry",
@@ -716,7 +729,8 @@
       "FUI",
       "Interface",
       "Cyberpunk",
-      "Sci-Fi"
+      "Sci-Fi",
+      "Concept Art"
     ],
     "thumb": "images/work/data-cubes/GlassUI-Volume_003_Main0242.webp",
     "subtitle": "Procedural forms that hold light",
@@ -762,7 +776,8 @@
       "Interface",
       "Cyberpunk",
       "Sci-Fi",
-      "HUD"
+      "HUD",
+      "Concept Art"
     ],
     "thumb": "images/work/fui-subtrate/Untitled_1.1.1.jpg.webp",
     "subtitle": "EMMISIVE STRUCTURES",
@@ -800,7 +815,8 @@
       "Aerospace",
       "Aviation",
       "Sci-Fi",
-      "Procedural"
+      "Procedural",
+      "Concept Art"
     ],
     "thumb": "images/work/f35-scan/FUICam_010.webp",
     "subtitle": "The geometry of acquisition.",
@@ -837,7 +853,8 @@
       "Lighting",
       "Cyberpunk",
       "Sci-Fi",
-      "Procedural"
+      "Procedural",
+      "Concept Art"
     ],
     "thumb": "images/work/grid-state/BG_008.webp",
     "subtitle": "Maximum signal. Zero known source.",
@@ -923,7 +940,8 @@
       "Horror",
       "Public Health",
       "Medical",
-      "Science"
+      "Science",
+      "Concept Art"
     ],
     "thumb": "images/work/outbreak/Still-2026-07-13-185527_1.1.1.webp",
     "video": {
@@ -956,7 +974,8 @@
       "UE5",
       "Cinematic",
       "Environment",
-      "Historical"
+      "Historical",
+      "Concept Art"
     ],
     "thumb": "images/work/medieval-village/medieval-village.jpg",
     "video": {
@@ -982,7 +1001,8 @@
       "Cinematic",
       "Environment",
       "Post-Apocalyptic",
-      "Sci-Fi"
+      "Sci-Fi",
+      "Concept Art"
     ],
     "thumb": "images/work/wastelands/wastelands.jpg",
     "video": {
@@ -1529,7 +1549,8 @@
       "Typography",
       "Cyberpunk",
       "Interactive",
-      "Sci-Fi"
+      "Sci-Fi",
+      "Concept Art"
     ],
     "thumb": "images/work/spec-forge/spec-forge-hero.png",
     "liveUrl": "https://interfaces.rondomingue.com/spec-forge.html",

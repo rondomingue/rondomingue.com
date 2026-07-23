@@ -1614,6 +1614,7 @@ img { display: block; max-width: 100%; }
 
 @media (max-width: 600px) {
   body { padding-bottom: 86px; }
+  .site-footer { display: none; }
   .site-header,
   .page-home .site-header,
   .page-about .site-header,
