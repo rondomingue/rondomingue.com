@@ -279,21 +279,42 @@ const moveGalleryEntry = (key, src, direction) => {
   return true;
 };
 
+const applyGalleryMetadata = (collection, item, metadata) => {
+  if (collection.preserveAlt && "alt" in metadata) item.alt = String(metadata.alt || "").trim() || srcToTitle(item.src);
+  if ("caption" in metadata) {
+    const caption = String(metadata.caption || "").trim();
+    if (caption) item.caption = caption;
+    else delete item.caption;
+  }
+};
+
 const saveGalleryItem = (key, src, metadata) => {
   const collection = collectionFor(key);
   const items = readJson(collection.dataFile);
   const item = items.find(entry => entry.src === src);
   if (!item) throw new Error("Gallery item not found.");
 
-  if (collection.preserveAlt && "alt" in metadata) item.alt = String(metadata.alt || "").trim() || srcToTitle(src);
-  if ("caption" in metadata) {
-    const caption = String(metadata.caption || "").trim();
-    if (caption) item.caption = caption;
-    else delete item.caption;
+  applyGalleryMetadata(collection, item, metadata);
+  saveGallery(collection, items);
+  return true;
+};
+
+const saveGalleryItems = (key, updates) => {
+  if (!Array.isArray(updates)) throw new Error("Bulk updates must be an array.");
+  const collection = collectionFor(key);
+  const items = readJson(collection.dataFile);
+  const itemBySrc = new Map(items.map(item => [item.src, item]));
+  let saved = 0;
+
+  for (const update of updates) {
+    const item = itemBySrc.get(update.src);
+    if (!item) continue;
+    applyGalleryMetadata(collection, item, update.metadata || {});
+    saved += 1;
   }
 
   saveGallery(collection, items);
-  return true;
+  return saved;
 };
 
 const saveProject = body => {
@@ -409,60 +430,103 @@ const appHtml = `<!doctype html>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Local Content Manager</title>
   <style>
-    :root { --bg:#f6f3ef; --panel:#fff; --text:#191816; --muted:#68645f; --line:#ded8d0; --accent:#1b6c72; --danger:#9f2d20; --shadow:0 16px 40px rgba(31,27,21,.12); }
+    :root {
+      --bg:#07080a;
+      --panel:#101115;
+      --panel-2:#15171c;
+      --text:#eeeef0;
+      --dim:rgba(238,238,240,.64);
+      --muted:rgba(238,238,240,.42);
+      --line:rgba(238,238,240,.12);
+      --line-strong:rgba(238,238,240,.2);
+      --accent:#c8289a;
+      --accent-soft:rgba(200,40,154,.13);
+      --cyan:#4fc8e8;
+      --danger:#ff6b5e;
+      --warn:#e0b84a;
+      --shadow:0 18px 70px rgba(0,0,0,.36);
+    }
     * { box-sizing:border-box; }
-    body { margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:var(--bg); color:var(--text); }
-    header { position:sticky; top:0; z-index:5; background:rgba(246,243,239,.94); border-bottom:1px solid var(--line); backdrop-filter:blur(18px); }
-    .bar { display:grid; grid-template-columns:1fr auto; gap:16px; align-items:center; max-width:1480px; margin:0 auto; padding:16px 20px; }
-    h1 { margin:0; font-size:22px; font-weight:760; letter-spacing:0; }
-    .subtitle { margin-top:3px; color:var(--muted); font-size:13px; }
+    body {
+      margin:0;
+      font-family:"din-2014",Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at 18% -8%, rgba(200,40,154,.16), transparent 34%),
+        radial-gradient(circle at 88% 8%, rgba(79,200,232,.08), transparent 30%),
+        var(--bg);
+      color:var(--text);
+    }
+    header {
+      position:sticky;
+      top:0;
+      z-index:5;
+      background:rgba(7,8,10,.82);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+    }
+    .bar { display:grid; grid-template-columns:1fr auto; gap:18px; align-items:center; max-width:1480px; margin:0 auto; padding:18px 22px; }
+    h1 { margin:0; font-size:13px; font-weight:400; letter-spacing:.22em; text-transform:uppercase; }
+    .subtitle { margin-top:7px; color:var(--muted); font-family:"Space Mono",ui-monospace,monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; }
     .actions { display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end; }
-    button,select,input,textarea { border:1px solid var(--line); border-radius:7px; background:var(--panel); color:var(--text); font:inherit; font-size:13px; }
-    button,select { min-height:36px; padding:7px 11px; }
-    input { min-height:36px; padding:7px 10px; }
-    textarea { width:100%; min-height:82px; padding:8px 10px; resize:vertical; }
-    button { cursor:pointer; box-shadow:0 1px 0 rgba(0,0,0,.04); }
-    button:hover { border-color:#b8aea3; }
-    button.primary { background:var(--accent); border-color:var(--accent); color:white; }
-    button.danger { color:var(--danger); }
-    main { max-width:1480px; margin:0 auto; padding:18px 20px 40px; }
+    button,select,input,textarea {
+      border:1px solid var(--line);
+      border-radius:6px;
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      font:inherit;
+      font-size:12px;
+    }
+    button,select { min-height:38px; padding:8px 12px; }
+    input { min-height:38px; padding:8px 11px; }
+    textarea { width:100%; min-height:86px; padding:9px 11px; resize:vertical; }
+    input::placeholder { color:rgba(238,238,240,.28); }
+    button { cursor:pointer; box-shadow:none; transition:border-color .18s ease, background .18s ease, color .18s ease, transform .18s ease; }
+    button:hover { border-color:rgba(200,40,154,.48); background:rgba(200,40,154,.09); color:var(--text); }
+    button:active { transform:translateY(1px); }
+    button.primary { background:rgba(200,40,154,.18); border-color:rgba(200,40,154,.5); color:var(--text); }
+    button.danger { color:var(--danger); border-color:rgba(255,107,94,.22); }
+    button.danger:hover { background:rgba(255,107,94,.1); border-color:rgba(255,107,94,.46); }
+    select { color:var(--dim); }
+    main { max-width:1480px; margin:0 auto; padding:20px 22px 56px; }
     .stats { display:grid; grid-template-columns:repeat(6,minmax(110px,1fr)); gap:10px; margin-bottom:18px; }
-    .stat { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:12px; }
-    .stat strong { display:block; font-size:22px; line-height:1; margin-bottom:6px; }
-    .stat span { color:var(--muted); font-size:12px; }
-    .notice { display:none; margin:0 0 16px; border-radius:8px; padding:11px 12px; background:#fff8dc; border:1px solid #ead891; color:#5c4b04; font-size:13px; }
+    .stat { background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02)); border:1px solid var(--line); border-radius:6px; padding:13px; }
+    .stat strong { display:block; color:var(--text); font-size:24px; line-height:1; margin-bottom:8px; font-weight:300; letter-spacing:.03em; }
+    .stat span { color:var(--muted); font-family:"Space Mono",ui-monospace,monospace; font-size:9px; letter-spacing:.14em; text-transform:uppercase; }
+    .notice { display:none; margin:0 0 16px; border-radius:6px; padding:11px 12px; background:rgba(224,184,74,.1); border:1px solid rgba(224,184,74,.34); color:#e7c86a; font-family:"Space Mono",ui-monospace,monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; }
     .notice.active { display:block; }
-    .toolbar { display:grid; grid-template-columns:1fr auto; gap:12px; align-items:center; margin-bottom:14px; }
-    input[type="search"] { width:100%; background:white; font-size:14px; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; }
+    .toolbar { display:grid; grid-template-columns:1fr 160px; gap:12px; align-items:center; margin-bottom:16px; }
+    input[type="search"] { width:100%; background:rgba(255,255,255,.035); font-size:13px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; }
     .projects-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(360px,1fr)); gap:14px; }
-    .card { background:var(--panel); border:1px solid var(--line); border-radius:8px; overflow:hidden; box-shadow:0 1px 0 rgba(0,0,0,.03); }
-    .card.missing-file { border-color:#d8a29a; }
-    .thumb { aspect-ratio:4/3; background:#e5ded5; display:block; width:100%; object-fit:cover; }
+    .card { background:rgba(16,17,21,.94); border:1px solid var(--line); border-radius:6px; overflow:hidden; box-shadow:0 1px 0 rgba(255,255,255,.03); transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+    .card:hover { border-color:rgba(200,40,154,.34); transform:translateY(-2px); box-shadow:0 18px 44px rgba(0,0,0,.28); }
+    .card.missing-file { border-color:rgba(255,107,94,.55); }
+    .thumb { aspect-ratio:4/3; background:#090a0c; display:block; width:100%; object-fit:cover; filter:saturate(.88) contrast(1.04); }
     .meta { padding:12px; display:grid; gap:10px; }
-    .name { font-size:13px; font-weight:680; overflow-wrap:anywhere; line-height:1.25; }
-    .detail { color:var(--muted); font-size:12px; display:flex; flex-wrap:wrap; gap:6px; line-height:1.35; }
-    .meta label { display:grid; gap:5px; color:var(--muted); font-size:12px; }
-    .meta label input { width:100%; min-width:0; background:#fff; }
-    .card-actions { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; }
-    .card-actions button,.card-actions select { min-height:32px; width:100%; padding:5px 7px; font-size:12px; }
+    .name { font-size:12px; font-weight:500; overflow-wrap:anywhere; line-height:1.3; letter-spacing:.02em; }
+    .detail { color:var(--muted); font-family:"Space Mono",ui-monospace,monospace; font-size:9px; display:flex; flex-wrap:wrap; gap:7px; line-height:1.45; text-transform:uppercase; letter-spacing:.06em; }
+    .meta label { display:grid; gap:6px; color:var(--muted); font-family:"Space Mono",ui-monospace,monospace; font-size:9px; letter-spacing:.12em; text-transform:uppercase; }
+    .meta label input { width:100%; min-width:0; background:rgba(255,255,255,.035); }
+    .card-actions { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:7px; }
+    .card-actions button,.card-actions select { min-height:32px; width:100%; padding:5px 7px; font-size:11px; }
     .card-actions .wide { grid-column:span 2; }
-    .section-title { margin:24px 0 10px; font-size:16px; }
-    .empty { padding:18px; background:var(--panel); border:1px solid var(--line); border-radius:8px; color:var(--muted); font-size:14px; }
+    .section-title { margin:26px 0 12px; font-size:12px; font-weight:400; letter-spacing:.18em; text-transform:uppercase; color:var(--dim); }
+    .empty { padding:18px; background:var(--panel); border:1px solid var(--line); border-radius:6px; color:var(--muted); font-size:13px; }
     .project-form { padding:12px; display:grid; gap:10px; }
     .field-grid { display:grid; grid-template-columns:1fr 110px; gap:8px; }
-    .project-form label { display:grid; gap:5px; color:var(--muted); font-size:12px; }
+    .project-form label { display:grid; gap:6px; color:var(--muted); font-family:"Space Mono",ui-monospace,monospace; font-size:9px; letter-spacing:.12em; text-transform:uppercase; }
     .gallery-strip { display:grid; grid-template-columns:repeat(auto-fill,minmax(72px,1fr)); gap:6px; }
-    .mini { position:relative; border:1px solid var(--line); border-radius:6px; overflow:hidden; background:#eee8df; }
+    .mini { position:relative; border:1px solid var(--line); border-radius:5px; overflow:hidden; background:#090a0c; }
     .mini img { display:block; width:100%; aspect-ratio:1; object-fit:cover; }
-    .mini button { position:absolute; top:4px; right:4px; min-height:24px; padding:2px 6px; background:rgba(255,255,255,.9); }
-    .toast { position:fixed; left:50%; bottom:18px; transform:translateX(-50%); min-width:min(480px,calc(100vw - 32px)); padding:12px 14px; border-radius:8px; background:#191816; color:white; box-shadow:var(--shadow); opacity:0; pointer-events:none; transition:opacity 160ms ease; font-size:14px; text-align:center; }
+    .mini button { position:absolute; top:4px; right:4px; min-height:24px; padding:2px 6px; background:rgba(7,8,10,.72); }
+    .toast { position:fixed; left:50%; bottom:18px; transform:translateX(-50%); min-width:min(480px,calc(100vw - 32px)); padding:12px 14px; border-radius:6px; background:rgba(16,17,21,.94); border:1px solid rgba(200,40,154,.35); color:var(--text); box-shadow:var(--shadow); opacity:0; pointer-events:none; transition:opacity 160ms ease; font-size:13px; text-align:center; }
     .toast.active { opacity:1; }
     @media (max-width:820px) { .bar,.toolbar { grid-template-columns:1fr; } .actions { justify-content:stretch; } .actions button,.actions select { flex:1 1 auto; } .stats { grid-template-columns:repeat(2,1fr); } .projects-grid { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
-  <header><div class="bar"><div><h1>Local Content Manager</h1><div class="subtitle">Edit photography, illustration, and projects JSON locally</div></div><div class="actions"><select id="collection"><option value="photography">Photography</option><option value="illustration">Illustration</option><option value="projects">Projects</option></select><button class="primary" id="addMissing">Add Missing</button><button id="regenAll">Regenerate Metadata</button><button id="scrubSidecars">Scrub Sidecars</button><button id="refresh">Refresh</button></div></div></header>
+  <header><div class="bar"><div><h1>Local Content Manager</h1><div class="subtitle">Edit photography, illustration, and projects JSON locally</div></div><div class="actions"><select id="collection"><option value="photography">Photography</option><option value="illustration">Illustration</option><option value="projects">Projects</option></select><button class="primary" id="addMissing">Add Missing</button><button class="primary" id="saveVisibleText">Save All Text</button><button id="regenAll">Regenerate Metadata</button><button id="scrubSidecars">Scrub Sidecars</button><button id="refresh">Refresh</button></div></div></header>
   <main><div class="stats" id="stats"></div><div class="notice" id="notice"></div><div class="toolbar"><input id="search" type="search" placeholder="Search"><select id="filter" aria-label="Filter"><option value="all">All</option><option value="portrait">Portrait</option><option value="landscape">Landscape</option><option value="square">Square</option><option value="missing-file">Missing file entries</option></select></div><section id="content"></section><section id="secondary"></section></main>
   <div class="toast" id="toast"></div>
   <script>
@@ -509,7 +573,7 @@ const appHtml = `<!doctype html>
       el("content").innerHTML = '<div class="projects-grid">' + projects.map(project => '<article class="card">' + (project.thumb ? '<img class="thumb" src="' + project.thumbUrl + '" alt="' + escapeHtml(project.title) + '" loading="lazy">' : '<div class="thumb"></div>') + '<form class="project-form" data-slug="' + escapeHtml(project.slug) + '"><div class="name">' + (project.index + 1) + '. ' + escapeHtml(project.title) + '</div><div class="field-grid"><label><span>Title</span><input name="title" value="' + escapeHtml(project.title) + '"></label><label><span>Year</span><input name="year" value="' + escapeHtml(project.year) + '"></label></div><label><span>Slug</span><input name="slug" value="' + escapeHtml(project.slug) + '"></label><label><span>Thumbnail</span><select name="thumb">' + projectOptions(project.thumb) + '</select></label><label><span>Summary</span><textarea name="summary">' + escapeHtml(project.summary || "") + '</textarea></label><label><span>Description</span><textarea name="description">' + escapeHtml((project.description || []).join("\\n\\n")) + '</textarea></label><label><span>Tags, comma separated</span><input name="tags" value="' + escapeHtml((project.tags || []).join(", ")) + '"></label><label><span>Process tags, comma separated</span><input name="processTags" value="' + escapeHtml((project.processTags || []).join(", ")) + '"></label><label><span>Format</span><input name="format" value="' + escapeHtml(project.format || "") + '"></label><div class="card-actions"><button class="primary" data-action="save-project" type="button">Save</button><button data-action="project-up" type="button">Up</button><button data-action="project-down" type="button">Down</button>' + (project.thumb ? '<button data-action="rename-image" data-src="' + escapeHtml(project.thumb) + '" type="button">Rename Thumb</button>' : '') + '</div><label><span>Add gallery image</span><select name="addImage"><option value="">Choose image</option>' + projectOptions("") + '</select></label><div class="card-actions"><button data-action="add-project-image" type="button">Add Image</button></div><div class="gallery-strip">' + project.imageItems.map(image => '<div class="mini"><img src="' + image.url + '" alt="" loading="lazy"><button data-action="rename-image" data-src="' + escapeHtml(image.src) + '" type="button">r</button><button class="danger" data-action="remove-project-image" data-src="' + escapeHtml(image.src) + '" type="button">x</button></div>').join("") + '</div></form></article>').join("") + "</div>";
       el("secondary").innerHTML = '<h2 class="section-title">Referenced Missing Files</h2>' + (state.data.missing.length ? '<div class="empty">' + state.data.missing.map(escapeHtml).join("<br>") + '</div>' : '<div class="empty">No missing project image references.</div>');
     };
-    const render = () => { renderStats(); const isProjects = state.data.type === "projects"; el("addMissing").style.display = isProjects ? "none" : ""; el("regenAll").style.display = isProjects ? "none" : ""; el("filter").style.display = isProjects ? "none" : ""; if (isProjects) renderProjects(); else renderGallery(); };
+    const render = () => { renderStats(); const isProjects = state.data.type === "projects"; el("addMissing").style.display = isProjects ? "none" : ""; el("saveVisibleText").style.display = isProjects ? "none" : ""; el("regenAll").style.display = isProjects ? "none" : ""; el("filter").style.display = isProjects ? "none" : ""; if (isProjects) renderProjects(); else renderGallery(); };
     document.addEventListener("click", async event => {
       const button = event.target.closest("button"); if (!button) return;
       const action = button.dataset.action || button.id;
@@ -534,6 +598,19 @@ const appHtml = `<!doctype html>
             metadata[input.name] = input.value;
           });
           await mutate("/api/gallery/save-item", { src, metadata }, "Text saved.");
+        }
+        if (action === "saveVisibleText") {
+          const updates = [...document.querySelectorAll("#content .card")].map(card => {
+            const saveButton = card.querySelector('[data-action="save-gallery-item"]');
+            if (!saveButton) return null;
+            const metadata = {};
+            card.querySelectorAll("input[name], textarea[name], select[name]").forEach(input => {
+              metadata[input.name] = input.value;
+            });
+            return { src: saveButton.dataset.src, metadata };
+          }).filter(Boolean);
+          if (updates.length) await mutate("/api/gallery/save-items", { updates }, updates.length + " visible text item(s) saved.");
+          else toast("No visible text fields to save.");
         }
         if (action === "remove" && confirm("Remove this entry from JSON? The image file will stay in the folder.")) await mutate("/api/gallery/remove", { src }, "JSON entry removed.");
         if (action === "save-project") await mutate("/api/project/save", { slug: form.dataset.slug, project: Object.fromEntries(new FormData(form).entries()) }, "Project saved.");
@@ -576,6 +653,7 @@ const server = http.createServer(async (request, response) => {
     if (url.pathname === "/api/gallery/remove") return sendJson(response, 200, { removed: removeGalleryEntry(key, body.src), state: buildState(key) });
     if (url.pathname === "/api/gallery/move") return sendJson(response, 200, { moved: moveGalleryEntry(key, body.src, body.direction), state: buildState(key) });
     if (url.pathname === "/api/gallery/save-item") return sendJson(response, 200, { saved: saveGalleryItem(key, body.src, body.metadata || {}), state: buildState(key) });
+    if (url.pathname === "/api/gallery/save-items") return sendJson(response, 200, { saved: saveGalleryItems(key, body.updates || []), state: buildState(key) });
     if (url.pathname === "/api/scrub-sidecars") return sendJson(response, 200, { removed: scrubSidecars(collectionFor(key).imageDir), state: buildState(key) });
     if (url.pathname === "/api/image/rename") return sendJson(response, 200, { rename: renameImage(body.src, body.newName), state: buildState(key) });
     if (url.pathname === "/api/project/save") return sendJson(response, 200, { saved: saveProject(body), state: buildState("projects") });

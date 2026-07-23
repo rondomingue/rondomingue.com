@@ -172,56 +172,64 @@
     "alt": "Photography by Ron Domingue — 22",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Macro Lens"
   },
   {
     "src": "images/photography/DSC00446.webp",
     "alt": "Photography by Ron Domingue — 23",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Snow Day NOLA"
   },
   {
     "src": "images/photography/DSC00448.webp",
     "alt": "Photography by Ron Domingue — 24",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Snow Day NOLA"
   },
   {
     "src": "images/photography/DSC00459.webp",
     "alt": "Photography by Ron Domingue — 25",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Snow Day NOLA"
   },
   {
     "src": "images/photography/ADC01BC9-965F-45A4-ADC0-C7B66AB44DED.webp",
     "alt": "Photography by Ron Domingue — 26",
     "width": 2000,
     "height": 1330,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Macro Lens"
   },
   {
     "src": "images/photography/DSC00454.webp",
     "alt": "Photography by Ron Domingue — 27",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Annie"
   },
   {
     "src": "images/photography/DSC00534.webp",
     "alt": "Photography by Ron Domingue — 28",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "NASA Michoud"
   },
   {
     "src": "images/photography/DSC00566.webp",
     "alt": "Photography by Ron Domingue — 29",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "NASA Michouc"
   },
   {
     "src": "images/photography/DSC00563.webp",
@@ -263,7 +271,8 @@
     "alt": "Photography by Ron Domingue — 35",
     "width": 1000,
     "height": 1500,
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "caption": "Tatiana"
   },
   {
     "src": "images/photography/DSC02176.webp",
@@ -291,14 +300,16 @@
     "alt": "Photography by Ron Domingue — 39",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Theresa Domingue"
   },
   {
     "src": "images/photography/DSC03415.webp",
     "alt": "Photography by Ron Domingue — 40",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Cort & Crab"
   },
   {
     "src": "images/photography/DSC03444.webp",
@@ -319,7 +330,8 @@
     "alt": "Photography by Ron Domingue — 43",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Jose & Rod"
   },
   {
     "src": "images/photography/DSC08862-4.webp",
@@ -361,7 +373,8 @@
     "alt": "Photography by Ron Domingue — 49",
     "width": 2000,
     "height": 1126,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Tatiana"
   },
   {
     "src": "images/photography/DSC09060.webp",
@@ -396,35 +409,40 @@
     "alt": "Photography by Ron Domingue — 54",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Macro Lens"
   },
   {
     "src": "images/photography/DSC09092.webp",
     "alt": "Photography by Ron Domingue — 55",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Downtown Los Angeles"
   },
   {
     "src": "images/photography/DSC00364.webp",
     "alt": "Photography by Ron Domingue — 56",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Dawn"
   },
   {
     "src": "images/photography/DSC09221.webp",
     "alt": "Photography by Ron Domingue — 57",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Livuadais"
   },
   {
     "src": "images/photography/DSC09311.webp",
     "alt": "Photography by Ron Domingue — 58",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Sam"
   },
   {
     "src": "images/photography/DSC09312.webp",
@@ -438,7 +456,8 @@
     "alt": "Photography by Ron Domingue — 60",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Keagan"
   },
   {
     "src": "images/photography/DSC09396.webp",
