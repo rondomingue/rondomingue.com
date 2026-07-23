@@ -872,6 +872,11 @@ img { display: block; max-width: 100%; }
     background 0.2s,
     box-shadow 0.2s;
 }
+.work-filter:hover {
+  --tag-scale: 1.08;
+  --tag-lift: -5px;
+  --tag-glow: 0.45;
+}
 .work-filter:hover,
 .work-filter:focus-visible,
 .work-filter.active {
