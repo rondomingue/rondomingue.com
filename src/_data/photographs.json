@@ -229,21 +229,23 @@
     "width": 2000,
     "height": 1333,
     "orientation": "landscape",
-    "caption": "NASA Michouc"
+    "caption": "NASA Michoud"
   },
   {
     "src": "images/photography/DSC00563.webp",
     "alt": "Photography by Ron Domingue — 30",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "NASA Michoud"
   },
   {
     "src": "images/photography/DSC00623.webp",
     "alt": "Photography by Ron Domingue — 31",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Holly & Cort"
   },
   {
     "src": "images/photography/DSC00734.webp",
@@ -257,14 +259,16 @@
     "alt": "Photography by Ron Domingue — 33",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Ani"
   },
   {
     "src": "images/photography/DSC00749.webp",
     "alt": "Photography by Ron Domingue — 34",
     "width": 1333,
     "height": 2000,
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "caption": "Orchid"
   },
   {
     "src": "images/photography/20200216-DSC00650.jpg.webp",
@@ -293,7 +297,8 @@
     "alt": "Photography by Ron Domingue — 38",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Gun, Mezcal, & Blood Oranges"
   },
   {
     "src": "images/photography/DSC03335.webp",
