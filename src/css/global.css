@@ -863,10 +863,10 @@ img { display: block; max-width: 100%; }
   transform-origin: center bottom;
   will-change: transform;
   box-shadow:
-    0 calc(var(--tag-glow) * 8px) calc(var(--tag-glow) * 22px) rgba(200,40,154,0.13),
-    inset 0 0 calc(var(--tag-glow) * 12px) rgba(255,255,255,0.025);
+    0 calc(var(--tag-glow) * 12px) calc(var(--tag-glow) * 34px) rgba(200,40,154,0.22),
+    inset 0 0 calc(var(--tag-glow) * 18px) rgba(255,255,255,0.045);
   transition:
-    transform 190ms cubic-bezier(.2,.85,.25,1.25),
+    transform 210ms cubic-bezier(.18,.9,.22,1.28),
     color 0.2s,
     border-color 0.2s,
     background 0.2s,
@@ -889,7 +889,7 @@ img { display: block; max-width: 100%; }
 
 @keyframes tag-pill-pop {
   0% { transform: translateY(var(--tag-lift)) scale(var(--tag-scale)); }
-  44% { transform: translateY(calc(var(--tag-lift) - 3px)) scale(calc(var(--tag-scale) + 0.045)); }
+  44% { transform: translateY(calc(var(--tag-lift) - 5px)) scale(calc(var(--tag-scale) + 0.07)); }
   100% { transform: translateY(var(--tag-lift)) scale(var(--tag-scale)); }
 }
 

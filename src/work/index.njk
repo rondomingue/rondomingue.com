@@ -73,8 +73,6 @@ bodyClass: page-work
     filterButtons.forEach(button => button.setAttribute('aria-pressed', button.classList.contains('active') ? 'true' : 'false'));
 
     const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const finePointerQuery = window.matchMedia('(pointer: fine)');
-
     const resetTagWave = () => {
       filterButtons.forEach(button => {
         button.style.setProperty('--tag-scale', '1');
@@ -85,7 +83,7 @@ bodyClass: page-work
     };
 
     const applyTagWave = (clientX, clientY) => {
-      const radius = 176;
+      const radius = 236;
       filterButtons.forEach(button => {
         const rect = button.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
@@ -94,8 +92,8 @@ bodyClass: page-work
         const influence = Math.max(0, 1 - distance / radius);
         const eased = influence * influence;
 
-        button.style.setProperty('--tag-scale', (1 + eased * 0.13).toFixed(3));
-        button.style.setProperty('--tag-lift', `${(-eased * 7).toFixed(2)}px`);
+        button.style.setProperty('--tag-scale', (1 + eased * 0.24).toFixed(3));
+        button.style.setProperty('--tag-lift', `${(-eased * 13).toFixed(2)}px`);
         button.style.setProperty('--tag-glow', eased.toFixed(3));
         button.style.zIndex = eased > 0 ? String(2 + Math.round(eased * 10)) : '';
       });
@@ -106,7 +104,7 @@ bodyClass: page-work
       let lastPointer = null;
 
       filterHost.addEventListener('pointermove', event => {
-        if (!finePointerQuery.matches) return;
+        if (event.pointerType === 'touch') return;
         lastPointer = event;
         if (waveFrame) return;
 
