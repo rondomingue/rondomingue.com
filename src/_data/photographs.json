@@ -252,7 +252,8 @@
     "alt": "Photography by Ron Domingue — 32",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Olivya"
   },
   {
     "src": "images/photography/DSC01506.webp",
@@ -283,7 +284,8 @@
     "alt": "Photography by Ron Domingue — 36",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "New Orleans"
   },
   {
     "src": "images/photography/DSC03072.webp",
@@ -321,14 +323,16 @@
     "alt": "Photography by Ron Domingue — 41",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Crabbing"
   },
   {
     "src": "images/photography/C95C305E-7951-42A7-B079-973EFF122C7D.webp",
     "alt": "Photography by Ron Domingue — 42",
     "width": 2000,
     "height": 1330,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Macro Lens"
   },
   {
     "src": "images/photography/DSC03814.webp",

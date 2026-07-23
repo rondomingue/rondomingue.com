@@ -25,7 +25,7 @@ const COLLECTIONS = {
     preserveAlt: true
   },
   projects: {
-    label: "Projects",
+    label: "Project Pages",
     type: "projects",
     dataFile: "src/_data/projects.json",
     imageDir: "src/images/work"
@@ -317,19 +317,41 @@ const saveGalleryItems = (key, updates) => {
   return saved;
 };
 
+const applyProjectFields = (project, fields) => {
+  for (const field of ["title", "slug", "year", "thumb", "summary", "format"]) {
+    if (field in fields) project[field] = fields[field];
+  }
+  project.tags = splitList(fields.tags);
+  project.processTags = splitList(fields.processTags);
+  project.description = splitParagraphs(fields.description);
+};
+
 const saveProject = body => {
   const collection = collectionFor("projects");
   const projects = readJson(collection.dataFile);
   const project = projects.find(item => item.slug === body.slug);
   if (!project) throw new Error("Project not found.");
-  for (const field of ["title", "slug", "year", "thumb", "summary", "format"]) {
-    if (field in body.project) project[field] = body.project[field];
-  }
-  project.tags = splitList(body.project.tags);
-  project.processTags = splitList(body.project.processTags);
-  project.description = splitParagraphs(body.project.description);
+  applyProjectFields(project, body.project || {});
   writeJson(collection.dataFile, projects);
   return true;
+};
+
+const saveProjects = updates => {
+  if (!Array.isArray(updates)) throw new Error("Bulk project updates must be an array.");
+  const collection = collectionFor("projects");
+  const projects = readJson(collection.dataFile);
+  const projectBySlug = new Map(projects.map(project => [project.slug, project]));
+  let saved = 0;
+
+  for (const update of updates) {
+    const project = projectBySlug.get(update.slug);
+    if (!project) continue;
+    applyProjectFields(project, update.project || {});
+    saved += 1;
+  }
+
+  writeJson(collection.dataFile, projects);
+  return saved;
 };
 
 const moveProject = (slug, direction) => {
@@ -498,8 +520,12 @@ const appHtml = `<!doctype html>
     .toolbar { display:grid; grid-template-columns:1fr 160px; gap:12px; align-items:center; margin-bottom:16px; }
     input[type="search"] { width:100%; background:rgba(255,255,255,.035); font-size:13px; }
     .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; }
-    .projects-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(360px,1fr)); gap:14px; }
+    .projects-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(520px,1fr)); gap:18px; align-items:start; }
     .card { background:rgba(16,17,21,.94); border:1px solid var(--line); border-radius:6px; overflow:hidden; box-shadow:0 1px 0 rgba(255,255,255,.03); transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+    .project-card { display:grid; grid-template-columns:minmax(180px,.72fr) minmax(280px,1fr); }
+    .project-cover { position:relative; min-height:100%; background:#090a0c; border-right:1px solid var(--line); }
+    .project-cover .thumb { height:100%; min-height:360px; aspect-ratio:auto; }
+    .project-cover-badge { position:absolute; left:12px; bottom:12px; max-width:calc(100% - 24px); padding:7px 9px; border:1px solid rgba(200,40,154,.34); border-radius:999px; background:rgba(7,8,10,.72); color:var(--dim); font-family:"Space Mono",ui-monospace,monospace; font-size:8px; letter-spacing:.12em; text-transform:uppercase; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
     .card:hover { border-color:rgba(200,40,154,.34); transform:translateY(-2px); box-shadow:0 18px 44px rgba(0,0,0,.28); }
     .card.missing-file { border-color:rgba(255,107,94,.55); }
     .thumb { aspect-ratio:4/3; background:#090a0c; display:block; width:100%; object-fit:cover; filter:saturate(.88) contrast(1.04); }
@@ -513,20 +539,25 @@ const appHtml = `<!doctype html>
     .card-actions .wide { grid-column:span 2; }
     .section-title { margin:26px 0 12px; font-size:12px; font-weight:400; letter-spacing:.18em; text-transform:uppercase; color:var(--dim); }
     .empty { padding:18px; background:var(--panel); border:1px solid var(--line); border-radius:6px; color:var(--muted); font-size:13px; }
-    .project-form { padding:12px; display:grid; gap:10px; }
+    .project-form { padding:14px; display:grid; gap:10px; }
     .field-grid { display:grid; grid-template-columns:1fr 110px; gap:8px; }
     .project-form label { display:grid; gap:6px; color:var(--muted); font-family:"Space Mono",ui-monospace,monospace; font-size:9px; letter-spacing:.12em; text-transform:uppercase; }
-    .gallery-strip { display:grid; grid-template-columns:repeat(auto-fill,minmax(72px,1fr)); gap:6px; }
+    .gallery-strip { display:grid; grid-template-columns:repeat(auto-fill,minmax(92px,1fr)); gap:7px; max-height:220px; overflow:auto; padding-right:2px; }
     .mini { position:relative; border:1px solid var(--line); border-radius:5px; overflow:hidden; background:#090a0c; }
     .mini img { display:block; width:100%; aspect-ratio:1; object-fit:cover; }
-    .mini button { position:absolute; top:4px; right:4px; min-height:24px; padding:2px 6px; background:rgba(7,8,10,.72); }
+    .mini button { position:absolute; min-height:24px; padding:2px 6px; background:rgba(7,8,10,.72); }
+    .mini .mini-rename { top:4px; left:4px; }
+    .mini .mini-remove { top:4px; right:4px; }
+    .mini .mini-thumb { left:4px; right:4px; bottom:4px; width:auto; border-color:rgba(200,40,154,.42); background:rgba(200,40,154,.2); }
+    .mini.is-current-thumb { border-color:rgba(200,40,154,.74); box-shadow:0 0 0 1px rgba(200,40,154,.22), 0 0 24px rgba(200,40,154,.22); }
     .toast { position:fixed; left:50%; bottom:18px; transform:translateX(-50%); min-width:min(480px,calc(100vw - 32px)); padding:12px 14px; border-radius:6px; background:rgba(16,17,21,.94); border:1px solid rgba(200,40,154,.35); color:var(--text); box-shadow:var(--shadow); opacity:0; pointer-events:none; transition:opacity 160ms ease; font-size:13px; text-align:center; }
     .toast.active { opacity:1; }
+    @media (max-width:980px) { .project-card { grid-template-columns:1fr; } .project-cover { border-right:0; border-bottom:1px solid var(--line); } .project-cover .thumb { min-height:260px; } }
     @media (max-width:820px) { .bar,.toolbar { grid-template-columns:1fr; } .actions { justify-content:stretch; } .actions button,.actions select { flex:1 1 auto; } .stats { grid-template-columns:repeat(2,1fr); } .projects-grid { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
-  <header><div class="bar"><div><h1>Local Content Manager</h1><div class="subtitle">Edit photography, illustration, and projects JSON locally</div></div><div class="actions"><select id="collection"><option value="photography">Photography</option><option value="illustration">Illustration</option><option value="projects">Projects</option></select><button class="primary" id="addMissing">Add Missing</button><button class="primary" id="saveVisibleText">Save All Text</button><button id="regenAll">Regenerate Metadata</button><button id="scrubSidecars">Scrub Sidecars</button><button id="refresh">Refresh</button></div></div></header>
+  <header><div class="bar"><div><h1>Local Content Manager</h1><div class="subtitle">Edit photography, illustration, and projects JSON locally</div></div><div class="actions"><select id="collection"><option value="photography">Photography</option><option value="illustration">Illustration</option><option value="projects">Project Pages</option></select><button class="primary" id="addMissing">Add Missing</button><button class="primary" id="saveVisibleText">Save All Text</button><button class="primary" id="saveVisibleProjects">Save All Projects</button><button id="regenAll">Regenerate Metadata</button><button id="scrubSidecars">Scrub Sidecars</button><button id="refresh">Refresh</button></div></div></header>
   <main><div class="stats" id="stats"></div><div class="notice" id="notice"></div><div class="toolbar"><input id="search" type="search" placeholder="Search"><select id="filter" aria-label="Filter"><option value="all">All</option><option value="portrait">Portrait</option><option value="landscape">Landscape</option><option value="square">Square</option><option value="missing-file">Missing file entries</option></select></div><section id="content"></section><section id="secondary"></section></main>
   <div class="toast" id="toast"></div>
   <script>
@@ -570,10 +601,14 @@ const appHtml = `<!doctype html>
     const renderProjects = () => {
       const search = state.search.toLowerCase();
       const projects = state.data.projects.filter(project => !search || (project.title + " " + project.slug + " " + project.summary + " " + (project.tags || []).join(" ")).toLowerCase().includes(search));
-      el("content").innerHTML = '<div class="projects-grid">' + projects.map(project => '<article class="card">' + (project.thumb ? '<img class="thumb" src="' + project.thumbUrl + '" alt="' + escapeHtml(project.title) + '" loading="lazy">' : '<div class="thumb"></div>') + '<form class="project-form" data-slug="' + escapeHtml(project.slug) + '"><div class="name">' + (project.index + 1) + '. ' + escapeHtml(project.title) + '</div><div class="field-grid"><label><span>Title</span><input name="title" value="' + escapeHtml(project.title) + '"></label><label><span>Year</span><input name="year" value="' + escapeHtml(project.year) + '"></label></div><label><span>Slug</span><input name="slug" value="' + escapeHtml(project.slug) + '"></label><label><span>Thumbnail</span><select name="thumb">' + projectOptions(project.thumb) + '</select></label><label><span>Summary</span><textarea name="summary">' + escapeHtml(project.summary || "") + '</textarea></label><label><span>Description</span><textarea name="description">' + escapeHtml((project.description || []).join("\\n\\n")) + '</textarea></label><label><span>Tags, comma separated</span><input name="tags" value="' + escapeHtml((project.tags || []).join(", ")) + '"></label><label><span>Process tags, comma separated</span><input name="processTags" value="' + escapeHtml((project.processTags || []).join(", ")) + '"></label><label><span>Format</span><input name="format" value="' + escapeHtml(project.format || "") + '"></label><div class="card-actions"><button class="primary" data-action="save-project" type="button">Save</button><button data-action="project-up" type="button">Up</button><button data-action="project-down" type="button">Down</button>' + (project.thumb ? '<button data-action="rename-image" data-src="' + escapeHtml(project.thumb) + '" type="button">Rename Thumb</button>' : '') + '</div><label><span>Add gallery image</span><select name="addImage"><option value="">Choose image</option>' + projectOptions("") + '</select></label><div class="card-actions"><button data-action="add-project-image" type="button">Add Image</button></div><div class="gallery-strip">' + project.imageItems.map(image => '<div class="mini"><img src="' + image.url + '" alt="" loading="lazy"><button data-action="rename-image" data-src="' + escapeHtml(image.src) + '" type="button">r</button><button class="danger" data-action="remove-project-image" data-src="' + escapeHtml(image.src) + '" type="button">x</button></div>').join("") + '</div></form></article>').join("") + "</div>";
+      el("content").innerHTML = '<div class="projects-grid">' + projects.map(project => {
+        const currentThumb = project.thumb || "";
+        const cover = currentThumb ? '<img class="thumb project-thumb-preview" src="' + project.thumbUrl + '" alt="' + escapeHtml(project.title) + '" loading="lazy">' : '<div class="thumb project-thumb-preview"></div>';
+        return '<article class="card project-card"><div class="project-cover">' + cover + '<div class="project-cover-badge">Current thumbnail</div></div><form class="project-form" data-slug="' + escapeHtml(project.slug) + '"><div class="name">' + (project.index + 1) + '. ' + escapeHtml(project.title) + '</div><div class="field-grid"><label><span>Title</span><input name="title" value="' + escapeHtml(project.title) + '"></label><label><span>Year</span><input name="year" value="' + escapeHtml(project.year) + '"></label></div><label><span>Slug</span><input name="slug" value="' + escapeHtml(project.slug) + '"></label><label><span>Current thumbnail</span><select name="thumb">' + projectOptions(currentThumb) + '</select></label><label><span>Summary</span><textarea name="summary">' + escapeHtml(project.summary || "") + '</textarea></label><label><span>Description</span><textarea name="description">' + escapeHtml((project.description || []).join("\n\n")) + '</textarea></label><label><span>Tags, comma separated</span><input name="tags" value="' + escapeHtml((project.tags || []).join(", ")) + '"></label><label><span>Process tags, comma separated</span><input name="processTags" value="' + escapeHtml((project.processTags || []).join(", ")) + '"></label><label><span>Format</span><input name="format" value="' + escapeHtml(project.format || "") + '"></label><div class="card-actions"><button class="primary" data-action="save-project" type="button">Save</button><button data-action="project-up" type="button">Up</button><button data-action="project-down" type="button">Down</button>' + (currentThumb ? '<button data-action="rename-image" data-src="' + escapeHtml(currentThumb) + '" type="button">Rename Thumb</button>' : '') + '</div><label><span>Add gallery image</span><select name="addImage"><option value="">Choose image</option>' + projectOptions("") + '</select></label><div class="card-actions"><button data-action="add-project-image" type="button">Add Image</button></div><div class="gallery-strip">' + project.imageItems.map(image => '<div class="mini ' + (image.src === currentThumb ? 'is-current-thumb' : '') + '"><img src="' + image.url + '" alt="" loading="lazy"><button class="mini-rename" data-action="rename-image" data-src="' + escapeHtml(image.src) + '" type="button">r</button><button class="danger mini-remove" data-action="remove-project-image" data-src="' + escapeHtml(image.src) + '" type="button">x</button><button class="mini-thumb" data-action="set-project-thumb" data-src="' + escapeHtml(image.src) + '" type="button">Use Thumb</button></div>').join("") + '</div></form></article>';
+      }).join("") + "</div>";
       el("secondary").innerHTML = '<h2 class="section-title">Referenced Missing Files</h2>' + (state.data.missing.length ? '<div class="empty">' + state.data.missing.map(escapeHtml).join("<br>") + '</div>' : '<div class="empty">No missing project image references.</div>');
     };
-    const render = () => { renderStats(); const isProjects = state.data.type === "projects"; el("addMissing").style.display = isProjects ? "none" : ""; el("saveVisibleText").style.display = isProjects ? "none" : ""; el("regenAll").style.display = isProjects ? "none" : ""; el("filter").style.display = isProjects ? "none" : ""; if (isProjects) renderProjects(); else renderGallery(); };
+    const render = () => { renderStats(); const isProjects = state.data.type === "projects"; el("addMissing").style.display = isProjects ? "none" : ""; el("saveVisibleText").style.display = isProjects ? "none" : ""; el("saveVisibleProjects").style.display = isProjects ? "" : "none"; el("regenAll").style.display = isProjects ? "none" : ""; el("filter").style.display = isProjects ? "none" : ""; if (isProjects) renderProjects(); else renderGallery(); };
     document.addEventListener("click", async event => {
       const button = event.target.closest("button"); if (!button) return;
       const action = button.dataset.action || button.id;
@@ -614,6 +649,14 @@ const appHtml = `<!doctype html>
         }
         if (action === "remove" && confirm("Remove this entry from JSON? The image file will stay in the folder.")) await mutate("/api/gallery/remove", { src }, "JSON entry removed.");
         if (action === "save-project") await mutate("/api/project/save", { slug: form.dataset.slug, project: Object.fromEntries(new FormData(form).entries()) }, "Project saved.");
+        if (action === "saveVisibleProjects") {
+          const updates = [...document.querySelectorAll("#content .project-form")].map(projectForm => ({
+            slug: projectForm.dataset.slug,
+            project: Object.fromEntries(new FormData(projectForm).entries())
+          }));
+          if (updates.length) await mutate("/api/project/save-items", { updates }, updates.length + " visible project page(s) saved.");
+          else toast("No visible project pages to save.");
+        }
         if (action === "project-up" || action === "project-down") await mutate("/api/project/move", { slug: form.dataset.slug, direction: action === "project-up" ? "up" : "down" }, "Project moved.");
         if (action === "add-project-image") { const imageSrc = new FormData(form).get("addImage"); if (imageSrc) await mutate("/api/project/add-image", { slug: form.dataset.slug, src: imageSrc }, "Project image added."); }
         if (action === "remove-project-image" && confirm("Remove this image from the project gallery? The file will stay on disk.")) await mutate("/api/project/remove-image", { slug: form.dataset.slug, src }, "Project image removed.");
@@ -657,6 +700,7 @@ const server = http.createServer(async (request, response) => {
     if (url.pathname === "/api/scrub-sidecars") return sendJson(response, 200, { removed: scrubSidecars(collectionFor(key).imageDir), state: buildState(key) });
     if (url.pathname === "/api/image/rename") return sendJson(response, 200, { rename: renameImage(body.src, body.newName), state: buildState(key) });
     if (url.pathname === "/api/project/save") return sendJson(response, 200, { saved: saveProject(body), state: buildState("projects") });
+    if (url.pathname === "/api/project/save-items") return sendJson(response, 200, { saved: saveProjects(body.updates || []), state: buildState("projects") });
     if (url.pathname === "/api/project/move") return sendJson(response, 200, { moved: moveProject(body.slug, body.direction), state: buildState("projects") });
     if (url.pathname === "/api/project/add-image") return sendJson(response, 200, { added: addProjectImage(body.slug, body.src), state: buildState("projects") });
     if (url.pathname === "/api/project/remove-image") return sendJson(response, 200, { removed: removeProjectImage(body.slug, body.src), state: buildState("projects") });
