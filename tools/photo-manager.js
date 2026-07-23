@@ -648,6 +648,11 @@ const appHtml = `<!doctype html>
           else toast("No visible text fields to save.");
         }
         if (action === "remove" && confirm("Remove this entry from JSON? The image file will stay in the folder.")) await mutate("/api/gallery/remove", { src }, "JSON entry removed.");
+        if (action === "set-project-thumb") {
+          const thumbSelect = form.querySelector('[name="thumb"]');
+          if (thumbSelect) thumbSelect.value = src;
+          await mutate("/api/project/save", { slug: form.dataset.slug, project: Object.fromEntries(new FormData(form).entries()) }, "Project thumbnail updated.");
+        }
         if (action === "save-project") await mutate("/api/project/save", { slug: form.dataset.slug, project: Object.fromEntries(new FormData(form).entries()) }, "Project saved.");
         if (action === "saveVisibleProjects") {
           const updates = [...document.querySelectorAll("#content .project-form")].map(projectForm => ({
