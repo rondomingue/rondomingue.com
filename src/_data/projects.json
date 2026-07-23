@@ -136,7 +136,7 @@
       "Sci-Fi",
       "Procedural"
     ],
-    "thumb": "images/work/signal-lattice/Head.png",
+    "thumb": "images/work/signal-lattice/10.png",
     "summary": "Signal Lattice is a cinematic HUD/FUI study built around dense orange navigation overlays, scan readouts, and layered glass-panel interface depth.",
     "description": [
       "A compact interface study focused on parallax, opacity, grid density, and warm avionics-style system graphics. The sequence explores how abstract readouts and targeting structures can feel tactile and dimensional when treated like photographed glass rather than flat UI."
@@ -167,7 +167,7 @@
   {
     "title": "Ravens Isle",
     "slug": "ravens-isle",
-    "year": "2024",
+    "year": "2026",
     "tags": [
       "UE5",
       "Cinematic",
@@ -210,7 +210,7 @@
   {
     "title": "Desert Silence",
     "slug": "desert-silence",
-    "year": "2024",
+    "year": "2026",
     "tags": [
       "UE5",
       "Cinematic",

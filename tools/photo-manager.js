@@ -517,14 +517,18 @@ const appHtml = `<!doctype html>
     .stat span { color:var(--muted); font-family:"Space Mono",ui-monospace,monospace; font-size:9px; letter-spacing:.14em; text-transform:uppercase; }
     .notice { display:none; margin:0 0 16px; border-radius:6px; padding:11px 12px; background:rgba(224,184,74,.1); border:1px solid rgba(224,184,74,.34); color:#e7c86a; font-family:"Space Mono",ui-monospace,monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; }
     .notice.active { display:block; }
-    .toolbar { display:grid; grid-template-columns:1fr 160px; gap:12px; align-items:center; margin-bottom:16px; }
+    .toolbar { display:grid; grid-template-columns:1fr 160px; gap:12px; align-items:center; margin-bottom:14px; }
+    .pager { display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 0 18px; padding:10px 12px; border:1px solid var(--line); border-radius:6px; background:rgba(255,255,255,.025); }
+    .pager-group { display:flex; align-items:center; gap:8px; }
+    .pager-info { color:var(--muted); font-family:"Space Mono",ui-monospace,monospace; font-size:9px; letter-spacing:.12em; text-transform:uppercase; }
+    .pager button[disabled] { opacity:.35; cursor:not-allowed; transform:none; }
     input[type="search"] { width:100%; background:rgba(255,255,255,.035); font-size:13px; }
     .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; }
-    .projects-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(520px,1fr)); gap:18px; align-items:start; }
+    .projects-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(560px,1fr)); gap:18px; align-items:start; }
     .card { background:rgba(16,17,21,.94); border:1px solid var(--line); border-radius:6px; overflow:hidden; box-shadow:0 1px 0 rgba(255,255,255,.03); transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
-    .project-card { display:grid; grid-template-columns:minmax(180px,.72fr) minmax(280px,1fr); }
-    .project-cover { position:relative; min-height:100%; background:#090a0c; border-right:1px solid var(--line); }
-    .project-cover .thumb { height:100%; min-height:360px; aspect-ratio:auto; }
+    .project-card { display:block; }
+    .project-cover { position:relative; background:#090a0c; border-bottom:1px solid var(--line); }
+    .project-cover .thumb { aspect-ratio:16/9; height:auto; max-height:420px; object-fit:cover; object-position:center; }
     .project-cover-badge { position:absolute; left:12px; bottom:12px; max-width:calc(100% - 24px); padding:7px 9px; border:1px solid rgba(200,40,154,.34); border-radius:999px; background:rgba(7,8,10,.72); color:var(--dim); font-family:"Space Mono",ui-monospace,monospace; font-size:8px; letter-spacing:.12em; text-transform:uppercase; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
     .card:hover { border-color:rgba(200,40,154,.34); transform:translateY(-2px); box-shadow:0 18px 44px rgba(0,0,0,.28); }
     .card.missing-file { border-color:rgba(255,107,94,.55); }
@@ -542,26 +546,27 @@ const appHtml = `<!doctype html>
     .project-form { padding:14px; display:grid; gap:10px; }
     .field-grid { display:grid; grid-template-columns:1fr 110px; gap:8px; }
     .project-form label { display:grid; gap:6px; color:var(--muted); font-family:"Space Mono",ui-monospace,monospace; font-size:9px; letter-spacing:.12em; text-transform:uppercase; }
-    .gallery-strip { display:grid; grid-template-columns:repeat(auto-fill,minmax(92px,1fr)); gap:7px; max-height:220px; overflow:auto; padding-right:2px; }
+    .gallery-strip { display:grid; grid-template-columns:repeat(auto-fill,minmax(96px,1fr)); gap:8px; max-height:228px; overflow:auto; padding:2px 2px 2px 0; }
     .mini { position:relative; border:1px solid var(--line); border-radius:5px; overflow:hidden; background:#090a0c; }
     .mini img { display:block; width:100%; aspect-ratio:1; object-fit:cover; }
     .mini button { position:absolute; min-height:24px; padding:2px 6px; background:rgba(7,8,10,.72); }
     .mini .mini-rename { top:4px; left:4px; }
     .mini .mini-remove { top:4px; right:4px; }
-    .mini .mini-thumb { left:4px; right:4px; bottom:4px; width:auto; border-color:rgba(200,40,154,.42); background:rgba(200,40,154,.2); }
+    .mini .mini-thumb { left:4px; right:4px; bottom:4px; width:auto; border-color:rgba(200,40,154,.42); background:rgba(200,40,154,.24); opacity:0; transform:translateY(6px); transition:opacity .18s ease, transform .18s ease; }
+    .mini:hover .mini-thumb, .mini:focus-within .mini-thumb { opacity:1; transform:translateY(0); }
     .mini.is-current-thumb { border-color:rgba(200,40,154,.74); box-shadow:0 0 0 1px rgba(200,40,154,.22), 0 0 24px rgba(200,40,154,.22); }
     .toast { position:fixed; left:50%; bottom:18px; transform:translateX(-50%); min-width:min(480px,calc(100vw - 32px)); padding:12px 14px; border-radius:6px; background:rgba(16,17,21,.94); border:1px solid rgba(200,40,154,.35); color:var(--text); box-shadow:var(--shadow); opacity:0; pointer-events:none; transition:opacity 160ms ease; font-size:13px; text-align:center; }
     .toast.active { opacity:1; }
-    @media (max-width:980px) { .project-card { grid-template-columns:1fr; } .project-cover { border-right:0; border-bottom:1px solid var(--line); } .project-cover .thumb { min-height:260px; } }
-    @media (max-width:820px) { .bar,.toolbar { grid-template-columns:1fr; } .actions { justify-content:stretch; } .actions button,.actions select { flex:1 1 auto; } .stats { grid-template-columns:repeat(2,1fr); } .projects-grid { grid-template-columns:1fr; } }
+    @media (max-width:980px) { .project-cover .thumb { max-height:320px; } }
+    @media (max-width:820px) { .bar,.toolbar { grid-template-columns:1fr; } .pager { align-items:stretch; flex-direction:column; } .pager-group { justify-content:space-between; } .actions { justify-content:stretch; } .actions button,.actions select { flex:1 1 auto; } .stats { grid-template-columns:repeat(2,1fr); } .projects-grid { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
   <header><div class="bar"><div><h1>Local Content Manager</h1><div class="subtitle">Edit photography, illustration, and projects JSON locally</div></div><div class="actions"><select id="collection"><option value="photography">Photography</option><option value="illustration">Illustration</option><option value="projects">Project Pages</option></select><button class="primary" id="addMissing">Add Missing</button><button class="primary" id="saveVisibleText">Save All Text</button><button class="primary" id="saveVisibleProjects">Save All Projects</button><button id="regenAll">Regenerate Metadata</button><button id="scrubSidecars">Scrub Sidecars</button><button id="refresh">Refresh</button></div></div></header>
-  <main><div class="stats" id="stats"></div><div class="notice" id="notice"></div><div class="toolbar"><input id="search" type="search" placeholder="Search"><select id="filter" aria-label="Filter"><option value="all">All</option><option value="portrait">Portrait</option><option value="landscape">Landscape</option><option value="square">Square</option><option value="missing-file">Missing file entries</option></select></div><section id="content"></section><section id="secondary"></section></main>
+  <main><div class="stats" id="stats"></div><div class="notice" id="notice"></div><div class="toolbar"><input id="search" type="search" placeholder="Search"><select id="filter" aria-label="Filter"><option value="all">All</option><option value="portrait">Portrait</option><option value="landscape">Landscape</option><option value="square">Square</option><option value="missing-file">Missing file entries</option></select></div><div class="pager" id="pager"><div class="pager-group"><button id="pagePrev" type="button">Prev</button><button id="pageNext" type="button">Next</button><span class="pager-info" id="pageInfo"></span></div><div class="pager-group"><span class="pager-info">Per page</span><select id="pageSize" aria-label="Items per page"><option value="2">2</option><option value="4">4</option><option value="8">8</option><option value="16">16</option><option value="24" selected>24</option><option value="48">48</option></select></div></div><section id="content"></section><section id="secondary"></section></main>
   <div class="toast" id="toast"></div>
   <script>
-    const state = { data: null, collection: "photography", search: "", filter: "all" };
+    const state = { data: null, collection: "photography", search: "", filter: "all", page: 1, pageSize: 24 };
     const el = id => document.getElementById(id);
     const fileName = src => src.split("/").pop();
     const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g, char => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#039;" }[char]));
@@ -574,6 +579,20 @@ const appHtml = `<!doctype html>
     };
     const refresh = async () => { state.data = await api("/api/state?collection=" + encodeURIComponent(state.collection)); render(); };
     const mutate = async (path, body, message) => { await api(path, { collection: state.collection, ...body }); await refresh(); toast(message); };
+    const paginate = items => {
+      const pageSize = Number(state.pageSize) || 24;
+      const totalPages = Math.max(1, Math.ceil(items.length / pageSize));
+      state.page = Math.min(Math.max(1, state.page), totalPages);
+      const start = (state.page - 1) * pageSize;
+      return { items: items.slice(start, start + pageSize), total: items.length, totalPages, start };
+    };
+    const renderPager = ({ total, totalPages, start, items }) => {
+      el("pager").hidden = total === 0;
+      el("pageInfo").textContent = total ? (start + 1) + "-" + (start + items.length) + " of " + total + " / page " + state.page + " of " + totalPages : "0 items";
+      el("pagePrev").disabled = state.page <= 1;
+      el("pageNext").disabled = state.page >= totalPages;
+      el("pageSize").value = String(state.pageSize);
+    };
     const renderStats = () => {
       const count = state.data.count;
       const stats = state.data.type === "projects" ? [["Projects",count.entries],["Files",count.files],["Unused",count.unused],["Missing",count.missing],["Sidecars",count.sidecars],["Duplicates",count.duplicates]] : [["Entries",count.entries],["Files",count.files],["Missing",count.missing],["Orphaned",count.orphaned],["Sidecars",count.sidecars],["Duplicates",count.duplicates]];
@@ -588,23 +607,27 @@ const appHtml = `<!doctype html>
     };
     const renderGallery = () => {
       const search = state.search.toLowerCase();
-      const items = state.data.items.filter(item => {
+      const filteredItems = state.data.items.filter(item => {
         if (search && !(item.src + " " + item.alt).toLowerCase().includes(search)) return false;
         if (["portrait","landscape","square"].includes(state.filter)) return item.orientation === state.filter;
         if (state.filter === "missing-file") return !item.exists;
         return true;
       });
-      el("content").innerHTML = '<div class="grid">' + items.map(item => '<article class="card ' + (item.exists ? "" : "missing-file") + '">' + (item.exists ? '<img class="thumb" src="' + item.url + '" alt="' + escapeHtml(item.alt) + '" loading="lazy">' : '<div class="thumb"></div>') + '<div class="meta"><div class="name">' + (item.index + 1) + '. ' + escapeHtml(fileName(item.src)) + '</div><div class="detail"><span>' + escapeHtml(item.caption || item.alt) + '</span><span>' + item.orientation + '</span><span>' + item.width + ' x ' + item.height + '</span></div><label><span>Caption</span><input name="caption" value="' + escapeHtml(item.caption || '') + '"></label>' + (state.collection === 'illustration' ? '<label><span>Alt text</span><input name="alt" value="' + escapeHtml(item.alt || '') + '"></label>' : '') + '<div class="card-actions"><button class="primary wide" data-action="save-gallery-item" data-src="' + escapeHtml(item.src) + '">Save Text</button><button data-action="up" data-src="' + escapeHtml(item.src) + '">Up</button><button data-action="down" data-src="' + escapeHtml(item.src) + '">Down</button><button data-action="regen" data-src="' + escapeHtml(item.src) + '">Meta</button><button data-action="rename-image" data-src="' + escapeHtml(item.src) + '">Rename</button><button class="danger" data-action="remove" data-src="' + escapeHtml(item.src) + '">Remove JSON</button></div></div></article>').join("") + "</div>";
+      const page = paginate(filteredItems);
+      renderPager(page);
+      el("content").innerHTML = '<div class="grid">' + page.items.map(item => '<article class="card ' + (item.exists ? "" : "missing-file") + '">' + (item.exists ? '<img class="thumb" src="' + item.url + '" alt="' + escapeHtml(item.alt) + '" loading="lazy">' : '<div class="thumb"></div>') + '<div class="meta"><div class="name">' + (item.index + 1) + '. ' + escapeHtml(fileName(item.src)) + '</div><div class="detail"><span>' + escapeHtml(item.caption || item.alt) + '</span><span>' + item.orientation + '</span><span>' + item.width + ' x ' + item.height + '</span></div><label><span>Caption</span><input name="caption" value="' + escapeHtml(item.caption || '') + '"></label>' + (state.collection === 'illustration' ? '<label><span>Alt text</span><input name="alt" value="' + escapeHtml(item.alt || '') + '"></label>' : '') + '<div class="card-actions"><button class="primary wide" data-action="save-gallery-item" data-src="' + escapeHtml(item.src) + '">Save Text</button><button data-action="up" data-src="' + escapeHtml(item.src) + '">Up</button><button data-action="down" data-src="' + escapeHtml(item.src) + '">Down</button><button data-action="regen" data-src="' + escapeHtml(item.src) + '">Meta</button><button data-action="rename-image" data-src="' + escapeHtml(item.src) + '">Rename</button><button class="danger" data-action="remove" data-src="' + escapeHtml(item.src) + '">Remove JSON</button></div></div></article>').join("") + "</div>";
       el("secondary").innerHTML = '<h2 class="section-title">Missing From JSON</h2>' + (state.data.missing.length ? '<div class="grid">' + state.data.missing.map(item => '<article class="card"><img class="thumb" src="' + item.url + '" alt="" loading="lazy"><div class="meta"><div class="name">' + escapeHtml(fileName(item.src)) + '</div></div></article>').join("") + '</div>' : '<div class="empty">No missing files. The folder and JSON match.</div>') + '<h2 class="section-title">Orphaned JSON Entries</h2>' + (state.data.orphaned.length ? '<div class="empty">' + state.data.orphaned.map(item => escapeHtml(item.src)).join("<br>") + '</div>' : '<div class="empty">No orphaned JSON entries.</div>');
     };
     const projectOptions = selected => state.data.files.map(file => '<option value="' + escapeHtml(file.src) + '"' + (file.src === selected ? " selected" : "") + '>' + escapeHtml(file.src) + '</option>').join("");
     const renderProjects = () => {
       const search = state.search.toLowerCase();
-      const projects = state.data.projects.filter(project => !search || (project.title + " " + project.slug + " " + project.summary + " " + (project.tags || []).join(" ")).toLowerCase().includes(search));
-      el("content").innerHTML = '<div class="projects-grid">' + projects.map(project => {
+      const filteredProjects = state.data.projects.filter(project => !search || (project.title + " " + project.slug + " " + project.summary + " " + (project.tags || []).join(" ")).toLowerCase().includes(search));
+      const page = paginate(filteredProjects);
+      renderPager(page);
+      el("content").innerHTML = '<div class="projects-grid">' + page.items.map(project => {
         const currentThumb = project.thumb || "";
         const cover = currentThumb ? '<img class="thumb project-thumb-preview" src="' + project.thumbUrl + '" alt="' + escapeHtml(project.title) + '" loading="lazy">' : '<div class="thumb project-thumb-preview"></div>';
-        return '<article class="card project-card"><div class="project-cover">' + cover + '<div class="project-cover-badge">Current thumbnail</div></div><form class="project-form" data-slug="' + escapeHtml(project.slug) + '"><div class="name">' + (project.index + 1) + '. ' + escapeHtml(project.title) + '</div><div class="field-grid"><label><span>Title</span><input name="title" value="' + escapeHtml(project.title) + '"></label><label><span>Year</span><input name="year" value="' + escapeHtml(project.year) + '"></label></div><label><span>Slug</span><input name="slug" value="' + escapeHtml(project.slug) + '"></label><label><span>Current thumbnail</span><select name="thumb">' + projectOptions(currentThumb) + '</select></label><label><span>Summary</span><textarea name="summary">' + escapeHtml(project.summary || "") + '</textarea></label><label><span>Description</span><textarea name="description">' + escapeHtml((project.description || []).join("\\n\\n")) + '</textarea></label><label><span>Tags, comma separated</span><input name="tags" value="' + escapeHtml((project.tags || []).join(", ")) + '"></label><label><span>Process tags, comma separated</span><input name="processTags" value="' + escapeHtml((project.processTags || []).join(", ")) + '"></label><label><span>Format</span><input name="format" value="' + escapeHtml(project.format || "") + '"></label><div class="card-actions"><button class="primary" data-action="save-project" type="button">Save</button><button data-action="project-up" type="button">Up</button><button data-action="project-down" type="button">Down</button>' + (currentThumb ? '<button data-action="rename-image" data-src="' + escapeHtml(currentThumb) + '" type="button">Rename Thumb</button>' : '') + '</div><label><span>Add gallery image</span><select name="addImage"><option value="">Choose image</option>' + projectOptions("") + '</select></label><div class="card-actions"><button data-action="add-project-image" type="button">Add Image</button></div><div class="gallery-strip">' + project.imageItems.map(image => '<div class="mini ' + (image.src === currentThumb ? 'is-current-thumb' : '') + '"><img src="' + image.url + '" alt="" loading="lazy"><button class="mini-rename" data-action="rename-image" data-src="' + escapeHtml(image.src) + '" type="button">r</button><button class="danger mini-remove" data-action="remove-project-image" data-src="' + escapeHtml(image.src) + '" type="button">x</button><button class="mini-thumb" data-action="set-project-thumb" data-src="' + escapeHtml(image.src) + '" type="button">Use Thumb</button></div>').join("") + '</div></form></article>';
+        return '<article class="card project-card"><div class="project-cover">' + cover + '<div class="project-cover-badge">Hero image</div></div><form class="project-form" data-slug="' + escapeHtml(project.slug) + '"><div class="name">' + (project.index + 1) + '. ' + escapeHtml(project.title) + '</div><div class="field-grid"><label><span>Title</span><input name="title" value="' + escapeHtml(project.title) + '"></label><label><span>Year</span><input name="year" value="' + escapeHtml(project.year) + '"></label></div><label><span>Slug</span><input name="slug" value="' + escapeHtml(project.slug) + '"></label><label><span>Hero image</span><select name="thumb">' + projectOptions(currentThumb) + '</select></label><label><span>Summary</span><textarea name="summary">' + escapeHtml(project.summary || "") + '</textarea></label><label><span>Description</span><textarea name="description">' + escapeHtml((project.description || []).join("\\n\\n")) + '</textarea></label><label><span>Tags, comma separated</span><input name="tags" value="' + escapeHtml((project.tags || []).join(", ")) + '"></label><label><span>Process tags, comma separated</span><input name="processTags" value="' + escapeHtml((project.processTags || []).join(", ")) + '"></label><label><span>Format</span><input name="format" value="' + escapeHtml(project.format || "") + '"></label><div class="card-actions"><button class="primary" data-action="save-project" type="button">Save</button><button data-action="project-up" type="button">Up</button><button data-action="project-down" type="button">Down</button>' + (currentThumb ? '<button data-action="rename-image" data-src="' + escapeHtml(currentThumb) + '" type="button">Rename Hero</button>' : '') + '</div><label><span>Add gallery image</span><select name="addImage"><option value="">Choose image</option>' + projectOptions("") + '</select></label><div class="card-actions"><button data-action="add-project-image" type="button">Add Image</button></div><div class="gallery-strip">' + project.imageItems.map(image => '<div class="mini ' + (image.src === currentThumb ? 'is-current-thumb' : '') + '"><img src="' + image.url + '" alt="" loading="lazy"><button class="mini-rename" data-action="rename-image" data-src="' + escapeHtml(image.src) + '" type="button">r</button><button class="danger mini-remove" data-action="remove-project-image" data-src="' + escapeHtml(image.src) + '" type="button">x</button><button class="mini-thumb" data-action="set-project-thumb" data-src="' + escapeHtml(image.src) + '" type="button">Use Hero</button></div>').join("") + '</div></form></article>';
       }).join("") + "</div>";
       el("secondary").innerHTML = '<h2 class="section-title">Referenced Missing Files</h2>' + (state.data.missing.length ? '<div class="empty">' + state.data.missing.map(escapeHtml).join("<br>") + '</div>' : '<div class="empty">No missing project image references.</div>');
     };
@@ -651,7 +674,7 @@ const appHtml = `<!doctype html>
         if (action === "set-project-thumb") {
           const thumbSelect = form.querySelector('[name="thumb"]');
           if (thumbSelect) thumbSelect.value = src;
-          await mutate("/api/project/save", { slug: form.dataset.slug, project: Object.fromEntries(new FormData(form).entries()) }, "Project thumbnail updated.");
+          await mutate("/api/project/save", { slug: form.dataset.slug, project: Object.fromEntries(new FormData(form).entries()) }, "Project hero updated.");
         }
         if (action === "save-project") await mutate("/api/project/save", { slug: form.dataset.slug, project: Object.fromEntries(new FormData(form).entries()) }, "Project saved.");
         if (action === "saveVisibleProjects") {
@@ -667,9 +690,21 @@ const appHtml = `<!doctype html>
         if (action === "remove-project-image" && confirm("Remove this image from the project gallery? The file will stay on disk.")) await mutate("/api/project/remove-image", { slug: form.dataset.slug, src }, "Project image removed.");
       } catch (error) { toast(error.message); }
     });
-    el("collection").addEventListener("change", event => { state.collection = event.target.value; state.search = ""; el("search").value = ""; refresh().catch(error => toast(error.message)); });
-    el("search").addEventListener("input", event => { state.search = event.target.value; render(); });
-    el("filter").addEventListener("change", event => { state.filter = event.target.value; render(); });
+    el("collection").addEventListener("change", event => {
+      state.collection = event.target.value;
+      state.search = "";
+      state.filter = "all";
+      state.page = 1;
+      state.pageSize = state.collection === "projects" ? 2 : 24;
+      el("search").value = "";
+      el("filter").value = "all";
+      refresh().catch(error => toast(error.message));
+    });
+    el("search").addEventListener("input", event => { state.search = event.target.value; state.page = 1; render(); });
+    el("filter").addEventListener("change", event => { state.filter = event.target.value; state.page = 1; render(); });
+    el("pageSize").addEventListener("change", event => { state.pageSize = Number(event.target.value); state.page = 1; render(); });
+    el("pagePrev").addEventListener("click", () => { state.page -= 1; render(); window.scrollTo({ top: 0, behavior: "smooth" }); });
+    el("pageNext").addEventListener("click", () => { state.page += 1; render(); window.scrollTo({ top: 0, behavior: "smooth" }); });
     refresh().catch(error => toast(error.message));
   </script>
 </body>
