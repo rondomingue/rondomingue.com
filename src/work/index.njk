@@ -25,7 +25,7 @@ bodyClass: page-work
       <div class="work-card-overlay"></div>
       <div class="work-card-info">
         <div class="work-card-tags">
-          {% for tag in project.tags %}<span class="work-tag work-tag-filter" role="button" tabindex="0" data-filter="{{ tag }}" aria-label="Filter work by {{ tag }}">{{ tag }}</span>{% endfor %}
+          {% for tag in project.tags %}{% if loop.index <= 4 %}<span class="work-tag work-tag-filter" role="button" tabindex="0" data-filter="{{ tag }}" aria-label="Filter work by {{ tag }}">{{ tag }}</span>{% endif %}{% endfor %}
           <span class="work-tag">{{ project.year }}</span>
         </div>
         <div class="work-card-title">{{ project.title }}</div>
@@ -71,6 +71,69 @@ bodyClass: page-work
 
     const filterButtons = [...filterHost.querySelectorAll('.work-filter')];
     filterButtons.forEach(button => button.setAttribute('aria-pressed', button.classList.contains('active') ? 'true' : 'false'));
+
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const finePointerQuery = window.matchMedia('(pointer: fine)');
+
+    const resetTagWave = () => {
+      filterButtons.forEach(button => {
+        button.style.setProperty('--tag-scale', '1');
+        button.style.setProperty('--tag-lift', '0px');
+        button.style.setProperty('--tag-glow', '0');
+        button.style.zIndex = '';
+      });
+    };
+
+    const applyTagWave = (clientX, clientY) => {
+      const radius = 176;
+      filterButtons.forEach(button => {
+        const rect = button.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const distance = Math.hypot(clientX - centerX, (clientY - centerY) * 1.35);
+        const influence = Math.max(0, 1 - distance / radius);
+        const eased = influence * influence;
+
+        button.style.setProperty('--tag-scale', (1 + eased * 0.13).toFixed(3));
+        button.style.setProperty('--tag-lift', `${(-eased * 7).toFixed(2)}px`);
+        button.style.setProperty('--tag-glow', eased.toFixed(3));
+        button.style.zIndex = eased > 0 ? String(2 + Math.round(eased * 10)) : '';
+      });
+    };
+
+    if (!reducedMotionQuery.matches) {
+      let waveFrame = 0;
+      let lastPointer = null;
+
+      filterHost.addEventListener('pointermove', event => {
+        if (!finePointerQuery.matches) return;
+        lastPointer = event;
+        if (waveFrame) return;
+
+        waveFrame = requestAnimationFrame(() => {
+          waveFrame = 0;
+          applyTagWave(lastPointer.clientX, lastPointer.clientY);
+        });
+      });
+
+      filterHost.addEventListener('pointerleave', resetTagWave);
+
+      filterHost.addEventListener('pointerdown', event => {
+        const button = event.target.closest('.work-filter');
+        if (!button) return;
+        button.classList.remove('is-tag-popping');
+        void button.offsetWidth;
+        button.classList.add('is-tag-popping');
+      });
+
+      filterHost.addEventListener('animationend', event => {
+        if (event.target.classList.contains('work-filter')) {
+          event.target.classList.remove('is-tag-popping');
+        }
+      });
+
+      reducedMotionQuery.addEventListener?.('change', resetTagWave);
+    }
 
     const getKnownFilter = filter => {
       if (!filter || filter === 'all') return 'all';

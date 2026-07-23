@@ -18,7 +18,7 @@ bodyClass: page-work page-project
     <div class="project-title-block">
       <div class="project-kicker">
         <span>{{ project.year }}</span>
-        {% for tag in project.tags %}<span>{{ tag }}</span>{% endfor %}
+        {% for tag in project.tags %}{% if loop.index <= 4 %}<span>{{ tag }}</span>{% endif %}{% endfor %}
       </div>
       <h1>{{ project.title }}</h1>
       {% if project.subtitle %}<p class="project-subtitle">{{ project.subtitle }}</p>{% endif %}

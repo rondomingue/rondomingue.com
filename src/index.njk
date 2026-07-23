@@ -133,7 +133,7 @@ bodyClass: page-home
       <div class="work-card-overlay"></div>
       <div class="work-card-info">
         <div class="work-card-tags">
-          {% for tag in project.tags %}<span class="work-tag">{{ tag }}</span>{% endfor %}
+          {% for tag in project.tags %}{% if loop.index <= 4 %}<span class="work-tag">{{ tag }}</span>{% endif %}{% endfor %}
           <span class="work-tag">{{ project.year }}</span>
         </div>
         <div class="work-card-title">{{ project.title }}</div>
