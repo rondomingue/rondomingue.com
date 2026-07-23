@@ -112,7 +112,9 @@ bodyClass: page-home
         data-src="https://player.vimeo.com/video/{{ site.featuredReel }}?autoplay=1&title=0&byline=0&portrait=0"
         src="about:blank"
         allow="autoplay; fullscreen; picture-in-picture"
-        allowfullscreen>
+        allowfullscreen
+        webkitallowfullscreen
+        mozallowfullscreen>
       </iframe>
     </div>
   </div>
@@ -147,6 +149,7 @@ bodyClass: page-home
   </div>
 </section>
 
+<script src="https://player.vimeo.com/api/player.js"></script>
 <script>
   // ── Eyebrow widget ──────────────────────────────────────────────
   const glitchChars = '▓░▒█╬╫╪┼╂╀┿╃╄╅╆╇╈╉╊╋⌬⌭⌮⌯⌰⌱⌲⌳⌴⌵⌶⌷⌸⌹⌺⌻⌼⌽⌾⌿XZKVWMB#@!?%&';
@@ -322,20 +325,51 @@ bodyClass: page-home
   const reelPlayer = document.getElementById('reel-player');
   const reelPanel = document.querySelector('.reel-shadowbox-panel');
   const mobileQuery = window.matchMedia('(max-width: 600px)');
+  let reelVimeoPlayer = null;
 
-  async function requestReelLandscape() {
-    if (!mobileQuery.matches || !reelPanel) return;
+  function getReelVimeoPlayer() {
+    if (!window.Vimeo || !window.Vimeo.Player || !reelPlayer || reelPlayer.src === 'about:blank') return null;
+    if (!reelVimeoPlayer) reelVimeoPlayer = new window.Vimeo.Player(reelPlayer);
+    return reelVimeoPlayer;
+  }
+
+  async function lockReelLandscape() {
+    if (!mobileQuery.matches || !screen.orientation || !screen.orientation.lock) return;
+    await screen.orientation.lock('landscape').catch(() => {});
+  }
+
+  async function requestNativeFullscreen(element) {
+    if (!element) return false;
+    const requestFullscreen = element.requestFullscreen || element.webkitRequestFullscreen;
+    if (!requestFullscreen || document.fullscreenElement || document.webkitFullscreenElement) return false;
+    await requestFullscreen.call(element);
+    return true;
+  }
+
+  async function requestReelFullscreen() {
+    if (!reelPanel) return;
 
     reelShadowbox.classList.add('is-reel-expanded');
-    reelFullscreen.textContent = 'Expanded';
+    reelFullscreen.textContent = 'Fullscreen';
 
     try {
-      const requestFullscreen = reelPanel.requestFullscreen || reelPanel.webkitRequestFullscreen;
-      if (!document.fullscreenElement && !document.webkitFullscreenElement && requestFullscreen) {
-        await requestFullscreen.call(reelPanel);
+      const player = getReelVimeoPlayer();
+      if (player && player.requestFullscreen) {
+        await player.requestFullscreen();
+        await lockReelLandscape();
+        return;
       }
-      if (screen.orientation && screen.orientation.lock) {
-        await screen.orientation.lock('landscape');
+    } catch (error) {
+      // Fall through to browser fullscreen.
+    }
+
+    try {
+      if (await requestNativeFullscreen(reelPlayer)) {
+        await lockReelLandscape();
+        return;
+      }
+      if (await requestNativeFullscreen(reelPanel)) {
+        await lockReelLandscape();
       }
     } catch (error) {
       // The expanded class above is the dependable mobile fallback.
@@ -345,6 +379,7 @@ bodyClass: page-home
   function openReel() {
     reelShadowbox.hidden = false;
     reelPlayer.src = reelPlayer.dataset.src;
+    reelVimeoPlayer = null;
     document.body.classList.add('reel-is-open');
     reelClose.focus();
   }
@@ -353,6 +388,7 @@ bodyClass: page-home
     reelShadowbox.hidden = true;
     reelShadowbox.classList.remove('is-reel-expanded');
     reelFullscreen.textContent = 'Fullscreen';
+    reelVimeoPlayer = null;
     reelPlayer.src = 'about:blank';
     document.body.classList.remove('reel-is-open');
     if (screen.orientation && screen.orientation.unlock) screen.orientation.unlock();
@@ -362,7 +398,7 @@ bodyClass: page-home
   }
 
   reelOpen.addEventListener('click', openReel);
-  reelFullscreen.addEventListener('click', requestReelLandscape);
+  reelFullscreen.addEventListener('click', requestReelFullscreen);
   reelClose.addEventListener('click', closeReel);
   reelShadowbox.addEventListener('click', (event) => {
     if (event.target === reelShadowbox) closeReel();
