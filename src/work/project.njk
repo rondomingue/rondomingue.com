@@ -46,7 +46,7 @@ bodyClass: page-work page-project
       {% endfor %}
       <div class="project-tags">
         {% for tag in project.processTags %}
-        <span>{{ tag }}</span>
+        {% if loop.index <= 4 %}<span>{{ tag }}</span>{% endif %}
         {% endfor %}
       </div>
     </div>
@@ -96,7 +96,7 @@ bodyClass: page-work page-project
     </div>
     <div>
       <span class="project-meta-label">Tools</span>
-      <p>{{ project.tags | join(", ") }}</p>
+      <p>{% for tag in project.tags %}{% if loop.index <= 4 %}{% if not loop.first %}, {% endif %}{{ tag }}{% endif %}{% endfor %}</p>
     </div>
     <div>
       <span class="project-meta-label">Year</span>

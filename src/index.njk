@@ -417,19 +417,25 @@ bodyClass: page-home
 
   // ── Scroll hint ─────────────────────────────────────────────────
   const scrollHint = document.getElementById('scroll-hint');
-  scrollHint.addEventListener('click', () => {
-    document.getElementById('work').scrollIntoView({
-      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
-      block: 'start'
-    });
-  });
-
   const hideScrollHint = () => {
     if (!scrollHint) return;
-    scrollHint.style.opacity = '0';
-    scrollHint.style.pointerEvents = 'none';
-    window.removeEventListener('scroll', hideScrollHint);
+    scrollHint.classList.add('is-hidden');
+    window.removeEventListener('scroll', watchScrollHint);
+  };
+  const watchScrollHint = () => {
+    if (window.scrollY > 24) hideScrollHint();
   };
 
-  window.addEventListener('scroll', hideScrollHint, { passive: true });
+  if (scrollHint) {
+    scrollHint.addEventListener('click', () => {
+      hideScrollHint();
+      document.getElementById('work').scrollIntoView({
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+        block: 'start'
+      });
+    });
+
+    watchScrollHint();
+    window.addEventListener('scroll', watchScrollHint, { passive: true });
+  }
 </script>

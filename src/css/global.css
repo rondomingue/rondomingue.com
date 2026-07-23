@@ -551,6 +551,12 @@ img { display: block; max-width: 100%; }
   animation: hint-fade-up 1s 1.6s ease both;
 }
 .scroll-hint:hover { opacity: 0.72; }
+.scroll-hint.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  animation: none;
+}
 .scroll-hint svg { width: 16px; height: 23px; }
 .scroll-hint line,
 .scroll-hint polyline {
