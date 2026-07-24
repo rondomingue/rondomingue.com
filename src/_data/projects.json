@@ -183,12 +183,7 @@
       "Realtime Compositing"
     ],
     "format": "Audio-reactive music visualization",
-    "images": [
-      {
-        "src": "images/work/black-noise/black-noise-hero.jpg",
-        "alt": "Black Noise audio-reactive TouchDesigner music visualization"
-      }
-    ]
+    "images": []
   },
   {
     "title": "When I'm Small",
