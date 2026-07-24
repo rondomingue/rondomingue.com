@@ -75,6 +75,44 @@
     ]
   },
   {
+    "title": "The Sinner in Me",
+    "slug": "the-sinner-in-me",
+    "year": "2026",
+    "tags": [
+      "TouchDesigner",
+      "Motion Design",
+      "Audio Reactive",
+      "Generative Design",
+      "Procedural",
+      "Cinematic",
+      "Concept Art"
+    ],
+    "thumb": "images/work/the-sinner-in-me/the-sinner-in-me-hero.jpg",
+    "video": {
+      "provider": "youtube",
+      "id": "4MBn_1yQBy4"
+    },
+    "summary": "The Sinner in Me is an audio-reactive TouchDesigner visual built to Depeche Mode's song of the same name, translating the track's dark pulse into procedural motion, distortion, and light.",
+    "description": [
+      "The video uses Depeche Mode's \"The Sinner in Me\" as the driving source, letting the rhythm, dynamics, and atmosphere of the song shape the behavior of the image.",
+      "Built in TouchDesigner, the piece treats sound as a control system. Motion, intensity, texture, and visual disruption respond to the track in real time, creating a dark reactive field that feels closer to a performed signal than a fixed edit."
+    ],
+    "processTags": [
+      "TouchDesigner",
+      "Audio Reactivity",
+      "Procedural Animation",
+      "Generative Visuals",
+      "Realtime Compositing"
+    ],
+    "format": "Audio-reactive music visualization",
+    "images": [
+      {
+        "src": "images/work/the-sinner-in-me/the-sinner-in-me-hero.jpg",
+        "alt": "The Sinner in Me audio-reactive TouchDesigner music visualization"
+      }
+    ]
+  },
+  {
     "title": "Data Haven",
     "slug": "data-haven",
     "year": "2026",
