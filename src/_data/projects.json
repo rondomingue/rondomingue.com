@@ -110,6 +110,164 @@
         "src": "images/work/the-sinner-in-me/the-sinner-in-me-hero.jpg",
         "alt": "The Sinner in Me audio-reactive TouchDesigner music visualization"
       }
+    ],
+    "draft": true
+  },
+  {
+    "title": "The Four of Us Are Dying",
+    "slug": "the-four-of-us-are-dying",
+    "year": "2026",
+    "tags": [
+      "Cinema 4D",
+      "X-Particles",
+      "After Effects",
+      "Motion Design",
+      "Audio Reactive",
+      "Procedural",
+      "Cinematic",
+      "Concept Art"
+    ],
+    "thumb": "images/work/the-four-of-us-are-dying/the-four-of-us-are-dying-hero.jpg",
+    "video": {
+      "provider": "vimeo",
+      "id": "272964657"
+    },
+    "summary": "The Four of Us Are Dying is an audio-driven motion piece built to Nine Inch Nails, using Cinema 4D sound modifiers, X-Particles, and After Effects to translate the track into procedural movement and atmosphere.",
+    "description": [
+      "The piece uses Nine Inch Nails' \"The Four of Us Are Dying\" as the audio source, allowing the track's tension, rhythm, and tonal shifts to drive the visual system.",
+      "Built with sound modifiers in Cinema 4D, X-Particles, and After Effects, the project treats audio as a force acting on form. Particle behavior, motion intensity, and composited atmosphere respond to the music, creating a reactive visual study that sits between procedural animation and music video language."
+    ],
+    "processTags": [
+      "Cinema 4D",
+      "Sound Modifiers",
+      "X-Particles",
+      "After Effects",
+      "Audio-Reactive Animation"
+    ],
+    "format": "Audio-driven procedural motion study",
+    "images": [
+      {
+        "src": "images/work/the-four-of-us-are-dying/the-four-of-us-are-dying-hero.jpg",
+        "alt": "The Four of Us Are Dying audio-driven Cinema 4D and X-Particles motion study"
+      }
+    ]
+  },
+  {
+    "title": "Black Noise",
+    "slug": "black-noise",
+    "year": "2026",
+    "tags": [
+      "TouchDesigner",
+      "Motion Design",
+      "Audio Reactive",
+      "Generative Design",
+      "Procedural",
+      "Cinematic",
+      "Concept Art"
+    ],
+    "thumb": "images/work/black-noise/black-noise-hero.jpg",
+    "video": {
+      "provider": "youtube",
+      "id": "WVcxJ9BOwYY"
+    },
+    "summary": "Black Noise is an audio-reactive TouchDesigner piece built to Nine Inch Nails, translating the track into procedural motion, distortion, and dense signal texture.",
+    "description": [
+      "The video uses Nine Inch Nails' \"Black Noise\" as the audio source, turning the track's abrasive energy and rhythmic pressure into a reactive visual system.",
+      "Created in TouchDesigner, the piece treats sound as a live input for motion, intensity, and image disruption. Forms pulse, smear, and fracture in response to the music, creating a dark generative study that sits between abstract signal processing and music visualization."
+    ],
+    "processTags": [
+      "TouchDesigner",
+      "Audio Reactivity",
+      "Procedural Animation",
+      "Generative Visuals",
+      "Realtime Compositing"
+    ],
+    "format": "Audio-reactive music visualization",
+    "images": [
+      {
+        "src": "images/work/black-noise/black-noise-hero.jpg",
+        "alt": "Black Noise audio-reactive TouchDesigner music visualization"
+      }
+    ]
+  },
+  {
+    "title": "When I'm Small",
+    "slug": "when-im-small",
+    "year": "2026",
+    "tags": [
+      "Cinema 4D",
+      "X-Particles",
+      "After Effects",
+      "Motion Design",
+      "Audio Reactive",
+      "Procedural",
+      "Cinematic",
+      "Concept Art"
+    ],
+    "thumb": "images/work/when-im-small/when-im-small-hero.jpg",
+    "video": {
+      "provider": "vimeo",
+      "id": "645771009"
+    },
+    "summary": "When I'm Small is an audio-driven motion piece built to Phantogram, using Cinema 4D, X-Particles, and After Effects to turn the track into procedural movement, particle behavior, and layered atmosphere.",
+    "description": [
+      "The video uses Phantogram's \"When I'm Small\" as the audio source, translating the song's pulse and mood into a reactive visual structure.",
+      "Created with Cinema 4D, X-Particles, and After Effects, the piece uses sound-influenced motion and particle systems to build a dense audiovisual study. The result sits between music visualization, procedural animation, and cinematic motion design."
+    ],
+    "processTags": [
+      "Cinema 4D",
+      "X-Particles",
+      "After Effects",
+      "Audio-Reactive Animation",
+      "Particle Systems"
+    ],
+    "format": "Audio-driven procedural motion study",
+    "images": [
+      {
+        "src": "images/work/when-im-small/when-im-small-hero.jpg",
+        "alt": "When I'm Small audio-driven Cinema 4D and X-Particles motion study"
+      }
+    ]
+  },
+  {
+    "title": "Long After Dark",
+    "slug": "long-after-dark",
+    "year": "2026",
+    "tags": [
+      "Motion Design",
+      "Cinematic",
+      "Atmosphere",
+      "Visual Development",
+      "Concept Art"
+    ],
+    "thumb": "images/work/long-after-dark/long-after-dark-hero.jpg",
+    "video": {
+      "provider": "vimeo",
+      "id": "1015330502"
+    },
+    "liveLinks": [
+      {
+        "label": "Lizzy Margiotta",
+        "url": "https://www.lizmargiotta.design/"
+      }
+    ],
+    "summary": "Long After Dark is a cinematic motion piece built around nocturnal atmosphere, restrained pacing, and a dark visual tone, presented as a Vimeo-backed project with a credit link to Lizzy Margiotta.",
+    "description": [
+      "The project leans into shadow, rhythm, and after-hours mood, using motion and composition to create a visual space that feels suspended between title design, music-video language, and atmospheric visual development.",
+      "A visible project link points viewers back to Lizzy Margiotta so the piece keeps its collaborator and source context attached on the project page."
+    ],
+    "processTags": [
+      "Motion Design",
+      "Cinematic Editing",
+      "Atmosphere",
+      "Visual Development"
+    ],
+    "format": "Cinematic motion piece",
+    "images": [
+      {
+        "src": "images/work/long-after-dark/long-after-dark-hero.jpg",
+        "alt": "Long After Dark cinematic motion project still"
+      }
     ]
   },
   {

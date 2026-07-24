@@ -9,7 +9,7 @@ bodyClass: page-work
 <section class="work-index">
   <div class="work-index-header">
     <h1 class="section-label">Work</h1>
-    <span class="section-count"><span class="section-count-number">{{ projects | length }}</span> projects</span>
+    <span class="section-count"><span class="section-count-number">{{ publishedProjects | length }}</span> projects</span>
   </div>
 
   <p class="section-description">Selected art direction, cinematic environments, motion design, and visual development by New Orleans artist Ron Domingue.</p>
@@ -19,7 +19,7 @@ bodyClass: page-work
   </div>
 
   <div class="work-grid work-grid--full" aria-live="polite">
-    {% for project in projects %}
+    {% for project in publishedProjects %}
     <a class="work-card" href="{{ ('/work/' + project.slug + '/') | url }}" data-tags="{{ project.tags | join('|') }}">
       <div class="work-card-img" style="background-image: url('{{ ('/' + project.thumb) | url }}')"></div>
       <div class="work-card-overlay"></div>

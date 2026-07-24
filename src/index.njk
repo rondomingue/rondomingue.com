@@ -121,11 +121,11 @@ bodyClass: page-home
 </div>
 
 <!-- WORK GRID -->
-{% set homepageProjects = projects | randomProjects(7) %}
+{% set homepageProjects = publishedProjects | randomProjects(7) %}
 <section class="work-section" id="work">
   <div class="work-header">
     <span class="section-label">Selected Work</span>
-    <a class="section-count" href="{{ '/work/' | url }}">View all {{ projects | length }} projects</a>
+    <a class="section-count" href="{{ '/work/' | url }}">View all {{ publishedProjects | length }} projects</a>
   </div>
 
   <div class="work-grid">
