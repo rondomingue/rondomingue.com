@@ -1005,22 +1005,14 @@ img { display: block; max-width: 100%; }
   color: rgba(238,238,240,0.76);
 }
 
-.project-credit {
-  color: var(--text-faint);
-  font-family: 'Space Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.project-credit a {
+.project-copy a {
   color: var(--cyan);
   border-bottom: 1px solid rgba(79, 200, 232, 0.36);
   transition: color 180ms ease, border-color 180ms ease;
 }
 
-.project-credit a:hover,
-.project-credit a:focus-visible {
+.project-copy a:hover,
+.project-copy a:focus-visible {
   color: var(--text);
   border-color: var(--cyan);
 }

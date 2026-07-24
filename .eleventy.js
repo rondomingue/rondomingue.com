@@ -1,4 +1,6 @@
 module.exports = function(eleventyConfig) {
+  eleventyConfig.addFilter("inlineLinks", value => String(value || "").replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>'));
+
   eleventyConfig.addFilter("randomProjects", (projects, count = 6) => {
     const shuffled = [...projects];
 

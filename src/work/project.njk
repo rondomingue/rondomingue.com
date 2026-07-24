@@ -40,16 +40,9 @@ bodyClass: page-work page-project
     </div>
 
     <div class="project-copy">
-      <p class="project-summary">{{ project.summary }}</p>
-      {% if project.credits and project.credits.length %}
-      <p class="project-credit">
-        {% for credit in project.credits %}
-        <span>{{ credit.role }}:</span> <a href="{{ credit.url }}" target="_blank" rel="noopener">{{ credit.name }}</a>{% if not loop.last %}<br>{% endif %}
-        {% endfor %}
-      </p>
-      {% endif %}
+      <p class="project-summary">{{ project.summary | inlineLinks | safe }}</p>
       {% for paragraph in project.description %}
-      <p>{{ paragraph }}</p>
+      <p>{{ paragraph | inlineLinks | safe }}</p>
       {% endfor %}
       <div class="project-tags">
         {% for tag in project.processTags %}
