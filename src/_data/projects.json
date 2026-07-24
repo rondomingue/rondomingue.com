@@ -160,7 +160,7 @@
       "provider": "youtube",
       "id": "WVcxJ9BOwYY"
     },
-    "summary": "Black Noise is an audio-reactive TouchDesigner piece built to Nine Inch Nails, translating the track into procedural motion, distortion, and dense signal texture.",
+    "summary": "Black Noise is an audio-reactive TouchDesigner piece built to Nine Inch Nails song of the same name, translating the track into procedural motion, distortion, and dense signal texture.",
     "description": [
       "The video uses Nine Inch Nails' \"Black Noise\" as the audio source, turning the track's abrasive energy and rhythmic pressure into a reactive visual system.",
       "Created in TouchDesigner, the piece treats sound as a live input for motion, intensity, and image disruption. Forms pulse, smear, and fracture in response to the music, creating a dark generative study that sits between abstract signal processing and music visualization."
