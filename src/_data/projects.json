@@ -27,13 +27,51 @@
     ],
     "format": "Cinematic vehicle and environment study",
     "images": [
+      "images/work/blade-runner-spinner-2049/11.jpg",
       "images/work/blade-runner-spinner-2049/06.webp",
       "images/work/blade-runner-spinner-2049/07.jpg",
       "images/work/blade-runner-spinner-2049/09.jpg",
-      "images/work/blade-runner-spinner-2049/08.jpg",
-      "images/work/blade-runner-spinner-2049/11.jpg",
+      "images/work/blade-runner-spinner-2049/14.jpg",
       "images/work/blade-runner-spinner-2049/13.jpg",
-      "images/work/blade-runner-spinner-2049/14.jpg"
+      "images/work/blade-runner-spinner-2049/08.jpg"
+    ]
+  },
+  {
+    "title": "Resonance Field",
+    "slug": "resonance-field",
+    "year": "2026",
+    "tags": [
+      "TouchDesigner",
+      "Motion Design",
+      "Audio Reactive",
+      "Generative Design",
+      "Procedural",
+      "Cinematic",
+      "Concept Art"
+    ],
+    "thumb": "images/work/resonance-field/resonance-field-hero.jpg",
+    "video": {
+      "provider": "youtube",
+      "id": "90BRjP9TOF4"
+    },
+    "summary": "Resonance Field is an audio-reactive motion study created in TouchDesigner, translating sound into a living field of procedural movement, light, and signal-like texture.",
+    "description": [
+      "The piece uses audio input as the driver for motion, intensity, and visual modulation, turning rhythm and frequency into a reactive system rather than a fixed animation.",
+      "Built in TouchDesigner, the video explores the relationship between sound, generative structure, and cinematic abstraction. Pulses, distortions, and evolving forms respond to the track as if the image is being performed in real time."
+    ],
+    "processTags": [
+      "TouchDesigner",
+      "Audio Reactivity",
+      "Procedural Animation",
+      "Generative Visuals",
+      "Realtime Compositing"
+    ],
+    "format": "Audio-reactive motion study",
+    "images": [
+      {
+        "src": "images/work/resonance-field/resonance-field-hero.jpg",
+        "alt": "Resonance Field audio-reactive TouchDesigner motion study"
+      }
     ]
   },
   {
@@ -72,10 +110,10 @@
       "images/work/data-haven/03.png",
       "images/work/data-haven/04.png",
       "images/work/data-haven/05.png",
+      "images/work/data-haven/09.png",
       "images/work/data-haven/06.png",
       "images/work/data-haven/07.png",
       "images/work/data-haven/08.png",
-      "images/work/data-haven/09.png",
       "images/work/data-haven/10.png",
       "images/work/data-haven/11.png"
     ]
@@ -294,7 +332,7 @@
   {
     "title": "Temple of the Sun",
     "slug": "temple-of-the-sun",
-    "year": "2023",
+    "year": "2026",
     "tags": [
       "UE5",
       "Cinematic",
@@ -334,7 +372,7 @@
   {
     "title": "Haunted Swamp",
     "slug": "haunted-swamp",
-    "year": "2023",
+    "year": "2025",
     "tags": [
       "UE5",
       "Cinematic",
@@ -371,7 +409,7 @@
   {
     "title": "Cold Warnings",
     "slug": "cold-warnings",
-    "year": "2023",
+    "year": "2024",
     "tags": [
       "UE5",
       "Cinematic",
@@ -674,7 +712,7 @@
   {
     "title": "Hangar 5",
     "slug": "hangar-5",
-    "year": "2026",
+    "year": "2023",
     "tags": [
       "Cinema 4D",
       "Environment",
@@ -829,7 +867,7 @@
       "Procedural",
       "Concept Art"
     ],
-    "thumb": "images/work/redline-acquisition/Head.png",
+    "thumb": "images/work/redline-acquisition/09.png",
     "subtitle": "A redline targeting field built from layered HUD geometry",
     "summary": "A cinematic HUD and FUI render study built around red acquisition arcs, nested reticle systems, dense telemetry fields, and glass-like interface depth.",
     "description": [
@@ -904,7 +942,7 @@
   {
     "title": "Futuristic Interface Substrate",
     "slug": "fui-subtrate",
-    "year": "2026",
+    "year": "2024",
     "tags": [
       "Cinema 4D",
       "Octane",
@@ -942,7 +980,7 @@
   {
     "title": "F-35 Scan",
     "slug": "f35-scan",
-    "year": "2026",
+    "year": "2022",
     "tags": [
       "Cinema 4D",
       "Octane",

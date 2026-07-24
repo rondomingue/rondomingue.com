@@ -112,20 +112,20 @@
     "caption": "Thankgiving Day Fairgrounds"
   },
   {
-    "src": "images/photography/DSC00236.webp",
-    "alt": "Photography by Ron Domingue — 15",
-    "width": 2000,
-    "height": 1333,
-    "orientation": "landscape",
-    "caption": "Mississippi River New Orleans"
-  },
-  {
     "src": "images/photography/DSC09372-2.webp",
-    "alt": "Photography by Ron Domingue — 16",
+    "alt": "Photography by Ron Domingue — 15",
     "width": 2000,
     "height": 1125,
     "orientation": "landscape",
     "caption": "Fairgrounds"
+  },
+  {
+    "src": "images/photography/DSC00236.webp",
+    "alt": "Photography by Ron Domingue — 16",
+    "width": 2000,
+    "height": 1333,
+    "orientation": "landscape",
+    "caption": "Mississippi River New Orleans"
   },
   {
     "src": "images/photography/DSC00304.webp",
@@ -292,7 +292,8 @@
     "alt": "Photography by Ron Domingue — 37",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Brushes"
   },
   {
     "src": "images/photography/DSC03187.webp",
@@ -361,21 +362,24 @@
     "alt": "Photography by Ron Domingue — 46",
     "width": 2000,
     "height": 1126,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "New Orleans"
   },
   {
     "src": "images/photography/DSC03861.webp",
     "alt": "Photography by Ron Domingue — 47",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Adrianna"
   },
   {
     "src": "images/photography/DSC04824.webp",
     "alt": "Photography by Ron Domingue — 48",
     "width": 1125,
     "height": 2000,
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "caption": "Tatiana"
   },
   {
     "src": "images/photography/20201017-DSC04804.webp",

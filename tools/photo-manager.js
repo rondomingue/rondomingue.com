@@ -588,15 +588,17 @@ const appHtml = `<!doctype html>
     .field-grid { display:grid; grid-template-columns:minmax(0,1fr) 150px; gap:12px; }
     .project-form label { display:grid; gap:6px; min-width:0; color:var(--muted); font-family:"Space Mono",ui-monospace,monospace; font-size:9px; letter-spacing:.12em; text-transform:uppercase; }
     .project-form input,.project-form select,.project-form textarea { width:100%; }
-    .gallery-strip { display:grid; grid-template-columns:repeat(auto-fill,minmax(96px,1fr)); gap:8px; max-height:228px; overflow:auto; padding:2px 2px 2px 0; }
-    .mini { position:relative; border:1px solid var(--line); border-radius:5px; overflow:hidden; background:#090a0c; cursor:grab; }
+    .gallery-strip { display:flex; flex-wrap:wrap; gap:8px; max-height:228px; overflow:auto; padding:2px 2px 2px 0; align-items:flex-start; }
+    .mini { position:relative; flex:0 0 96px; border:1px solid var(--line); border-radius:5px; overflow:visible; background:#090a0c; cursor:grab; transition:transform .18s ease, opacity .18s ease, border-color .18s ease; }
     .mini:active { cursor:grabbing; }
-    .mini.is-dragging { opacity:.42; border-color:rgba(200,40,154,.8); }
-    .mini.is-drop-target { outline:2px solid rgba(200,40,154,.72); outline-offset:2px; }
-    .mini img { display:block; width:100%; aspect-ratio:1; object-fit:cover; }
-    .mini-tools { position:absolute; left:4px; right:4px; bottom:4px; display:flex; gap:4px; padding:4px; border:1px solid rgba(238,238,240,.14); border-radius:5px; background:rgba(7,8,10,.78); opacity:0; transform:translateY(6px); transition:opacity .18s ease, transform .18s ease; }
-    .mini:hover .mini-tools, .mini:focus-within .mini-tools { opacity:1; transform:translateY(0); }
-    .mini-tools button { position:static; flex:1 1 0; min-height:24px; padding:2px 5px; background:rgba(255,255,255,.04); font-size:9px; }
+    .mini.is-dragging { opacity:.38; border-color:rgba(200,40,154,.8); transform:scale(.96); }
+    .drop-slot { flex:0 0 0; align-self:stretch; min-height:96px; border-radius:5px; background:rgba(200,40,154,.2); box-shadow:0 0 0 1px rgba(200,40,154,.55), 0 0 24px rgba(200,40,154,.28); transition:flex-basis .16s ease, opacity .16s ease; opacity:0; pointer-events:none; }
+    .drop-slot.is-active { flex-basis:18px; opacity:1; }
+    .mini img { display:block; width:100%; aspect-ratio:1; object-fit:cover; border-radius:5px; }
+    .mini-remove { position:absolute; z-index:5; top:4px; right:4px; width:20px; height:20px; min-height:20px; padding:0; border-radius:999px; background:rgba(7,8,10,.76); color:var(--danger); font-size:12px; line-height:1; }
+    .mini-tools { position:absolute; z-index:4; left:50%; bottom:8px; display:flex; gap:5px; padding:4px; border:1px solid rgba(238,238,240,.16); border-radius:999px; background:rgba(7,8,10,.86); box-shadow:0 10px 28px rgba(0,0,0,.38); opacity:0; transform:translate(-50%, 8px); transition:opacity .18s ease, transform .18s ease; }
+    .mini:hover .mini-tools, .mini:focus-within .mini-tools { opacity:1; transform:translate(-50%, 0); }
+    .mini-tools button { position:static; min-height:20px; padding:2px 7px; border-radius:999px; background:rgba(255,255,255,.04); font-size:8px; letter-spacing:.08em; }
     .mini-tools .mini-hero { border-color:rgba(200,40,154,.42); background:rgba(200,40,154,.2); }
     .mini.is-current-thumb { border-color:rgba(200,40,154,.74); box-shadow:0 0 0 1px rgba(200,40,154,.22), 0 0 24px rgba(200,40,154,.22); }
     .toast { position:fixed; left:50%; bottom:18px; transform:translateX(-50%); min-width:min(480px,calc(100vw - 32px)); padding:12px 14px; border-radius:6px; background:rgba(16,17,21,.94); border:1px solid rgba(200,40,154,.35); color:var(--text); box-shadow:var(--shadow); opacity:0; pointer-events:none; transition:opacity 160ms ease; font-size:13px; text-align:center; }
@@ -671,7 +673,7 @@ const appHtml = `<!doctype html>
       el("content").innerHTML = '<div class="projects-grid">' + page.items.map(project => {
         const currentThumb = project.thumb || "";
         const cover = currentThumb ? '<img class="thumb project-thumb-preview" src="' + project.thumbUrl + '" alt="' + escapeHtml(project.title) + '" loading="lazy">' : '<div class="thumb project-thumb-preview"></div>';
-        return '<article class="card project-card"><div class="project-cover">' + cover + '<div class="project-cover-badge">Hero image</div></div><form class="project-form" data-slug="' + escapeHtml(project.slug) + '"><div class="name">' + (project.index + 1) + '. ' + escapeHtml(project.title) + '</div><div class="field-grid"><label><span>Title</span><input name="title" value="' + escapeHtml(project.title) + '"></label><label><span>Year</span><input name="year" value="' + escapeHtml(project.year) + '"></label></div><label><span>Slug</span><input name="slug" value="' + escapeHtml(project.slug) + '"></label><label><span>Hero image</span><select name="thumb">' + projectOptions(currentThumb) + '</select></label><label><span>Summary</span><textarea name="summary">' + escapeHtml(project.summary || "") + '</textarea></label><label><span>Description</span><textarea name="description">' + escapeHtml((project.description || []).join("\\n\\n")) + '</textarea></label><label><span>Tags, comma separated</span><input name="tags" value="' + escapeHtml((project.tags || []).join(", ")) + '"></label><label><span>Process tags, comma separated</span><input name="processTags" value="' + escapeHtml((project.processTags || []).join(", ")) + '"></label><label><span>Format</span><input name="format" value="' + escapeHtml(project.format || "") + '"></label><div class="card-actions"><button class="primary" data-action="save-project" type="button">Save</button><button data-action="project-up" type="button">Up</button><button data-action="project-down" type="button">Down</button>' + (currentThumb ? '<button data-action="rename-image" data-src="' + escapeHtml(currentThumb) + '" type="button">Rename Hero</button>' : '') + '</div><label><span>Add gallery image</span><select name="addImage"><option value="">Choose image</option>' + projectOptions("") + '</select></label><div class="card-actions"><button data-action="add-project-image" type="button">Add Image</button></div><div class="gallery-strip">' + project.imageItems.map(image => '<div class="mini ' + (image.src === currentThumb ? 'is-current-thumb' : '') + '" draggable="true" data-src="' + escapeHtml(image.src) + '"><img src="' + image.url + '" alt="" loading="lazy"><div class="mini-tools"><button class="mini-rename" data-action="rename-image" data-src="' + escapeHtml(image.src) + '" title="Rename image" type="button">Rename</button><button class="mini-hero" data-action="set-project-thumb" data-src="' + escapeHtml(image.src) + '" title="Use as hero image" type="button">Hero</button><button class="danger mini-remove" data-action="remove-project-image" data-src="' + escapeHtml(image.src) + '" title="Remove from gallery" type="button">Remove</button></div></div>').join("") + '</div></form></article>';
+        return '<article class="card project-card"><div class="project-cover">' + cover + '<div class="project-cover-badge">Hero image</div></div><form class="project-form" data-slug="' + escapeHtml(project.slug) + '"><div class="name">' + (project.index + 1) + '. ' + escapeHtml(project.title) + '</div><div class="field-grid"><label><span>Title</span><input name="title" value="' + escapeHtml(project.title) + '"></label><label><span>Year</span><input name="year" value="' + escapeHtml(project.year) + '"></label></div><label><span>Slug</span><input name="slug" value="' + escapeHtml(project.slug) + '"></label><label><span>Hero image</span><select name="thumb">' + projectOptions(currentThumb) + '</select></label><label><span>Summary</span><textarea name="summary">' + escapeHtml(project.summary || "") + '</textarea></label><label><span>Description</span><textarea name="description">' + escapeHtml((project.description || []).join("\\n\\n")) + '</textarea></label><label><span>Tags, comma separated</span><input name="tags" value="' + escapeHtml((project.tags || []).join(", ")) + '"></label><label><span>Process tags, comma separated</span><input name="processTags" value="' + escapeHtml((project.processTags || []).join(", ")) + '"></label><label><span>Format</span><input name="format" value="' + escapeHtml(project.format || "") + '"></label><div class="card-actions"><button class="primary" data-action="save-project" type="button">Save</button><button data-action="project-up" type="button">Up</button><button data-action="project-down" type="button">Down</button>' + (currentThumb ? '<button data-action="rename-image" data-src="' + escapeHtml(currentThumb) + '" type="button">Rename Hero</button>' : '') + '</div><label><span>Add gallery image</span><select name="addImage"><option value="">Choose image</option>' + projectOptions("") + '</select></label><div class="card-actions"><button data-action="add-project-image" type="button">Add Image</button></div><div class="gallery-strip">' + project.imageItems.map(image => '<div class="mini ' + (image.src === currentThumb ? 'is-current-thumb' : '') + '" draggable="true" data-src="' + escapeHtml(image.src) + '"><img src="' + image.url + '" alt="" loading="lazy"><button class="danger mini-remove" data-action="remove-project-image" data-src="' + escapeHtml(image.src) + '" title="Remove from gallery" type="button">&times;</button><div class="mini-tools"><button class="mini-rename" data-action="rename-image" data-src="' + escapeHtml(image.src) + '" title="Rename image" type="button">Rename</button><button class="mini-hero" data-action="set-project-thumb" data-src="' + escapeHtml(image.src) + '" title="Use as hero image" type="button">Hero</button></div></div>').join("") + '</div></form></article>';
       }).join("") + "</div>";
       el("secondary").innerHTML = '<h2 class="section-title">Referenced Missing Files</h2>' + (state.data.missing.length ? '<div class="empty">' + state.data.missing.map(escapeHtml).join("<br>") + '</div>' : '<div class="empty">No missing project image references.</div>');
     };
@@ -735,6 +737,24 @@ const appHtml = `<!doctype html>
       } catch (error) { toast(error.message); }
     });
     let draggedMini = null;
+    let dropSlot = null;
+    const removeDropSlot = () => {
+      if (dropSlot) dropSlot.remove();
+      dropSlot = null;
+    };
+    const placeDropSlot = (targetMini, clientX) => {
+      if (!targetMini || !draggedMini || targetMini === draggedMini) return;
+      if (targetMini.closest(".project-form") !== draggedMini.closest(".project-form")) return;
+      const rect = targetMini.getBoundingClientRect();
+      const placeAfter = clientX > rect.left + rect.width / 2;
+      if (!dropSlot) {
+        dropSlot = document.createElement("div");
+        dropSlot.className = "drop-slot";
+      }
+      if (placeAfter) targetMini.after(dropSlot);
+      else targetMini.before(dropSlot);
+      requestAnimationFrame(() => dropSlot?.classList.add("is-active"));
+    };
     document.addEventListener("dragstart", event => {
       const mini = event.target.closest(".mini[draggable='true']");
       if (!mini) return;
@@ -748,29 +768,19 @@ const appHtml = `<!doctype html>
       if (!mini || !draggedMini || mini === draggedMini) return;
       if (mini.closest(".project-form") !== draggedMini.closest(".project-form")) return;
       event.preventDefault();
-      mini.classList.add("is-drop-target");
-    });
-    document.addEventListener("dragleave", event => {
-      const mini = event.target.closest(".mini");
-      if (mini) mini.classList.remove("is-drop-target");
+      placeDropSlot(mini, event.clientX);
     });
     document.addEventListener("drop", async event => {
-      const targetMini = event.target.closest(".mini[draggable='true']");
-      if (!targetMini || !draggedMini || targetMini === draggedMini) return;
-      const form = targetMini.closest(".project-form");
-      if (!form || form !== draggedMini.closest(".project-form")) return;
+      if (!draggedMini || !dropSlot) return;
+      const strip = dropSlot.closest(".gallery-strip");
+      const form = strip?.closest(".project-form");
+      if (!strip || !form) return;
       event.preventDefault();
 
-      const strip = targetMini.closest(".gallery-strip");
-      const minis = [...strip.querySelectorAll(".mini[draggable='true']")];
-      const fromIndex = minis.indexOf(draggedMini);
-      const toIndex = minis.indexOf(targetMini);
-      if (fromIndex < 0 || toIndex < 0) return;
-      if (fromIndex < toIndex) targetMini.after(draggedMini);
-      else targetMini.before(draggedMini);
-
+      dropSlot.replaceWith(draggedMini);
+      dropSlot = null;
       const order = [...strip.querySelectorAll(".mini[draggable='true']")].map(mini => mini.dataset.src);
-      strip.querySelectorAll(".mini").forEach(mini => mini.classList.remove("is-drop-target", "is-dragging"));
+      draggedMini.classList.remove("is-dragging");
       try {
         await mutate("/api/project/reorder-images", { slug: form.dataset.slug, order }, "Gallery image order updated.");
       } catch (error) {
@@ -778,7 +788,8 @@ const appHtml = `<!doctype html>
       }
     });
     document.addEventListener("dragend", () => {
-      document.querySelectorAll(".mini").forEach(mini => mini.classList.remove("is-drop-target", "is-dragging"));
+      document.querySelectorAll(".mini").forEach(mini => mini.classList.remove("is-dragging"));
+      removeDropSlot();
       draggedMini = null;
     });
 
