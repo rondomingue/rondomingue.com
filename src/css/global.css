@@ -1005,6 +1005,7 @@ img { display: block; max-width: 100%; }
   color: rgba(238,238,240,0.76);
 }
 
+.project-summary a,
 .project-copy a {
   color: var(--cyan);
   border-bottom: 1px solid rgba(79, 200, 232, 0.36);
