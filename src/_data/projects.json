@@ -247,26 +247,33 @@
     },
     "liveLinks": [
       {
-        "label": "Lizzy Margiotta",
+        "label": "Liz Margiotta",
         "url": "https://www.lizmargiotta.design/"
       }
     ],
-    "summary": "Long After Dark is a cinematic motion piece built around nocturnal atmosphere, restrained pacing, and a dark visual tone, presented as a Vimeo-backed project with a credit link to Lizzy Margiotta.",
+    "summary": "Long After Dark is a collaborative title sequence concept created with Liz Margiotta for a fictional vampire series set in New Orleans.",
     "description": [
-      "The project leans into shadow, rhythm, and after-hours mood, using motion and composition to create a visual space that feels suspended between title design, music-video language, and atmospheric visual development.",
-      "A visible project link points viewers back to Lizzy Margiotta so the piece keeps its collaborator and source context attached on the project page."
+      "The piece imagines the opening titles for a southern gothic vampire story, using New Orleans as the emotional and visual foundation: nocturnal streets, ritual atmosphere, old architecture, heat, shadow, and the feeling that something is moving just outside the frame.",
+      "Built as a mood-driven title sequence study, the project focuses on pacing, typography, texture, and cinematic restraint. The collaboration with Liz Margiotta shaped the concept into a dark, atmospheric identity for a series that feels intimate, haunted, and rooted in place."
     ],
     "processTags": [
+      "Title Design",
       "Motion Design",
       "Cinematic Editing",
-      "Atmosphere",
       "Visual Development"
     ],
-    "format": "Cinematic motion piece",
+    "format": "Fictional series title sequence",
     "images": [
       {
         "src": "images/work/long-after-dark/long-after-dark-hero.jpg",
         "alt": "Long After Dark cinematic motion project still"
+      }
+    ],
+    "credits": [
+      {
+        "role": "Collaborator",
+        "name": "Liz Margiotta",
+        "url": "https://www.lizmargiotta.design/"
       }
     ]
   },
