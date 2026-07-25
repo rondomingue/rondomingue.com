@@ -82,7 +82,7 @@
       "Cinematic",
       "Concept Art"
     ],
-    "thumb": "images/work/the-sinner-in-me/the-sinner-in-me-hero.jpg",
+    "thumb": "images/work/the-sinner-in-me/sinner-signal-field-04.png",
     "video": {
       "provider": "youtube",
       "id": "acHyVoWh6hQ"
@@ -102,10 +102,6 @@
     ],
     "format": "Audio-reactive music visualization",
     "images": [
-      {
-        "src": "images/work/the-sinner-in-me/the-sinner-in-me-hero.jpg",
-        "alt": "The Sinner in Me audio-reactive TouchDesigner music visualization"
-      },
       {
         "src": "images/work/the-sinner-in-me/sinner-signal-field-01.png",
         "alt": "Dark blue audio-reactive signal field with sparse procedural traces"
