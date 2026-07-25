@@ -85,12 +85,13 @@
     "thumb": "images/work/the-sinner-in-me/the-sinner-in-me-hero.jpg",
     "video": {
       "provider": "youtube",
-      "id": "4MBn_1yQBy4"
+      "id": "acHyVoWh6hQ"
     },
-    "summary": "The Sinner in Me is an audio-reactive TouchDesigner visual built to Depeche Mode's song of the same name, translating the track's dark pulse into procedural motion, distortion, and light.",
+    "summary": "The Sinner in Me is an audio-reactive TouchDesigner visual built to Depeche Mode's song of the same name, turning the track's dark pulse into a live field of signal paths, distortion, and unstable light.",
     "description": [
-      "The video uses Depeche Mode's \"The Sinner in Me\" as the driving source, letting the rhythm, dynamics, and atmosphere of the song shape the behavior of the image.",
-      "Built in TouchDesigner, the piece treats sound as a control system. Motion, intensity, texture, and visual disruption respond to the track in real time, creating a dark reactive field that feels closer to a performed signal than a fixed edit."
+      "The video uses Depeche Mode's \"The Sinner in Me\" as the driving source, letting rhythm, pressure, and atmosphere shape a dark map of connected traces.",
+      "Built in TouchDesigner, the piece treats sound as a control system. Lines gather, drift, and fracture around a central threshold, moving between surveillance diagram, ritual mark, and reactive waveform.",
+      "The latest pass leans into a colder signal aesthetic: faint cartographic labels, chromatic edge noise, and a tightening field of white paths that feel pulled toward the word \"free\" at the center."
     ],
     "processTags": [
       "TouchDesigner",
@@ -104,9 +105,24 @@
       {
         "src": "images/work/the-sinner-in-me/the-sinner-in-me-hero.jpg",
         "alt": "The Sinner in Me audio-reactive TouchDesigner music visualization"
+      },
+      {
+        "src": "images/work/the-sinner-in-me/sinner-signal-field-01.png",
+        "alt": "Dark blue audio-reactive signal field with sparse procedural traces"
+      },
+      {
+        "src": "images/work/the-sinner-in-me/sinner-signal-field-02.png",
+        "alt": "Circular procedural line network emerging from a dark signal map"
+      },
+      {
+        "src": "images/work/the-sinner-in-me/sinner-signal-field-03.png",
+        "alt": "Dense reactive line structure with chromatic distortion over a dark map"
+      },
+      {
+        "src": "images/work/the-sinner-in-me/sinner-signal-field-04.png",
+        "alt": "Bright circular web of procedural paths surrounding the word free"
       }
-    ],
-    "draft": true
+    ]
   },
   {
     "title": "The Four of Us Are Dying",
