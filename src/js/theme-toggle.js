@@ -52,20 +52,15 @@
     if (label) label.textContent = isLight ? 'Light' : 'Dark';
   };
 
-  let initialTheme = 'dark';
   try {
-    initialTheme = localStorage.getItem('rd-theme') === 'light' ? 'light' : 'dark';
+    localStorage.removeItem('rd-theme');
   } catch (error) {}
 
-  applyTheme(initialTheme);
+  applyTheme('dark');
 
   button.addEventListener('click', () => {
     playShutterClick();
     const nextTheme = root.dataset.theme === 'light' ? 'dark' : 'light';
     applyTheme(nextTheme);
-    try {
-      if (nextTheme === 'light') localStorage.setItem('rd-theme', 'light');
-      else localStorage.removeItem('rd-theme');
-    } catch (error) {}
   });
 })();
