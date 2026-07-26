@@ -308,6 +308,9 @@ bodyClass: page-home
     if (e.origin.includes('vimeo.com')) {
       try {
         const data = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
+        if (data.event === 'ready') {
+          setTimeout(() => dismissPreloader(true), 450);
+        }
         if (data.event === 'playProgress') {
           dismissPreloader(true);
         }
