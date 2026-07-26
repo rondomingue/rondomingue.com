@@ -12,6 +12,16 @@ module.exports = function(eleventyConfig) {
     return shuffled.slice(0, count);
   });
 
+  const getAdjacentProject = (projects = [], slug, direction = 1) => {
+  if (!Array.isArray(projects) || !projects.length) return null;
+  const index = projects.findIndex(project => project.slug === slug);
+  if (index < 0) return null;
+  return projects[(index + direction + projects.length) % projects.length];
+  };
+
+  eleventyConfig.addFilter("previousProject", (projects, slug) => getAdjacentProject(projects, slug, -1));
+  eleventyConfig.addFilter("nextProject", (projects, slug) => getAdjacentProject(projects, slug, 1));
+
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/fonts");

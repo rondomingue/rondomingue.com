@@ -104,9 +104,28 @@ bodyClass: page-work page-project
     </div>
   </section>
 
-  <div class="project-back-footer">
-    <a class="project-back project-back--bottom" href="{{ '/work/' | url }}">Back to Work</a>
-  </div>
+{% set previousProject = publishedProjects | previousProject(project.slug) %}
+{% set nextProject = publishedProjects | nextProject(project.slug) %}
+<nav class="project-adjacent" aria-label="Adjacent projects">
+  <a class="project-adjacent-link project-adjacent-link--previous" href="{{ ('/work/' + previousProject.slug + '/') | url }}">
+    <span class="project-adjacent-arrow" aria-hidden="true">←</span>
+    <span>
+      <span class="project-adjacent-label">Previous</span>
+      <strong>{{ previousProject.title }}</strong>
+    </span>
+  </a>
+  <a class="project-adjacent-link project-adjacent-link--next" href="{{ ('/work/' + nextProject.slug + '/') | url }}">
+    <span>
+      <span class="project-adjacent-label">Next</span>
+      <strong>{{ nextProject.title }}</strong>
+    </span>
+    <span class="project-adjacent-arrow" aria-hidden="true">→</span>
+  </a>
+</nav>
+
+<div class="project-back-footer">
+  <a class="project-back project-back--bottom" href="{{ '/work/' | url }}">Back to Work</a>
+</div>
 </article>
 
 {% if project.images and project.images.length %}
