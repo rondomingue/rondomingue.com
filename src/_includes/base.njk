@@ -12,7 +12,9 @@
     document.documentElement.classList.add('motion-ready');
     document.documentElement.dataset.theme = 'dark';
     try {
-      localStorage.removeItem('rd-theme');
+      if (localStorage.getItem('rd-theme') === 'light') {
+        document.documentElement.dataset.theme = 'light';
+      }
     } catch (error) {}
   </script>
   <title>{% if title %}{{ title }} — {% endif %}{{ site.siteName }}</title>
@@ -42,7 +44,7 @@
 
 
   <script src="{{ '/js/page-reveal.js' | url }}?v=2" defer></script>
-  <script src="{{ '/js/theme-toggle.js' | url }}?v=4" defer></script>
+  <script src="{{ '/js/theme-toggle.js' | url }}?v=5" defer></script>
 
 </body>
 </html>
