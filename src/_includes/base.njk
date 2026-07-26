@@ -15,7 +15,7 @@
   <title>{% if title %}{{ title }} — {% endif %}{{ site.siteName }}</title>
   <meta name="description" content="{{ description or site.description }}">
   <link rel="icon" type="image/png" href="{{ '/images/favicon.png' | url }}">
-  <link rel="stylesheet" href="{{ '/css/global.css' | url }}">
+  <link rel="stylesheet" href="{{ '/css/global.css' | url }}?v=3">
   <link rel="stylesheet" href="https://use.typekit.net/xhf1nbc.css">
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
   <!-- Google Analytics -->
@@ -37,8 +37,13 @@
 
   {% include "footer.njk" %}
 
+  <button class="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false" title="Toggle light mode" data-theme-toggle>
+    <span class="theme-toggle-mark" aria-hidden="true"></span>
+    <span class="theme-toggle-text" data-theme-toggle-text>Dark</span>
+  </button>
+
   <script src="{{ '/js/page-reveal.js' | url }}?v=2" defer></script>
-  <script src="{{ '/js/theme-toggle.js' | url }}" defer></script>
+  <script src="{{ '/js/theme-toggle.js' | url }}?v=2" defer></script>
 
 </body>
 </html>
