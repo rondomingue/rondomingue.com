@@ -122,7 +122,7 @@
   },
   {
     "title": "Imaginary Circles",
-    "slug": "circles",
+    "slug": "imaginary-circles",
     "year": "2026",
     "tags": [
       "Interface Design",
@@ -135,20 +135,8 @@
     "thumb": "images/work/circles/circles-hero.jpg",
     "liveLinks": [
       {
-        "label": "Circles",
+        "label": "View Site",
         "url": "https://circles.rondomingue.com"
-      },
-      {
-        "label": "Circle to Wave",
-        "url": "https://circles.rondomingue.com/circle-to-wave.html"
-      },
-      {
-        "label": "Radian Circle",
-        "url": "https://circles.rondomingue.com/radian-circle.html"
-      },
-      {
-        "label": "Logarithmic Spiral",
-        "url": "https://circles.rondomingue.com/logarithmic-spiral.html"
       }
     ],
     "summary": "Imaginary Circles is a set of interactive interface studies that visualizes circular geometry, radians, waves, and logarithmic spirals as cinematic educational systems.",
@@ -168,11 +156,11 @@
     "images": [
       {
         "src": "images/work/circles/circles-hero.jpg",
-        "alt": "Cinematic Circles interface hero showing a radian diagram and formula annotations"
+        "alt": "Cinematic Imaginary Circles interface hero showing a radian diagram and formula annotations"
       },
       {
         "src": "images/work/circles/circles-index.png",
-        "alt": "Circles landing page with geometric interface studies"
+        "alt": "Imaginary Circles landing page with geometric interface studies"
       },
       {
         "src": "images/work/circles/circles-circle-to-wave.png",
