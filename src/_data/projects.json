@@ -121,6 +121,74 @@
     ]
   },
   {
+    "title": "Circles",
+    "slug": "circles",
+    "year": "2026",
+    "tags": [
+      "Interface Design",
+      "Creative Coding",
+      "Generative Design",
+      "Data Visualization",
+      "Mathematics",
+      "Web"
+    ],
+    "thumb": "images/work/circles/circles-hero.jpg",
+    "liveLinks": [
+      {
+        "label": "Circles",
+        "url": "https://circles.rondomingue.com"
+      },
+      {
+        "label": "Circle to Wave",
+        "url": "https://circles.rondomingue.com/circle-to-wave.html"
+      },
+      {
+        "label": "Radian Circle",
+        "url": "https://circles.rondomingue.com/radian-circle.html"
+      },
+      {
+        "label": "Logarithmic Spiral",
+        "url": "https://circles.rondomingue.com/logarithmic-spiral.html"
+      }
+    ],
+    "summary": "Circles is a set of interactive interface studies that visualizes circular geometry, radians, waves, and logarithmic spirals as cinematic educational systems.",
+    "description": [
+      "The project turns foundational circle concepts into dark, high-contrast interface compositions built for exploration. Each study isolates a different mathematical behavior and presents it through motion, annotation, and luminous diagram language.",
+      "The collection includes a circle-to-wave transform, a radian measurement study, and a logarithmic spiral study, all connected by a shared visual system of measured arcs, precise typography, and atmospheric depth.",
+      "The result sits between field guide, motion reference, and interactive learning tool: a compact system for making abstract geometry feel spatial, tactile, and cinematic."
+    ],
+    "processTags": [
+      "Interface Design",
+      "Creative Coding",
+      "Generative Systems",
+      "Educational Visualization",
+      "Cinematic UI"
+    ],
+    "format": "Interactive educational interface studies",
+    "images": [
+      {
+        "src": "images/work/circles/circles-hero.jpg",
+        "alt": "Cinematic Circles interface hero showing a radian diagram and formula annotations"
+      },
+      {
+        "src": "images/work/circles/circles-index.png",
+        "alt": "Circles landing page with geometric interface studies"
+      },
+      {
+        "src": "images/work/circles/circles-circle-to-wave.png",
+        "alt": "Circle to Wave interactive study screenshot"
+      },
+      {
+        "src": "images/work/circles/circles-radian-circle.png",
+        "alt": "Radian Circle interactive study screenshot"
+      },
+      {
+        "src": "images/work/circles/circles-logarithmic-spiral.png",
+        "alt": "Logarithmic Spiral interactive study screenshot"
+      }
+    ]
+  },
+  {
     "title": "The Four of Us Are Dying",
     "slug": "the-four-of-us-are-dying",
     "year": "2026",
