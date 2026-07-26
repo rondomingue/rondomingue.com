@@ -139,7 +139,7 @@
         "url": "https://circles.rondomingue.com"
       }
     ],
-    "summary": "Imaginary Circles is a set of interactive interface studies that visualizes circular geometry, radians, waves, and logarithmic spirals as cinematic educational systems.",
+    "summary": "One rotating point, all the way to quantum mechanics. Imaginary Circles is a set of interactive interface studies that visualizes circular geometry, radians, waves, and logarithmic spirals as cinematic educational systems.",
     "description": [
       "The project turns foundational circle concepts into dark, high-contrast interface compositions built for exploration. Each study isolates a different mathematical behavior and presents it through motion, annotation, and luminous diagram language.",
       "The collection includes a circle-to-wave transform, a radian measurement study, and a logarithmic spiral study, all connected by a shared visual system of measured arcs, precise typography, and atmospheric depth.",
@@ -174,10 +174,11 @@
         "src": "images/work/circles/circles-logarithmic-spiral.png",
         "alt": "Logarithmic Spiral interactive study screenshot"
       }
-    ]
+    ],
+    "subtitle": "One rotating point, all the way to quantum mechanics."
   },
   {
-    "title": "Field Guide",
+    "title": "Cinematic Field Guide",
     "slug": "field-guide",
     "year": "2026",
     "tags": [
@@ -195,24 +196,24 @@
         "url": "https://guide.rondomingue.com/"
       }
     ],
-    "summary": "Field Guide is a cinematic reference system for interface design language, organizing visual patterns, component behaviors, and stylistic cues into a structured design index.",
+    "summary": "Cinematic Field Guide is a working reference for lighting and camera decisions, collecting photometric units, exposure, color temperature, and cross-engine light-intensity values for Octane, Redshift, and Unreal Engine 5.",
     "description": [
-      "The project collects interface conventions across fictional UI, tactical displays, dashboards, monitors, readouts, and screen graphics, then turns them into a searchable visual taxonomy.",
-      "Rather than presenting UI as isolated screenshots, Field Guide frames the material as a working vocabulary: categories, display types, interaction motifs, and recurring cinematic interface patterns that can be studied and reused.",
-      "The visual system keeps the experience dark, dense, and technical, using color-coded rows, compact typography, and a layered interface treatment that feels closer to an operational archive than a static reference page."
+      "The project is built as a practical cheat sheet for moving between real-world cinematography language and digital lighting systems. It gathers the values that tend to get scattered across notes, docs, and renderer-specific habits: lumens, lux, nits, exposure behavior, color temperature, and equivalent light settings across engines.",
+      "Instead of treating the information as a plain table, Cinematic Field Guide presents it as a dense reference interface. Lighting categories, camera values, real-world fixture examples, and renderer translations are organized into a dark technical surface designed for quick comparison while building a shot.",
+      "The goal is to make lighting decisions feel less arbitrary across Octane, Redshift, and Unreal Engine 5. The guide gives artists a shared baseline for matching physical lights, evaluating exposure, and translating a cinematographer’s language into usable digital settings."
     ],
     "processTags": [
-      "Interface Design",
-      "Taxonomy",
-      "Research System",
-      "Cinematic UI",
-      "Web Design"
+      "Lighting Reference",
+      "Camera Exposure",
+      "Photometric Units",
+      "Octane / Redshift / UE5",
+      "Cinematic UI"
     ],
-    "format": "Interactive interface reference system",
+    "format": "Interactive lighting and camera reference",
     "images": [
       {
         "src": "images/work/field-guide/field-guide-hero.jpg",
-        "alt": "Field Guide interface reference system with color-coded cinematic UI categories"
+        "alt": "Cinematic Field Guide lighting reference interface with renderer intensity cheat sheets"
       }
     ]
   },
@@ -235,20 +236,20 @@
         "url": "https://interfaces.rondomingue.com/overcast.html"
       }
     ],
-    "summary": "Overcast is a cinematic weather interface study built around dense forecast cards, atmospheric overlays, and operational weather data presentation.",
+    "summary": "Overcast is a Grand Isle tactical conditions report for fishing, combining live weather, marine conditions, tides, solunar timing, and species-coded fishing grounds into one cinematic field interface.",
     "description": [
-      "The piece turns familiar forecast information into a more cinematic control-room surface, combining daily weather cards, wind and visibility readouts, radar-like texture, and layered environmental mapping.",
-      "The interface leans into an overcast, teal-tinted visual language: thin borders, translucent panels, modular weather blocks, and technical labels that make routine forecast data feel like part of a larger field operation.",
-      "As a project, Overcast sits between dashboard, HUD study, and environmental monitoring system, using weather as the source material for a tactile screen graphic."
+      "The project pulls together the kinds of information anglers usually have to check across several places: NWS current conditions and forecast, NOAA tides and water levels, wind and visibility, solunar activity windows, and mapped fishing zones around Grand Isle.",
+      "Instead of treating that data as a standard weather page, Overcast presents it like an operational screen. Forecast cards, marine readouts, tide context, moon timing, and fishing-ground markers are organized into a dense interface that can be scanned quickly while still feeling atmospheric and tactile.",
+      "The Mapbox layer gives the piece its field-report character, plotting fishing grounds and species-coded spots against a coastal map. The teal, low-light visual language keeps the system tied to overcast marine conditions: technical, damp, local, and built around the practical question of whether the water, weather, and timing are worth the trip."
     ],
     "processTags": [
       "Weather Interface",
-      "Dashboard Design",
-      "Data Visualization",
-      "Cinematic UI",
-      "Web Design"
+      "Fishing Conditions",
+      "NOAA / NWS Data",
+      "Mapbox GL",
+      "Cinematic UI"
     ],
-    "format": "Interactive weather dashboard study",
+    "format": "Live fishing and marine conditions dashboard",
     "images": [
       {
         "src": "images/work/overcast/overcast-hero.jpg",
