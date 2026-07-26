@@ -270,14 +270,23 @@ img { display: block; max-width: 100%; }
 }
 
 :root[data-theme="light"] .page-home .site-header {
-  background: radial-gradient(ellipse 72% 150% at 100% 0%, rgba(245,243,239,0.22) 0%, rgba(245,243,239,0.08) 48%, rgba(245,243,239,0) 78%);
+  background: radial-gradient(ellipse 72% 150% at 100% 0%, rgba(3,4,6,0.34) 0%, rgba(3,4,6,0.14) 48%, rgba(3,4,6,0) 78%);
 }
 
 :root[data-theme="light"] .header-logo,
-:root[data-theme="light"] .nav-link { color: rgba(24,25,29,0.58); }
+:root[data-theme="light"] .nav-link { color: rgba(24,25,29,0.66); }
 :root[data-theme="light"] .nav-link:hover,
 :root[data-theme="light"] .nav-link.active,
 :root[data-theme="light"] .header-logo:hover { color: var(--text); }
+
+:root[data-theme="light"] .page-home .nav-link {
+  color: rgba(238,238,240,0.68);
+  text-shadow: 0 1px 18px rgba(0,0,0,0.62);
+}
+:root[data-theme="light"] .page-home .nav-link:hover,
+:root[data-theme="light"] .page-home .nav-link.active {
+  color: rgba(255,255,255,0.94);
+}
 
 :root[data-theme="light"] .hero-overlay {
   background:
