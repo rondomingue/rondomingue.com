@@ -344,22 +344,8 @@
     "caption": "Jose & Rod"
   },
   {
-    "src": "images/photography/DSC08862-4.webp",
-    "alt": "Photography by Ron Domingue — 44",
-    "width": 2000,
-    "height": 1126,
-    "orientation": "landscape"
-  },
-  {
-    "src": "images/photography/DSC08861.webp",
-    "alt": "Photography by Ron Domingue — 45",
-    "width": 2000,
-    "height": 1125,
-    "orientation": "landscape"
-  },
-  {
     "src": "images/photography/DSC07916.webp",
-    "alt": "Photography by Ron Domingue — 46",
+    "alt": "Photography by Ron Domingue — 44",
     "width": 2000,
     "height": 1126,
     "orientation": "landscape",
@@ -367,7 +353,7 @@
   },
   {
     "src": "images/photography/DSC03861.webp",
-    "alt": "Photography by Ron Domingue — 47",
+    "alt": "Photography by Ron Domingue — 45",
     "width": 2000,
     "height": 1125,
     "orientation": "landscape",
@@ -375,7 +361,7 @@
   },
   {
     "src": "images/photography/DSC04824.webp",
-    "alt": "Photography by Ron Domingue — 48",
+    "alt": "Photography by Ron Domingue — 46",
     "width": 1125,
     "height": 2000,
     "orientation": "portrait",
@@ -383,7 +369,7 @@
   },
   {
     "src": "images/photography/20201017-DSC04804.webp",
-    "alt": "Photography by Ron Domingue — 49",
+    "alt": "Photography by Ron Domingue — 47",
     "width": 2000,
     "height": 1126,
     "orientation": "landscape",
@@ -391,35 +377,38 @@
   },
   {
     "src": "images/photography/DSC09060.webp",
-    "alt": "Photography by Ron Domingue — 50",
+    "alt": "Photography by Ron Domingue — 48",
     "width": 2000,
     "height": 1125,
     "orientation": "landscape"
   },
   {
     "src": "images/photography/DSC09066.webp",
-    "alt": "Photography by Ron Domingue — 51",
+    "alt": "Photography by Ron Domingue — 49",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Downtown Los Angeles"
   },
   {
     "src": "images/photography/DSC07918.webp",
-    "alt": "Photography by Ron Domingue — 52",
+    "alt": "Photography by Ron Domingue — 50",
     "width": 2000,
     "height": 1128,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "New Orleans French Quarter"
   },
   {
     "src": "images/photography/DSC09090.webp",
-    "alt": "Photography by Ron Domingue — 53",
+    "alt": "Photography by Ron Domingue — 51",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Downtown Los Angeles"
   },
   {
     "src": "images/photography/5E1EA673-1F22-4387-925A-3322F3AFE744.webp",
-    "alt": "Photography by Ron Domingue — 54",
+    "alt": "Photography by Ron Domingue — 52",
     "width": 2000,
     "height": 1333,
     "orientation": "landscape",
@@ -427,7 +416,7 @@
   },
   {
     "src": "images/photography/DSC09092.webp",
-    "alt": "Photography by Ron Domingue — 55",
+    "alt": "Photography by Ron Domingue — 53",
     "width": 2000,
     "height": 1125,
     "orientation": "landscape",
@@ -435,7 +424,7 @@
   },
   {
     "src": "images/photography/DSC00364.webp",
-    "alt": "Photography by Ron Domingue — 56",
+    "alt": "Photography by Ron Domingue — 54",
     "width": 2000,
     "height": 1333,
     "orientation": "landscape",
@@ -443,7 +432,7 @@
   },
   {
     "src": "images/photography/DSC09221.webp",
-    "alt": "Photography by Ron Domingue — 57",
+    "alt": "Photography by Ron Domingue — 55",
     "width": 2000,
     "height": 1125,
     "orientation": "landscape",
@@ -451,7 +440,7 @@
   },
   {
     "src": "images/photography/DSC09311.webp",
-    "alt": "Photography by Ron Domingue — 58",
+    "alt": "Photography by Ron Domingue — 56",
     "width": 2000,
     "height": 1125,
     "orientation": "landscape",
@@ -459,14 +448,14 @@
   },
   {
     "src": "images/photography/DSC09312.webp",
-    "alt": "Photography by Ron Domingue — 59",
+    "alt": "Photography by Ron Domingue — 57",
     "width": 2000,
     "height": 1125,
     "orientation": "landscape"
   },
   {
     "src": "images/photography/DSC09340.webp",
-    "alt": "Photography by Ron Domingue — 60",
+    "alt": "Photography by Ron Domingue — 58",
     "width": 2000,
     "height": 1125,
     "orientation": "landscape",
@@ -474,175 +463,183 @@
   },
   {
     "src": "images/photography/DSC09396.webp",
-    "alt": "Photography by Ron Domingue — 61",
+    "alt": "Photography by Ron Domingue — 59",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Kenny"
   },
   {
     "src": "images/photography/DSC09467.webp",
-    "alt": "Photography by Ron Domingue — 62",
-    "width": 2000,
-    "height": 1125,
-    "orientation": "landscape"
-  },
-  {
-    "src": "images/photography/DSC09578.webp",
-    "alt": "Photography by Ron Domingue — 63",
+    "alt": "Photography by Ron Domingue — 60",
     "width": 2000,
     "height": 1125,
     "orientation": "landscape"
   },
   {
     "src": "images/photography/DSC00066.webp",
-    "alt": "Photography by Ron Domingue — 64",
+    "alt": "Photography by Ron Domingue — 61",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Mike"
   },
   {
     "src": "images/photography/IMG_4565.webp",
-    "alt": "Photography by Ron Domingue — 65",
+    "alt": "Photography by Ron Domingue — 62",
     "width": 1126,
     "height": 2000,
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "caption": "New Orleans French Quarter"
   },
   {
     "src": "images/photography/IMG_4606.webp",
-    "alt": "Photography by Ron Domingue — 66",
+    "alt": "Photography by Ron Domingue — 63",
     "width": 1126,
     "height": 2000,
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "caption": "New Orleans Canal"
   },
   {
     "src": "images/photography/IMG_4611.webp",
-    "alt": "Photography by Ron Domingue — 67",
+    "alt": "Photography by Ron Domingue — 64",
     "width": 1126,
     "height": 2000,
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "caption": "New Orleans French Quarter"
   },
   {
     "src": "images/photography/IMG_4613.webp",
-    "alt": "Photography by Ron Domingue — 68",
+    "alt": "Photography by Ron Domingue — 65",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "New Orleans French Quarter"
   },
   {
     "src": "images/photography/IMG_9633.webp",
-    "alt": "Photography by Ron Domingue — 69",
+    "alt": "Photography by Ron Domingue — 66",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Erin Rose"
   },
   {
     "src": "images/photography/LRG_DSC05270.webp",
-    "alt": "Photography by Ron Domingue — 70",
+    "alt": "Photography by Ron Domingue — 67",
     "width": 1125,
     "height": 2000,
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "caption": "Cort"
   },
   {
     "src": "images/photography/DSC00391.webp",
-    "alt": "Photography by Ron Domingue — 71",
+    "alt": "Photography by Ron Domingue — 68",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Diana"
   },
   {
     "src": "images/photography/DSC00328.webp",
-    "alt": "Photography by Ron Domingue — 72",
+    "alt": "Photography by Ron Domingue — 69",
     "width": 1333,
     "height": 2000,
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "caption": "Annie"
   },
   {
     "src": "images/photography/Ron-Domingue-Live-Painting-March-2021-042.webp",
-    "alt": "Photography by Ron Domingue — 73",
+    "alt": "Photography by Ron Domingue — 70",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Painting"
   },
   {
     "src": "images/photography/DSC08857.webp",
-    "alt": "Photography by Ron Domingue — 74",
+    "alt": "Photography by Ron Domingue — 71",
     "width": 2000,
     "height": 1125,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Honeybee"
   },
   {
     "src": "images/photography/20200216-DSC00749.jpg.webp",
-    "alt": "Photography by Ron Domingue — 75",
+    "alt": "Photography by Ron Domingue — 72",
     "width": 1000,
     "height": 1500,
     "orientation": "portrait"
   },
   {
     "src": "images/photography/After-the-rain.webp",
-    "alt": "Photography by Ron Domingue — 76",
+    "alt": "Photography by Ron Domingue — 73",
     "width": 1125,
     "height": 2000,
     "orientation": "portrait"
   },
   {
     "src": "images/photography/20200216-DSC00683.jpg.webp",
-    "alt": "Photography by Ron Domingue — 77",
+    "alt": "Photography by Ron Domingue — 74",
     "width": 2000,
     "height": 1333,
     "orientation": "landscape"
   },
   {
     "src": "images/photography/DSC00422.webp",
-    "alt": "Photography by Ron Domingue — 78",
+    "alt": "Photography by Ron Domingue — 75",
     "width": 2000,
     "height": 1125,
     "orientation": "landscape"
   },
   {
     "src": "images/photography/DSC07988.webp",
-    "alt": "Photography by Ron Domingue — 79",
+    "alt": "Photography by Ron Domingue — 76",
     "width": 2000,
     "height": 1126,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "New Orleans Canal"
   },
   {
     "src": "images/photography/DSC00753.webp",
-    "alt": "Photography by Ron Domingue — 80",
+    "alt": "Photography by Ron Domingue — 77",
     "width": 2000,
     "height": 1333,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Family"
   },
   {
     "src": "images/photography/IMG_0100.webp",
-    "alt": "Photography by Ron Domingue — 81",
+    "alt": "Photography by Ron Domingue — 78",
     "width": 2000,
     "height": 1126,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Atticus"
   },
   {
     "src": "images/photography/DSC00367.webp",
-    "alt": "Photography by Ron Domingue — 82",
+    "alt": "Photography by Ron Domingue — 79",
     "width": 2000,
     "height": 1333,
     "orientation": "landscape"
   },
   {
     "src": "images/photography/DSC01130.jpg",
-    "alt": "Photography by Ron Domingue — 83",
+    "alt": "Photography by Ron Domingue — 80",
     "width": 2048,
     "height": 1152,
     "orientation": "landscape"
   },
   {
     "src": "images/photography/DSC02127.jpg",
-    "alt": "Photography by Ron Domingue — 84",
+    "alt": "Photography by Ron Domingue — 81",
     "width": 2048,
     "height": 1365,
     "orientation": "landscape"
   },
   {
     "src": "images/photography/DSC02129.jpg",
-    "alt": "Photography by Ron Domingue — 85",
+    "alt": "Photography by Ron Domingue — 82",
     "width": 2048,
     "height": 1365,
     "orientation": "landscape"
