@@ -17,10 +17,10 @@
 }
 
 :root[data-theme="light"] {
-  --bg:           #f2f0eb;
-  --surface:      #ffffff;
-  --surface-2:    #e7e3db;
-  --border:       #cfc8bd;
+  --bg:           #f5f3ef;
+  --surface:      #efede8;
+  --surface-2:    #e5e2dc;
+  --border:       #c9c2b8;
   --accent:       #b51c83;
   --cyan:         #087e9d;
   --green:        #4a8331;
@@ -260,19 +260,17 @@ img { display: block; max-width: 100%; }
    LIGHT THEME — opt-in
 ───────────────────────────────────────────── */
 :root[data-theme="light"] body {
-  background:
-    radial-gradient(ellipse at 18% 0%, rgba(200,40,154,0.08), transparent 34%),
-    linear-gradient(180deg, #faf8f4 0%, var(--bg) 42%, #e9e4dc 100%);
+  background: #f5f3ef;
 }
 
 :root[data-theme="light"] .site-header,
 :root[data-theme="light"] .page-about .site-header,
 :root[data-theme="light"] .page-work .site-header {
-  background: linear-gradient(to bottom, rgba(248,246,241,0.86) 0%, rgba(248,246,241,0.52) 58%, rgba(248,246,241,0) 100%);
+  background: linear-gradient(to bottom, rgba(245,243,239,0.36) 0%, rgba(245,243,239,0.14) 58%, rgba(245,243,239,0) 100%);
 }
 
 :root[data-theme="light"] .page-home .site-header {
-  background: radial-gradient(ellipse 72% 150% at 100% 0%, rgba(248,246,241,0.46) 0%, rgba(248,246,241,0.18) 48%, rgba(248,246,241,0) 78%);
+  background: radial-gradient(ellipse 72% 150% at 100% 0%, rgba(245,243,239,0.22) 0%, rgba(245,243,239,0.08) 48%, rgba(245,243,239,0) 78%);
 }
 
 :root[data-theme="light"] .header-logo,
@@ -283,8 +281,18 @@ img { display: block; max-width: 100%; }
 
 :root[data-theme="light"] .hero-overlay {
   background:
-    linear-gradient(to right, rgba(246,244,239,0.72) 0%, rgba(246,244,239,0.48) 30%, rgba(246,244,239,0.12) 56%, rgba(246,244,239,0) 76%),
-    linear-gradient(to bottom, rgba(246,244,239,0.1) 0%, rgba(246,244,239,0) 36%, rgba(246,244,239,0.12) 72%, rgba(242,240,235,0.88) 100%);
+    linear-gradient(to right,
+      rgba(3,4,6,0.62) 0%,
+      rgba(3,4,6,0.42) 30%,
+      rgba(3,4,6,0.14) 54%,
+      rgba(3,4,6,0) 74%
+    ),
+    linear-gradient(to bottom,
+      rgba(0,0,0,0.16) 0%,
+      rgba(0,0,0,0) 36%,
+      rgba(0,0,0,0.16) 72%,
+      rgba(14,15,17,0.82) 100%
+    );
 }
 
 :root[data-theme="light"] .hero-video-wrap,
@@ -292,7 +300,7 @@ img { display: block; max-width: 100%; }
 :root[data-theme="light"] .project-gallery img,
 :root[data-theme="light"] .illustration-mosaic img,
 :root[data-theme="light"] .photo-card img {
-  filter: saturate(0.94) contrast(0.96) brightness(1.06);
+  filter: none;
 }
 
 :root[data-theme="light"] .hero-role,
@@ -344,13 +352,41 @@ img { display: block; max-width: 100%; }
 :root[data-theme="light"] .about-card,
 :root[data-theme="light"] .photo-card,
 :root[data-theme="light"] .illustration-card {
-  background: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.42);
   border-color: rgba(24,25,29,0.12);
 }
 
 :root[data-theme="light"] .work-card-overlay {
-  background: linear-gradient(to top, rgba(242,240,235,0.86), rgba(242,240,235,0.12) 62%, rgba(242,240,235,0));
+  background: linear-gradient(to top, rgba(14,15,17,0.84), rgba(14,15,17,0.18) 62%, rgba(14,15,17,0));
 }
+
+:root[data-theme="light"] .work-card-info,
+:root[data-theme="light"] .work-card-title,
+:root[data-theme="light"] .work-card-tags,
+:root[data-theme="light"] .work-card .work-tag {
+  color: rgba(238,238,240,0.9);
+}
+
+:root[data-theme="light"] .work-card .work-tag {
+  border-color: rgba(238,238,240,0.2);
+  background: rgba(7,8,10,0.28);
+}
+
+:root[data-theme="light"] .hero-title {
+  color: rgba(238,238,240,0.94);
+}
+
+:root[data-theme="light"] .hero-role,
+:root[data-theme="light"] .hero-desc {
+  color: rgba(238,238,240,0.58);
+}
+
+:root[data-theme="light"] .hero-title,
+:root[data-theme="light"] .hero-role,
+:root[data-theme="light"] .hero-desc {
+  text-shadow: 0 1px 22px rgba(0,0,0,0.38);
+}
+
 
 :root[data-theme="light"] .project-tags,
 :root[data-theme="light"] .work-tag,
