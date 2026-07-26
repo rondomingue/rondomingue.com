@@ -293,6 +293,7 @@ bodyClass: page-home
   }, 180);
 
   function dismissPreloader(showVideo = false) {
+    if (showVideo) document.body.classList.add('hero-video-ready');
     if (preloaderDismissed || !preloader) return;
     preloaderDismissed = true;
     clearInterval(preloaderTimer);
@@ -307,8 +308,8 @@ bodyClass: page-home
     if (e.origin.includes('vimeo.com')) {
       try {
         const data = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
-        if (data.event === 'ready' || data.event === 'playProgress') {
-          dismissPreloader();
+        if (data.event === 'playProgress') {
+          dismissPreloader(true);
         }
       } catch(err) {}
     }
