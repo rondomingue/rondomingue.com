@@ -292,7 +292,7 @@ bodyClass: page-home
     preloaderBarFill.style.width = `${preloaderValue}%`;
   }, 180);
 
-  function dismissPreloader() {
+  function dismissPreloader(showVideo = false) {
     if (preloaderDismissed || !preloader) return;
     preloaderDismissed = true;
     clearInterval(preloaderTimer);
@@ -315,7 +315,7 @@ bodyClass: page-home
   });
 
   // Fallback — dismiss after 4s regardless
-  setTimeout(dismissPreloader, 4200);
+  setTimeout(() => dismissPreloader(false), 4200);
 
   // ── Featured reel shadowbox ────────────────────────────────────
   const reelOpen = document.getElementById('reel-open');
