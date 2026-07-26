@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>document.documentElement.classList.add('motion-ready');</script>
+  <script>
+    document.documentElement.classList.add('motion-ready');
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem('rd-theme');
+        if (savedTheme === 'light') document.documentElement.dataset.theme = 'light';
+      } catch (error) {}
+    })();
+  </script>
   <title>{% if title %}{{ title }} — {% endif %}{{ site.siteName }}</title>
   <meta name="description" content="{{ description or site.description }}">
   <link rel="icon" type="image/png" href="{{ '/images/favicon.png' | url }}">
@@ -30,6 +38,7 @@
   {% include "footer.njk" %}
 
   <script src="{{ '/js/page-reveal.js' | url }}?v=2" defer></script>
+  <script src="{{ '/js/theme-toggle.js' | url }}" defer></script>
 
 </body>
 </html>
