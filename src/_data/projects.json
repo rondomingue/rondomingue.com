@@ -177,6 +177,86 @@
     ]
   },
   {
+    "title": "Field Guide",
+    "slug": "field-guide",
+    "year": "2026",
+    "tags": [
+      "Interface Design",
+      "Reference System",
+      "Data Visualization",
+      "Web",
+      "Design System",
+      "Research"
+    ],
+    "thumb": "images/work/field-guide/field-guide-hero.jpg",
+    "liveLinks": [
+      {
+        "label": "View Site",
+        "url": "https://guide.rondomingue.com/"
+      }
+    ],
+    "summary": "Field Guide is a cinematic reference system for interface design language, organizing visual patterns, component behaviors, and stylistic cues into a structured design index.",
+    "description": [
+      "The project collects interface conventions across fictional UI, tactical displays, dashboards, monitors, readouts, and screen graphics, then turns them into a searchable visual taxonomy.",
+      "Rather than presenting UI as isolated screenshots, Field Guide frames the material as a working vocabulary: categories, display types, interaction motifs, and recurring cinematic interface patterns that can be studied and reused.",
+      "The visual system keeps the experience dark, dense, and technical, using color-coded rows, compact typography, and a layered interface treatment that feels closer to an operational archive than a static reference page."
+    ],
+    "processTags": [
+      "Interface Design",
+      "Taxonomy",
+      "Research System",
+      "Cinematic UI",
+      "Web Design"
+    ],
+    "format": "Interactive interface reference system",
+    "images": [
+      {
+        "src": "images/work/field-guide/field-guide-hero.jpg",
+        "alt": "Field Guide interface reference system with color-coded cinematic UI categories"
+      }
+    ]
+  },
+  {
+    "title": "Overcast",
+    "slug": "overcast",
+    "year": "2026",
+    "tags": [
+      "Interface Design",
+      "Weather Data",
+      "Data Visualization",
+      "Web",
+      "Dashboard",
+      "Cinematic UI"
+    ],
+    "thumb": "images/work/overcast/overcast-hero.jpg",
+    "liveLinks": [
+      {
+        "label": "View Site",
+        "url": "https://interfaces.rondomingue.com/overcast.html"
+      }
+    ],
+    "summary": "Overcast is a cinematic weather interface study built around dense forecast cards, atmospheric overlays, and operational weather data presentation.",
+    "description": [
+      "The piece turns familiar forecast information into a more cinematic control-room surface, combining daily weather cards, wind and visibility readouts, radar-like texture, and layered environmental mapping.",
+      "The interface leans into an overcast, teal-tinted visual language: thin borders, translucent panels, modular weather blocks, and technical labels that make routine forecast data feel like part of a larger field operation.",
+      "As a project, Overcast sits between dashboard, HUD study, and environmental monitoring system, using weather as the source material for a tactile screen graphic."
+    ],
+    "processTags": [
+      "Weather Interface",
+      "Dashboard Design",
+      "Data Visualization",
+      "Cinematic UI",
+      "Web Design"
+    ],
+    "format": "Interactive weather dashboard study",
+    "images": [
+      {
+        "src": "images/work/overcast/overcast-hero.jpg",
+        "alt": "Overcast cinematic weather dashboard with forecast cards and atmospheric interface overlays"
+      }
+    ]
+  },
+  {
     "title": "The Four of Us Are Dying",
     "slug": "the-four-of-us-are-dying",
     "year": "2026",
