@@ -26,6 +26,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("previousProject", (projects, slug) => getAdjacentProject(projects, slug, -1));
   eleventyConfig.addFilter("nextProject", (projects, slug) => getAdjacentProject(projects, slug, 1));
 
+  eleventyConfig.addPassthroughCopy("src/BingSiteAuth.xml");
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/fonts");
