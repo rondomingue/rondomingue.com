@@ -130,7 +130,7 @@ bodyClass: page-home
 
   <div class="work-grid">
     {% for project in homepageProjects %}
-    <a class="work-card {% if loop.first %}work-card--featured{% endif %}" href="{{ ('/work/' + project.slug + '/') | url }}">
+    <a class="work-card image-load-frame image-loading {% if loop.first %}work-card--featured{% endif %}" href="{{ ('/work/' + project.slug + '/') | url }}">
       <div class="work-card-img" style="background-image: url('{{ ('/' + project.thumb) | url }}')"></div>
       <div class="work-card-overlay"></div>
       <div class="work-card-info">

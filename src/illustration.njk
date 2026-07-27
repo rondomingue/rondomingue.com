@@ -24,7 +24,7 @@ permalink: illustration/index.html
 
   <div class="illustration-mosaic">
     {% for artwork in illustrations %}
-    <figure class="illustration-tile" data-orientation="{{ artwork.orientation }}">
+    <figure class="illustration-tile image-load-frame image-loading" data-orientation="{{ artwork.orientation }}">
       <button class="illustration-open" type="button" aria-label="Open {{ artwork.alt }}" data-index="{{ loop.index0 }}">
         <img
           src="{{ ('/' + artwork.src) | url }}"

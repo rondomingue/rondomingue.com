@@ -23,7 +23,7 @@ permalink: photography/index.html
 
   <div class="illustration-mosaic">
     {% for photograph in photographs %}
-    <figure class="illustration-tile" data-orientation="{{ photograph.orientation }}">
+    <figure class="illustration-tile image-load-frame image-loading" data-orientation="{{ photograph.orientation }}">
       <button class="illustration-open" type="button" aria-label="Open photograph {{ loop.index }}" data-index="{{ loop.index0 }}">
         <img
           src="{{ ('/' + photograph.src) | url }}"

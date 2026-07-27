@@ -77,7 +77,7 @@ bodyClass: page-work page-project
   <section class="project-gallery" aria-label="{{ project.title }} image gallery">
     {% for image in project.images %}
     {% set imageSrc = image.src or image %}
-    <figure class="project-gallery-item{% if loop.first %} project-gallery-item--wide{% endif %}">
+    <figure class="project-gallery-item image-load-frame image-loading{% if loop.first %} project-gallery-item--wide{% endif %}">
       <button class="project-gallery-button" type="button" data-gallery-index="{{ loop.index0 }}" aria-label="Open image {{ loop.index }} of {{ project.images.length }}">
         <img src="{{ ('/' + imageSrc) | url }}" alt="{{ image.alt or project.title }}" loading="lazy">
       </button>

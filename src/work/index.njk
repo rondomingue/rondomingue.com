@@ -20,7 +20,7 @@ bodyClass: page-work
 
   <div class="work-grid work-grid--full" aria-live="polite">
     {% for project in publishedProjects %}
-    <a class="work-card" href="{{ ('/work/' + project.slug + '/') | url }}" data-tags="{{ project.tags | join('|') }}">
+    <a class="work-card image-load-frame image-loading" href="{{ ('/work/' + project.slug + '/') | url }}" data-tags="{{ project.tags | join('|') }}">
       <div class="work-card-img" style="background-image: url('{{ ('/' + project.thumb) | url }}')"></div>
       <div class="work-card-overlay"></div>
       <div class="work-card-info">
