@@ -137,7 +137,7 @@
       "Cinematic",
       "Concept Art"
     ],
-    "thumb": "images/work/the-sinner-in-me/sinner-signal-field-04.png",
+    "thumb": "images/work/the-sinner-in-me/sinner-signal-field-04.webp",
     "video": {
       "provider": "youtube",
       "id": "BouqB2I5-4w"
@@ -158,19 +158,19 @@
     "format": "Audio-reactive music visualization",
     "images": [
       {
-        "src": "images/work/the-sinner-in-me/sinner-signal-field-01.png",
+        "src": "images/work/the-sinner-in-me/sinner-signal-field-01.webp",
         "alt": "Dark blue audio-reactive signal field with sparse procedural traces"
       },
       {
-        "src": "images/work/the-sinner-in-me/sinner-signal-field-02.png",
+        "src": "images/work/the-sinner-in-me/sinner-signal-field-02.webp",
         "alt": "Circular procedural line network emerging from a dark signal map"
       },
       {
-        "src": "images/work/the-sinner-in-me/sinner-signal-field-03.png",
+        "src": "images/work/the-sinner-in-me/sinner-signal-field-03.webp",
         "alt": "Dense reactive line structure with chromatic distortion over a dark map"
       },
       {
-        "src": "images/work/the-sinner-in-me/sinner-signal-field-04.png",
+        "src": "images/work/the-sinner-in-me/sinner-signal-field-04.webp",
         "alt": "Bright circular web of procedural paths surrounding the word free"
       }
     ]
@@ -214,19 +214,19 @@
         "alt": "Cinematic Imaginary Circles interface hero showing a radian diagram and formula annotations"
       },
       {
-        "src": "images/work/circles/circles-index.png",
+        "src": "images/work/circles/circles-index.webp",
         "alt": "Imaginary Circles landing page with geometric interface studies"
       },
       {
-        "src": "images/work/circles/circles-circle-to-wave.png",
+        "src": "images/work/circles/circles-circle-to-wave.webp",
         "alt": "Circle to Wave interactive study screenshot"
       },
       {
-        "src": "images/work/circles/circles-radian-circle.png",
+        "src": "images/work/circles/circles-radian-circle.webp",
         "alt": "Radian Circle interactive study screenshot"
       },
       {
-        "src": "images/work/circles/circles-logarithmic-spiral.png",
+        "src": "images/work/circles/circles-logarithmic-spiral.webp",
         "alt": "Logarithmic Spiral interactive study screenshot"
       }
     ],
@@ -464,7 +464,7 @@
       "Procedural",
       "Concept Art"
     ],
-    "thumb": "images/work/data-haven/01.png",
+    "thumb": "images/work/data-haven/01.webp",
     "subtitle": "A black-box city of encrypted storage towers and magenta signal logic",
     "summary": "Data Haven is a cinematic cube-city study built from stacked black data blocks, glowing magenta interface marks, shallow focus, and dense label systems.",
     "description": [
@@ -480,17 +480,17 @@
     ],
     "format": "Cinematic FUI object study",
     "images": [
-      "images/work/data-haven/01.png",
-      "images/work/data-haven/02.png",
-      "images/work/data-haven/03.png",
-      "images/work/data-haven/04.png",
-      "images/work/data-haven/05.png",
-      "images/work/data-haven/09.png",
-      "images/work/data-haven/06.png",
-      "images/work/data-haven/07.png",
-      "images/work/data-haven/08.png",
-      "images/work/data-haven/10.png",
-      "images/work/data-haven/11.png"
+      "images/work/data-haven/01.webp",
+      "images/work/data-haven/02.webp",
+      "images/work/data-haven/03.webp",
+      "images/work/data-haven/04.webp",
+      "images/work/data-haven/05.webp",
+      "images/work/data-haven/09.webp",
+      "images/work/data-haven/06.webp",
+      "images/work/data-haven/07.webp",
+      "images/work/data-haven/08.webp",
+      "images/work/data-haven/10.webp",
+      "images/work/data-haven/11.webp"
     ]
   },
   {
@@ -507,7 +507,7 @@
       "Sci-Fi",
       "Procedural"
     ],
-    "thumb": "images/work/white-noise-telemetry/Head.png",
+    "thumb": "images/work/white-noise-telemetry/Head.webp",
     "summary": "White Noise Telemetry is a monochrome HUD/FUI study built from luminous scan lines, blurred diagnostic panels, and layered instrument readouts suspended in depth.",
     "description": [
       "The series pushes interface graphics toward a photographic, overexposed signal aesthetic. Dense panels, buffer labels, calibration readouts, and graph structures are treated like glass, light, and optical noise instead of flat UI elements.",
@@ -521,18 +521,18 @@
       "Compositing"
     ],
     "images": [
-      "images/work/white-noise-telemetry/Head.png",
-      "images/work/white-noise-telemetry/Prime.png",
-      "images/work/white-noise-telemetry/01.png",
-      "images/work/white-noise-telemetry/02.png",
-      "images/work/white-noise-telemetry/03.png",
-      "images/work/white-noise-telemetry/04.png",
-      "images/work/white-noise-telemetry/05.png",
-      "images/work/white-noise-telemetry/06.png",
-      "images/work/white-noise-telemetry/07.png",
-      "images/work/white-noise-telemetry/08.png",
-      "images/work/white-noise-telemetry/09.png",
-      "images/work/white-noise-telemetry/10.png"
+      "images/work/white-noise-telemetry/Head.webp",
+      "images/work/white-noise-telemetry/Prime.webp",
+      "images/work/white-noise-telemetry/01.webp",
+      "images/work/white-noise-telemetry/02.webp",
+      "images/work/white-noise-telemetry/03.webp",
+      "images/work/white-noise-telemetry/04.webp",
+      "images/work/white-noise-telemetry/05.webp",
+      "images/work/white-noise-telemetry/06.webp",
+      "images/work/white-noise-telemetry/07.webp",
+      "images/work/white-noise-telemetry/08.webp",
+      "images/work/white-noise-telemetry/09.webp",
+      "images/work/white-noise-telemetry/10.webp"
     ],
     "format": "Monochrome HUD / FUI interface study"
   },
@@ -549,7 +549,7 @@
       "Sci-Fi",
       "Procedural"
     ],
-    "thumb": "images/work/signal-lattice/10.png",
+    "thumb": "images/work/signal-lattice/10.webp",
     "summary": "Signal Lattice is a cinematic HUD/FUI study built around dense orange navigation overlays, scan readouts, and layered glass-panel interface depth.",
     "description": [
       "A compact interface study focused on parallax, opacity, grid density, and warm avionics-style system graphics. The sequence explores how abstract readouts and targeting structures can feel tactile and dimensional when treated like photographed glass rather than flat UI."
@@ -562,18 +562,18 @@
       "Cinematic UI"
     ],
     "images": [
-      "images/work/signal-lattice/Head.png",
-      "images/work/signal-lattice/Prime.png",
-      "images/work/signal-lattice/01.png",
-      "images/work/signal-lattice/02.png",
-      "images/work/signal-lattice/03.png",
-      "images/work/signal-lattice/04.png",
-      "images/work/signal-lattice/05.png",
-      "images/work/signal-lattice/06.png",
-      "images/work/signal-lattice/07.png",
-      "images/work/signal-lattice/08.png",
-      "images/work/signal-lattice/09.png",
-      "images/work/signal-lattice/10.png"
+      "images/work/signal-lattice/Head.webp",
+      "images/work/signal-lattice/Prime.webp",
+      "images/work/signal-lattice/01.webp",
+      "images/work/signal-lattice/02.webp",
+      "images/work/signal-lattice/03.webp",
+      "images/work/signal-lattice/04.webp",
+      "images/work/signal-lattice/05.webp",
+      "images/work/signal-lattice/06.webp",
+      "images/work/signal-lattice/07.webp",
+      "images/work/signal-lattice/08.webp",
+      "images/work/signal-lattice/09.webp",
+      "images/work/signal-lattice/10.webp"
     ],
     "format": "HUD / FUI interface study"
   },
@@ -590,7 +590,7 @@
       "Weather",
       "Concept Art"
     ],
-    "thumb": "images/work/ravens-isle/ravens-isle.png",
+    "thumb": "images/work/ravens-isle/ravens-isle.webp",
     "vimeo": "P_hXaVLEV2w",
     "summary": "Ravens Isle is a short cinematic built in Unreal Engine 5, set on a storm-battered island fortress clinging to sea cliffs. Towers rise through the fog, lightning fractures the horizon, and ravens circle against a cold teal sky.",
     "description": [
@@ -884,7 +884,7 @@
       "Science",
       "Concept Art"
     ],
-    "thumb": "images/work/colony.png",
+    "thumb": "images/work/colony.webp",
     "summary": "A perpetual lunar sunset, built in Unreal Engine 5, set at Shackleton Extraction Facility on the lunar south pole; a He-3 and hydrogen mining operation on the Gerlache Ridge.",
     "description": [
       "Not everyone made it back inside.",
@@ -1242,7 +1242,7 @@
       "Procedural",
       "Concept Art"
     ],
-    "thumb": "images/work/redline-acquisition/09.png",
+    "thumb": "images/work/redline-acquisition/09.webp",
     "subtitle": "A redline targeting field built from layered HUD geometry",
     "summary": "A cinematic HUD and FUI render study built around red acquisition arcs, nested reticle systems, dense telemetry fields, and glass-like interface depth.",
     "description": [
@@ -1258,14 +1258,14 @@
     ],
     "format": "HUD / FUI render study",
     "images": [
-      "images/work/redline-acquisition/Head.png",
-      "images/work/redline-acquisition/09.png",
-      "images/work/redline-acquisition/10.png",
-      "images/work/redline-acquisition/Prime.png",
-      "images/work/redline-acquisition/08.png",
-      "images/work/redline-acquisition/01.png",
-      "images/work/redline-acquisition/06.png",
-      "images/work/redline-acquisition/07.png"
+      "images/work/redline-acquisition/Head.webp",
+      "images/work/redline-acquisition/09.webp",
+      "images/work/redline-acquisition/10.webp",
+      "images/work/redline-acquisition/Prime.webp",
+      "images/work/redline-acquisition/08.webp",
+      "images/work/redline-acquisition/01.webp",
+      "images/work/redline-acquisition/06.webp",
+      "images/work/redline-acquisition/07.webp"
     ]
   },
   {
@@ -2102,7 +2102,7 @@
       "Sci-Fi",
       "Concept Art"
     ],
-    "thumb": "images/work/spec-forge/spec-forge-hero.png",
+    "thumb": "images/work/spec-forge/spec-forge-hero.webp",
     "liveUrl": "https://interfaces.rondomingue.com/spec-forge.html",
     "summary": "A seed-driven design instrument for generating production-ready cyberpunk graphics, interface panels, labels, posters, and contact sheets from a flexible visual system.",
     "description": [
@@ -2118,43 +2118,43 @@
     "format": "Interactive procedural graphics generator",
     "images": [
       {
-        "src": "images/work/spec-forge/spec-forge-hero.png",
+        "src": "images/work/spec-forge/spec-forge-hero.webp",
         "alt": "SPEC//FORGE procedural cyberpunk interface and asset generator"
       },
       {
-        "src": "images/work/spec-forge/specforge-neon-spec.png",
+        "src": "images/work/spec-forge/specforge-neon-spec.webp",
         "alt": "SPEC//FORGE neon spec interface panel"
       },
       {
-        "src": "images/work/spec-forge/specforge-kiss-barcode.png",
+        "src": "images/work/spec-forge/specforge-kiss-barcode.webp",
         "alt": "SPEC//FORGE barcode poster composition"
       },
       {
-        "src": "images/work/spec-forge/specforge-ghost-code.png",
+        "src": "images/work/spec-forge/specforge-ghost-code.webp",
         "alt": "SPEC//FORGE ghost code interface layout"
       },
       {
-        "src": "images/work/spec-forge/specforge-derez-hud.png",
+        "src": "images/work/spec-forge/specforge-derez-hud.webp",
         "alt": "SPEC//FORGE Derez HUD chart layout"
       },
       {
-        "src": "images/work/spec-forge/specforge-peri-5x5-sheet.png",
+        "src": "images/work/spec-forge/specforge-peri-5x5-sheet.webp",
         "alt": "SPEC//FORGE Peri 5x5 contact sheet"
       },
       {
-        "src": "images/work/spec-forge/specforge-coolant-chart.png",
+        "src": "images/work/spec-forge/specforge-coolant-chart.webp",
         "alt": "SPEC//FORGE coolant chart interface"
       },
       {
-        "src": "images/work/spec-forge/specforge-carbon-5x5-sheet.png",
+        "src": "images/work/spec-forge/specforge-carbon-5x5-sheet.webp",
         "alt": "SPEC//FORGE carbon 5x5 contact sheet"
       },
       {
-        "src": "images/work/spec-forge/specforge-ghost-5x5-sheet.png",
+        "src": "images/work/spec-forge/specforge-ghost-5x5-sheet.webp",
         "alt": "SPEC//FORGE ghost 5x5 contact sheet"
       },
       {
-        "src": "images/work/spec-forge/specforge-iota-10x10-sheet.png",
+        "src": "images/work/spec-forge/specforge-iota-10x10-sheet.webp",
         "alt": "SPEC//FORGE Iota 10x10 contact sheet"
       }
     ]
