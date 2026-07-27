@@ -1,15 +1,30 @@
 <header class="site-header" id="site-header">
   <div class="header-inner">
-    <a class="header-logo" href="{{ '/' | url }}">
+    <a class="header-logo" href="{{ '/' | url }}" aria-label="Home">
       <img src="{{ '/images/misc/Thai-Emblem_white.png' | url }}" class="header-emblem" alt="">
       <span>Ron Domingue</span>
     </a>
-    <nav class="header-nav">
-      <a href="{{ '/work/' | url }}" class="nav-link {% if navActive == 'work' %}active{% endif %}">Work</a>
-      <a href="{{ '/photography/' | url }}" class="nav-link {% if navActive == 'photography' %}active{% endif %}">Photography</a>
-      <a href="{{ '/illustration/' | url }}" class="nav-link {% if navActive == 'illustration' %}active{% endif %}">Illustration</a>
-      <a href="{{ '/about/' | url }}" class="nav-link {% if navActive == 'about' %}active{% endif %}">About</a>
-      <a href="{{ site.fieldGuideUrl }}" class="nav-link nav-link--external" target="_blank">Field Guide ↗</a>
+    <nav class="header-nav" aria-label="Primary navigation">
+      <a href="{{ '/work/' | url }}" class="nav-link {% if navActive == 'work' %}active{% endif %}" aria-label="Work">
+        <span class="nav-label-long">Work</span>
+        <span class="nav-label-short" aria-hidden="true">Work</span>
+      </a>
+      <a href="{{ '/photography/' | url }}" class="nav-link {% if navActive == 'photography' %}active{% endif %}" aria-label="Photography">
+        <span class="nav-label-long">Photography</span>
+        <span class="nav-label-short" aria-hidden="true">Photo</span>
+      </a>
+      <a href="{{ '/illustration/' | url }}" class="nav-link {% if navActive == 'illustration' %}active{% endif %}" aria-label="Illustration">
+        <span class="nav-label-long">Illustration</span>
+        <span class="nav-label-short" aria-hidden="true">Illo</span>
+      </a>
+      <a href="{{ '/about/' | url }}" class="nav-link {% if navActive == 'about' %}active{% endif %}" aria-label="About">
+        <span class="nav-label-long">About</span>
+        <span class="nav-label-short" aria-hidden="true">About</span>
+      </a>
+      <button class="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false" title="Toggle light mode" data-theme-toggle>
+        <span class="theme-toggle-mark" aria-hidden="true"></span>
+        <span class="theme-toggle-text" data-theme-toggle-text>Dark</span>
+      </button>
     </nav>
   </div>
 </header>

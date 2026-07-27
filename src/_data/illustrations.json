@@ -1,82 +1,153 @@
 [
   {
+    "src": "images/illustration/anne.png",
+    "alt": "Anne",
+    "width": 1237,
+    "height": 2200,
+    "orientation": "portrait"
+  },
+  {
+    "src": "images/illustration/Spinner2049.jpg",
+    "alt": "Blade Runner 2049 Spinner",
+    "width": 1500,
+    "height": 628,
+    "orientation": "landscape"
+  },
+  {
+    "src": "images/illustration/cityscape-002.png",
+    "alt": "Cityscape 002",
+    "width": 2200,
+    "height": 1238,
+    "orientation": "landscape"
+  },
+  {
+    "src": "images/illustration/dsc09086.png",
+    "alt": "Procreate",
+    "width": 1237,
+    "height": 2200,
+    "orientation": "portrait"
+  },
+  {
+    "src": "images/illustration/dr-john.png",
+    "alt": "Dr. John",
+    "width": 2200,
+    "height": 2200,
+    "orientation": "square"
+  },
+  {
+    "src": "images/illustration/evolution.png",
+    "alt": "Evolution",
+    "width": 2110,
+    "height": 2200,
+    "orientation": "portrait"
+  },
+  {
     "src": "images/illustration/BookCort.webp",
-    "alt": "Book Cort",
+    "alt": "Children's Book",
     "width": 1920,
     "height": 1600,
     "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1769551686906-3VAUNAGREA113IF6SIC7/BookCort.jpg"
+    "caption": "Shoi-Ming and the Golden Kite"
   },
   {
-    "src": "images/illustration/illustration-1696889517342.webp",
-    "alt": "Illustration 2",
-    "width": 1152,
-    "height": 2048,
+    "src": "images/illustration/img-1157.png",
+    "alt": "Children's Book",
+    "width": 1423,
+    "height": 2200,
     "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1696889517342-C0FISZGQ64Y6L8JXAZ51/image-asset.jpeg"
+    "caption": "Shoi-Ming and the Golden Kite"
+  },
+  {
+    "src": "images/illustration/JoiAndK.jpg",
+    "alt": "Joi and K",
+    "width": 1500,
+    "height": 1125,
+    "orientation": "landscape"
+  },
+  {
+    "src": "images/illustration/leah-chase.png",
+    "alt": "Leah Chase",
+    "width": 2200,
+    "height": 2200,
+    "orientation": "square"
+  },
+  {
+    "src": "images/illustration/steph.png",
+    "alt": "Steph",
+    "width": 1487,
+    "height": 2200,
+    "orientation": "portrait"
+  },
+  {
+    "src": "images/illustration/untitled-artwork-2.png",
+    "alt": "Untitled Artwork 2",
+    "width": 2200,
+    "height": 1237,
+    "orientation": "landscape"
+  },
+  {
+    "src": "images/illustration/untitled-artwork-3.png",
+    "alt": "Untitled Artwork 3",
+    "width": 2200,
+    "height": 2200,
+    "orientation": "square"
+  },
+  {
+    "src": "images/illustration/paul.png",
+    "alt": "Untitled Artwork",
+    "width": 2200,
+    "height": 2153,
+    "orientation": "square"
+  },
+  {
+    "src": "images/illustration/walton-goggins.png",
+    "alt": "Walton Goggins",
+    "width": 2200,
+    "height": 1649,
+    "orientation": "landscape"
+  },
+  {
+    "src": "images/illustration/background.png",
+    "alt": "Background",
+    "width": 1644,
+    "height": 2200,
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/DUNE_Poster.webp",
     "alt": "DUNE Poster",
     "width": 1440,
     "height": 1800,
-    "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1695493770777-ZX4J75BVB7KJ2CZLYGIB/DUNE_Poster.jpg"
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/illustration-1633811038218.webp",
-    "alt": "Illustration 4",
+    "alt": "Dune Poster",
     "width": 1466,
     "height": 2200,
     "orientation": "portrait",
     "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1633811038218-5KP8XPHL9E7ERZUSLFX8/image-asset.jpeg"
   },
   {
-    "src": "images/illustration/illustration-1636123564204.webp",
-    "alt": "Illustration 5",
-    "width": 1467,
-    "height": 2200,
-    "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1636123564204-NNO8HYXR2K1TI6HRUEA6/image-asset.jpeg"
-  },
-  {
     "src": "images/illustration/illustration-1620315536921.webp",
     "alt": "Illustration 6",
     "width": 1424,
     "height": 2200,
-    "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1620315536921-22O7X9YRAXN30MGOOLHA/image-asset.jpeg"
-  },
-  {
-    "src": "images/illustration/illustration-1591034935404.webp",
-    "alt": "Illustration 7",
-    "width": 1200,
-    "height": 1855,
-    "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1591034935404-VFR5GU2KF7XVW3XJO5PJ/image-asset.jpeg"
-  },
-  {
-    "src": "images/illustration/TOOLPoster_Layout_001.webp",
-    "alt": "TOOLPoster Layout",
-    "width": 1024,
-    "height": 1437,
-    "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1580579230312-37RUAAWUUP1YXUN3YB76/TOOLPoster_Layout_001.png"
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/NationalChampioship_Mural.webp",
     "alt": "National Champioship Mural",
     "width": 1920,
     "height": 1164,
-    "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1578685899393-3QGG1TR72ZJYS3WNBS3V/NationalChampioship_Mural.jpg"
+    "orientation": "landscape"
   },
   {
     "src": "images/illustration/ECa38H1UwAAiMhK.webp",
     "alt": "ECa38H1Uw AAi Mh K",
     "width": 1612,
     "height": 1763,
-    "orientation": "square",
+    "orientation": "portrait",
     "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1566518006516-NZFE0EDARCNGTHRR6WSG/ECa38H1UwAAiMhK.jpeg"
   },
   {
@@ -84,8 +155,7 @@
     "alt": "Louis print 02",
     "width": 1920,
     "height": 1920,
-    "orientation": "square",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1557416906437-5RZ553SJAHB5PIPILATZ/Louis_print_02.jpg"
+    "orientation": "square"
   },
   {
     "src": "images/illustration/MagazineStreet_01.webp",
@@ -132,140 +202,102 @@
     "alt": "MFS007",
     "width": 750,
     "height": 1111,
-    "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1597371262032-19W4IM2O6HL40ATWPDVN/MFS007.jpg"
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/Dracula-_001.webp",
     "alt": "Dracula",
     "width": 1200,
     "height": 1800,
-    "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1497630553696-PSBITD69MEQK2GE438SP/Dracula-_001.jpg"
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/111317_Epictetus_Poster_Blue.webp",
     "alt": "111317 Epictetus Poster Blue",
     "width": 1200,
     "height": 1800,
-    "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1544742051902-YMI1MO32DMC38YZZWGSJ/111317_Epictetus_Poster_Blue.jpg"
-  },
-  {
-    "src": "images/illustration/IMG_0580.webp",
-    "alt": "Illustration 20",
-    "width": 1238,
-    "height": 2200,
-    "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1544824295244-U8P9SXWU2GPJOZQDWYVA/IMG_0580.png"
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/WWII03.webp",
     "alt": "WWII03",
     "width": 2200,
     "height": 1237,
-    "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1490392968213-BKW404K8JA4T1TE9BG4Y/WWII03.jpg"
+    "orientation": "landscape"
   },
   {
     "src": "images/illustration/illustration-1447186889202.webp",
     "alt": "Illustration 22",
     "width": 1024,
     "height": 832,
-    "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1447186889202-7ON2VFOJDR1EOB8M1O91/image-asset.jpeg"
+    "orientation": "landscape"
   },
   {
     "src": "images/illustration/illustration-1429730639602.webp",
     "alt": "Illustration 23",
     "width": 1920,
     "height": 1242,
-    "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1429730639602-13XTPROW9J5B8Z23CM2O/image-asset.jpeg"
+    "orientation": "landscape"
   },
   {
     "src": "images/illustration/FQ001.webp",
     "alt": "FQ001",
     "width": 2200,
     "height": 2200,
-    "orientation": "square",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1467844282808-WKJLIB1XK0GBVNBC4830/FQ001.jpg"
-  },
-  {
-    "src": "images/illustration/The-Carters-02.webp",
-    "alt": "The Carters 02",
-    "width": 2200,
-    "height": 2200,
-    "orientation": "square",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1544742545896-OIESURCUMYCNU38I85LI/The-Carters-02.jpg"
+    "orientation": "square"
   },
   {
     "src": "images/illustration/032017_Fats_002.webp",
     "alt": "032017 Fats",
     "width": 1200,
     "height": 1200,
-    "orientation": "square",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1492727537265-INJUQJ5V58SBDGMHE6LM/032017_Fats_002.jpg"
+    "orientation": "square"
   },
   {
     "src": "images/illustration/header.webp",
     "alt": "header",
     "width": 800,
     "height": 445,
-    "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1482774621946-2X3MQHJ7ORZARGNHYSO9/header.png"
+    "orientation": "landscape"
   },
   {
     "src": "images/illustration/illustration-1453401413989.webp",
     "alt": "Illustration 28",
     "width": 1920,
     "height": 720,
-    "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1453401413989-22H4GVRD1CE2EPHRSWCT/image-asset.jpeg"
+    "orientation": "landscape"
   },
   {
     "src": "images/illustration/Brush-Study-Cambodia_sm.webp",
     "alt": "Brush Study Cambodia",
     "width": 1920,
     "height": 826,
-    "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1486074535237-7EGBNJORQ02CU2VYLBNF/Brush-Study-Cambodia_sm.jpg"
+    "orientation": "landscape"
   },
   {
     "src": "images/illustration/012217_HWT_001.webp",
     "alt": "012217 HWT",
     "width": 2000,
     "height": 856,
-    "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1486074394047-FH10TR7RYYPXKKLA91RY/012217_HWT_001.jpg"
+    "orientation": "landscape"
   },
   {
     "src": "images/illustration/012217_HWT_002.webp",
     "alt": "012217 HWT",
     "width": 2000,
     "height": 856,
-    "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1486074425080-GQ6DE2HIKQNFSOK3BASX/012217_HWT_002.jpg"
+    "orientation": "landscape"
   },
   {
     "src": "images/illustration/012217_HWT_004.webp",
     "alt": "012217 HWT",
     "width": 2000,
     "height": 856,
-    "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1486074496749-8POA5EWCCEXRPD5H7UHH/012217_HWT_004.jpg"
-  },
-  {
-    "src": "images/illustration/GlassMenagerie.webp",
-    "alt": "Glass Menagerie",
-    "width": 800,
-    "height": 1120,
-    "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1456417119038-H5ZN9SLKE4N2RX5560RL/GlassMenagerie.jpg"
+    "orientation": "landscape"
   },
   {
     "src": "images/illustration/IMG_0579.webp",
-    "alt": "Illustration 34",
+    "alt": "Eva",
     "width": 1649,
     "height": 2200,
     "orientation": "portrait",
@@ -273,7 +305,7 @@
   },
   {
     "src": "images/illustration/illustration-1447188354626.webp",
-    "alt": "Illustration 35",
+    "alt": "Khalessi & Drogo",
     "width": 1200,
     "height": 1641,
     "orientation": "portrait",
@@ -328,22 +360,6 @@
     "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1400262246892-A0G1DY0JKQZHFMS39Q6K/Pan.jpg"
   },
   {
-    "src": "images/illustration/PaleMan.webp",
-    "alt": "Pale Man",
-    "width": 1946,
-    "height": 1002,
-    "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1404321811086-JX6YDUH171HYC0NZEVQ6/PaleMan.jpg"
-  },
-  {
-    "src": "images/illustration/Shotgun-Waltz.webp",
-    "alt": "Shotgun Waltz",
-    "width": 1024,
-    "height": 1084,
-    "orientation": "square",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1400782259699-W0B2UPIYOXCG7VEBSZKW/Shotgun-Waltz.png"
-  },
-  {
     "src": "images/illustration/Jimi.webp",
     "alt": "Jimi",
     "width": 736,
@@ -376,43 +392,11 @@
     "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1400261931722-V8J5GQG02CA6TF0GQM27/Indy.jpg"
   },
   {
-    "src": "images/illustration/Joan.webp",
-    "alt": "Joan",
-    "width": 736,
-    "height": 663,
-    "orientation": "square",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1400261063106-7COXHZ4GCXE5YQKVJYFO/Joan.jpg"
-  },
-  {
-    "src": "images/illustration/Betty.webp",
-    "alt": "Betty",
-    "width": 1200,
-    "height": 1200,
-    "orientation": "square",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1400264023085-QZ5Q3J67M1KHTQ5K8A1F/Betty.jpg"
-  },
-  {
     "src": "images/illustration/Breaking-Bad.webp",
     "alt": "Breaking Bad",
     "width": 736,
     "height": 499,
     "orientation": "landscape",
     "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1400262162084-EGFN2QY7QHBHAFIUVD0Q/Breaking+Bad.jpg"
-  },
-  {
-    "src": "images/illustration/SPR.webp",
-    "alt": "SPR",
-    "width": 736,
-    "height": 472,
-    "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1400262467457-BGV5X0K91BC9B1FGN1CR/SPR.jpg"
-  },
-  {
-    "src": "images/illustration/James.webp",
-    "alt": "James",
-    "width": 1919,
-    "height": 1335,
-    "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1400263112283-VKRM9BOHS0UUPZCFYAA3/James.jpg"
   }
 ]

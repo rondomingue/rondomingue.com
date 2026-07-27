@@ -1,16 +1,596 @@
 [
   {
+    "title": "Blade Runner Spinner 2049",
+    "slug": "blade-runner-spinner-2049",
+    "year": "2018",
+    "tags": [
+      "Cinema 4D",
+      "Octane",
+      "Concept Art",
+      "Cyberpunk",
+      "Environment",
+      "Sci-Fi"
+    ],
+    "thumb": "images/work/blade-runner-spinner-2049/06.webp",
+    "subtitle": "A Spinner study staged in a rain-soaked future city atmosphere.",
+    "summary": "Blade Runner Spinner 2049 is a cinematic vehicle and environment study inspired by the scale, haze, and neon industrial mood of Blade Runner 2049.",
+    "description": [
+      "The project centers on a Spinner concept set against dense city forms, brutalist massing, atmospheric lighting, and high-contrast urban silhouettes.",
+      "The image set combines vehicle renders, city compositions, character-focused studies, and process-oriented frames from the project archive."
+    ],
+    "processTags": [
+      "Cinema 4D",
+      "Octane",
+      "Vehicle Design",
+      "Environment Design",
+      "Cinematic Lighting"
+    ],
+    "format": "Cinematic vehicle and environment study",
+    "images": [
+      "images/work/blade-runner-spinner-2049/11.jpg",
+      "images/work/blade-runner-spinner-2049/06.webp",
+      "images/work/blade-runner-spinner-2049/07.jpg",
+      "images/work/blade-runner-spinner-2049/09.jpg",
+      "images/work/blade-runner-spinner-2049/14.jpg",
+      "images/work/blade-runner-spinner-2049/13.jpg",
+      "images/work/blade-runner-spinner-2049/08.jpg"
+    ]
+  },
+  {
+    "title": "Displacement Experiments",
+    "slug": "displacement-experiments",
+    "year": "2017",
+    "tags": [
+      "Cinema 4D",
+      "Displacement",
+      "Procedural",
+      "Abstract",
+      "Material Study",
+      "3D"
+    ],
+    "thumb": "images/work/displacement-experiments/displacement-experiments-01.jpg",
+    "subtitle": "Procedural surface studies exploring displacement, material stress, and abstract terrain.",
+    "summary": "Displacement Experiments is a 2017 series of procedural 3D studies built around surface deformation, texture-driven geometry, and abstract material behavior.",
+    "description": [
+      "The series explores displacement as both a modeling technique and a visual language. Height maps, procedural textures, and material response push simple forms into ridges, fractures, ripples, and terrain-like surfaces.",
+      "Rather than treating the tests as isolated renders, the image set reads like a small archive of material behavior: glossy folds, eroded geometry, stressed surfaces, and abstract structures caught between sculpture, landscape, and simulation.",
+      "The work sits at the intersection of technical experiment and cinematic image-making, using procedural surface detail to create tactile forms that feel photographed, manufactured, and unstable at the same time."
+    ],
+    "processTags": [
+      "Displacement Mapping",
+      "Procedural Textures",
+      "Surface Deformation",
+      "Material Studies",
+      "Abstract 3D"
+    ],
+    "format": "Procedural 3D displacement studies",
+    "images": [
+      {
+        "src": "images/work/displacement-experiments/displacement-experiments-01.jpg",
+        "alt": "Abstract procedural displacement study with layered ridged surfaces"
+      },
+      {
+        "src": "images/work/displacement-experiments/displacement-experiments-02.jpg",
+        "alt": "Abstract procedural displacement study with folded surface detail"
+      },
+      {
+        "src": "images/work/displacement-experiments/displacement-experiments-03.jpg",
+        "alt": "Abstract procedural displacement study with terrain-like deformation"
+      },
+      {
+        "src": "images/work/displacement-experiments/displacement-experiments-04.jpg",
+        "alt": "Abstract procedural displacement study with dark material ridges"
+      },
+      {
+        "src": "images/work/displacement-experiments/displacement-experiments-05.jpg",
+        "alt": "Abstract procedural displacement study with sculpted surface texture"
+      },
+      {
+        "src": "images/work/displacement-experiments/displacement-experiments-06.jpg",
+        "alt": "Abstract procedural displacement study with rippled surface deformation"
+      }
+    ]
+  },
+  {
+    "title": "Resonance Field",
+    "slug": "resonance-field",
+    "year": "2026",
+    "tags": [
+      "TouchDesigner",
+      "Motion Design",
+      "Audio Reactive",
+      "Generative Design",
+      "Procedural",
+      "Cinematic",
+      "Concept Art"
+    ],
+    "thumb": "images/work/resonance-field/resonance-field-hero.jpg",
+    "video": {
+      "provider": "youtube",
+      "id": "90BRjP9TOF4"
+    },
+    "summary": "Resonance Field is an audio-reactive motion study created in TouchDesigner, translating the Blade Runner 2049 theme into a living field of procedural movement, light, and signal-like texture.",
+    "description": [
+      "The piece uses audio input as the driver for motion, intensity, and visual modulation, turning rhythm and frequency into a reactive system rather than a fixed animation.",
+      "Built in TouchDesigner, the video explores the relationship between sound, generative structure, and cinematic abstraction. Pulses, distortions, and evolving forms respond to the track as if the image is being performed in real time."
+    ],
+    "processTags": [
+      "TouchDesigner",
+      "Audio Reactivity",
+      "Procedural Animation",
+      "Generative Visuals",
+      "Realtime Compositing"
+    ],
+    "format": "Audio-reactive motion study",
+    "images": []
+  },
+  {
+    "title": "The Sinner in Me",
+    "slug": "the-sinner-in-me",
+    "year": "2026",
+    "tags": [
+      "TouchDesigner",
+      "Motion Design",
+      "Audio Reactive",
+      "Generative Design",
+      "Procedural",
+      "Cinematic",
+      "Concept Art"
+    ],
+    "thumb": "images/work/the-sinner-in-me/sinner-signal-field-04.png",
+    "video": {
+      "provider": "youtube",
+      "id": "BouqB2I5-4w"
+    },
+    "summary": "The Sinner in Me is an audio-reactive TouchDesigner visual built to Depeche Mode's song of the same name, turning the track's dark pulse into a live field of signal paths, distortion, and unstable light.",
+    "description": [
+      "The video uses Depeche Mode's \"The Sinner in Me\" as the driving source, letting rhythm, pressure, and atmosphere shape a dark map of connected traces.",
+      "Built in TouchDesigner, the piece treats sound as a control system. Lines gather, drift, and fracture around a central threshold, moving between surveillance diagram, ritual mark, and reactive waveform.",
+      "The latest pass leans into a colder signal aesthetic: faint cartographic labels, chromatic edge noise, and a tightening field of white paths that feel pulled toward the word \"free\" at the center."
+    ],
+    "processTags": [
+      "TouchDesigner",
+      "Audio Reactivity",
+      "Procedural Animation",
+      "Generative Visuals",
+      "Realtime Compositing"
+    ],
+    "format": "Audio-reactive music visualization",
+    "images": [
+      {
+        "src": "images/work/the-sinner-in-me/sinner-signal-field-01.png",
+        "alt": "Dark blue audio-reactive signal field with sparse procedural traces"
+      },
+      {
+        "src": "images/work/the-sinner-in-me/sinner-signal-field-02.png",
+        "alt": "Circular procedural line network emerging from a dark signal map"
+      },
+      {
+        "src": "images/work/the-sinner-in-me/sinner-signal-field-03.png",
+        "alt": "Dense reactive line structure with chromatic distortion over a dark map"
+      },
+      {
+        "src": "images/work/the-sinner-in-me/sinner-signal-field-04.png",
+        "alt": "Bright circular web of procedural paths surrounding the word free"
+      }
+    ]
+  },
+  {
+    "title": "Imaginary Circles",
+    "slug": "imaginary-circles",
+    "year": "2026",
+    "tags": [
+      "Interface Design",
+      "Creative Coding",
+      "Generative Design",
+      "Data Visualization",
+      "Mathematics",
+      "Web"
+    ],
+    "thumb": "images/work/circles/circles-hero.jpg",
+    "liveLinks": [
+      {
+        "label": "View Site",
+        "url": "https://circles.rondomingue.com"
+      }
+    ],
+    "summary": "One rotating point, all the way to quantum mechanics. Imaginary Circles is a set of interactive interface studies that visualizes circular geometry, radians, waves, and logarithmic spirals as cinematic educational systems.",
+    "description": [
+      "The project turns foundational circle concepts into dark, high-contrast interface compositions built for exploration. Each study isolates a different mathematical behavior and presents it through motion, annotation, and luminous diagram language.",
+      "The collection includes a circle-to-wave transform, a radian measurement study, and a logarithmic spiral study, all connected by a shared visual system of measured arcs, precise typography, and atmospheric depth.",
+      "The result sits between field guide, motion reference, and interactive learning tool: a compact system for making abstract geometry feel spatial, tactile, and cinematic."
+    ],
+    "processTags": [
+      "Interface Design",
+      "Creative Coding",
+      "Generative Systems",
+      "Educational Visualization",
+      "Cinematic UI"
+    ],
+    "format": "Interactive educational interface studies",
+    "images": [
+      {
+        "src": "images/work/circles/circles-hero.jpg",
+        "alt": "Cinematic Imaginary Circles interface hero showing a radian diagram and formula annotations"
+      },
+      {
+        "src": "images/work/circles/circles-index.png",
+        "alt": "Imaginary Circles landing page with geometric interface studies"
+      },
+      {
+        "src": "images/work/circles/circles-circle-to-wave.png",
+        "alt": "Circle to Wave interactive study screenshot"
+      },
+      {
+        "src": "images/work/circles/circles-radian-circle.png",
+        "alt": "Radian Circle interactive study screenshot"
+      },
+      {
+        "src": "images/work/circles/circles-logarithmic-spiral.png",
+        "alt": "Logarithmic Spiral interactive study screenshot"
+      }
+    ],
+    "subtitle": "One rotating point, all the way to quantum mechanics."
+  },
+  {
+    "title": "Cinematic Field Guide",
+    "slug": "field-guide",
+    "year": "2026",
+    "tags": [
+      "Interface Design",
+      "Reference System",
+      "Data Visualization",
+      "Web",
+      "Design System",
+      "Research"
+    ],
+    "thumb": "images/work/field-guide/field-guide-hero.jpg",
+    "liveLinks": [
+      {
+        "label": "View Site",
+        "url": "https://guide.rondomingue.com/"
+      }
+    ],
+    "summary": "Cinematic Field Guide is a working reference for lighting and camera decisions, collecting photometric units, exposure, color temperature, and cross-engine light-intensity values for Octane, Redshift, and Unreal Engine 5.",
+    "description": [
+      "The project is built as a practical cheat sheet for moving between real-world cinematography language and digital lighting systems. It gathers the values that tend to get scattered across notes, docs, and renderer-specific habits: lumens, lux, nits, exposure behavior, color temperature, and equivalent light settings across engines.",
+      "Instead of treating the information as a plain table, Cinematic Field Guide presents it as a dense reference interface. Lighting categories, camera values, real-world fixture examples, and renderer translations are organized into a dark technical surface designed for quick comparison while building a shot.",
+      "The goal is to make lighting decisions feel less arbitrary across Octane, Redshift, and Unreal Engine 5. The guide gives artists a shared baseline for matching physical lights, evaluating exposure, and translating a cinematographer’s language into usable digital settings."
+    ],
+    "processTags": [
+      "Lighting Reference",
+      "Camera Exposure",
+      "Photometric Units",
+      "Octane / Redshift / UE5",
+      "Cinematic UI"
+    ],
+    "format": "Interactive lighting and camera reference",
+    "images": [
+      {
+        "src": "images/work/field-guide/field-guide-hero.jpg",
+        "alt": "Cinematic Field Guide lighting reference interface with renderer intensity cheat sheets"
+      }
+    ]
+  },
+  {
+    "title": "Overcast",
+    "slug": "overcast",
+    "year": "2026",
+    "tags": [
+      "Interface Design",
+      "Weather Data",
+      "Data Visualization",
+      "Web",
+      "Dashboard",
+      "Cinematic UI"
+    ],
+    "thumb": "images/work/overcast/overcast-hero.jpg",
+    "liveLinks": [
+      {
+        "label": "View Site",
+        "url": "https://interfaces.rondomingue.com/overcast.html"
+      }
+    ],
+    "summary": "Overcast is a Grand Isle tactical conditions report for fishing, combining live weather, marine conditions, tides, solunar timing, and species-coded fishing grounds into one cinematic field interface.",
+    "description": [
+      "The project pulls together the kinds of information anglers usually have to check across several places: NWS current conditions and forecast, NOAA tides and water levels, wind and visibility, solunar activity windows, and mapped fishing zones around Grand Isle.",
+      "Instead of treating that data as a standard weather page, Overcast presents it like an operational screen. Forecast cards, marine readouts, tide context, moon timing, and fishing-ground markers are organized into a dense interface that can be scanned quickly while still feeling atmospheric and tactile.",
+      "The Mapbox layer gives the piece its field-report character, plotting fishing grounds and species-coded spots against a coastal map. The teal, low-light visual language keeps the system tied to overcast marine conditions: technical, damp, local, and built around the practical question of whether the water, weather, and timing are worth the trip."
+    ],
+    "processTags": [
+      "Weather Interface",
+      "Fishing Conditions",
+      "NOAA / NWS Data",
+      "Mapbox GL",
+      "Cinematic UI"
+    ],
+    "format": "Live fishing and marine conditions dashboard",
+    "images": [
+      {
+        "src": "images/work/overcast/overcast-hero.jpg",
+        "alt": "Overcast cinematic weather dashboard with forecast cards and atmospheric interface overlays"
+      }
+    ]
+  },
+  {
+    "title": "The Four of Us Are Dying",
+    "slug": "the-four-of-us-are-dying",
+    "year": "2026",
+    "tags": [
+      "Cinema 4D",
+      "X-Particles",
+      "After Effects",
+      "Motion Design",
+      "Audio Reactive",
+      "Procedural",
+      "Cinematic",
+      "Concept Art"
+    ],
+    "thumb": "images/work/the-four-of-us-are-dying/the-four-of-us-are-dying-hero.jpg",
+    "video": {
+      "provider": "vimeo",
+      "id": "272964657"
+    },
+    "summary": "The Four of Us Are Dying is an audio-driven motion piece built to Nine Inch Nails, using Cinema 4D sound modifiers, X-Particles, and After Effects to translate the track into procedural movement and atmosphere.",
+    "description": [
+      "The piece uses Nine Inch Nails' \"The Four of Us Are Dying\" as the audio source, allowing the track's tension, rhythm, and tonal shifts to drive the visual system.",
+      "Built with sound modifiers in Cinema 4D, X-Particles, and After Effects, the project treats audio as a force acting on form. Particle behavior, motion intensity, and composited atmosphere respond to the music, creating a reactive visual study that sits between procedural animation and music video language."
+    ],
+    "processTags": [
+      "Cinema 4D",
+      "Sound Modifiers",
+      "X-Particles",
+      "After Effects",
+      "Audio-Reactive Animation"
+    ],
+    "format": "Audio-driven procedural motion study",
+    "images": []
+  },
+  {
+    "title": "Black Noise",
+    "slug": "black-noise",
+    "year": "2026",
+    "tags": [
+      "TouchDesigner",
+      "Motion Design",
+      "Audio Reactive",
+      "Generative Design",
+      "Procedural",
+      "Cinematic",
+      "Concept Art"
+    ],
+    "thumb": "images/work/black-noise/black-noise-hero.jpg",
+    "video": {
+      "provider": "youtube",
+      "id": "WVcxJ9BOwYY"
+    },
+    "summary": "Black Noise is an audio-reactive TouchDesigner piece built to Nine Inch Nails song of the same name, translating the track into procedural motion, distortion, and dense signal texture.",
+    "description": [
+      "The video uses Nine Inch Nails' \"Black Noise\" as the audio source, turning the track's abrasive energy and rhythmic pressure into a reactive visual system.",
+      "Created in TouchDesigner, the piece treats sound as a live input for motion, intensity, and image disruption. Forms pulse, smear, and fracture in response to the music, creating a dark generative study that sits between abstract signal processing and music visualization."
+    ],
+    "processTags": [
+      "TouchDesigner",
+      "Audio Reactivity",
+      "Procedural Animation",
+      "Generative Visuals",
+      "Realtime Compositing"
+    ],
+    "format": "Audio-reactive music visualization",
+    "images": []
+  },
+  {
+    "title": "When I'm Small",
+    "slug": "when-im-small",
+    "year": "2026",
+    "tags": [
+      "Cinema 4D",
+      "X-Particles",
+      "After Effects",
+      "Motion Design",
+      "Audio Reactive",
+      "Procedural",
+      "Cinematic",
+      "Concept Art"
+    ],
+    "thumb": "images/work/when-im-small/when-im-small-hero.jpg",
+    "video": {
+      "provider": "vimeo",
+      "id": "645771009"
+    },
+    "summary": "When I'm Small is an audio-driven motion piece built to Phantogram, using Cinema 4D, X-Particles, and After Effects to turn the track into procedural movement, particle behavior, and layered atmosphere.",
+    "description": [
+      "The video uses Phantogram's \"When I'm Small\" as the audio source, translating the song's pulse and mood into a reactive visual structure.",
+      "Created with Cinema 4D, X-Particles, and After Effects, the piece uses sound-influenced motion and particle systems to build a dense audiovisual study. The result sits between music visualization, procedural animation, and cinematic motion design."
+    ],
+    "processTags": [
+      "Cinema 4D",
+      "X-Particles",
+      "After Effects",
+      "Audio-Reactive Animation",
+      "Particle Systems"
+    ],
+    "format": "Audio-driven procedural motion study",
+    "images": []
+  },
+  {
+    "title": "Long After Dark",
+    "slug": "long-after-dark",
+    "year": "2024",
+    "tags": [
+      "Motion Design",
+      "Cinematic",
+      "Atmosphere",
+      "Visual Development",
+      "Concept Art"
+    ],
+    "thumb": "images/work/long-after-dark/long-after-dark-hero.jpg",
+    "video": {
+      "provider": "vimeo",
+      "id": "1015330502"
+    },
+    "liveLinks": [
+      {
+        "label": "Liz Margiotta",
+        "url": "https://www.lizmargiotta.design/"
+      }
+    ],
+    "summary": "Long After Dark is a collaborative title sequence concept created with [Liz Margiotta](https://www.lizmargiotta.design/) for a fictional vampire series set in New Orleans.",
+    "description": [
+      "The piece imagines the opening titles for a southern gothic vampire story, using New Orleans as the emotional and visual foundation: nocturnal streets, ritual atmosphere, old architecture, heat, shadow, and the feeling that something is moving just outside the frame.",
+      "Built as a mood-driven title sequence study, the project focuses on pacing, typography, texture, and cinematic restraint. The collaboration shaped the concept into a dark, atmospheric identity for a series that feels intimate, haunted, and rooted in place."
+    ],
+    "processTags": [
+      "Title Design",
+      "Motion Design",
+      "Cinematic Editing",
+      "Visual Development"
+    ],
+    "format": "Fictional series title sequence",
+    "images": []
+  },
+  {
+    "title": "Data Haven",
+    "slug": "data-haven",
+    "year": "2026",
+    "tags": [
+      "Cinema 4D",
+      "Octane",
+      "FUI",
+      "Interface",
+      "Data Visualization",
+      "Cyberpunk",
+      "Sci-Fi",
+      "Procedural",
+      "Concept Art"
+    ],
+    "thumb": "images/work/data-haven/01.png",
+    "subtitle": "A black-box city of encrypted storage towers and magenta signal logic",
+    "summary": "Data Haven is a cinematic cube-city study built from stacked black data blocks, glowing magenta interface marks, shallow focus, and dense label systems.",
+    "description": [
+      "The series treats storage, identity, and machine-readable signage as architectural mass. Tall black modules become a miniature data district, with printed interface fragments, QR-like markings, and luminous pink indicators suggesting a private network of sealed information.",
+      "The selected frames emphasize macro scale, depth of field, reflective surfaces, and the contrast between soft photographic blur and precise technical labeling."
+    ],
+    "processTags": [
+      "Cinema 4D",
+      "Octane",
+      "FUI Design",
+      "Look Development",
+      "Cinematic UI"
+    ],
+    "format": "Cinematic FUI object study",
+    "images": [
+      "images/work/data-haven/01.png",
+      "images/work/data-haven/02.png",
+      "images/work/data-haven/03.png",
+      "images/work/data-haven/04.png",
+      "images/work/data-haven/05.png",
+      "images/work/data-haven/09.png",
+      "images/work/data-haven/06.png",
+      "images/work/data-haven/07.png",
+      "images/work/data-haven/08.png",
+      "images/work/data-haven/10.png",
+      "images/work/data-haven/11.png"
+    ]
+  },
+  {
+    "title": "White Noise Telemetry",
+    "slug": "white-noise-telemetry",
+    "year": "2026",
+    "tags": [
+      "FUI",
+      "HUD",
+      "Interface",
+      "Motion Design",
+      "Monochrome",
+      "Cyberpunk",
+      "Sci-Fi",
+      "Procedural"
+    ],
+    "thumb": "images/work/white-noise-telemetry/Head.png",
+    "summary": "White Noise Telemetry is a monochrome HUD/FUI study built from luminous scan lines, blurred diagnostic panels, and layered instrument readouts suspended in depth.",
+    "description": [
+      "The series pushes interface graphics toward a photographic, overexposed signal aesthetic. Dense panels, buffer labels, calibration readouts, and graph structures are treated like glass, light, and optical noise instead of flat UI elements.",
+      "The restrained black-and-white palette emphasizes depth of field, bloom, and parallax, creating a technical display system that feels observed through a lens rather than rendered directly on screen."
+    ],
+    "processTags": [
+      "HUD Design",
+      "FUI",
+      "Interface Systems",
+      "Monochrome Look Development",
+      "Compositing"
+    ],
+    "images": [
+      "images/work/white-noise-telemetry/Head.png",
+      "images/work/white-noise-telemetry/Prime.png",
+      "images/work/white-noise-telemetry/01.png",
+      "images/work/white-noise-telemetry/02.png",
+      "images/work/white-noise-telemetry/03.png",
+      "images/work/white-noise-telemetry/04.png",
+      "images/work/white-noise-telemetry/05.png",
+      "images/work/white-noise-telemetry/06.png",
+      "images/work/white-noise-telemetry/07.png",
+      "images/work/white-noise-telemetry/08.png",
+      "images/work/white-noise-telemetry/09.png",
+      "images/work/white-noise-telemetry/10.png"
+    ],
+    "format": "Monochrome HUD / FUI interface study"
+  },
+  {
+    "title": "Signal Lattice",
+    "slug": "signal-lattice",
+    "year": "2026",
+    "tags": [
+      "FUI",
+      "HUD",
+      "Interface",
+      "Motion Design",
+      "Cyberpunk",
+      "Sci-Fi",
+      "Procedural"
+    ],
+    "thumb": "images/work/signal-lattice/10.png",
+    "summary": "Signal Lattice is a cinematic HUD/FUI study built around dense orange navigation overlays, scan readouts, and layered glass-panel interface depth.",
+    "description": [
+      "A compact interface study focused on parallax, opacity, grid density, and warm avionics-style system graphics. The sequence explores how abstract readouts and targeting structures can feel tactile and dimensional when treated like photographed glass rather than flat UI."
+    ],
+    "processTags": [
+      "HUD Design",
+      "FUI",
+      "Interface Systems",
+      "Compositing",
+      "Cinematic UI"
+    ],
+    "images": [
+      "images/work/signal-lattice/Head.png",
+      "images/work/signal-lattice/Prime.png",
+      "images/work/signal-lattice/01.png",
+      "images/work/signal-lattice/02.png",
+      "images/work/signal-lattice/03.png",
+      "images/work/signal-lattice/04.png",
+      "images/work/signal-lattice/05.png",
+      "images/work/signal-lattice/06.png",
+      "images/work/signal-lattice/07.png",
+      "images/work/signal-lattice/08.png",
+      "images/work/signal-lattice/09.png",
+      "images/work/signal-lattice/10.png"
+    ],
+    "format": "HUD / FUI interface study"
+  },
+  {
     "title": "Ravens Isle",
     "slug": "ravens-isle",
-    "year": "2024",
+    "year": "2026",
     "tags": [
       "UE5",
       "Cinematic",
       "Environment",
+      "Atmosphere",
       "Storm",
-      "Color"
+      "Weather",
+      "Concept Art"
     ],
-    "thumb": "images/work/ravens-isle.png",
+    "thumb": "images/work/ravens-isle/ravens-isle.png",
     "vimeo": "P_hXaVLEV2w",
     "summary": "Ravens Isle is a short cinematic built in Unreal Engine 5, set on a storm-battered island fortress clinging to sea cliffs. Towers rise through the fog, lightning fractures the horizon, and ravens circle against a cold teal sky.",
     "description": [
@@ -34,7 +614,6 @@
       "images/work/ravens-isle/Still-2026-05-27-203006_1.1.3.webp"
     ],
     "format": "Cinematic environment study",
-    "sourcePage": "https://www.rondomingue.com/work/ravens-isle",
     "nativeVideo": {
       "id": "9958a1b6-3fb4-419c-9323-a43c3359b62b",
       "durationSeconds": 90.041667,
@@ -44,13 +623,13 @@
   {
     "title": "Desert Silence",
     "slug": "desert-silence",
-    "year": "2024",
+    "year": "2026",
     "tags": [
       "UE5",
       "Cinematic",
       "Environment",
-      "Desert",
-      "Atmosphere"
+      "Atmosphere",
+      "Concept Art"
     ],
     "thumb": "images/work/desert-silence.webp",
     "video": {
@@ -78,7 +657,6 @@
       "images/work/desert-silence/Still-2026-05-21-211917_1.1.4.webp"
     ],
     "format": "Cinematic environment study",
-    "sourcePage": "https://www.rondomingue.com/work/desert-silence",
     "nativeVideo": {
       "id": "30fc843c-c0c4-4064-a2ac-8d40d0a1f1b9",
       "durationSeconds": 60.041667,
@@ -92,9 +670,12 @@
     "tags": [
       "UE5",
       "Cinematic",
-      "Sci-Fi",
       "Environment",
-      "Lighting"
+      "Lighting",
+      "Sci-Fi",
+      "Space",
+      "Science",
+      "Concept Art"
     ],
     "thumb": "images/work/dark-star.webp",
     "video": {
@@ -117,7 +698,6 @@
       "images/work/dark-star/image_720.webp"
     ],
     "format": "Cinematic environment study",
-    "sourcePage": "https://www.rondomingue.com/work/dark-star",
     "nativeVideo": {
       "id": "00413a92-3fc5-4ee6-ad71-da841049af96",
       "durationSeconds": 60.041667,
@@ -127,13 +707,15 @@
   {
     "title": "Temple of the Sun",
     "slug": "temple-of-the-sun",
-    "year": "2023",
+    "year": "2026",
     "tags": [
       "UE5",
       "Cinematic",
       "Environment",
-      "Temple",
-      "Lighting"
+      "Lighting",
+      "Atmosphere",
+      "Historical",
+      "Concept Art"
     ],
     "thumb": "images/work/temple-of-the-sun.webp",
     "vimeo": "icHBlydH1f0",
@@ -156,7 +738,6 @@
       "images/work/temple-of-the-sun/Still-2026-05-18-094106_1.1.3.webp"
     ],
     "format": "Cinematic environment study",
-    "sourcePage": "https://www.rondomingue.com/work/temple-of-the-sun",
     "nativeVideo": {
       "id": "11e24912-562a-41d1-8e35-e3837660d599",
       "durationSeconds": 60.125,
@@ -166,13 +747,14 @@
   {
     "title": "Haunted Swamp",
     "slug": "haunted-swamp",
-    "year": "2023",
+    "year": "2025",
     "tags": [
       "UE5",
       "Cinematic",
       "Environment",
-      "Swamp",
-      "Atmosphere"
+      "Atmosphere",
+      "Horror",
+      "Concept Art"
     ],
     "thumb": "images/work/haunted-swamp.webp",
     "vimeo": "MJL8IqGHe2M",
@@ -193,7 +775,6 @@
       "images/work/haunted-swamp/Still-2026-06-04-223740_1.2.3.webp"
     ],
     "format": "Cinematic environment study",
-    "sourcePage": "https://www.rondomingue.com/work/haunted-swamp",
     "nativeVideo": {
       "id": "f581de15-e18d-4800-a467-6ebb81c430b8",
       "durationSeconds": 60.041667,
@@ -203,13 +784,16 @@
   {
     "title": "Cold Warnings",
     "slug": "cold-warnings",
-    "year": "2023",
+    "year": "2024",
     "tags": [
       "UE5",
       "Cinematic",
       "Environment",
-      "Cold",
-      "Atmosphere"
+      "Atmosphere",
+      "Science",
+      "Sci-Fi",
+      "Weather",
+      "Concept Art"
     ],
     "thumb": "images/work/cold-warnings.webp",
     "vimeo": "gbZAz9QDxB8",
@@ -233,7 +817,6 @@
       "images/work/cold-warnings/Screenshot-2026-05-06-at-11.15.40-AM.webp"
     ],
     "format": "Cinematic environment study",
-    "sourcePage": "https://www.rondomingue.com/work/cold-warnings",
     "nativeVideo": {
       "id": "c2a1338f-1fcf-412b-93a8-3677418a4767",
       "durationSeconds": 60.125,
@@ -248,9 +831,11 @@
       "UE5",
       "Cinematic",
       "Environment",
-      "Cyberpunk",
       "Atmosphere",
-      "Sci-Fi"
+      "Cyberpunk",
+      "Sci-Fi",
+      "Interface",
+      "Concept Art"
     ],
     "thumb": "images/work/ghost-signals.webp",
     "video": {
@@ -280,7 +865,6 @@
       "images/work/ghost-signals/Screenshot-2026-06-08-at-12.30.18-PM.webp"
     ],
     "format": "Cinematic environment study",
-    "sourcePage": "https://www.rondomingue.com/work/ghost-signals",
     "nativeVideo": {
       "id": "61c41efb-c34a-4e73-a608-1577da067853",
       "durationSeconds": 56.583333,
@@ -295,9 +879,10 @@
       "UE5",
       "Cinematic",
       "Environment",
-      "Lunar",
-      "Moon",
-      "Sci-Fi"
+      "Sci-Fi",
+      "Space",
+      "Science",
+      "Concept Art"
     ],
     "thumb": "images/work/colony.png",
     "summary": "A perpetual lunar sunset, built in Unreal Engine 5, set at Shackleton Extraction Facility on the lunar south pole; a He-3 and hydrogen mining operation on the Gerlache Ridge.",
@@ -325,12 +910,148 @@
       "images/work/the-colony/Still-2026-06-12-155428_1.1.2.webp"
     ],
     "format": "Cinematic environment study",
-    "sourcePage": "https://www.rondomingue.com/work/the-colony",
     "nativeVideo": {
       "id": "633650d1-d19a-4140-972e-78eef6662af5",
       "durationSeconds": 130.041667,
       "sourcePage": "https://www.rondomingue.com/work/the-colony"
     }
+  },
+  {
+    "title": "Deep Orbit Studies",
+    "slug": "deep-orbit-studies",
+    "year": "2020",
+    "tags": [
+      "Cinema 4D",
+      "Octane",
+      "Cinematic",
+      "Environment",
+      "Lighting",
+      "Sci-Fi",
+      "Space",
+      "Science",
+      "Concept Art"
+    ],
+    "thumb": "images/work/deep-orbit-studies/26-20200829-Saturn_06-2.jpg",
+    "subtitle": "Wide-screen spacecraft and planetary environment studies",
+    "summary": "Deep Orbit Studies is a cinematic space concept series built around spacecraft silhouettes, planetary scale, orbital light, and quiet deep-space atmosphere.",
+    "description": [
+      "The sequence moves between spacecraft passes, distant planets, ring systems, and horizon-scale compositions, treating space as a place of mass, silence, and controlled graphic shape.",
+      "The work focuses on wide-screen framing, restrained color, and the relationship between engineered forms and celestial bodies, with each frame reading like a production still from a larger speculative world."
+    ],
+    "processTags": [
+      "Spacecraft Concept Art",
+      "Planetary Environments",
+      "Cinematic Lighting",
+      "Visual Development",
+      "Wide-Screen Composition"
+    ],
+    "format": "Cinematic space concept study",
+    "images": [
+      {
+        "src": "images/work/deep-orbit-studies/07-20200911-Spacecrafts_01_pass_Beauty.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/01-20200725-06.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/02-20200725-12.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/03-20200725-13.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/04-20200725-14.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/05-20200812-01.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/06-20200812-03.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/08-20200727-01.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/09-20200727-02.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/10-20200727-03.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/11-20200731-06-2.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/12-20200731-07.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/13-20200801-09.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/14-20200801-10.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/15-20200806-02.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/16-20200806-03.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/17-20200806-04.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/18-20200806-05.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/19-20200806-06.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/20-20200806-07.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/21-20200806-08.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/22-image-asset.jpeg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/23-20200910-Mars_08.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/24-20200904-Uranus_03.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/25-20200909-Neptune_04.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      },
+      {
+        "src": "images/work/deep-orbit-studies/26-20200829-Saturn_06-2.jpg",
+        "alt": "Deep Orbit Studies spacecraft and planetary concept artwork"
+      }
+    ]
   },
   {
     "title": "Knight and Squire",
@@ -340,9 +1061,9 @@
       "Storyboards",
       "Cinematic",
       "Narrative",
-      "Batman"
+      "Concept Art"
     ],
-    "thumb": "images/work/storyboards/Frame_1.webp",
+    "thumb": "images/work/storyboards/Frame_6.webp",
     "summary": "This storyboard sequence explores the classic Batman and Robin dynamic within a rain-soaked Gotham, emphasizing pursuit, teamwork, and iconic silhouettes. The action centers on a high-speed vehicle chase featuring the Batmobile and Batcycle, using cinematic framing and clear spatial storytelling to contrast Batman’s power with Robin’s agility. The sequence focuses on mood, scale, and action clarity while staying true to the visual language and mythology of Batman and Robin, communicating tone, pacing, and visual intent in a concise, production-ready format.",
     "description": [],
     "processTags": [
@@ -352,7 +1073,6 @@
       "Sequential Art"
     ],
     "format": "Storyboard sequence",
-    "sourcePage": "https://www.rondomingue.com/work/storyboards",
     "images": [
       "images/work/storyboards/Frame_1.webp",
       "images/work/storyboards/Frame_2.webp",
@@ -367,12 +1087,14 @@
   {
     "title": "Hangar 5",
     "slug": "hangar-5",
-    "year": "2026",
+    "year": "2023",
     "tags": [
       "Cinema 4D",
       "Environment",
       "Sci-Fi",
-      "Arnold"
+      "Aerospace",
+      "Aviation",
+      "Concept Art"
     ],
     "thumb": "images/work/hangar-5/Hanger_5_043023-New_Take_12.webp",
     "subtitle": "A 3D environment built in Cinema 4D, inside a facility that services things too large to fully see.",
@@ -387,7 +1109,6 @@
       "Toon Shading"
     ],
     "format": "3D environment study",
-    "sourcePage": "https://www.rondomingue.com/work/hangar-5",
     "images": [
       "images/work/hangar-5/Hanger_5_043023-New_Take_12.webp",
       "images/work/hangar-5/Hanger_5_043023-New_Take_1.webp",
@@ -413,11 +1134,15 @@
     "year": "2026",
     "tags": [
       "FUI",
+      "HUD",
+      "Interface",
       "Motion Design",
       "Aerospace",
-      "HUD"
+      "Aviation",
+      "Sci-Fi",
+      "Concept Art"
     ],
-    "thumb": "images/work/aerospace-hud/HUD_002_Cam_006.webp",
+    "thumb": "images/work/aerospace-hud/nattipat-vesvarute-P0I-8lfP8kc-unsplash.webp",
     "subtitle": "A layered targeting system, built frame by frame",
     "summary": "Somewhere between the clouds and whatever comes next, a system wakes. Concentric rings materialize from nothing. Data resolves at the edges. A reticle finds its center. The target is already there before the acquisition is confirmed.",
     "description": [
@@ -431,8 +1156,8 @@
       "Information Design"
     ],
     "format": "Motion design system",
-    "sourcePage": "https://www.rondomingue.com/work/aerospace-hud",
     "images": [
+      "images/work/aerospace-hud/nattipat-vesvarute-P0I-8lfP8kc-unsplash.webp",
       "images/work/aerospace-hud/HUD_002_Cam_006.webp",
       "images/work/aerospace-hud/HUD_002_Cam_011.webp",
       "images/work/aerospace-hud/HUD_002_Cam_010.webp",
@@ -453,8 +1178,94 @@
       "images/work/aerospace-hud/HUD_001_BRAW.webp",
       "images/work/aerospace-hud/HUD_001_AAlert.webp",
       "images/work/aerospace-hud/HUD_001_BAlert.webp",
-      "images/work/aerospace-hud/HUD_001_ACritical.webp",
-      "images/work/aerospace-hud/nattipat-vesvarute-P0I-8lfP8kc-unsplash.webp"
+      "images/work/aerospace-hud/HUD_001_ACritical.webp"
+    ]
+  },
+  {
+    "title": "HUD Schema Signal",
+    "slug": "hud-schema-signal",
+    "year": "2026",
+    "tags": [
+      "FUI",
+      "HUD",
+      "Interface",
+      "Cinema 4D",
+      "Octane",
+      "Cyberpunk",
+      "Sci-Fi",
+      "Procedural",
+      "Concept Art"
+    ],
+    "thumb": "images/work/hud-schema-signal/Head.jpg",
+    "subtitle": "Generated interface schematics staged as cinematic signal space",
+    "summary": "A dense HUD and FUI study built from generated SVG and PNG interface systems, then staged in Cinema 4D and rendered through Octane as layered signal glass, reticles, readouts, and acquisition geometry.",
+    "description": [
+      "HUD Schema Signal treats the interface as a physical field instead of a flat overlay. Vector schematics, generated PNG elements, reticle systems, grid states, and small typographic data fragments are arranged in depth so the camera moves through information rather than simply looking at it.",
+      "The project was assembled from generated SVGs and PNGs, staged in Cinema 4D, and rendered with Octane. The result sits between heads-up display design, fictional user interface language, and abstract information architecture."
+    ],
+    "processTags": [
+      "Generated SVG",
+      "Generated PNG",
+      "Cinema 4D",
+      "Octane",
+      "FUI Design"
+    ],
+    "format": "HUD / FUI render study",
+    "images": [
+      "images/work/hud-schema-signal/Head.jpg",
+      "images/work/hud-schema-signal/Prime.jpg",
+      "images/work/hud-schema-signal/09.jpg",
+      "images/work/hud-schema-signal/10.jpg",
+      "images/work/hud-schema-signal/01.jpg",
+      "images/work/hud-schema-signal/02.jpg",
+      "images/work/hud-schema-signal/03.jpg",
+      "images/work/hud-schema-signal/04.jpg",
+      "images/work/hud-schema-signal/05.jpg",
+      "images/work/hud-schema-signal/06.jpg",
+      "images/work/hud-schema-signal/07.jpg",
+      "images/work/hud-schema-signal/08.jpg",
+      "images/work/hud-schema-signal/hud-schema-signal-3599@3x.jpg"
+    ]
+  },
+  {
+    "title": "Redline Acquisition",
+    "slug": "redline-acquisition",
+    "year": "2026",
+    "tags": [
+      "FUI",
+      "HUD",
+      "Interface",
+      "Cinema 4D",
+      "Octane",
+      "Cyberpunk",
+      "Sci-Fi",
+      "Procedural",
+      "Concept Art"
+    ],
+    "thumb": "images/work/redline-acquisition/09.png",
+    "subtitle": "A redline targeting field built from layered HUD geometry",
+    "summary": "A cinematic HUD and FUI render study built around red acquisition arcs, nested reticle systems, dense telemetry fields, and glass-like interface depth.",
+    "description": [
+      "Redline Acquisition extends the HUD schema series into a warmer, more urgent signal state. White reticle rings and calibration ticks sit inside red sweep geometry, while background telemetry, brackets, scale marks, and alphanumeric fragments recede into a layered targeting field.",
+      "The selected frames emphasize the strongest range of the set: a full system overview, oblique camera passes, macro reticle details, and atmospheric depth-of-field studies. The artwork was staged in Cinema 4D and rendered with Octane from generated SVG and PNG interface elements."
+    ],
+    "processTags": [
+      "Generated SVG",
+      "Generated PNG",
+      "Cinema 4D",
+      "Octane",
+      "FUI Design"
+    ],
+    "format": "HUD / FUI render study",
+    "images": [
+      "images/work/redline-acquisition/Head.png",
+      "images/work/redline-acquisition/09.png",
+      "images/work/redline-acquisition/10.png",
+      "images/work/redline-acquisition/Prime.png",
+      "images/work/redline-acquisition/08.png",
+      "images/work/redline-acquisition/01.png",
+      "images/work/redline-acquisition/06.png",
+      "images/work/redline-acquisition/07.png"
     ]
   },
   {
@@ -465,7 +1276,11 @@
       "Cinema 4D",
       "Octane",
       "Procedural",
-      "FUI"
+      "FUI",
+      "Interface",
+      "Cyberpunk",
+      "Sci-Fi",
+      "Concept Art"
     ],
     "thumb": "images/work/data-cubes/GlassUI-Volume_003_Main0242.webp",
     "subtitle": "Procedural forms that hold light",
@@ -481,7 +1296,6 @@
       "ACES"
     ],
     "format": "Procedural object study",
-    "sourcePage": "https://www.rondomingue.com/work/data-cubes",
     "images": [
       "images/work/data-cubes/GlassUI-Volume_003_Main0242.webp",
       "images/work/data-cubes/GlassUI-Volume_003_Cam8_0242.webp",
@@ -503,12 +1317,17 @@
   {
     "title": "Futuristic Interface Substrate",
     "slug": "fui-subtrate",
-    "year": "2026",
+    "year": "2024",
     "tags": [
-      "FUI",
       "Cinema 4D",
+      "Octane",
       "Procedural",
-      "Octane"
+      "FUI",
+      "Interface",
+      "Cyberpunk",
+      "Sci-Fi",
+      "HUD",
+      "Concept Art"
     ],
     "thumb": "images/work/fui-subtrate/Untitled_1.1.1.jpg.webp",
     "subtitle": "EMMISIVE STRUCTURES",
@@ -524,7 +1343,6 @@
       "ACES"
     ],
     "format": "Procedural interface study",
-    "sourcePage": "https://www.rondomingue.com/work/fui-subtrate",
     "images": [
       "images/work/fui-subtrate/Untitled_1.1.1.jpg.webp",
       "images/work/fui-subtrate/Untitled_1.1.12.webp",
@@ -537,12 +1355,18 @@
   {
     "title": "F-35 Scan",
     "slug": "f35-scan",
-    "year": "2026",
+    "year": "2022",
     "tags": [
-      "FUI",
       "Cinema 4D",
+      "Octane",
+      "FUI",
+      "HUD",
+      "Interface",
       "Aerospace",
-      "Octane"
+      "Aviation",
+      "Sci-Fi",
+      "Procedural",
+      "Concept Art"
     ],
     "thumb": "images/work/f35-scan/FUICam_010.webp",
     "subtitle": "The geometry of acquisition.",
@@ -558,7 +1382,6 @@
       "Motion Design"
     ],
     "format": "Information design study",
-    "sourcePage": "https://www.rondomingue.com/work/f35-scan",
     "images": [
       "images/work/f35-scan/FUICam_010.webp",
       "images/work/f35-scan/FUICam_007.webp",
@@ -574,8 +1397,14 @@
     "tags": [
       "Cinema 4D",
       "FUI",
+      "HUD",
+      "Interface",
       "Environment",
-      "Lighting"
+      "Lighting",
+      "Cyberpunk",
+      "Sci-Fi",
+      "Procedural",
+      "Concept Art"
     ],
     "thumb": "images/work/grid-state/BG_008.webp",
     "subtitle": "Maximum signal. Zero known source.",
@@ -591,7 +1420,6 @@
       "DaVinci Resolve"
     ],
     "format": "Abstract environment study",
-    "sourcePage": "https://www.rondomingue.com/work/grid-state",
     "images": [
       "images/work/grid-state/BG_008.webp",
       "images/work/grid-state/BG_009.webp",
@@ -611,8 +1439,8 @@
     "tags": [
       "UE5",
       "Cinematic",
-      "Historical",
-      "Environment"
+      "Environment",
+      "Historical"
     ],
     "thumb": "images/work/liberation/Still-2026-06-02-114514_1.3.2.webp",
     "video": {
@@ -632,7 +1460,6 @@
       "DaVinci Resolve"
     ],
     "format": "Historical cinematic",
-    "sourcePage": "https://www.rondomingue.com/work/liberation",
     "images": [
       "images/work/liberation/Still-2026-06-02-114514_1.3.2.webp",
       "images/work/liberation/Still-2026-06-02-114924_1.1.1.webp",
@@ -660,7 +1487,11 @@
       "UE5",
       "Cinematic",
       "Environment",
-      "Horror"
+      "Horror",
+      "Public Health",
+      "Medical",
+      "Science",
+      "Concept Art"
     ],
     "thumb": "images/work/outbreak/Still-2026-07-13-185527_1.1.1.webp",
     "video": {
@@ -676,7 +1507,6 @@
       "Dehancer"
     ],
     "format": "Cinematic environment study",
-    "sourcePage": "https://www.rondomingue.com/work/outbreak",
     "images": [
       "images/work/outbreak/Still-2026-07-13-185527_1.1.1.webp",
       "images/work/outbreak/Still-2026-07-13-185804_1.1.1.webp",
@@ -694,7 +1524,8 @@
       "UE5",
       "Cinematic",
       "Environment",
-      "Medieval"
+      "Historical",
+      "Concept Art"
     ],
     "thumb": "images/work/medieval-village/medieval-village.jpg",
     "video": {
@@ -719,7 +1550,9 @@
       "UE5",
       "Cinematic",
       "Environment",
-      "Post-Apocalyptic"
+      "Post-Apocalyptic",
+      "Sci-Fi",
+      "Concept Art"
     ],
     "thumb": "images/work/wastelands/wastelands.jpg",
     "video": {
@@ -743,8 +1576,12 @@
     "tags": [
       "Interface",
       "Data Visualization",
+      "FUI",
+      "Interactive",
       "Aviation",
-      "Real-Time"
+      "Real-Time",
+      "Logistics",
+      "Monochrome"
     ],
     "thumb": "images/work/msy/msy-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/msy.html",
@@ -787,7 +1624,10 @@
       "Interface",
       "Data Visualization",
       "Science",
-      "Sonification"
+      "Education",
+      "Interactive",
+      "Sonification",
+      "Monochrome"
     ],
     "thumb": "images/work/elemental-blocks/elemental-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/periodic-table.html",
@@ -825,8 +1665,13 @@
     "tags": [
       "Interface",
       "Data Visualization",
+      "Science",
       "Public Health",
-      "Editorial"
+      "Medical",
+      "Education",
+      "Interactive",
+      "Editorial",
+      "Historical"
     ],
     "thumb": "images/work/outbreaks-global-epidemic-intelligence/outbreaks-hero.jpg",
     "liveLinks": [
@@ -889,8 +1734,12 @@
     "tags": [
       "Interface",
       "Data Visualization",
+      "FUI",
+      "Science",
       "Medical",
-      "FUI"
+      "Education",
+      "Interactive",
+      "Public Health"
     ],
     "thumb": "images/work/neurodegenerative-alzheimer-mri-review/brain-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/brain.html",
@@ -931,9 +1780,10 @@
     "year": "2026",
     "tags": [
       "Interface",
-      "Logistics",
       "Data Visualization",
-      "FUI"
+      "FUI",
+      "Interactive",
+      "Logistics"
     ],
     "thumb": "images/work/cargo-meridian/cargo-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/cargo/",
@@ -974,9 +1824,14 @@
     "year": "2026",
     "tags": [
       "Interface",
-      "Space",
       "Data Visualization",
-      "FUI"
+      "FUI",
+      "Interactive",
+      "Space",
+      "Science",
+      "Sci-Fi",
+      "Real-Time",
+      "Aerospace"
     ],
     "thumb": "images/work/transit/transit-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/transit.html",
@@ -1056,9 +1911,14 @@
     "year": "2026",
     "tags": [
       "Interface",
-      "Space",
       "Data Visualization",
-      "FUI"
+      "FUI",
+      "Interactive",
+      "Space",
+      "Science",
+      "Sci-Fi",
+      "Real-Time",
+      "Aerospace"
     ],
     "thumb": "images/work/missionlaunch/missionlaunch-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/missionlaunch.html",
@@ -1100,8 +1960,10 @@
     "tags": [
       "Interface",
       "Data Visualization",
+      "FUI",
+      "Interactive",
       "Finance",
-      "FUI"
+      "Civic"
     ],
     "thumb": "images/work/capitol-ledger/capitol-ledger-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/capitol-ledger.html",
@@ -1139,8 +2001,11 @@
     "tags": [
       "Interface",
       "Data Visualization",
+      "Education",
+      "Interactive",
       "Civic",
-      "Editorial"
+      "Editorial",
+      "Historical"
     ],
     "thumb": "images/work/every-moment-votes/every-moment-votes-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/everymomentvotes.html",
@@ -1182,8 +2047,12 @@
     "tags": [
       "Interface",
       "Data Visualization",
+      "FUI",
+      "Interactive",
       "Weather",
-      "FUI"
+      "Science",
+      "Storm",
+      "Historical"
     ],
     "thumb": "images/work/landfall/landfall-hero.jpg",
     "liveUrl": "https://interfaces.rondomingue.com/landfall.html",
@@ -1224,9 +2093,14 @@
     "year": "2026",
     "tags": [
       "Interface",
+      "FUI",
       "Generative Design",
+      "Procedural",
       "Typography",
-      "FUI"
+      "Cyberpunk",
+      "Interactive",
+      "Sci-Fi",
+      "Concept Art"
     ],
     "thumb": "images/work/spec-forge/spec-forge-hero.png",
     "liveUrl": "https://interfaces.rondomingue.com/spec-forge.html",
@@ -1246,6 +2120,42 @@
       {
         "src": "images/work/spec-forge/spec-forge-hero.png",
         "alt": "SPEC//FORGE procedural cyberpunk interface and asset generator"
+      },
+      {
+        "src": "images/work/spec-forge/specforge-neon-spec.png",
+        "alt": "SPEC//FORGE neon spec interface panel"
+      },
+      {
+        "src": "images/work/spec-forge/specforge-kiss-barcode.png",
+        "alt": "SPEC//FORGE barcode poster composition"
+      },
+      {
+        "src": "images/work/spec-forge/specforge-ghost-code.png",
+        "alt": "SPEC//FORGE ghost code interface layout"
+      },
+      {
+        "src": "images/work/spec-forge/specforge-derez-hud.png",
+        "alt": "SPEC//FORGE Derez HUD chart layout"
+      },
+      {
+        "src": "images/work/spec-forge/specforge-peri-5x5-sheet.png",
+        "alt": "SPEC//FORGE Peri 5x5 contact sheet"
+      },
+      {
+        "src": "images/work/spec-forge/specforge-coolant-chart.png",
+        "alt": "SPEC//FORGE coolant chart interface"
+      },
+      {
+        "src": "images/work/spec-forge/specforge-carbon-5x5-sheet.png",
+        "alt": "SPEC//FORGE carbon 5x5 contact sheet"
+      },
+      {
+        "src": "images/work/spec-forge/specforge-ghost-5x5-sheet.png",
+        "alt": "SPEC//FORGE ghost 5x5 contact sheet"
+      },
+      {
+        "src": "images/work/spec-forge/specforge-iota-10x10-sheet.png",
+        "alt": "SPEC//FORGE Iota 10x10 contact sheet"
       }
     ]
   }

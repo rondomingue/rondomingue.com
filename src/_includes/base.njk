@@ -2,12 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>document.documentElement.classList.add('motion-ready');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050507">
+<style>
+  html { background: #050507; color-scheme: dark; }
+  body { background: #050507; }
+</style>
+  <script>
+    document.documentElement.classList.add('motion-ready');
+    document.documentElement.dataset.theme = 'dark';
+    try {
+      if (localStorage.getItem('rd-theme') === 'light') {
+        document.documentElement.dataset.theme = 'light';
+      }
+    } catch (error) {}
+  </script>
   <title>{% if title %}{{ title }} — {% endif %}{{ site.siteName }}</title>
   <meta name="description" content="{{ description or site.description }}">
   <link rel="icon" type="image/png" href="{{ '/images/favicon.png' | url }}">
-  <link rel="stylesheet" href="{{ '/css/global.css' | url }}">
+  <link rel="stylesheet" href="{{ '/css/global.css' | url }}?v=18">
   <link rel="stylesheet" href="https://use.typekit.net/xhf1nbc.css">
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
   <!-- Google Analytics -->
@@ -29,7 +42,10 @@
 
   {% include "footer.njk" %}
 
+
   <script src="{{ '/js/page-reveal.js' | url }}?v=2" defer></script>
+  <script src="{{ '/js/image-loader.js' | url }}?v=1" defer></script>
+  <script src="{{ '/js/theme-toggle.js' | url }}?v=5" defer></script>
 
 </body>
 </html>

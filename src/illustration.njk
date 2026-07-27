@@ -10,7 +10,7 @@ permalink: illustration/index.html
 <section class="illustration-index">
   <header class="work-index-header">
     <h1 class="section-label">Illustration</h1>
-    <span class="section-count">{{ illustrations | length }} works</span>
+    <span class="section-count"><span class="section-count-number">{{ illustrations | length }}</span> works</span>
   </header>
 
   <p class="section-description">Selected illustration, poster art, portraiture, and visual development by New Orleans artist Ron Domingue.</p>
@@ -24,17 +24,18 @@ permalink: illustration/index.html
 
   <div class="illustration-mosaic">
     {% for artwork in illustrations %}
-    <figure class="illustration-tile" data-orientation="{{ artwork.orientation }}">
+    <figure class="illustration-tile image-load-frame image-loading" data-orientation="{{ artwork.orientation }}">
       <button class="illustration-open" type="button" aria-label="Open {{ artwork.alt }}" data-index="{{ loop.index0 }}">
         <img
           src="{{ ('/' + artwork.src) | url }}"
           alt="{{ artwork.alt }}"
+          data-caption="{{ artwork.caption or artwork.alt }}"
           width="{{ artwork.width }}"
           height="{{ artwork.height }}"
           loading="{% if loop.index <= 8 %}eager{% else %}lazy{% endif %}"
           {% if loop.index <= 4 %}fetchpriority="high"{% endif %}>
         <span class="illustration-tile-meta">
-          <span>{{ artwork.alt }}</span>
+          <span>{{ artwork.caption or artwork.alt }}</span>
           <span>{{ artwork.orientation }}</span>
         </span>
       </button>
@@ -71,6 +72,69 @@ permalink: illustration/index.html
     let visibleTiles = tiles;
     let activeIndex = 0;
 
+    const filterButtons = [...filters.querySelectorAll('.illustration-filter')];
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const resetFilterWave = () => {
+      filterButtons.forEach(button => {
+        button.style.setProperty('--tag-scale', '1');
+        button.style.setProperty('--tag-lift', '0px');
+        button.style.setProperty('--tag-glow', '0');
+        button.style.zIndex = '';
+      });
+    };
+
+    const applyFilterWave = (clientX, clientY) => {
+      const radius = 236;
+      filterButtons.forEach(button => {
+        const rect = button.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const distance = Math.hypot(clientX - centerX, (clientY - centerY) * 1.35);
+        const influence = Math.max(0, 1 - distance / radius);
+        const eased = influence * influence;
+
+        button.style.setProperty('--tag-scale', (1 + eased * 0.24).toFixed(3));
+        button.style.setProperty('--tag-lift', `${(-eased * 13).toFixed(2)}px`);
+        button.style.setProperty('--tag-glow', eased.toFixed(3));
+        button.style.zIndex = eased > 0 ? String(2 + Math.round(eased * 10)) : '';
+      });
+    };
+
+    if (!reducedMotionQuery.matches) {
+      let waveFrame = 0;
+      let lastPointer = null;
+
+      filters.addEventListener('pointermove', event => {
+        if (event.pointerType === 'touch') return;
+        lastPointer = event;
+        if (waveFrame) return;
+
+        waveFrame = requestAnimationFrame(() => {
+          waveFrame = 0;
+          applyFilterWave(lastPointer.clientX, lastPointer.clientY);
+        });
+      });
+
+      filters.addEventListener('pointerleave', resetFilterWave);
+
+      filters.addEventListener('pointerdown', event => {
+        const button = event.target.closest('.illustration-filter');
+        if (!button) return;
+        button.classList.remove('is-tag-popping');
+        void button.offsetWidth;
+        button.classList.add('is-tag-popping');
+      });
+
+      filters.addEventListener('animationend', event => {
+        if (event.target.classList.contains('illustration-filter')) {
+          event.target.classList.remove('is-tag-popping');
+        }
+      });
+
+      reducedMotionQuery.addEventListener?.('change', resetFilterWave);
+    }
+
     filters.addEventListener('click', event => {
       const button = event.target.closest('.illustration-filter');
       if (!button) return;
@@ -87,7 +151,7 @@ permalink: illustration/index.html
       const image = visibleTiles[activeIndex].querySelector('img');
       lightboxImage.src = image.currentSrc || image.src;
       lightboxImage.alt = image.alt;
-      lightboxCaption.textContent = `${image.alt} — ${activeIndex + 1} / ${visibleTiles.length}`;
+      lightboxCaption.textContent = `${image.dataset.caption || image.alt} — ${activeIndex + 1} / ${visibleTiles.length}`;
     };
 
     const open = tile => {

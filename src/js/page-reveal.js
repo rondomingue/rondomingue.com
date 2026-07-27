@@ -3,6 +3,38 @@
 
   requestAnimationFrame(() => document.body.classList.add('page-entered'));
 
+  const siteHeader = document.querySelector('.site-header');
+  const headerNav = document.querySelector('.header-nav');
+  const mobileNavQuery = window.matchMedia('(max-width: 600px)');
+
+  const setNavIndicator = (target = headerNav?.querySelector('.nav-link.active')) => {
+    if (!headerNav || !target || !mobileNavQuery.matches) return;
+    const navRect = headerNav.getBoundingClientRect();
+    const targetRect = target.getBoundingClientRect();
+    headerNav.style.setProperty('--nav-indicator-x', `${targetRect.left - navRect.left}px`);
+    headerNav.style.setProperty('--nav-indicator-y', `${targetRect.top - navRect.top}px`);
+    headerNav.style.setProperty('--nav-indicator-width', `${targetRect.width}px`);
+    headerNav.style.setProperty('--nav-indicator-height', `${targetRect.height}px`);
+  };
+
+  if (headerNav) {
+    requestAnimationFrame(() => setNavIndicator());
+    document.fonts?.ready.then(() => setNavIndicator());
+    window.addEventListener('resize', () => setNavIndicator());
+    headerNav.addEventListener('pointerdown', (event) => {
+      const link = event.target.closest('.nav-link');
+      if (!link || !mobileNavQuery.matches) return;
+      setNavIndicator(link);
+      if (!siteHeader || reducedMotion) return;
+      siteHeader.classList.remove('is-nav-bouncing');
+      void siteHeader.offsetWidth;
+      siteHeader.classList.add('is-nav-bouncing');
+    });
+    siteHeader?.addEventListener('animationend', () => {
+      siteHeader.classList.remove('is-nav-bouncing');
+    });
+  }
+
   document.querySelectorAll('.illustration-mosaic img').forEach((image) => {
     image.classList.remove('media-reveal', 'is-media-loaded');
   });

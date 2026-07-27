@@ -27,7 +27,7 @@ eleventyExcludeFromCollections: true
 
   <div class="illustration-mosaic">
     {% for photograph in sonOfASaintPhotos %}
-    <figure class="illustration-tile" data-orientation="{{ photograph.orientation }}">
+    <figure class="illustration-tile image-load-frame image-loading" data-orientation="{{ photograph.orientation }}">
       <button class="illustration-open" type="button" aria-label="Open photograph {{ loop.index }}">
         <img
           src="{{ ('/' + photograph.src) | url }}"

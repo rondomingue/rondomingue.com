@@ -24,8 +24,8 @@ bodyClass: page-home
     <iframe
       id="vimeo-bg"
       class="hero-video"
-      src="https://player.vimeo.com/video/{{ site.vimeoReel }}?background=1&autoplay=1&loop=1&muted=1&quality=1080p"
-      allow="autoplay; fullscreen"
+      src="https://player.vimeo.com/video/{{ site.vimeoReel }}?background=1&autoplay=1&loop=1&muted=1&autopause=0&playsinline=1&transparent=0&quality=1080p"
+      allow="autoplay; fullscreen; picture-in-picture"
       allowfullscreen
       frameborder="0">
     </iframe>
@@ -53,9 +53,9 @@ bodyClass: page-home
     </p>
 
     <div class="hero-cta">
-      <a href="{{ '/work/' | url }}" class="btn-ghost">Work</a>
-      <a href="{{ '/about/' | url }}" class="btn-ghost">About</a>
+      <a href="{{ '/work/' | url }}" class="btn-ghost hero-cta-secondary">Work</a>
       <button class="btn-ghost" id="reel-open" type="button" aria-haspopup="dialog" aria-controls="reel-shadowbox">Reel</button>
+      <a href="{{ site.fieldGuideUrl }}" class="btn-ghost" target="_blank" rel="noopener">Field Guide</a>
     </div>
 
     <div class="hero-social">
@@ -100,7 +100,10 @@ bodyClass: page-home
   <div class="reel-shadowbox-panel">
     <div class="reel-shadowbox-header">
       <h2 id="reel-title">Ron Domingue — Reel</h2>
-      <button class="reel-shadowbox-close" id="reel-close" type="button" aria-label="Close reel">Close</button>
+      <div class="reel-shadowbox-actions">
+        <button class="reel-shadowbox-fullscreen" id="reel-fullscreen" type="button" aria-label="Play reel fullscreen">Fullscreen</button>
+        <button class="reel-shadowbox-close" id="reel-close" type="button" aria-label="Close reel">Close</button>
+      </div>
     </div>
     <div class="reel-shadowbox-player">
       <iframe
@@ -109,28 +112,30 @@ bodyClass: page-home
         data-src="https://player.vimeo.com/video/{{ site.featuredReel }}?autoplay=1&title=0&byline=0&portrait=0"
         src="about:blank"
         allow="autoplay; fullscreen; picture-in-picture"
-        allowfullscreen>
+        allowfullscreen
+        webkitallowfullscreen
+        mozallowfullscreen>
       </iframe>
     </div>
   </div>
 </div>
 
 <!-- WORK GRID -->
-{% set homepageProjects = projects | randomProjects(7) %}
+{% set homepageProjects = publishedProjects | randomProjects(7) %}
 <section class="work-section" id="work">
   <div class="work-header">
     <span class="section-label">Selected Work</span>
-    <a class="section-count" href="{{ '/work/' | url }}">View all {{ projects | length }} projects</a>
+    <a class="section-count" href="{{ '/work/' | url }}">View all <span class="section-count-number">{{ publishedProjects | length }}</span> projects</a>
   </div>
 
   <div class="work-grid">
     {% for project in homepageProjects %}
-    <a class="work-card {% if loop.first %}work-card--featured{% endif %}" href="{{ ('/work/' + project.slug + '/') | url }}">
+    <a class="work-card image-load-frame image-loading {% if loop.first %}work-card--featured{% endif %}" href="{{ ('/work/' + project.slug + '/') | url }}">
       <div class="work-card-img" style="background-image: url('{{ ('/' + project.thumb) | url }}')"></div>
       <div class="work-card-overlay"></div>
       <div class="work-card-info">
         <div class="work-card-tags">
-          {% for tag in project.tags %}<span class="work-tag">{{ tag }}</span>{% endfor %}
+          {% for tag in project.tags %}{% if loop.index <= 3 %}<span class="work-tag">{{ tag }}</span>{% endif %}{% endfor %}
           <span class="work-tag">{{ project.year }}</span>
         </div>
         <div class="work-card-title">{{ project.title }}</div>
@@ -138,8 +143,13 @@ bodyClass: page-home
     </a>
     {% endfor %}
   </div>
+
+  <div class="work-more">
+    <a class="work-more-button" href="{{ '/work/' | url }}">View More Work</a>
+  </div>
 </section>
 
+<script src="https://player.vimeo.com/api/player.js"></script>
 <script>
   // ── Eyebrow widget ──────────────────────────────────────────────
   const glitchChars = '▓░▒█╬╫╪┼╂╀┿╃╄╅╆╇╈╉╊╋⌬⌭⌮⌯⌰⌱⌲⌳⌴⌵⌶⌷⌸⌹⌺⌻⌼⌽⌾⌿XZKVWMB#@!?%&';
@@ -282,7 +292,8 @@ bodyClass: page-home
     preloaderBarFill.style.width = `${preloaderValue}%`;
   }, 180);
 
-  function dismissPreloader() {
+  function dismissPreloader(showVideo = false) {
+    if (showVideo) document.body.classList.add('hero-video-ready');
     if (preloaderDismissed || !preloader) return;
     preloaderDismissed = true;
     clearInterval(preloaderTimer);
@@ -297,37 +308,101 @@ bodyClass: page-home
     if (e.origin.includes('vimeo.com')) {
       try {
         const data = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
-        if (data.event === 'ready' || data.event === 'playProgress') {
-          dismissPreloader();
+        if (data.event === 'ready') {
+          setTimeout(() => dismissPreloader(true), 450);
+        }
+        if (data.event === 'playProgress') {
+          dismissPreloader(true);
         }
       } catch(err) {}
     }
   });
 
   // Fallback — dismiss after 4s regardless
-  setTimeout(dismissPreloader, 4200);
+  setTimeout(() => dismissPreloader(true), 4200);
 
   // ── Featured reel shadowbox ────────────────────────────────────
   const reelOpen = document.getElementById('reel-open');
   const reelShadowbox = document.getElementById('reel-shadowbox');
   const reelClose = document.getElementById('reel-close');
+  const reelFullscreen = document.getElementById('reel-fullscreen');
   const reelPlayer = document.getElementById('reel-player');
+  const reelPanel = document.querySelector('.reel-shadowbox-panel');
+  const mobileQuery = window.matchMedia('(max-width: 600px)');
+  let reelVimeoPlayer = null;
+
+  function getReelVimeoPlayer() {
+    if (!window.Vimeo || !window.Vimeo.Player || !reelPlayer || reelPlayer.src === 'about:blank') return null;
+    if (!reelVimeoPlayer) reelVimeoPlayer = new window.Vimeo.Player(reelPlayer);
+    return reelVimeoPlayer;
+  }
+
+  async function lockReelLandscape() {
+    if (!mobileQuery.matches || !screen.orientation || !screen.orientation.lock) return;
+    await screen.orientation.lock('landscape').catch(() => {});
+  }
+
+  async function requestNativeFullscreen(element) {
+    if (!element) return false;
+    const requestFullscreen = element.requestFullscreen || element.webkitRequestFullscreen;
+    if (!requestFullscreen || document.fullscreenElement || document.webkitFullscreenElement) return false;
+    await requestFullscreen.call(element);
+    return true;
+  }
+
+  async function requestReelFullscreen() {
+    if (!reelPanel) return;
+
+    reelShadowbox.classList.add('is-reel-expanded');
+    reelFullscreen.textContent = 'Fullscreen';
+
+    try {
+      const player = getReelVimeoPlayer();
+      if (player && player.requestFullscreen) {
+        await player.requestFullscreen();
+        await lockReelLandscape();
+        return;
+      }
+    } catch (error) {
+      // Fall through to browser fullscreen.
+    }
+
+    try {
+      if (await requestNativeFullscreen(reelPlayer)) {
+        await lockReelLandscape();
+        return;
+      }
+      if (await requestNativeFullscreen(reelPanel)) {
+        await lockReelLandscape();
+      }
+    } catch (error) {
+      // The expanded class above is the dependable mobile fallback.
+    }
+  }
 
   function openReel() {
     reelShadowbox.hidden = false;
     reelPlayer.src = reelPlayer.dataset.src;
+    reelVimeoPlayer = null;
     document.body.classList.add('reel-is-open');
     reelClose.focus();
   }
 
-  function closeReel() {
+  async function closeReel() {
     reelShadowbox.hidden = true;
+    reelShadowbox.classList.remove('is-reel-expanded');
+    reelFullscreen.textContent = 'Fullscreen';
+    reelVimeoPlayer = null;
     reelPlayer.src = 'about:blank';
     document.body.classList.remove('reel-is-open');
+    if (screen.orientation && screen.orientation.unlock) screen.orientation.unlock();
+    if (document.fullscreenElement && document.exitFullscreen) await document.exitFullscreen().catch(() => {});
+    else if (document.webkitFullscreenElement && document.webkitExitFullscreen) document.webkitExitFullscreen();
     reelOpen.focus();
   }
 
   reelOpen.addEventListener('click', openReel);
+  reelFullscreen.addEventListener('click', requestReelFullscreen);
   reelClose.addEventListener('click', closeReel);
   reelShadowbox.addEventListener('click', (event) => {
     if (event.target === reelShadowbox) closeReel();
@@ -335,20 +410,36 @@ bodyClass: page-home
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && !reelShadowbox.hidden) closeReel();
   });
+  const syncFullscreenState = () => {
+    if (!document.fullscreenElement && !document.webkitFullscreenElement && !reelShadowbox.hidden) {
+      reelShadowbox.classList.remove('is-reel-expanded');
+      reelFullscreen.textContent = 'Fullscreen';
+    }
+  };
+  document.addEventListener('fullscreenchange', syncFullscreenState);
+  document.addEventListener('webkitfullscreenchange', syncFullscreenState);
 
   // ── Scroll hint ─────────────────────────────────────────────────
   const scrollHint = document.getElementById('scroll-hint');
-  scrollHint.addEventListener('click', () => {
-    document.getElementById('work').scrollIntoView({
-      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
-      block: 'start'
-    });
-  });
+  const hideScrollHint = () => {
+    if (!scrollHint) return;
+    scrollHint.classList.add('is-hidden');
+    window.removeEventListener('scroll', watchScrollHint);
+  };
+  const watchScrollHint = () => {
+    if (window.scrollY > 24) hideScrollHint();
+  };
 
-  window.addEventListener('scroll', () => {
-    if (scrollHint) {
-      scrollHint.style.opacity = window.scrollY > 60 ? '0' : '0.38';
-      scrollHint.style.pointerEvents = window.scrollY > 60 ? 'none' : 'auto';
-    }
-  }, { passive: true });
+  if (scrollHint) {
+    scrollHint.addEventListener('click', () => {
+      hideScrollHint();
+      document.getElementById('work').scrollIntoView({
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+        block: 'start'
+      });
+    });
+
+    watchScrollHint();
+    window.addEventListener('scroll', watchScrollHint, { passive: true });
+  }
 </script>

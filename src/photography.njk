@@ -10,7 +10,7 @@ permalink: photography/index.html
 <section class="illustration-index photography-index">
   <header class="work-index-header">
     <h1 class="section-label">Photography</h1>
-    <span class="section-count">{{ photographs | length }} photographs</span>
+    <span class="section-count"><span class="section-count-number">{{ photographs | length }}</span> photographs</span>
   </header>
 
   <p class="section-description">Portrait, street, live music, and documentary photography by New Orleans photographer and visual artist Ron Domingue.</p>
@@ -23,17 +23,18 @@ permalink: photography/index.html
 
   <div class="illustration-mosaic">
     {% for photograph in photographs %}
-    <figure class="illustration-tile" data-orientation="{{ photograph.orientation }}">
+    <figure class="illustration-tile image-load-frame image-loading" data-orientation="{{ photograph.orientation }}">
       <button class="illustration-open" type="button" aria-label="Open photograph {{ loop.index }}" data-index="{{ loop.index0 }}">
         <img
           src="{{ ('/' + photograph.src) | url }}"
           alt="{{ photograph.alt }}"
+          data-caption="{{ photograph.caption or ('Photograph ' + loop.index) }}"
           width="{{ photograph.width }}"
           height="{{ photograph.height }}"
           loading="{% if loop.index <= 8 %}eager{% else %}lazy{% endif %}"
           {% if loop.index <= 4 %}fetchpriority="high"{% endif %}>
         <span class="illustration-tile-meta">
-          <span>Photograph {{ loop.index }}</span>
+          <span>{{ photograph.caption or ('Photograph ' + loop.index) }}</span>
           <span>{{ photograph.orientation }}</span>
         </span>
       </button>
@@ -70,6 +71,69 @@ permalink: photography/index.html
     let visibleTiles = tiles;
     let activeIndex = 0;
 
+    const filterButtons = [...filters.querySelectorAll('.illustration-filter')];
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const resetFilterWave = () => {
+      filterButtons.forEach(button => {
+        button.style.setProperty('--tag-scale', '1');
+        button.style.setProperty('--tag-lift', '0px');
+        button.style.setProperty('--tag-glow', '0');
+        button.style.zIndex = '';
+      });
+    };
+
+    const applyFilterWave = (clientX, clientY) => {
+      const radius = 236;
+      filterButtons.forEach(button => {
+        const rect = button.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const distance = Math.hypot(clientX - centerX, (clientY - centerY) * 1.35);
+        const influence = Math.max(0, 1 - distance / radius);
+        const eased = influence * influence;
+
+        button.style.setProperty('--tag-scale', (1 + eased * 0.24).toFixed(3));
+        button.style.setProperty('--tag-lift', `${(-eased * 13).toFixed(2)}px`);
+        button.style.setProperty('--tag-glow', eased.toFixed(3));
+        button.style.zIndex = eased > 0 ? String(2 + Math.round(eased * 10)) : '';
+      });
+    };
+
+    if (!reducedMotionQuery.matches) {
+      let waveFrame = 0;
+      let lastPointer = null;
+
+      filters.addEventListener('pointermove', event => {
+        if (event.pointerType === 'touch') return;
+        lastPointer = event;
+        if (waveFrame) return;
+
+        waveFrame = requestAnimationFrame(() => {
+          waveFrame = 0;
+          applyFilterWave(lastPointer.clientX, lastPointer.clientY);
+        });
+      });
+
+      filters.addEventListener('pointerleave', resetFilterWave);
+
+      filters.addEventListener('pointerdown', event => {
+        const button = event.target.closest('.illustration-filter');
+        if (!button) return;
+        button.classList.remove('is-tag-popping');
+        void button.offsetWidth;
+        button.classList.add('is-tag-popping');
+      });
+
+      filters.addEventListener('animationend', event => {
+        if (event.target.classList.contains('illustration-filter')) {
+          event.target.classList.remove('is-tag-popping');
+        }
+      });
+
+      reducedMotionQuery.addEventListener?.('change', resetFilterWave);
+    }
+
     filters.addEventListener('click', event => {
       const button = event.target.closest('.illustration-filter');
       if (!button) return;
@@ -86,7 +150,7 @@ permalink: photography/index.html
       const source = visibleTiles[activeIndex].querySelector('img');
       image.src = source.currentSrc || source.src;
       image.alt = source.alt;
-      caption.textContent = `Photograph ${activeIndex + 1} / ${visibleTiles.length}`;
+      caption.textContent = source.dataset.caption || `Photograph ${activeIndex + 1} / ${visibleTiles.length}`;
     };
 
     const open = tile => {

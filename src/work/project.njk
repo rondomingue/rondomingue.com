@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 pagination:
-  data: projects
+  data: publishedProjects
   size: 1
   alias: project
 permalink: "work/{{ project.slug }}/index.html"
@@ -18,7 +18,7 @@ bodyClass: page-work page-project
     <div class="project-title-block">
       <div class="project-kicker">
         <span>{{ project.year }}</span>
-        {% for tag in project.tags %}<span>{{ tag }}</span>{% endfor %}
+        {% for tag in project.tags %}{% if loop.index <= 3 %}<span>{{ tag }}</span>{% endif %}{% endfor %}
       </div>
       <h1>{{ project.title }}</h1>
       {% if project.subtitle %}<p class="project-subtitle">{{ project.subtitle }}</p>{% endif %}
@@ -40,13 +40,13 @@ bodyClass: page-work page-project
     </div>
 
     <div class="project-copy">
-      <p class="project-summary">{{ project.summary }}</p>
+      <p class="project-summary">{{ project.summary | inlineLinks | safe }}</p>
       {% for paragraph in project.description %}
-      <p>{{ paragraph }}</p>
+      <p>{{ paragraph | inlineLinks | safe }}</p>
       {% endfor %}
       <div class="project-tags">
         {% for tag in project.processTags %}
-        <span>{{ tag }}</span>
+        {% if loop.index <= 3 %}<span>{{ tag }}</span>{% endif %}
         {% endfor %}
       </div>
     </div>
@@ -72,20 +72,12 @@ bodyClass: page-work page-project
   </div>
   {% endif %}
 
-  {% if project.nativeVideo and project.nativeVideo.sourcePage %}
-  <div class="project-video-source">
-    <span class="project-video-source-label">Original film</span>
-    <a href="{{ project.nativeVideo.sourcePage }}" target="_blank" rel="noopener">
-      Watch on the original Squarespace project page
-    </a>
-  </div>
-  {% endif %}
 
   {% if project.images and project.images.length %}
   <section class="project-gallery" aria-label="{{ project.title }} image gallery">
     {% for image in project.images %}
     {% set imageSrc = image.src or image %}
-    <figure class="project-gallery-item{% if loop.first %} project-gallery-item--wide{% endif %}">
+    <figure class="project-gallery-item image-load-frame image-loading{% if loop.first %} project-gallery-item--wide{% endif %}">
       <button class="project-gallery-button" type="button" data-gallery-index="{{ loop.index0 }}" aria-label="Open image {{ loop.index }} of {{ project.images.length }}">
         <img src="{{ ('/' + imageSrc) | url }}" alt="{{ image.alt or project.title }}" loading="lazy">
       </button>
@@ -104,7 +96,7 @@ bodyClass: page-work page-project
     </div>
     <div>
       <span class="project-meta-label">Tools</span>
-      <p>{{ project.tags | join(", ") }}</p>
+      <p>{% for tag in project.tags %}{% if loop.index <= 3 %}{% if not loop.first %}, {% endif %}{{ tag }}{% endif %}{% endfor %}</p>
     </div>
     <div>
       <span class="project-meta-label">Year</span>
@@ -112,9 +104,28 @@ bodyClass: page-work page-project
     </div>
   </section>
 
-  <div class="project-back-footer">
-    <a class="project-back project-back--bottom" href="{{ '/work/' | url }}">Back to Work</a>
-  </div>
+{% set previousProject = publishedProjects | previousProject(project.slug) %}
+{% set nextProject = publishedProjects | nextProject(project.slug) %}
+<nav class="project-adjacent" aria-label="Adjacent projects">
+  <a class="project-adjacent-link project-adjacent-link--previous" href="{{ ('/work/' + previousProject.slug + '/') | url }}">
+    <span class="project-adjacent-arrow" aria-hidden="true">←</span>
+    <span>
+      <span class="project-adjacent-label">Previous</span>
+      <strong>{{ previousProject.title }}</strong>
+    </span>
+  </a>
+  <a class="project-adjacent-link project-adjacent-link--next" href="{{ ('/work/' + nextProject.slug + '/') | url }}">
+    <span>
+      <span class="project-adjacent-label">Next</span>
+      <strong>{{ nextProject.title }}</strong>
+    </span>
+    <span class="project-adjacent-arrow" aria-hidden="true">→</span>
+  </a>
+</nav>
+
+<div class="project-back-footer">
+  <a class="project-back project-back--bottom" href="{{ '/work/' | url }}">Back to Work</a>
+</div>
 </article>
 
 {% if project.images and project.images.length %}
