@@ -1,4 +1,8 @@
 module.exports = function(eleventyConfig) {
+  eleventyConfig.addFilter("isoDate", (date) => {
+    return new Date(date).toISOString().slice(0, 10);
+  });
+
   eleventyConfig.addFilter("randomProjects", (projects, count = 6) => {
     const shuffled = [...projects];
 
