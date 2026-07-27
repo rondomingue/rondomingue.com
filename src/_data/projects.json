@@ -37,6 +37,61 @@
     ]
   },
   {
+    "title": "Displacement Experiments",
+    "slug": "displacement-experiments",
+    "year": "2017",
+    "tags": [
+      "Cinema 4D",
+      "Displacement",
+      "Procedural",
+      "Abstract",
+      "Material Study",
+      "3D"
+    ],
+    "thumb": "images/work/displacement-experiments/displacement-experiments-01.jpg",
+    "subtitle": "Procedural surface studies exploring displacement, material stress, and abstract terrain.",
+    "summary": "Displacement Experiments is a 2017 series of procedural 3D studies built around surface deformation, texture-driven geometry, and abstract material behavior.",
+    "description": [
+      "The series explores displacement as both a modeling technique and a visual language. Height maps, procedural textures, and material response push simple forms into ridges, fractures, ripples, and terrain-like surfaces.",
+      "Rather than treating the tests as isolated renders, the image set reads like a small archive of material behavior: glossy folds, eroded geometry, stressed surfaces, and abstract structures caught between sculpture, landscape, and simulation.",
+      "The work sits at the intersection of technical experiment and cinematic image-making, using procedural surface detail to create tactile forms that feel photographed, manufactured, and unstable at the same time."
+    ],
+    "processTags": [
+      "Displacement Mapping",
+      "Procedural Textures",
+      "Surface Deformation",
+      "Material Studies",
+      "Abstract 3D"
+    ],
+    "format": "Procedural 3D displacement studies",
+    "images": [
+      {
+        "src": "images/work/displacement-experiments/displacement-experiments-01.jpg",
+        "alt": "Abstract procedural displacement study with layered ridged surfaces"
+      },
+      {
+        "src": "images/work/displacement-experiments/displacement-experiments-02.jpg",
+        "alt": "Abstract procedural displacement study with folded surface detail"
+      },
+      {
+        "src": "images/work/displacement-experiments/displacement-experiments-03.jpg",
+        "alt": "Abstract procedural displacement study with terrain-like deformation"
+      },
+      {
+        "src": "images/work/displacement-experiments/displacement-experiments-04.jpg",
+        "alt": "Abstract procedural displacement study with dark material ridges"
+      },
+      {
+        "src": "images/work/displacement-experiments/displacement-experiments-05.jpg",
+        "alt": "Abstract procedural displacement study with sculpted surface texture"
+      },
+      {
+        "src": "images/work/displacement-experiments/displacement-experiments-06.jpg",
+        "alt": "Abstract procedural displacement study with rippled surface deformation"
+      }
+    ]
+  },
+  {
     "title": "Resonance Field",
     "slug": "resonance-field",
     "year": "2026",
