@@ -56,42 +56,18 @@ img { display: block; max-width: 100%; }
 .image-load-frame {
   position: relative;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 22% 18%, rgba(200,40,154,0.18), transparent 34%),
-    linear-gradient(135deg, #0b0c10, #050507 62%, #111018);
+  background: #0d0e12;
 }
-.image-load-frame::after {
-  content: 'LOADING IMAGE';
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  display: grid;
-  place-items: center;
-  pointer-events: none;
-  font-family: 'Space Mono', monospace;
-  font-size: 9px;
-  line-height: 1;
-  letter-spacing: 0.24em;
-  color: rgba(255,255,255,0.48);
-  background:
-    linear-gradient(90deg, transparent 0 46%, rgba(200,40,154,0.32) 50%, transparent 54%),
-    repeating-linear-gradient(0deg, rgba(255,255,255,0.045) 0 1px, transparent 1px 16px);
-  text-shadow: 0 0 16px rgba(200,40,154,0.65);
-  opacity: 0;
-  transition: opacity 0.32s ease;
-}
-.image-load-frame.image-loading::after {
-  opacity: 1;
-  animation: image-loader-scan 1.5s linear infinite;
+.image-load-frame.image-loading {
+  animation: image-loader-pulse 1.6s ease-in-out infinite;
 }
 .image-load-frame img,
 .image-load-frame .work-card-img {
-  transition: opacity 0.42s ease, transform 0.6s ease, filter 0.42s ease;
+  transition: opacity 0.5s ease;
 }
 .image-load-frame.image-loading img,
 .image-load-frame.image-loading .work-card-img {
   opacity: 0;
-  filter: saturate(0.4) brightness(0.72);
 }
 .image-load-frame.image-loaded img {
   opacity: 1;
@@ -99,26 +75,22 @@ img { display: block; max-width: 100%; }
 .work-card.image-load-frame.image-loaded .work-card-img {
   opacity: 0.84;
 }
-.image-load-frame.image-error::after {
-  content: 'IMAGE OFFLINE';
-  opacity: 1;
-  color: rgba(200,40,154,0.78);
+.image-load-frame.image-error {
+  animation: none;
+  background: #0d0e12;
 }
-:root[data-theme="light"] .image-load-frame {
-  background:
-    radial-gradient(circle at 22% 18%, rgba(200,40,154,0.12), transparent 34%),
-    linear-gradient(135deg, #f2f1ed, #deddd8 64%, #f7f5f1);
+:root[data-theme="light"] .image-load-frame,
+:root[data-theme="light"] .image-load-frame.image-error {
+  background: #e7e5e0;
 }
-:root[data-theme="light"] .image-load-frame::after {
-  color: rgba(18,18,20,0.54);
-  background:
-    linear-gradient(90deg, transparent 0 46%, rgba(200,40,154,0.22) 50%, transparent 54%),
-    repeating-linear-gradient(0deg, rgba(18,18,20,0.055) 0 1px, transparent 1px 16px);
-  text-shadow: 0 0 16px rgba(200,40,154,0.32);
+@keyframes image-loader-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.72; }
 }
-@keyframes image-loader-scan {
-  0% { background-position: -80px 0, 0 0; }
-  100% { background-position: 80px 0, 0 16px; }
+@media (prefers-reduced-motion: reduce) {
+  .image-load-frame.image-loading {
+    animation: none;
+  }
 }
 
 .project-subtitle {
