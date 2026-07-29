@@ -29,6 +29,14 @@ const sample = {
     { source: "vimeo.com", hits: 62 },
     { source: "direct / bookmark", hits: 58 }
   ],
+  referrerRepeats: [
+    { source: "google.com", hits: 61 },
+    { source: "linkedin.com", hits: 44 },
+    { source: "instagram.com", hits: 39 },
+    { source: "direct / bookmark", hits: 33 },
+    { source: "behance.net", hits: 26 },
+    { source: "vimeo.com", hits: 17 }
+  ],
   pages: [
     { page: "/work/the-colony/", views: 411 },
     { page: "/work/signal-lattice/", views: 306 },
@@ -36,6 +44,26 @@ const sample = {
     { page: "/work/transit/", views: 219 },
     { page: "/about/", views: 173 },
     { page: "/illustration/", views: 149 }
+  ],
+  crushes: [
+    { page: "/work/signal-lattice/", views: 88 },
+    { page: "/photography/", views: 61 },
+    { page: "/about/", views: 39 },
+    { page: "/work/the-colony/", views: 34 }
+  ],
+  entryPages: [
+    { page: "/", sessions: 188 },
+    { page: "/work/", sessions: 96 },
+    { page: "/photography/", sessions: 72 },
+    { page: "/about/", sessions: 54 },
+    { page: "/illustration/", sessions: 33 }
+  ],
+  browsers: [
+    { name: "Safari", percent: 46 },
+    { name: "Chrome", percent: 38 },
+    { name: "Firefox", percent: 8 },
+    { name: "Edge", percent: 5 },
+    { name: "Samsung Internet", percent: 3 }
   ],
   searches: [
     { query: "cinematic ui design", hits: 37 },
@@ -45,13 +73,13 @@ const sample = {
     { query: "unreal interface concepts", hits: 12 }
   ],
   live: [
-    { label: "New Orleans", page: "/work/black-noise/", when: "snapshot" },
-    { label: "Brooklyn", page: "/work/grid-state/", when: "snapshot" },
-    { label: "Austin", page: "/photography/", when: "snapshot" },
-    { label: "Los Angeles", page: "/work/data-haven/", when: "snapshot" },
-    { label: "Chicago", page: "/about/", when: "snapshot" },
-    { label: "Seattle", page: "/work/hud-schema-signal/", when: "snapshot" },
-    { label: "Atlanta", page: "/work/missionlaunch/", when: "snapshot" }
+    { label: "New Orleans", country: "United States", page: "/work/black-noise/", when: "snapshot" },
+    { label: "Brooklyn", country: "United States", page: "/work/grid-state/", when: "snapshot" },
+    { label: "Austin", country: "United States", page: "/photography/", when: "snapshot" },
+    { label: "Los Angeles", country: "United States", page: "/work/data-haven/", when: "snapshot" },
+    { label: "Toronto", country: "Canada", page: "/about/", when: "snapshot" },
+    { label: "London", country: "United Kingdom", page: "/work/hud-schema-signal/", when: "snapshot" },
+    { label: "Berlin", country: "Germany", page: "/work/missionlaunch/", when: "snapshot" }
   ],
   devices: [
     { label: "Desktop", value: 58 },
@@ -164,7 +192,7 @@ async function buildSnapshot() {
   }
 
   const token = accessToken || await getAccessToken();
-  const [summaryReport, visitsReport, referrersReport, pagesReport, devicesReport, platformsReport, screensReport, realtimeReport] = await Promise.all([
+  const [summaryReport, visitsReport, referrersReport, referrerRepeatsReport, pagesReport, crushesReport, entryPagesReport, browsersReport, devicesReport, platformsReport, screensReport, realtimeReport] = await Promise.all([
     runReport(token, {
       dateRanges: [{ startDate: "today", endDate: "today" }, { startDate: "yesterday", endDate: "yesterday" }],
       metrics: [{ name: "screenPageViews" }, { name: "activeUsers" }, { name: "sessions" }]
@@ -184,10 +212,38 @@ async function buildSnapshot() {
     }),
     runReport(token, {
       dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
+      dimensions: [{ name: "sessionSource" }],
+      metrics: [{ name: "engagedSessions" }],
+      limit: 8,
+      orderBys: [{ metric: { metricName: "engagedSessions" }, desc: true }]
+    }),
+    runReport(token, {
+      dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
       dimensions: [{ name: "pagePath" }],
       metrics: [{ name: "screenPageViews" }],
       limit: 8,
       orderBys: [{ metric: { metricName: "screenPageViews" }, desc: true }]
+    }),
+    runReport(token, {
+      dateRanges: [{ startDate: "today", endDate: "today" }],
+      dimensions: [{ name: "pagePath" }],
+      metrics: [{ name: "screenPageViews" }],
+      limit: 6,
+      orderBys: [{ metric: { metricName: "screenPageViews" }, desc: true }]
+    }),
+    runReport(token, {
+      dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
+      dimensions: [{ name: "landingPagePlusQueryString" }],
+      metrics: [{ name: "sessions" }],
+      limit: 6,
+      orderBys: [{ metric: { metricName: "sessions" }, desc: true }]
+    }),
+    runReport(token, {
+      dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
+      dimensions: [{ name: "browser" }],
+      metrics: [{ name: "sessions" }],
+      limit: 6,
+      orderBys: [{ metric: { metricName: "sessions" }, desc: true }]
     }),
     runReport(token, {
       dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
@@ -211,7 +267,7 @@ async function buildSnapshot() {
       orderBys: [{ metric: { metricName: "sessions" }, desc: true }]
     }),
     runRealtimeReport(token, {
-      dimensions: [{ name: "city" }, { name: "unifiedScreenName" }],
+      dimensions: [{ name: "city" }, { name: "country" }, { name: "unifiedScreenName" }],
       metrics: [{ name: "activeUsers" }],
       limit: 8,
       orderBys: [{ metric: { metricName: "activeUsers" }, desc: true }]
@@ -226,6 +282,7 @@ async function buildSnapshot() {
   const yesterdayViews = numeric(yesterday[0]?.value);
   const referrerSessions = rows(referrersReport).reduce((sum, row) => sum + numeric(row.metricValues[0]?.value), 0);
   const deviceSessions = rows(devicesReport).reduce((sum, row) => sum + numeric(row.metricValues[0]?.value), 0) || 1;
+  const browserSessions = rows(browsersReport).reduce((sum, row) => sum + numeric(row.metricValues[0]?.value), 0) || 1;
   const platformSessions = rows(platformsReport).reduce((sum, row) => sum + numeric(row.metricValues[0]?.value), 0) || 1;
   const screenSessions = rows(screensReport).reduce((sum, row) => sum + numeric(row.metricValues[0]?.value), 0) || 1;
   const realtimeUsers = rows(realtimeReport || {}).reduce((sum, row) => sum + numeric(row.metricValues[0]?.value), 0);
@@ -253,14 +310,31 @@ async function buildSnapshot() {
       source: row.dimensionValues[0]?.value || "(not set)",
       hits: numeric(row.metricValues[0]?.value)
     })),
+    referrerRepeats: rows(referrerRepeatsReport).map(row => ({
+      source: row.dimensionValues[0]?.value || "(not set)",
+      hits: numeric(row.metricValues[0]?.value)
+    })),
     pages: rows(pagesReport).map(row => ({
       page: row.dimensionValues[0]?.value || "/",
       views: numeric(row.metricValues[0]?.value)
     })),
+    crushes: rows(crushesReport).map(row => ({
+      page: row.dimensionValues[0]?.value || "/",
+      views: numeric(row.metricValues[0]?.value)
+    })),
+    entryPages: rows(entryPagesReport).map(row => ({
+      page: row.dimensionValues[0]?.value || "/",
+      sessions: numeric(row.metricValues[0]?.value)
+    })),
+    browsers: rows(browsersReport).map(row => ({
+      name: row.dimensionValues[0]?.value || "(not set)",
+      percent: Math.round((numeric(row.metricValues[0]?.value) / browserSessions) * 100)
+    })),
     searches: sample.searches,
     live: rows(realtimeReport || {}).map(row => ({
       label: row.dimensionValues[0]?.value || "(not set)",
-      page: row.dimensionValues[1]?.value || "Active visitor",
+      country: row.dimensionValues[1]?.value || "(not set)",
+      page: row.dimensionValues[2]?.value || "Active visitor",
       when: "last 30m",
       count: numeric(row.metricValues[0]?.value)
     })),

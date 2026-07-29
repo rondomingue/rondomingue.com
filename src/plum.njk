@@ -16,13 +16,7 @@ noIndex: true
         <h1 id="analytics-title">Plum</h1>
       </div>
     </div>
-    <nav class="analytics-tabs" aria-label="Analytics sections">
-      <a href="#visits">Visits</a>
-      <a href="#referrers">Referrers</a>
-      <a href="#pages">Pages</a>
-      <a href="#searches">Searches</a>
-      <a href="#devices">Devices</a>
-    </nav>
+    <p class="analytics-generated" data-plum-generated>Snapshot</p>
   </div>
 
   <div class="analytics-summary" aria-label="Current traffic summary" data-plum-summary>
@@ -125,12 +119,31 @@ noIndex: true
       </table>
     </section>
 
+    <section class="analytics-panel" id="crushes">
+      <header>
+        <h2>Crushes</h2>
+        <div class="analytics-panel-tabs">
+          <button class="active" type="button">Today</button>
+        </div>
+      </header>
+      <table class="analytics-table" data-plum-table="crushes">
+        <thead><tr><th>Page</th><th>Views</th></tr></thead>
+        <tbody>
+          <tr><td>/work/signal-lattice/</td><td>88</td></tr>
+          <tr><td>/photography/</td><td>61</td></tr>
+          <tr><td>/about/</td><td>39</td></tr>
+          <tr><td>/work/the-colony/</td><td>34</td></tr>
+        </tbody>
+      </table>
+    </section>
+
     <section class="analytics-panel analytics-panel--tall">
       <header>
         <h2>Live Visitors</h2>
         <div class="analytics-panel-tabs">
           <button class="active" type="button" data-plum-tab="live" data-plum-view="newest">Newest</button>
           <button type="button" data-plum-tab="live" data-plum-view="city">City</button>
+          <button type="button" data-plum-tab="live" data-plum-view="country">Country</button>
         </div>
       </header>
       <ol class="analytics-feed" data-plum-live>
@@ -142,6 +155,24 @@ noIndex: true
         <li><strong>Seattle</strong><span>/work/hud-schema-signal/</span><em>24 mins ago</em></li>
         <li><strong>Atlanta</strong><span>/work/missionlaunch/</span><em>31 mins ago</em></li>
       </ol>
+    </section>
+
+    <section class="analytics-panel" id="seeds">
+      <header>
+        <h2>Seeds</h2>
+        <div class="analytics-panel-tabs">
+          <button class="active" type="button">Entry Pages</button>
+        </div>
+      </header>
+      <table class="analytics-table" data-plum-table="entryPages">
+        <thead><tr><th>Landing Page</th><th>Sessions</th></tr></thead>
+        <tbody>
+          <tr><td>/</td><td>188</td></tr>
+          <tr><td>/work/</td><td>96</td></tr>
+          <tr><td>/photography/</td><td>72</td></tr>
+          <tr><td>/about/</td><td>54</td></tr>
+        </tbody>
+      </table>
     </section>
 
     <section class="analytics-panel" id="searches">
@@ -164,6 +195,24 @@ noIndex: true
       </table>
     </section>
 
+    <section class="analytics-panel" id="browsers">
+      <header>
+        <h2>Browsers</h2>
+        <div class="analytics-panel-tabs">
+          <button class="active" type="button">Sessions</button>
+        </div>
+      </header>
+      <table class="analytics-table" data-plum-table="browsers">
+        <thead><tr><th>Browser</th><th>%</th></tr></thead>
+        <tbody>
+          <tr><td>Safari</td><td>46</td></tr>
+          <tr><td>Chrome</td><td>38</td></tr>
+          <tr><td>Firefox</td><td>8</td></tr>
+          <tr><td>Edge</td><td>5</td></tr>
+        </tbody>
+      </table>
+    </section>
+
     <section class="analytics-panel" id="devices">
       <header>
         <h2>Real Estate</h2>
@@ -182,4 +231,4 @@ noIndex: true
   </div>
 </section>
 
-<script src="{{ '/js/plum-dashboard.js' | url }}?v=2" defer></script>
+<script src="{{ '/js/plum-dashboard.js' | url }}?v=4" defer></script>

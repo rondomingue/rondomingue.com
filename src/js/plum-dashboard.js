@@ -2,6 +2,7 @@
   let currentSnapshot = null;
 
   const formatNumber = value => Number(value || 0).toLocaleString("en-US");
+  const pieColors = ["#c8289a", "#7a2d74", "#ff77cf", "#5a245e", "#2c7d50", "#79c65a"];
   const text = value => String(value ?? "").replace(/[&<>"']/g, character => ({
     "&": "&amp;",
     "<": "&lt;",
@@ -33,6 +34,19 @@
     `).join("");
   };
 
+  const renderGenerated = generatedAt => {
+    const host = document.querySelector("[data-plum-generated]");
+    if (!host || !generatedAt) return;
+
+    const formatted = new Intl.DateTimeFormat("en-US", {
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "2-digit"
+    }).format(new Date(generatedAt));
+    host.textContent = `Snapshot ${formatted}`;
+  };
+
   const renderTable = (name, rows, columns) => {
     const table = document.querySelector(`[data-plum-table="${name}"]`);
     if (!table || !Array.isArray(rows)) return;
@@ -60,22 +74,49 @@
     const host = document.querySelector("[data-plum-devices]");
     if (!host || !Array.isArray(rows)) return;
 
+    host.className = "analytics-bars";
     host.innerHTML = rows.map(row => {
       const value = Math.max(0, Math.min(100, Number(row.value) || 0));
       return `<div><span>${text(row.label)}</span><span class="analytics-meter" aria-label="${value}%"><span style="width:${value}%"></span></span><em>${value}%</em></div>`;
     }).join("");
   };
 
-  const renderCityRollup = rows => {
-    const cityCounts = new Map();
+  const renderPlatformPie = rows => {
+    const host = document.querySelector("[data-plum-devices]");
+    if (!host || !Array.isArray(rows)) return;
+
+    let cursor = 0;
+    const total = rows.reduce((sum, row) => sum + Math.max(0, Number(row.value) || 0), 0) || 1;
+    const slices = rows.map((row, index) => {
+      const value = Math.max(0, Number(row.value) || 0);
+      const start = cursor;
+      const end = cursor + (value / total) * 100;
+      cursor = end;
+      return `${pieColors[index % pieColors.length]} ${start}% ${end}%`;
+    }).join(", ");
+
+    host.className = "analytics-pie-wrap";
+    host.innerHTML = `
+      <div class="analytics-pie" style="background: conic-gradient(${slices})" role="img" aria-label="Platform percentage pie chart"></div>
+      <ol class="analytics-pie-legend">
+        ${rows.map((row, index) => {
+          const value = Math.max(0, Number(row.value) || 0);
+          return `<li><span style="background:${pieColors[index % pieColors.length]}"></span><strong>${text(row.label)}</strong><em>${value}%</em></li>`;
+        }).join("")}
+      </ol>
+    `;
+  };
+
+  const renderLocationRollup = (rows, key) => {
+    const counts = new Map();
     (rows || []).forEach(row => {
-      const label = row.label || "(not set)";
-      const current = cityCounts.get(label) || { label, count: 0, page: row.page || "Active visitor" };
+      const label = row[key] || row.label || "(not set)";
+      const current = counts.get(label) || { label, count: 0, page: key === "country" ? "Country rollup" : row.page || "Active visitor" };
       current.count += Number(row.count || 1);
-      cityCounts.set(label, current);
+      counts.set(label, current);
     });
 
-    renderLive([...cityCounts.values()]
+    renderLive([...counts.values()]
       .sort(compareNumeric("count"))
       .map(row => ({ label: row.label, page: row.page, when: `${row.count} active` })));
   };
@@ -123,9 +164,7 @@
     }
 
     if (tabName === "referrers") {
-      const rows = view === "repeat"
-        ? [...(currentSnapshot.referrers || [])].sort(compareNumeric("hits"))
-        : currentSnapshot.referrers;
+      const rows = view === "repeat" ? currentSnapshot.referrerRepeats || currentSnapshot.referrers : currentSnapshot.referrers;
       renderTable("referrers", rows, ["source", "hits"]);
       return;
     }
@@ -137,7 +176,8 @@
     }
 
     if (tabName === "live") {
-      if (view === "city") renderCityRollup(currentSnapshot.live);
+      if (view === "city") renderLocationRollup(currentSnapshot.live, "label");
+      else if (view === "country") renderLocationRollup(currentSnapshot.live, "country");
       else renderLive(currentSnapshot.live);
       return;
     }
@@ -149,7 +189,7 @@
     }
 
     if (tabName === "devices") {
-      if (view === "platform") renderDeviceBars(currentSnapshot.platforms || currentSnapshot.devices);
+      if (view === "platform") renderPlatformPie(currentSnapshot.platforms || currentSnapshot.devices);
       else renderDeviceBars(currentSnapshot.screens || currentSnapshot.devices);
     }
   };
@@ -166,10 +206,14 @@
     .then(response => response.ok ? response.json() : Promise.reject(new Error("Snapshot unavailable")))
     .then(snapshot => {
       currentSnapshot = snapshot;
+      renderGenerated(snapshot.generatedAt);
       renderSummary(snapshot.summary);
       renderVisits(snapshot.visits);
       renderTable("referrers", snapshot.referrers, ["source", "hits"]);
       renderTable("pages", snapshot.pages, ["page", "views"]);
+      renderTable("crushes", snapshot.crushes, ["page", "views"]);
+      renderTable("entryPages", snapshot.entryPages, ["page", "sessions"]);
+      renderTable("browsers", snapshot.browsers, ["name", "percent"]);
       renderTable("searches", snapshot.searches, ["query", "hits"]);
       renderLive(snapshot.live);
       renderDeviceBars(snapshot.screens || snapshot.devices);

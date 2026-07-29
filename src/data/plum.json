@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T21:05:56.948Z",
+  "generatedAt": "2026-07-29T21:18:51.194Z",
   "source": "sample",
   "summary": [
     {
@@ -82,6 +82,32 @@
       "hits": 58
     }
   ],
+  "referrerRepeats": [
+    {
+      "source": "google.com",
+      "hits": 61
+    },
+    {
+      "source": "linkedin.com",
+      "hits": 44
+    },
+    {
+      "source": "instagram.com",
+      "hits": 39
+    },
+    {
+      "source": "direct / bookmark",
+      "hits": 33
+    },
+    {
+      "source": "behance.net",
+      "hits": 26
+    },
+    {
+      "source": "vimeo.com",
+      "hits": 17
+    }
+  ],
   "pages": [
     {
       "page": "/work/the-colony/",
@@ -106,6 +132,68 @@
     {
       "page": "/illustration/",
       "views": 149
+    }
+  ],
+  "crushes": [
+    {
+      "page": "/work/signal-lattice/",
+      "views": 88
+    },
+    {
+      "page": "/photography/",
+      "views": 61
+    },
+    {
+      "page": "/about/",
+      "views": 39
+    },
+    {
+      "page": "/work/the-colony/",
+      "views": 34
+    }
+  ],
+  "entryPages": [
+    {
+      "page": "/",
+      "sessions": 188
+    },
+    {
+      "page": "/work/",
+      "sessions": 96
+    },
+    {
+      "page": "/photography/",
+      "sessions": 72
+    },
+    {
+      "page": "/about/",
+      "sessions": 54
+    },
+    {
+      "page": "/illustration/",
+      "sessions": 33
+    }
+  ],
+  "browsers": [
+    {
+      "name": "Safari",
+      "percent": 46
+    },
+    {
+      "name": "Chrome",
+      "percent": 38
+    },
+    {
+      "name": "Firefox",
+      "percent": 8
+    },
+    {
+      "name": "Edge",
+      "percent": 5
+    },
+    {
+      "name": "Samsung Internet",
+      "percent": 3
     }
   ],
   "searches": [
@@ -133,36 +221,43 @@
   "live": [
     {
       "label": "New Orleans",
+      "country": "United States",
       "page": "/work/black-noise/",
       "when": "snapshot"
     },
     {
       "label": "Brooklyn",
+      "country": "United States",
       "page": "/work/grid-state/",
       "when": "snapshot"
     },
     {
       "label": "Austin",
+      "country": "United States",
       "page": "/photography/",
       "when": "snapshot"
     },
     {
       "label": "Los Angeles",
+      "country": "United States",
       "page": "/work/data-haven/",
       "when": "snapshot"
     },
     {
-      "label": "Chicago",
+      "label": "Toronto",
+      "country": "Canada",
       "page": "/about/",
       "when": "snapshot"
     },
     {
-      "label": "Seattle",
+      "label": "London",
+      "country": "United Kingdom",
       "page": "/work/hud-schema-signal/",
       "when": "snapshot"
     },
     {
-      "label": "Atlanta",
+      "label": "Berlin",
+      "country": "Germany",
       "page": "/work/missionlaunch/",
       "when": "snapshot"
     }
