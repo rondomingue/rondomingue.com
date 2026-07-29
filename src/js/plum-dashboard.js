@@ -290,8 +290,7 @@
       { key: "total", label: "Views", values: total, color: visitMetricColors.total },
       { key: "unique", label: "Users", values: unique, color: visitMetricColors.unique },
       { key: "sessions", label: "Sessions", values: sessions, color: visitMetricColors.sessions },
-      { key: "engaged", label: "Engaged", values: engaged, color: visitMetricColors.engaged },
-      { key: "events", label: "Events", values: events, color: visitMetricColors.events }
+      { key: "engaged", label: "Engaged", values: engaged, color: visitMetricColors.engaged }
     ].filter(row => row.values.length);
     const maxValue = Math.max(1, ...metricRows.flatMap(row => row.values));
     const fallbackRows = metricRows.map(row => {
@@ -356,7 +355,7 @@
     const chartShell = chartHost?.closest(".analytics-chart");
     chartShell?.classList.remove("is-echart");
     if (chartNote) {
-      chartNote.textContent = "Each purple line is one metric: views, users, sessions, engaged sessions, and events.";
+      chartNote.textContent = "Fresh View plots traffic metrics. Events stay in the totals below because they use a much larger scale.";
     }
   };
 
