@@ -1,0 +1,248 @@
+const crypto = require("node:crypto");
+const fs = require("node:fs/promises");
+
+const outputPath = "src/data/plum.json";
+const propertyId = process.env.GA_PROPERTY_ID;
+const clientEmail = process.env.GA_CLIENT_EMAIL;
+const privateKey = process.env.GA_PRIVATE_KEY?.replace(/\\n/g, "\n");
+const accessToken = process.env.GA_ACCESS_TOKEN;
+
+const sample = {
+  generatedAt: new Date().toISOString(),
+  source: "sample",
+  summary: [
+    { id: "today", label: "Today", value: "1,284", trend: "+18%" },
+    { id: "unique", label: "Unique", value: "742", trend: "+9%" },
+    { id: "referrals", label: "Referrals", value: "391", trend: "31%" },
+    { id: "live", label: "Live", value: "27", trend: "snapshot" }
+  ],
+  visits: {
+    labels: ["Th", "F", "Sa", "Su", "M", "Tu", "W"],
+    total: [6280, 8120, 2140, 1680, 9405, 3410, 420],
+    unique: [4320, 5710, 1610, 1220, 5480, 1960, 210]
+  },
+  referrers: [
+    { source: "instagram.com", hits: 184 },
+    { source: "behance.net", hits: 121 },
+    { source: "google.com", hits: 97 },
+    { source: "linkedin.com", hits: 84 },
+    { source: "vimeo.com", hits: 62 },
+    { source: "direct / bookmark", hits: 58 }
+  ],
+  pages: [
+    { page: "/work/the-colony/", views: 411 },
+    { page: "/work/signal-lattice/", views: 306 },
+    { page: "/photography/", views: 248 },
+    { page: "/work/transit/", views: 219 },
+    { page: "/about/", views: 173 },
+    { page: "/illustration/", views: 149 }
+  ],
+  searches: [
+    { query: "cinematic ui design", hits: 37 },
+    { query: "new orleans art director", hits: 29 },
+    { query: "fui hud artist", hits: 21 },
+    { query: "ron domingue reel", hits: 18 },
+    { query: "unreal interface concepts", hits: 12 }
+  ],
+  live: [
+    { label: "New Orleans", page: "/work/black-noise/", when: "snapshot" },
+    { label: "Brooklyn", page: "/work/grid-state/", when: "snapshot" },
+    { label: "Austin", page: "/photography/", when: "snapshot" },
+    { label: "Los Angeles", page: "/work/data-haven/", when: "snapshot" },
+    { label: "Chicago", page: "/about/", when: "snapshot" },
+    { label: "Seattle", page: "/work/hud-schema-signal/", when: "snapshot" },
+    { label: "Atlanta", page: "/work/missionlaunch/", when: "snapshot" }
+  ],
+  devices: [
+    { label: "Desktop", value: 58 },
+    { label: "Mobile", value: 34 },
+    { label: "Tablet", value: 8 },
+    { label: "Dark mode", value: 71 }
+  ]
+};
+
+const encodeBase64Url = value =>
+  Buffer.from(value).toString("base64").replace(/=/g, "").replace(/\+/g, "-").replace(/\//g, "_");
+
+const formatNumber = value => Number(value || 0).toLocaleString("en-US");
+const numeric = value => Number.parseInt(value || "0", 10) || 0;
+
+const weekdayLabel = yyyymmdd => {
+  const year = yyyymmdd.slice(0, 4);
+  const month = yyyymmdd.slice(4, 6);
+  const day = yyyymmdd.slice(6, 8);
+  return new Intl.DateTimeFormat("en-US", { weekday: "short" })
+    .format(new Date(`${year}-${month}-${day}T00:00:00Z`))
+    .slice(0, 2);
+};
+
+async function writeSnapshot(snapshot) {
+  await fs.mkdir("src/data", { recursive: true });
+  await fs.writeFile(outputPath, `${JSON.stringify(snapshot, null, 2)}\n`);
+  console.log(`Wrote ${outputPath} from ${snapshot.source}.`);
+}
+
+async function getAccessToken() {
+  const now = Math.floor(Date.now() / 1000);
+  const header = encodeBase64Url(JSON.stringify({ alg: "RS256", typ: "JWT" }));
+  const payload = encodeBase64Url(JSON.stringify({
+    iss: clientEmail,
+    scope: "https://www.googleapis.com/auth/analytics.readonly",
+    aud: "https://oauth2.googleapis.com/token",
+    exp: now + 3600,
+    iat: now
+  }));
+  const unsignedToken = `${header}.${payload}`;
+  const signature = crypto.createSign("RSA-SHA256").update(unsignedToken).sign(privateKey, "base64")
+    .replace(/=/g, "").replace(/\+/g, "-").replace(/\//g, "_");
+
+  const response = await fetch("https://oauth2.googleapis.com/token", {
+    method: "POST",
+    headers: { "content-type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
+      assertion: `${unsignedToken}.${signature}`
+    })
+  });
+
+  if (!response.ok) {
+    throw new Error(`OAuth token request failed: ${response.status} ${await response.text()}`);
+  }
+
+  return (await response.json()).access_token;
+}
+
+async function runReport(accessToken, body) {
+  const response = await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runReport`, {
+    method: "POST",
+    headers: {
+      authorization: `Bearer ${accessToken}`,
+      "content-type": "application/json"
+    },
+    body: JSON.stringify(body)
+  });
+
+  if (!response.ok) {
+    throw new Error(`GA runReport failed: ${response.status} ${await response.text()}`);
+  }
+
+  return response.json();
+}
+
+async function runRealtimeReport(accessToken, body) {
+  const response = await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runRealtimeReport`, {
+    method: "POST",
+    headers: {
+      authorization: `Bearer ${accessToken}`,
+      "content-type": "application/json"
+    },
+    body: JSON.stringify(body)
+  });
+
+  if (!response.ok) return null;
+  return response.json();
+}
+
+const rows = report => report.rows || [];
+
+async function buildSnapshot() {
+  if (!propertyId || (!accessToken && (!clientEmail || !privateKey))) {
+    await writeSnapshot(sample);
+    return;
+  }
+
+  const token = accessToken || await getAccessToken();
+  const [summaryReport, visitsReport, referrersReport, pagesReport, devicesReport, realtimeReport] = await Promise.all([
+    runReport(token, {
+      dateRanges: [{ startDate: "today", endDate: "today" }, { startDate: "yesterday", endDate: "yesterday" }],
+      metrics: [{ name: "screenPageViews" }, { name: "activeUsers" }, { name: "sessions" }]
+    }),
+    runReport(token, {
+      dateRanges: [{ startDate: "6daysAgo", endDate: "today" }],
+      dimensions: [{ name: "date" }],
+      metrics: [{ name: "screenPageViews" }, { name: "activeUsers" }],
+      orderBys: [{ dimension: { dimensionName: "date" } }]
+    }),
+    runReport(token, {
+      dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
+      dimensions: [{ name: "sessionSource" }],
+      metrics: [{ name: "sessions" }],
+      limit: 8,
+      orderBys: [{ metric: { metricName: "sessions" }, desc: true }]
+    }),
+    runReport(token, {
+      dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
+      dimensions: [{ name: "pagePath" }],
+      metrics: [{ name: "screenPageViews" }],
+      limit: 8,
+      orderBys: [{ metric: { metricName: "screenPageViews" }, desc: true }]
+    }),
+    runReport(token, {
+      dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
+      dimensions: [{ name: "deviceCategory" }],
+      metrics: [{ name: "sessions" }],
+      limit: 6,
+      orderBys: [{ metric: { metricName: "sessions" }, desc: true }]
+    }),
+    runRealtimeReport(token, {
+      dimensions: [{ name: "city" }, { name: "unifiedScreenName" }],
+      metrics: [{ name: "activeUsers" }],
+      limit: 8,
+      orderBys: [{ metric: { metricName: "activeUsers" }, desc: true }]
+    })
+  ]);
+
+  const today = summaryReport.rows?.[0]?.metricValues || [];
+  const yesterday = summaryReport.rows?.[1]?.metricValues || [];
+  const todayViews = numeric(today[0]?.value);
+  const todayUsers = numeric(today[1]?.value);
+  const todaySessions = numeric(today[2]?.value);
+  const yesterdayViews = numeric(yesterday[0]?.value);
+  const referrerSessions = rows(referrersReport).reduce((sum, row) => sum + numeric(row.metricValues[0]?.value), 0);
+  const deviceSessions = rows(devicesReport).reduce((sum, row) => sum + numeric(row.metricValues[0]?.value), 0) || 1;
+  const realtimeUsers = rows(realtimeReport || {}).reduce((sum, row) => sum + numeric(row.metricValues[0]?.value), 0);
+  const delta = yesterdayViews ? Math.round(((todayViews - yesterdayViews) / yesterdayViews) * 100) : 0;
+
+  const visitsRows = rows(visitsReport);
+  const totalSeries = visitsRows.map(row => numeric(row.metricValues[0]?.value));
+  const uniqueSeries = visitsRows.map(row => numeric(row.metricValues[1]?.value));
+
+  await writeSnapshot({
+    generatedAt: new Date().toISOString(),
+    source: "ga4",
+    summary: [
+      { id: "today", label: "Today", value: formatNumber(todayViews), trend: `${delta >= 0 ? "+" : ""}${delta}%` },
+      { id: "unique", label: "Unique", value: formatNumber(todayUsers), trend: `${formatNumber(todaySessions)} sessions` },
+      { id: "referrals", label: "Referrals", value: formatNumber(referrerSessions), trend: "30d" },
+      { id: "live", label: "Live", value: formatNumber(realtimeUsers), trend: "snapshot" }
+    ],
+    visits: {
+      labels: visitsRows.map(row => weekdayLabel(row.dimensionValues[0]?.value || "")),
+      total: totalSeries,
+      unique: uniqueSeries
+    },
+    referrers: rows(referrersReport).map(row => ({
+      source: row.dimensionValues[0]?.value || "(not set)",
+      hits: numeric(row.metricValues[0]?.value)
+    })),
+    pages: rows(pagesReport).map(row => ({
+      page: row.dimensionValues[0]?.value || "/",
+      views: numeric(row.metricValues[0]?.value)
+    })),
+    searches: sample.searches,
+    live: rows(realtimeReport || {}).map(row => ({
+      label: row.dimensionValues[0]?.value || "(not set)",
+      page: row.dimensionValues[1]?.value || "Active visitor",
+      when: "last 30m"
+    })),
+    devices: rows(devicesReport).map(row => ({
+      label: row.dimensionValues[0]?.value || "(not set)",
+      value: Math.round((numeric(row.metricValues[0]?.value) / deviceSessions) * 100)
+    }))
+  });
+}
+
+buildSnapshot().catch(async error => {
+  console.error(error.message);
+  await writeSnapshot({ ...sample, generatedAt: new Date().toISOString(), source: "sample-error" });
+});

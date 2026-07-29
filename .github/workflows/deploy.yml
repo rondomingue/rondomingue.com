@@ -3,6 +3,8 @@ name: Build and Deploy
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: "17 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -17,6 +19,12 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GA_PROPERTY_ID: ${{ secrets.GA_PROPERTY_ID }}
+      GA_CLIENT_EMAIL: ${{ secrets.GA_CLIENT_EMAIL }}
+      GA_PRIVATE_KEY: ${{ secrets.GA_PRIVATE_KEY }}
+      GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+      GCP_WORKLOAD_IDENTITY_PROVIDER: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
     steps:
       - uses: actions/checkout@v4
 
@@ -30,6 +38,22 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Authenticate to Google Cloud
+        id: google-auth
+        if: ${{ env.GCP_WORKLOAD_IDENTITY_PROVIDER != '' && env.GA_CLIENT_EMAIL != '' }}
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: ${{ env.GCP_PROJECT_ID }}
+          workload_identity_provider: ${{ env.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ env.GA_CLIENT_EMAIL }}
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/analytics.readonly
+
+      - name: Refresh Plum snapshot
+        run: npm run plum:snapshot
+        env:
+          GA_ACCESS_TOKEN: ${{ steps.google-auth.outputs.access_token }}
 
       - name: Build
         run: npm run build

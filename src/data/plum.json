@@ -1,0 +1,188 @@
+{
+  "generatedAt": "2026-07-29T19:20:52.021Z",
+  "source": "sample",
+  "summary": [
+    {
+      "id": "today",
+      "label": "Today",
+      "value": "1,284",
+      "trend": "+18%"
+    },
+    {
+      "id": "unique",
+      "label": "Unique",
+      "value": "742",
+      "trend": "+9%"
+    },
+    {
+      "id": "referrals",
+      "label": "Referrals",
+      "value": "391",
+      "trend": "31%"
+    },
+    {
+      "id": "live",
+      "label": "Live",
+      "value": "27",
+      "trend": "snapshot"
+    }
+  ],
+  "visits": {
+    "labels": [
+      "Th",
+      "F",
+      "Sa",
+      "Su",
+      "M",
+      "Tu",
+      "W"
+    ],
+    "total": [
+      6280,
+      8120,
+      2140,
+      1680,
+      9405,
+      3410,
+      420
+    ],
+    "unique": [
+      4320,
+      5710,
+      1610,
+      1220,
+      5480,
+      1960,
+      210
+    ]
+  },
+  "referrers": [
+    {
+      "source": "instagram.com",
+      "hits": 184
+    },
+    {
+      "source": "behance.net",
+      "hits": 121
+    },
+    {
+      "source": "google.com",
+      "hits": 97
+    },
+    {
+      "source": "linkedin.com",
+      "hits": 84
+    },
+    {
+      "source": "vimeo.com",
+      "hits": 62
+    },
+    {
+      "source": "direct / bookmark",
+      "hits": 58
+    }
+  ],
+  "pages": [
+    {
+      "page": "/work/the-colony/",
+      "views": 411
+    },
+    {
+      "page": "/work/signal-lattice/",
+      "views": 306
+    },
+    {
+      "page": "/photography/",
+      "views": 248
+    },
+    {
+      "page": "/work/transit/",
+      "views": 219
+    },
+    {
+      "page": "/about/",
+      "views": 173
+    },
+    {
+      "page": "/illustration/",
+      "views": 149
+    }
+  ],
+  "searches": [
+    {
+      "query": "cinematic ui design",
+      "hits": 37
+    },
+    {
+      "query": "new orleans art director",
+      "hits": 29
+    },
+    {
+      "query": "fui hud artist",
+      "hits": 21
+    },
+    {
+      "query": "ron domingue reel",
+      "hits": 18
+    },
+    {
+      "query": "unreal interface concepts",
+      "hits": 12
+    }
+  ],
+  "live": [
+    {
+      "label": "New Orleans",
+      "page": "/work/black-noise/",
+      "when": "snapshot"
+    },
+    {
+      "label": "Brooklyn",
+      "page": "/work/grid-state/",
+      "when": "snapshot"
+    },
+    {
+      "label": "Austin",
+      "page": "/photography/",
+      "when": "snapshot"
+    },
+    {
+      "label": "Los Angeles",
+      "page": "/work/data-haven/",
+      "when": "snapshot"
+    },
+    {
+      "label": "Chicago",
+      "page": "/about/",
+      "when": "snapshot"
+    },
+    {
+      "label": "Seattle",
+      "page": "/work/hud-schema-signal/",
+      "when": "snapshot"
+    },
+    {
+      "label": "Atlanta",
+      "page": "/work/missionlaunch/",
+      "when": "snapshot"
+    }
+  ],
+  "devices": [
+    {
+      "label": "Desktop",
+      "value": 58
+    },
+    {
+      "label": "Mobile",
+      "value": 34
+    },
+    {
+      "label": "Tablet",
+      "value": 8
+    },
+    {
+      "label": "Dark mode",
+      "value": 71
+    }
+  ]
+}

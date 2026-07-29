@@ -4,6 +4,7 @@
   "description": "Ron Domingue portfolio — rondomingue.com",
   "scripts": {
     "start": "eleventy --serve",
+    "plum:snapshot": "node tools/plum-snapshot.js",
     "build": "eleventy",
     "photo-manager": "node tools/photo-manager.js"
   },

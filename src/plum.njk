@@ -1,0 +1,185 @@
+---
+layout: base.njk
+title: Plum Analytics
+description: A fuchsia-accented analytics console for rondomingue.com.
+bodyClass: page-analytics
+eleventyExcludeFromCollections: true
+noIndex: true
+---
+
+<section class="analytics-shell" aria-labelledby="analytics-title">
+  <div class="analytics-topbar">
+    <div class="analytics-brand">
+      <img class="analytics-logo" src="{{ '/images/misc/plum-logo.svg' | url }}" alt="Plum">
+      <div>
+        <p class="analytics-kicker">rondomingue.com signal</p>
+        <h1 id="analytics-title">Plum</h1>
+      </div>
+    </div>
+    <nav class="analytics-tabs" aria-label="Analytics sections">
+      <a href="#visits">Visits</a>
+      <a href="#referrers">Referrers</a>
+      <a href="#pages">Pages</a>
+      <a href="#searches">Searches</a>
+      <a href="#devices">Devices</a>
+    </nav>
+  </div>
+
+  <div class="analytics-summary" aria-label="Current traffic summary" data-plum-summary>
+    <article>
+      <span>Today</span>
+      <strong>1,284</strong>
+      <em>+18%</em>
+    </article>
+    <article>
+      <span>Unique</span>
+      <strong>742</strong>
+      <em>+9%</em>
+    </article>
+    <article>
+      <span>Referrals</span>
+      <strong>391</strong>
+      <em>31%</em>
+    </article>
+    <article>
+      <span>Live</span>
+      <strong>27</strong>
+      <em>now</em>
+    </article>
+  </div>
+
+  <div class="analytics-grid">
+    <section class="analytics-panel analytics-panel--wide" id="visits">
+      <header>
+        <h2>Fresh View</h2>
+        <div class="analytics-panel-tabs" aria-label="Visit ranges">
+          <button type="button">Past Day</button>
+          <button class="active" type="button">Past Week</button>
+          <button type="button">Past Month</button>
+          <button type="button">Past Year</button>
+        </div>
+      </header>
+      <div class="analytics-chart" role="img" aria-label="Weekly visits line chart with peaks on Friday and Monday">
+        <div class="analytics-y-axis">
+          <span>9k</span><span>6k</span><span>3k</span><span>0</span>
+        </div>
+        <svg viewBox="0 0 760 260" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="plum-area" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="rgba(200,40,154,0.82)" />
+              <stop offset="1" stop-color="rgba(200,40,154,0.18)" />
+            </linearGradient>
+          </defs>
+          <path class="analytics-area" d="M0 86 L118 48 L236 188 L354 198 L472 24 L590 142 L708 236 L760 244 L760 260 L0 260 Z" />
+          <path class="analytics-line analytics-line--total" d="M0 86 L118 48 L236 188 L354 198 L472 24 L590 142 L708 236 L760 244" />
+          <path class="analytics-line analytics-line--unique" d="M0 132 L118 96 L236 204 L354 214 L472 104 L590 178 L708 242 L760 248" />
+          <g class="analytics-points">
+            <circle cx="0" cy="86" r="5" /><circle cx="118" cy="48" r="5" /><circle cx="236" cy="188" r="5" /><circle cx="354" cy="198" r="5" /><circle cx="472" cy="24" r="5" /><circle cx="590" cy="142" r="5" /><circle cx="708" cy="236" r="5" />
+          </g>
+        </svg>
+        <div class="analytics-x-axis">
+          <span>Th</span><span>F</span><span>Sa</span><span>Su</span><span>M</span><span>Tu</span><span>W</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="analytics-panel" id="referrers">
+      <header>
+        <h2>Referrers</h2>
+        <div class="analytics-panel-tabs">
+          <button class="active" type="button">Newest Unique</button>
+          <button type="button">Repeat</button>
+        </div>
+      </header>
+      <table class="analytics-table" data-plum-table="referrers">
+        <thead><tr><th>Source</th><th>Hits</th></tr></thead>
+        <tbody>
+          <tr><td>instagram.com</td><td>184</td></tr>
+          <tr><td>behance.net</td><td>121</td></tr>
+          <tr><td>google.com</td><td>97</td></tr>
+          <tr><td>linkedin.com</td><td>84</td></tr>
+          <tr><td>vimeo.com</td><td>62</td></tr>
+          <tr><td>direct / bookmark</td><td>58</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="analytics-panel" id="pages">
+      <header>
+        <h2>Pages</h2>
+        <div class="analytics-panel-tabs">
+          <button class="active" type="button">Most Popular</button>
+          <button type="button">Most Recent</button>
+        </div>
+      </header>
+      <table class="analytics-table" data-plum-table="pages">
+        <thead><tr><th>Page</th><th>Views</th></tr></thead>
+        <tbody>
+          <tr><td>/work/the-colony/</td><td>411</td></tr>
+          <tr><td>/work/signal-lattice/</td><td>306</td></tr>
+          <tr><td>/photography/</td><td>248</td></tr>
+          <tr><td>/work/transit/</td><td>219</td></tr>
+          <tr><td>/about/</td><td>173</td></tr>
+          <tr><td>/illustration/</td><td>149</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="analytics-panel analytics-panel--tall">
+      <header>
+        <h2>Live Visitors</h2>
+        <div class="analytics-panel-tabs">
+          <button class="active" type="button">Newest</button>
+          <button type="button">City</button>
+        </div>
+      </header>
+      <ol class="analytics-feed" data-plum-live>
+        <li><strong>New Orleans</strong><span>/work/black-noise/</span><em>2 mins ago</em></li>
+        <li><strong>Brooklyn</strong><span>/work/grid-state/</span><em>5 mins ago</em></li>
+        <li><strong>Austin</strong><span>/photography/</span><em>8 mins ago</em></li>
+        <li><strong>Los Angeles</strong><span>/work/data-haven/</span><em>12 mins ago</em></li>
+        <li><strong>Chicago</strong><span>/about/</span><em>18 mins ago</em></li>
+        <li><strong>Seattle</strong><span>/work/hud-schema-signal/</span><em>24 mins ago</em></li>
+        <li><strong>Atlanta</strong><span>/work/missionlaunch/</span><em>31 mins ago</em></li>
+      </ol>
+    </section>
+
+    <section class="analytics-panel" id="searches">
+      <header>
+        <h2>Searches</h2>
+        <div class="analytics-panel-tabs">
+          <button class="active" type="button">Most Common</button>
+          <button type="button">Recent</button>
+        </div>
+      </header>
+      <table class="analytics-table" data-plum-table="searches">
+        <thead><tr><th>Query</th><th>Hits</th></tr></thead>
+        <tbody>
+          <tr><td>cinematic ui design</td><td>37</td></tr>
+          <tr><td>new orleans art director</td><td>29</td></tr>
+          <tr><td>fui hud artist</td><td>21</td></tr>
+          <tr><td>ron domingue reel</td><td>18</td></tr>
+          <tr><td>unreal interface concepts</td><td>12</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="analytics-panel" id="devices">
+      <header>
+        <h2>Real Estate</h2>
+        <div class="analytics-panel-tabs">
+          <button class="active" type="button">Screen</button>
+          <button type="button">Platform</button>
+        </div>
+      </header>
+      <div class="analytics-bars" data-plum-devices>
+        <div><span>Desktop</span><meter min="0" max="100" value="58">58%</meter><em>58%</em></div>
+        <div><span>Mobile</span><meter min="0" max="100" value="34">34%</meter><em>34%</em></div>
+        <div><span>Tablet</span><meter min="0" max="100" value="8">8%</meter><em>8%</em></div>
+        <div><span>Dark mode</span><meter min="0" max="100" value="71">71%</meter><em>71%</em></div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<script src="{{ '/js/plum-dashboard.js' | url }}?v=1" defer></script>

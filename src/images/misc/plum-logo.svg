@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 87.5 69.69" role="img" aria-labelledby="plum-logo-title">
+  <title id="plum-logo-title">Plum logo</title>
+  <defs>
+    <linearGradient id="plum-leaf" x1="7.06" x2="80.44" y1="9.87" y2="35.11" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d6f28c"/>
+      <stop offset="0.48" stop-color="#73c653"/>
+      <stop offset="1" stop-color="#246f38"/>
+    </linearGradient>
+    <linearGradient id="plum-leaf-shadow" x1="12.48" x2="74.86" y1="3.73" y2="31.68" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a7dc63"/>
+      <stop offset="1" stop-color="#1f5c31"/>
+    </linearGradient>
+    <radialGradient id="plum-fruit" cx="0" cy="0" r="1" gradientTransform="translate(38.3 32.1) rotate(52.3) scale(39.1 36.6)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff77cf"/>
+      <stop offset="0.34" stop-color="#c8289a"/>
+      <stop offset="0.72" stop-color="#72165d"/>
+      <stop offset="1" stop-color="#35122f"/>
+    </radialGradient>
+    <linearGradient id="plum-side" x1="0" x2="87.5" y1="28.71" y2="42.04" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8ddd5d"/>
+      <stop offset="0.48" stop-color="#4e9f44"/>
+      <stop offset="1" stop-color="#1f6f3d"/>
+    </linearGradient>
+    <linearGradient id="plum-stem" x1="35.59" x2="51.91" y1="0" y2="24.6" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9f6a4"/>
+      <stop offset="0.5" stop-color="#82bf54"/>
+      <stop offset="1" stop-color="#47612e"/>
+    </linearGradient>
+  </defs>
+  <g fill="url(#plum-side)">
+    <path d="M11.32,28.71c-5.13.94-9.46,4.69-11.32,6.54,2.12,2.12,7.51,6.79,13.62,6.79.1,0,.21-.02.3-.02,0-.11-.01-.23-.01-.34,0-2.96.68-5.76,1.87-8.28-1.7-1.43-3.18-3.02-4.46-4.69h0Z"/>
+    <path d="M71.72,33.4c1.18,2.52,1.87,5.32,1.87,8.28,0,.12-.01.23-.01.34.1,0,.21.02.3.02,6.11,0,11.5-4.67,13.62-6.79-1.85-1.85-6.19-5.6-11.31-6.54-1.29,1.67-2.77,3.26-4.47,4.69h0Z"/>
+  </g>
+  <g fill="url(#plum-leaf)">
+    <path d="M54.06,22.16c6.66,0,12.55,3.36,16.07,8.46,6.38-5.64,9.28-14.25,10.22-17.66-4-.9-15.38-2.79-24.1,2.43-2.95,1.76-5.55,4.32-7.81,7.59,1.8-.54,3.69-.82,5.61-.82h0Z"/>
+    <path d="M17.37,30.62c3.52-5.11,9.41-8.46,16.07-8.46,1.93,0,3.83.3,5.63.84-2.26-3.29-4.87-5.84-7.82-7.61-8.73-5.23-20.1-3.34-24.1-2.44.95,3.41,3.84,12.02,10.22,17.66h0Z"/>
+  </g>
+  <path fill="url(#plum-stem)" d="M43.75,24.6c2.28-4.16,5.02-7.52,8.16-10.02-1.55-6.75-6.07-12.31-8.16-14.58-2.1,2.27-6.62,7.83-8.16,14.58,3.15,2.5,5.88,5.86,8.16,10.02Z"/>
+  <path fill="url(#plum-fruit)" d="M54.06,25.32c-2.67,0-5.25.64-7.57,1.85,1.94,1.74,3.54,3.88,4.67,6.31.37.79.02,1.73-.77,2.1-.21.1-.44.14-.66.14-.6,0-1.17-.34-1.44-.92-3.23-6.99-11.1-10.98-18.92-8.98s-12.92,9.87-12.19,18.07c.62,6.98,4.08,12.88,8.34,17.6,9.74,10.8,26.43,10.96,36.25.22,4.8-5.25,8.65-11.98,8.65-20.06,0-9.02-7.34-16.35-16.35-16.35h0ZM33.44,33.21c-4.67,0-8.47,3.8-8.47,8.47,0,.88-.71,1.58-1.58,1.58s-1.58-.71-1.58-1.58c0-6.42,5.22-11.64,11.64-11.64.88,0,1.58.71,1.58,1.58,0,.88-.71,1.59-1.59,1.59h0Z"/>
+  <path fill="url(#plum-leaf-shadow)" opacity="0.22" d="M54.06,22.16c6.66,0,12.55,3.36,16.07,8.46,6.38-5.64,9.28-14.25,10.22-17.66-4-.9-15.38-2.79-24.1,2.43-2.95,1.76-5.55,4.32-7.81,7.59,1.8-.54,3.69-.82,5.61-.82h0Z"/>
+</svg>
