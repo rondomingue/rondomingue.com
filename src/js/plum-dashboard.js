@@ -1,4 +1,6 @@
 (() => {
+  let currentSnapshot = null;
+
   const formatNumber = value => Number(value || 0).toLocaleString("en-US");
   const text = value => String(value ?? "").replace(/[&<>"']/g, character => ({
     "&": "&amp;",
@@ -7,6 +9,16 @@
     '"': "&quot;",
     "'": "&#39;"
   })[character]);
+
+  const compareNumeric = key => (a, b) => Number(b[key] || 0) - Number(a[key] || 0);
+  const reverseRows = rows => Array.isArray(rows) ? [...rows].reverse() : [];
+
+  const setActiveTab = button => {
+    const group = button.closest(".analytics-panel-tabs");
+    if (!group) return;
+
+    group.querySelectorAll("button").forEach(item => item.classList.toggle("active", item === button));
+  };
 
   const renderSummary = summary => {
     const host = document.querySelector("[data-plum-summary]");
@@ -44,14 +56,28 @@
     `).join("");
   };
 
-  const renderDevices = rows => {
+  const renderDeviceBars = rows => {
     const host = document.querySelector("[data-plum-devices]");
     if (!host || !Array.isArray(rows)) return;
 
     host.innerHTML = rows.map(row => {
       const value = Math.max(0, Math.min(100, Number(row.value) || 0));
-      return `<div><span>${text(row.label)}</span><meter min="0" max="100" value="${value}">${value}%</meter><em>${value}%</em></div>`;
+      return `<div><span>${text(row.label)}</span><span class="analytics-meter" aria-label="${value}%"><span style="width:${value}%"></span></span><em>${value}%</em></div>`;
     }).join("");
+  };
+
+  const renderCityRollup = rows => {
+    const cityCounts = new Map();
+    (rows || []).forEach(row => {
+      const label = row.label || "(not set)";
+      const current = cityCounts.get(label) || { label, count: 0, page: row.page || "Active visitor" };
+      current.count += Number(row.count || 1);
+      cityCounts.set(label, current);
+    });
+
+    renderLive([...cityCounts.values()]
+      .sort(compareNumeric("count"))
+      .map(row => ({ label: row.label, page: row.page, when: `${row.count} active` })));
   };
 
   const chartPoint = (index, value, maxValue, count) => {
@@ -88,16 +114,65 @@
     }
   };
 
+  const renderPanelView = (tabName, view) => {
+    if (!currentSnapshot) return;
+
+    if (tabName === "visits") {
+      renderVisits(currentSnapshot.visits);
+      return;
+    }
+
+    if (tabName === "referrers") {
+      const rows = view === "repeat"
+        ? [...(currentSnapshot.referrers || [])].sort(compareNumeric("hits"))
+        : currentSnapshot.referrers;
+      renderTable("referrers", rows, ["source", "hits"]);
+      return;
+    }
+
+    if (tabName === "pages") {
+      const rows = view === "recent" ? reverseRows(currentSnapshot.pages) : currentSnapshot.pages;
+      renderTable("pages", rows, ["page", "views"]);
+      return;
+    }
+
+    if (tabName === "live") {
+      if (view === "city") renderCityRollup(currentSnapshot.live);
+      else renderLive(currentSnapshot.live);
+      return;
+    }
+
+    if (tabName === "searches") {
+      const rows = view === "recent" ? reverseRows(currentSnapshot.searches) : currentSnapshot.searches;
+      renderTable("searches", rows, ["query", "hits"]);
+      return;
+    }
+
+    if (tabName === "devices") {
+      if (view === "platform") renderDeviceBars(currentSnapshot.platforms || currentSnapshot.devices);
+      else renderDeviceBars(currentSnapshot.screens || currentSnapshot.devices);
+    }
+  };
+
+  document.addEventListener("click", event => {
+    const button = event.target.closest("[data-plum-tab]");
+    if (!button) return;
+
+    setActiveTab(button);
+    renderPanelView(button.dataset.plumTab, button.dataset.plumView);
+  });
+
   fetch("/data/plum.json", { cache: "no-store" })
     .then(response => response.ok ? response.json() : Promise.reject(new Error("Snapshot unavailable")))
     .then(snapshot => {
+      currentSnapshot = snapshot;
       renderSummary(snapshot.summary);
       renderVisits(snapshot.visits);
       renderTable("referrers", snapshot.referrers, ["source", "hits"]);
       renderTable("pages", snapshot.pages, ["page", "views"]);
       renderTable("searches", snapshot.searches, ["query", "hits"]);
       renderLive(snapshot.live);
-      renderDevices(snapshot.devices);
+      renderDeviceBars(snapshot.screens || snapshot.devices);
     })
     .catch(() => {});
 })();

@@ -53,10 +53,10 @@ noIndex: true
       <header>
         <h2>Fresh View</h2>
         <div class="analytics-panel-tabs" aria-label="Visit ranges">
-          <button type="button">Past Day</button>
-          <button class="active" type="button">Past Week</button>
-          <button type="button">Past Month</button>
-          <button type="button">Past Year</button>
+          <button type="button" data-plum-tab="visits" data-plum-view="day">Past Day</button>
+          <button class="active" type="button" data-plum-tab="visits" data-plum-view="week">Past Week</button>
+          <button type="button" data-plum-tab="visits" data-plum-view="month">Past Month</button>
+          <button type="button" data-plum-tab="visits" data-plum-view="year">Past Year</button>
         </div>
       </header>
       <div class="analytics-chart" role="img" aria-label="Weekly visits line chart with peaks on Friday and Monday">
@@ -87,8 +87,8 @@ noIndex: true
       <header>
         <h2>Referrers</h2>
         <div class="analytics-panel-tabs">
-          <button class="active" type="button">Newest Unique</button>
-          <button type="button">Repeat</button>
+          <button class="active" type="button" data-plum-tab="referrers" data-plum-view="newest">Newest Unique</button>
+          <button type="button" data-plum-tab="referrers" data-plum-view="repeat">Repeat</button>
         </div>
       </header>
       <table class="analytics-table" data-plum-table="referrers">
@@ -108,8 +108,8 @@ noIndex: true
       <header>
         <h2>Pages</h2>
         <div class="analytics-panel-tabs">
-          <button class="active" type="button">Most Popular</button>
-          <button type="button">Most Recent</button>
+          <button class="active" type="button" data-plum-tab="pages" data-plum-view="popular">Most Popular</button>
+          <button type="button" data-plum-tab="pages" data-plum-view="recent">Most Recent</button>
         </div>
       </header>
       <table class="analytics-table" data-plum-table="pages">
@@ -129,8 +129,8 @@ noIndex: true
       <header>
         <h2>Live Visitors</h2>
         <div class="analytics-panel-tabs">
-          <button class="active" type="button">Newest</button>
-          <button type="button">City</button>
+          <button class="active" type="button" data-plum-tab="live" data-plum-view="newest">Newest</button>
+          <button type="button" data-plum-tab="live" data-plum-view="city">City</button>
         </div>
       </header>
       <ol class="analytics-feed" data-plum-live>
@@ -148,8 +148,8 @@ noIndex: true
       <header>
         <h2>Searches</h2>
         <div class="analytics-panel-tabs">
-          <button class="active" type="button">Most Common</button>
-          <button type="button">Recent</button>
+          <button class="active" type="button" data-plum-tab="searches" data-plum-view="common">Most Common</button>
+          <button type="button" data-plum-tab="searches" data-plum-view="recent">Recent</button>
         </div>
       </header>
       <table class="analytics-table" data-plum-table="searches">
@@ -168,18 +168,18 @@ noIndex: true
       <header>
         <h2>Real Estate</h2>
         <div class="analytics-panel-tabs">
-          <button class="active" type="button">Screen</button>
-          <button type="button">Platform</button>
+          <button class="active" type="button" data-plum-tab="devices" data-plum-view="screen">Screen</button>
+          <button type="button" data-plum-tab="devices" data-plum-view="platform">Platform</button>
         </div>
       </header>
       <div class="analytics-bars" data-plum-devices>
-        <div><span>Desktop</span><meter min="0" max="100" value="58">58%</meter><em>58%</em></div>
-        <div><span>Mobile</span><meter min="0" max="100" value="34">34%</meter><em>34%</em></div>
-        <div><span>Tablet</span><meter min="0" max="100" value="8">8%</meter><em>8%</em></div>
-        <div><span>Dark mode</span><meter min="0" max="100" value="71">71%</meter><em>71%</em></div>
+        <div><span>390x844</span><span class="analytics-meter" aria-label="34%"><span style="width:34%"></span></span><em>34%</em></div>
+        <div><span>1440x900</span><span class="analytics-meter" aria-label="22%"><span style="width:22%"></span></span><em>22%</em></div>
+        <div><span>1920x1080</span><span class="analytics-meter" aria-label="18%"><span style="width:18%"></span></span><em>18%</em></div>
+        <div><span>unknown</span><span class="analytics-meter" aria-label="9%"><span style="width:9%"></span></span><em>9%</em></div>
       </div>
     </section>
   </div>
 </section>
 
-<script src="{{ '/js/plum-dashboard.js' | url }}?v=1" defer></script>
+<script src="{{ '/js/plum-dashboard.js' | url }}?v=2" defer></script>

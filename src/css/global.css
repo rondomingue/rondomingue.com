@@ -940,6 +940,11 @@ img { display: block; max-width: 100%; }
 .analytics-bars meter {
   width: 100%;
   height: 10px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(26,29,32,0.1);
 }
 
 .analytics-bars meter::-webkit-meter-bar {
@@ -950,7 +955,37 @@ img { display: block; max-width: 100%; }
 
 .analytics-bars meter::-webkit-meter-optimum-value {
   border-radius: 999px;
-  background: linear-gradient(90deg, #7a2d74, #c8289a);
+  background: linear-gradient(90deg, #7a2d74, #c8289a 62%, #ff77cf);
+}
+
+.analytics-bars meter::-webkit-meter-suboptimum-value,
+.analytics-bars meter::-webkit-meter-even-less-good-value {
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7a2d74, #c8289a 62%, #ff77cf);
+}
+
+.analytics-bars meter::-moz-meter-bar {
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7a2d74, #c8289a 62%, #ff77cf);
+}
+
+.analytics-meter {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(26,29,32,0.14);
+}
+
+.analytics-meter span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #7a2d74, #c8289a 62%, #ff77cf);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.24);
 }
 
 :root[data-theme="light"] .page-analytics {

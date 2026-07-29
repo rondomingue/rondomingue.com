@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T19:20:52.021Z",
+  "generatedAt": "2026-07-29T21:05:56.948Z",
   "source": "sample",
   "summary": [
     {
@@ -183,6 +183,42 @@
     {
       "label": "Dark mode",
       "value": 71
+    }
+  ],
+  "platforms": [
+    {
+      "label": "Macintosh",
+      "value": 63
+    },
+    {
+      "label": "iOS",
+      "value": 21
+    },
+    {
+      "label": "Windows",
+      "value": 12
+    },
+    {
+      "label": "Android",
+      "value": 4
+    }
+  ],
+  "screens": [
+    {
+      "label": "390x844",
+      "value": 34
+    },
+    {
+      "label": "1440x900",
+      "value": 22
+    },
+    {
+      "label": "1920x1080",
+      "value": 18
+    },
+    {
+      "label": "unknown",
+      "value": 9
     }
   ]
 }

@@ -58,6 +58,18 @@ const sample = {
     { label: "Mobile", value: 34 },
     { label: "Tablet", value: 8 },
     { label: "Dark mode", value: 71 }
+  ],
+  platforms: [
+    { label: "Macintosh", value: 63 },
+    { label: "iOS", value: 21 },
+    { label: "Windows", value: 12 },
+    { label: "Android", value: 4 }
+  ],
+  screens: [
+    { label: "390x844", value: 34 },
+    { label: "1440x900", value: 22 },
+    { label: "1920x1080", value: 18 },
+    { label: "unknown", value: 9 }
   ]
 };
 
@@ -152,7 +164,7 @@ async function buildSnapshot() {
   }
 
   const token = accessToken || await getAccessToken();
-  const [summaryReport, visitsReport, referrersReport, pagesReport, devicesReport, realtimeReport] = await Promise.all([
+  const [summaryReport, visitsReport, referrersReport, pagesReport, devicesReport, platformsReport, screensReport, realtimeReport] = await Promise.all([
     runReport(token, {
       dateRanges: [{ startDate: "today", endDate: "today" }, { startDate: "yesterday", endDate: "yesterday" }],
       metrics: [{ name: "screenPageViews" }, { name: "activeUsers" }, { name: "sessions" }]
@@ -184,6 +196,20 @@ async function buildSnapshot() {
       limit: 6,
       orderBys: [{ metric: { metricName: "sessions" }, desc: true }]
     }),
+    runReport(token, {
+      dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
+      dimensions: [{ name: "operatingSystem" }],
+      metrics: [{ name: "sessions" }],
+      limit: 6,
+      orderBys: [{ metric: { metricName: "sessions" }, desc: true }]
+    }),
+    runReport(token, {
+      dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
+      dimensions: [{ name: "screenResolution" }],
+      metrics: [{ name: "sessions" }],
+      limit: 6,
+      orderBys: [{ metric: { metricName: "sessions" }, desc: true }]
+    }),
     runRealtimeReport(token, {
       dimensions: [{ name: "city" }, { name: "unifiedScreenName" }],
       metrics: [{ name: "activeUsers" }],
@@ -200,6 +226,8 @@ async function buildSnapshot() {
   const yesterdayViews = numeric(yesterday[0]?.value);
   const referrerSessions = rows(referrersReport).reduce((sum, row) => sum + numeric(row.metricValues[0]?.value), 0);
   const deviceSessions = rows(devicesReport).reduce((sum, row) => sum + numeric(row.metricValues[0]?.value), 0) || 1;
+  const platformSessions = rows(platformsReport).reduce((sum, row) => sum + numeric(row.metricValues[0]?.value), 0) || 1;
+  const screenSessions = rows(screensReport).reduce((sum, row) => sum + numeric(row.metricValues[0]?.value), 0) || 1;
   const realtimeUsers = rows(realtimeReport || {}).reduce((sum, row) => sum + numeric(row.metricValues[0]?.value), 0);
   const delta = yesterdayViews ? Math.round(((todayViews - yesterdayViews) / yesterdayViews) * 100) : 0;
 
@@ -233,11 +261,20 @@ async function buildSnapshot() {
     live: rows(realtimeReport || {}).map(row => ({
       label: row.dimensionValues[0]?.value || "(not set)",
       page: row.dimensionValues[1]?.value || "Active visitor",
-      when: "last 30m"
+      when: "last 30m",
+      count: numeric(row.metricValues[0]?.value)
     })),
     devices: rows(devicesReport).map(row => ({
       label: row.dimensionValues[0]?.value || "(not set)",
       value: Math.round((numeric(row.metricValues[0]?.value) / deviceSessions) * 100)
+    })),
+    platforms: rows(platformsReport).map(row => ({
+      label: row.dimensionValues[0]?.value || "(not set)",
+      value: Math.round((numeric(row.metricValues[0]?.value) / platformSessions) * 100)
+    })),
+    screens: rows(screensReport).map(row => ({
+      label: row.dimensionValues[0]?.value || "(not set)",
+      value: Math.round((numeric(row.metricValues[0]?.value) / screenSessions) * 100)
     }))
   });
 }
