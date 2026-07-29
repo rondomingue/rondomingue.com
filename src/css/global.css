@@ -659,9 +659,9 @@ img { display: block; max-width: 100%; }
 }
 
 .analytics-logo {
-  width: 46px;
+  width: 58px;
   height: auto;
-  flex: 0 0 46px;
+  flex: 0 0 58px;
   filter:
     drop-shadow(0 0 12px rgba(200,40,154,0.28))
     drop-shadow(0 8px 16px rgba(0,0,0,0.2));
