@@ -3,6 +3,46 @@
 
   const formatNumber = value => Number(value || 0).toLocaleString("en-US");
   const pieColors = ["#c8289a", "#7a2d74", "#ff77cf", "#5a245e", "#2c7d50", "#79c65a"];
+  const rangeLabels = { day: "Past Day", week: "Past Week", month: "Past Month", year: "Past Year" };
+  let countryMap = null;
+  let countryMarkers = [];
+  const countryCoordinates = {
+    AR: [-64, -34],
+    AU: [134, -25],
+    BR: [-52, -10],
+    CA: [-106, 57],
+    CN: [104, 35],
+    DE: [10, 51],
+    ES: [-4, 40],
+    FR: [2, 46],
+    GB: [-3, 55],
+    IN: [78, 22],
+    IT: [12, 43],
+    JP: [138, 37],
+    MX: [-102, 23],
+    NL: [5, 52],
+    SE: [15, 62],
+    US: [-98, 39]
+  };
+  const plumMapStyle = {
+    version: 8,
+    sources: {
+      carto: {
+        type: "raster",
+        tiles: [
+          "https://a.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png",
+          "https://b.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png",
+          "https://c.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png",
+          "https://d.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png"
+        ],
+        tileSize: 256,
+        attribution: "&copy; OpenStreetMap contributors &copy; CARTO"
+      }
+    },
+    layers: [
+      { id: "carto", type: "raster", source: "carto" }
+    ]
+  };
   const text = value => String(value ?? "").replace(/[&<>"']/g, character => ({
     "&": "&amp;",
     "<": "&lt;",
@@ -56,9 +96,15 @@
     body.innerHTML = rows.map(row => `
       <tr>
         <td>${text(row[columns[0]])}</td>
-        <td>${formatNumber(row[columns[1]])}</td>
+        <td>${formatNumber(row[columns[1]])}${columns[1] === "percent" ? "%" : ""}</td>
       </tr>
     `).join("");
+  };
+
+  const flagFromCode = code => {
+    const normalized = String(code || "").trim().toUpperCase();
+    if (!/^[A-Z]{2}$/.test(normalized)) return "•";
+    return [...normalized].map(character => String.fromCodePoint(character.charCodeAt(0) + 127397)).join("");
   };
 
   const renderLive = rows => {
@@ -81,27 +127,96 @@
     }).join("");
   };
 
+  const renderCountries = rows => {
+    const host = document.querySelector("[data-plum-countries]");
+    if (!host || !Array.isArray(rows)) return;
+
+    host.innerHTML = rows.map(row => {
+      const percent = Math.max(0, Math.min(100, Number(row.percent) || 0));
+      const label = `${flagFromCode(row.countryId)} ${row.country || row.label || "(not set)"}`;
+      return `<div><strong>${text(label)}</strong><span class="analytics-meter" aria-label="${percent}%"><span style="width:${percent}%"></span></span><em>${percent}%</em></div>`;
+    }).join("");
+  };
+
+  const renderMap = rows => {
+    const container = document.querySelector("[data-plum-map-canvas]");
+    const empty = document.querySelector("[data-plum-map-empty]");
+    if (!container || !Array.isArray(rows)) return;
+
+    const mappableRows = rows.filter(row => countryCoordinates[String(row.countryId || "").toUpperCase()]);
+    if (empty) empty.hidden = mappableRows.length > 0;
+    if (!mappableRows.length) return;
+
+    if (!window.maplibregl) {
+      container.innerHTML = '<div class="analytics-map-fallback">MapLibre could not load. Country totals are still listed below.</div>';
+      return;
+    }
+
+    if (!countryMap) {
+      countryMap = new window.maplibregl.Map({
+        attributionControl: false,
+        center: [-18, 28],
+        container,
+        dragPan: false,
+        interactive: false,
+        pitchWithRotate: false,
+        scrollZoom: false,
+        style: plumMapStyle,
+        zoom: 1.16
+      });
+      countryMap.addControl(new window.maplibregl.AttributionControl({ compact: true }), "bottom-right");
+    }
+
+    const placeMarkers = () => {
+      countryMarkers.forEach(marker => marker.remove());
+      countryMarkers = mappableRows.map(row => {
+        const percent = Math.max(0, Math.min(100, Number(row.percent) || 0));
+        const size = Math.max(22, Math.min(64, 20 + percent * 0.65));
+        const countryId = String(row.countryId || "").toUpperCase();
+        const markerElement = document.createElement("div");
+        markerElement.className = "analytics-map-marker";
+        markerElement.style.width = `${size}px`;
+        markerElement.style.height = `${size}px`;
+        markerElement.title = `${row.country || countryId}: ${formatNumber(row.sessions)} sessions, ${percent}%`;
+        markerElement.innerHTML = `<span>${flagFromCode(countryId)}</span><strong>${percent}%</strong>`;
+
+        return new window.maplibregl.Marker({ anchor: "center", element: markerElement })
+          .setLngLat(countryCoordinates[countryId])
+          .addTo(countryMap);
+      });
+    };
+
+    if (countryMap.loaded()) placeMarkers();
+    else countryMap.once("load", placeMarkers);
+  };
+
   const renderPlatformPie = rows => {
     const host = document.querySelector("[data-plum-devices]");
     if (!host || !Array.isArray(rows)) return;
 
-    let cursor = 0;
     const total = rows.reduce((sum, row) => sum + Math.max(0, Number(row.value) || 0), 0) || 1;
+    const radius = 42;
+    const circumference = 2 * Math.PI * radius;
+    let offset = 0;
     const slices = rows.map((row, index) => {
       const value = Math.max(0, Number(row.value) || 0);
-      const start = cursor;
-      const end = cursor + (value / total) * 100;
-      cursor = end;
-      return `${pieColors[index % pieColors.length]} ${start}% ${end}%`;
-    }).join(", ");
+      const length = (value / total) * circumference;
+      const slice = `<circle class="analytics-pie-slice" cx="50" cy="50" r="${radius}" fill="none" stroke="${pieColors[index % pieColors.length]}" stroke-width="18" stroke-dasharray="${length} ${circumference - length}" stroke-dashoffset="${-offset}" />`;
+      offset += length;
+      return slice;
+    }).join("");
 
     host.className = "analytics-pie-wrap";
     host.innerHTML = `
-      <div class="analytics-pie" style="background: conic-gradient(${slices})" role="img" aria-label="Platform percentage pie chart"></div>
+      <svg class="analytics-pie" viewBox="0 0 100 100" role="img" aria-label="Platform percentage pie chart">
+        <circle cx="50" cy="50" r="${radius}" fill="none" stroke="rgba(26,29,32,0.1)" stroke-width="18" />
+        <g transform="rotate(-90 50 50)">${slices}</g>
+        <circle cx="50" cy="50" r="25" fill="#f8f8f8" />
+      </svg>
       <ol class="analytics-pie-legend">
         ${rows.map((row, index) => {
           const value = Math.max(0, Number(row.value) || 0);
-          return `<li><span style="background:${pieColors[index % pieColors.length]}"></span><strong>${text(row.label)}</strong><em>${value}%</em></li>`;
+          return `<li><span class="analytics-pie-swatch" style="background:${pieColors[index % pieColors.length]}"></span><strong>${text(row.label)}</strong><em>${value}%</em></li>`;
         }).join("")}
       </ol>
     `;
@@ -127,7 +242,7 @@
     return [Number(x.toFixed(2)), Number(Math.max(16, Math.min(244, y)).toFixed(2))];
   };
 
-  const renderVisits = visits => {
+  const renderVisits = (visits, rangeName = "week") => {
     if (!visits?.total?.length) return;
     const total = visits.total.map(Number);
     const unique = (visits.unique || []).map(Number);
@@ -150,8 +265,26 @@
 
     const axis = document.querySelector(".analytics-x-axis");
     if (axis && labels.length) {
-      axis.innerHTML = labels.map(label => `<span>${text(label)}</span>`).join("");
+      const step = labels.length > 12 ? Math.ceil(labels.length / 8) : 1;
+      axis.innerHTML = labels.map((label, index) => {
+        const visible = index === 0 || index === labels.length - 1 || index % step === 0;
+        return `<span>${visible ? text(label) : ""}</span>`;
+      }).join("");
       axis.style.gridTemplateColumns = `repeat(${labels.length}, 1fr)`;
+    }
+
+    const yAxis = document.querySelector("[data-plum-y-axis]");
+    if (yAxis) {
+      yAxis.innerHTML = [maxValue, Math.round(maxValue * 0.66), Math.round(maxValue * 0.33), 0]
+        .map(value => `<span>${formatNumber(value)}</span>`)
+        .join("");
+    }
+
+    const stats = document.querySelector("[data-plum-visit-stats]");
+    if (stats) {
+      const totalCount = total.reduce((sum, value) => sum + value, 0);
+      const uniqueCount = unique.reduce((sum, value) => sum + value, 0);
+      stats.innerHTML = `<span>${text(rangeLabels[rangeName] || rangeName)}</span><strong>${formatNumber(totalCount)} views</strong><em>${formatNumber(uniqueCount)} unique</em>`;
     }
   };
 
@@ -159,7 +292,7 @@
     if (!currentSnapshot) return;
 
     if (tabName === "visits") {
-      renderVisits(currentSnapshot.visits);
+      renderVisits(currentSnapshot.visitRanges?.[view] || currentSnapshot.visits, view);
       return;
     }
 
@@ -208,12 +341,15 @@
       currentSnapshot = snapshot;
       renderGenerated(snapshot.generatedAt);
       renderSummary(snapshot.summary);
-      renderVisits(snapshot.visits);
+      renderVisits(snapshot.visitRanges?.week || snapshot.visits, "week");
       renderTable("referrers", snapshot.referrers, ["source", "hits"]);
       renderTable("pages", snapshot.pages, ["page", "views"]);
       renderTable("crushes", snapshot.crushes, ["page", "views"]);
       renderTable("entryPages", snapshot.entryPages, ["page", "sessions"]);
       renderTable("browsers", snapshot.browsers, ["name", "percent"]);
+      renderCountries(snapshot.countries);
+      renderMap(snapshot.countries);
+      renderTable("providers", snapshot.providers, ["provider", "sessions"]);
       renderTable("searches", snapshot.searches, ["query", "hits"]);
       renderLive(snapshot.live);
       renderDeviceBars(snapshot.screens || snapshot.devices);

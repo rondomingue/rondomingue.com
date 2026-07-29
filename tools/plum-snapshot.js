@@ -21,6 +21,28 @@ const sample = {
     total: [6280, 8120, 2140, 1680, 9405, 3410, 420],
     unique: [4320, 5710, 1610, 1220, 5480, 1960, 210]
   },
+  visitRanges: {
+    day: {
+      labels: ["00", "04", "08", "12", "16", "20"],
+      total: [8, 12, 19, 34, 42, 28],
+      unique: [5, 8, 13, 24, 30, 19]
+    },
+    week: {
+      labels: ["Th", "F", "Sa", "Su", "M", "Tu", "W"],
+      total: [6280, 8120, 2140, 1680, 9405, 3410, 420],
+      unique: [4320, 5710, 1610, 1220, 5480, 1960, 210]
+    },
+    month: {
+      labels: ["W1", "W2", "W3", "W4", "Now"],
+      total: [1080, 1410, 1760, 1320, 980],
+      unique: [690, 900, 1110, 840, 620]
+    },
+    year: {
+      labels: ["Aug", "Oct", "Dec", "Feb", "Apr", "Jun"],
+      total: [1100, 1840, 1280, 2190, 2540, 3030],
+      unique: [690, 1130, 780, 1410, 1600, 1880]
+    }
+  },
   referrers: [
     { source: "instagram.com", hits: 184 },
     { source: "behance.net", hits: 121 },
@@ -64,6 +86,20 @@ const sample = {
     { name: "Firefox", percent: 8 },
     { name: "Edge", percent: 5 },
     { name: "Samsung Internet", percent: 3 }
+  ],
+  countries: [
+    { country: "United States", countryId: "US", sessions: 330, percent: 68 },
+    { country: "Canada", countryId: "CA", sessions: 58, percent: 12 },
+    { country: "United Kingdom", countryId: "GB", sessions: 44, percent: 9 },
+    { country: "Germany", countryId: "DE", sessions: 29, percent: 6 },
+    { country: "France", countryId: "FR", sessions: 24, percent: 5 }
+  ],
+  providers: [
+    { provider: "Direct", sessions: 220 },
+    { provider: "Organic Search", sessions: 144 },
+    { provider: "Referral", sessions: 88 },
+    { provider: "Organic Social", sessions: 42 },
+    { provider: "Unassigned", sessions: 18 }
   ],
   searches: [
     { query: "cinematic ui design", hits: 37 },
@@ -114,6 +150,31 @@ const weekdayLabel = yyyymmdd => {
   return new Intl.DateTimeFormat("en-US", { weekday: "short" })
     .format(new Date(`${year}-${month}-${day}T00:00:00Z`))
     .slice(0, 2);
+};
+
+const dateLabel = yyyymmdd => {
+  if (!yyyymmdd || yyyymmdd.length < 8) return "";
+  return `${Number(yyyymmdd.slice(4, 6))}/${Number(yyyymmdd.slice(6, 8))}`;
+};
+
+const hourLabel = yyyymmddhh => {
+  if (!yyyymmddhh || yyyymmddhh.length < 10) return "";
+  return yyyymmddhh.slice(8, 10);
+};
+
+const monthLabel = yyyymm => {
+  if (!yyyymm || yyyymm.length < 6) return "";
+  const date = new Date(`${yyyymm.slice(0, 4)}-${yyyymm.slice(4, 6)}-01T00:00:00Z`);
+  return new Intl.DateTimeFormat("en-US", { month: "short" }).format(date);
+};
+
+const buildVisitRange = (report, labelFormatter) => {
+  const reportRows = rows(report);
+  return {
+    labels: reportRows.map(row => labelFormatter(row.dimensionValues[0]?.value || "")),
+    total: reportRows.map(row => numeric(row.metricValues[0]?.value)),
+    unique: reportRows.map(row => numeric(row.metricValues[1]?.value))
+  };
 };
 
 async function writeSnapshot(snapshot) {
@@ -192,16 +253,34 @@ async function buildSnapshot() {
   }
 
   const token = accessToken || await getAccessToken();
-  const [summaryReport, visitsReport, referrersReport, referrerRepeatsReport, pagesReport, crushesReport, entryPagesReport, browsersReport, devicesReport, platformsReport, screensReport, realtimeReport] = await Promise.all([
+  const [summaryReport, dayVisitsReport, visitsReport, monthVisitsReport, yearVisitsReport, referrersReport, referrerRepeatsReport, pagesReport, crushesReport, entryPagesReport, browsersReport, countriesReport, providersReport, devicesReport, platformsReport, screensReport, realtimeReport] = await Promise.all([
     runReport(token, {
       dateRanges: [{ startDate: "today", endDate: "today" }, { startDate: "yesterday", endDate: "yesterday" }],
       metrics: [{ name: "screenPageViews" }, { name: "activeUsers" }, { name: "sessions" }]
+    }),
+    runReport(token, {
+      dateRanges: [{ startDate: "today", endDate: "today" }],
+      dimensions: [{ name: "dateHour" }],
+      metrics: [{ name: "screenPageViews" }, { name: "activeUsers" }],
+      orderBys: [{ dimension: { dimensionName: "dateHour" } }]
     }),
     runReport(token, {
       dateRanges: [{ startDate: "6daysAgo", endDate: "today" }],
       dimensions: [{ name: "date" }],
       metrics: [{ name: "screenPageViews" }, { name: "activeUsers" }],
       orderBys: [{ dimension: { dimensionName: "date" } }]
+    }),
+    runReport(token, {
+      dateRanges: [{ startDate: "29daysAgo", endDate: "today" }],
+      dimensions: [{ name: "date" }],
+      metrics: [{ name: "screenPageViews" }, { name: "activeUsers" }],
+      orderBys: [{ dimension: { dimensionName: "date" } }]
+    }),
+    runReport(token, {
+      dateRanges: [{ startDate: "365daysAgo", endDate: "today" }],
+      dimensions: [{ name: "yearMonth" }],
+      metrics: [{ name: "screenPageViews" }, { name: "activeUsers" }],
+      orderBys: [{ dimension: { dimensionName: "yearMonth" } }]
     }),
     runReport(token, {
       dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
@@ -247,6 +326,20 @@ async function buildSnapshot() {
     }),
     runReport(token, {
       dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
+      dimensions: [{ name: "country" }, { name: "countryId" }],
+      metrics: [{ name: "sessions" }],
+      limit: 6,
+      orderBys: [{ metric: { metricName: "sessions" }, desc: true }]
+    }),
+    runReport(token, {
+      dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
+      dimensions: [{ name: "sessionDefaultChannelGroup" }],
+      metrics: [{ name: "sessions" }],
+      limit: 6,
+      orderBys: [{ metric: { metricName: "sessions" }, desc: true }]
+    }),
+    runReport(token, {
+      dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
       dimensions: [{ name: "deviceCategory" }],
       metrics: [{ name: "sessions" }],
       limit: 6,
@@ -283,6 +376,7 @@ async function buildSnapshot() {
   const referrerSessions = rows(referrersReport).reduce((sum, row) => sum + numeric(row.metricValues[0]?.value), 0);
   const deviceSessions = rows(devicesReport).reduce((sum, row) => sum + numeric(row.metricValues[0]?.value), 0) || 1;
   const browserSessions = rows(browsersReport).reduce((sum, row) => sum + numeric(row.metricValues[0]?.value), 0) || 1;
+  const countrySessions = rows(countriesReport).reduce((sum, row) => sum + numeric(row.metricValues[0]?.value), 0) || 1;
   const platformSessions = rows(platformsReport).reduce((sum, row) => sum + numeric(row.metricValues[0]?.value), 0) || 1;
   const screenSessions = rows(screensReport).reduce((sum, row) => sum + numeric(row.metricValues[0]?.value), 0) || 1;
   const realtimeUsers = rows(realtimeReport || {}).reduce((sum, row) => sum + numeric(row.metricValues[0]?.value), 0);
@@ -305,6 +399,12 @@ async function buildSnapshot() {
       labels: visitsRows.map(row => weekdayLabel(row.dimensionValues[0]?.value || "")),
       total: totalSeries,
       unique: uniqueSeries
+    },
+    visitRanges: {
+      day: buildVisitRange(dayVisitsReport, hourLabel),
+      week: buildVisitRange(visitsReport, weekdayLabel),
+      month: buildVisitRange(monthVisitsReport, dateLabel),
+      year: buildVisitRange(yearVisitsReport, monthLabel)
     },
     referrers: rows(referrersReport).map(row => ({
       source: row.dimensionValues[0]?.value || "(not set)",
@@ -329,6 +429,16 @@ async function buildSnapshot() {
     browsers: rows(browsersReport).map(row => ({
       name: row.dimensionValues[0]?.value || "(not set)",
       percent: Math.round((numeric(row.metricValues[0]?.value) / browserSessions) * 100)
+    })),
+    countries: rows(countriesReport).map(row => ({
+      country: row.dimensionValues[0]?.value || "(not set)",
+      countryId: row.dimensionValues[1]?.value || "",
+      sessions: numeric(row.metricValues[0]?.value),
+      percent: Math.round((numeric(row.metricValues[0]?.value) / countrySessions) * 100)
+    })),
+    providers: rows(providersReport).map(row => ({
+      provider: row.dimensionValues[0]?.value || "(not set)",
+      sessions: numeric(row.metricValues[0]?.value)
     })),
     searches: sample.searches,
     live: rows(realtimeReport || {}).map(row => ({

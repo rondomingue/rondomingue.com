@@ -54,7 +54,7 @@ noIndex: true
         </div>
       </header>
       <div class="analytics-chart" role="img" aria-label="Weekly visits line chart with peaks on Friday and Monday">
-        <div class="analytics-y-axis">
+        <div class="analytics-y-axis" data-plum-y-axis>
           <span>9k</span><span>6k</span><span>3k</span><span>0</span>
         </div>
         <svg viewBox="0 0 760 260" preserveAspectRatio="none" aria-hidden="true">
@@ -73,6 +73,9 @@ noIndex: true
         </svg>
         <div class="analytics-x-axis">
           <span>Th</span><span>F</span><span>Sa</span><span>Su</span><span>M</span><span>Tu</span><span>W</span>
+        </div>
+        <div class="analytics-chart-stats" data-plum-visit-stats>
+          <span>Past Week</span><strong>33,255</strong><em>19,510 unique</em>
         </div>
       </div>
     </section>
@@ -213,6 +216,51 @@ noIndex: true
       </table>
     </section>
 
+    <section class="analytics-panel analytics-panel--wide" id="atlas">
+      <header>
+        <h2>Atlas</h2>
+        <div class="analytics-panel-tabs">
+          <button class="active" type="button">Countries</button>
+        </div>
+      </header>
+      <div class="analytics-map" data-plum-map>
+        <div class="analytics-map-canvas" data-plum-map-canvas role="img" aria-label="Visitor countries map"></div>
+        <div class="analytics-map-empty" data-plum-map-empty hidden>Country data will appear after the next snapshot.</div>
+      </div>
+    </section>
+
+    <section class="analytics-panel" id="countries">
+      <header>
+        <h2>Countries</h2>
+        <div class="analytics-panel-tabs">
+          <button class="active" type="button">30 Days</button>
+        </div>
+      </header>
+      <div class="analytics-country-list" data-plum-countries>
+        <div><strong>🇺🇸 United States</strong><span class="analytics-meter" aria-label="68%"><span style="width:68%"></span></span><em>68%</em></div>
+        <div><strong>🇨🇦 Canada</strong><span class="analytics-meter" aria-label="12%"><span style="width:12%"></span></span><em>12%</em></div>
+        <div><strong>🇬🇧 United Kingdom</strong><span class="analytics-meter" aria-label="9%"><span style="width:9%"></span></span><em>9%</em></div>
+      </div>
+    </section>
+
+    <section class="analytics-panel" id="providers">
+      <header>
+        <h2>Providers</h2>
+        <div class="analytics-panel-tabs">
+          <button class="active" type="button">Channels</button>
+        </div>
+      </header>
+      <table class="analytics-table" data-plum-table="providers">
+        <thead><tr><th>Channel</th><th>Sessions</th></tr></thead>
+        <tbody>
+          <tr><td>Direct</td><td>220</td></tr>
+          <tr><td>Organic Search</td><td>144</td></tr>
+          <tr><td>Referral</td><td>88</td></tr>
+          <tr><td>Organic Social</td><td>42</td></tr>
+        </tbody>
+      </table>
+    </section>
+
     <section class="analytics-panel" id="devices">
       <header>
         <h2>Real Estate</h2>
@@ -231,4 +279,5 @@ noIndex: true
   </div>
 </section>
 
-<script src="{{ '/js/plum-dashboard.js' | url }}?v=4" defer></script>
+<script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js" defer></script>
+<script src="{{ '/js/plum-dashboard.js' | url }}?v=8" defer></script>

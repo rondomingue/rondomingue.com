@@ -21,7 +21,10 @@
   <meta name="description" content="{{ description or site.description }}">
   {% if noIndex %}<meta name="robots" content="noindex, nofollow">{% endif %}
   <link rel="icon" type="image/png" href="{{ '/images/favicon.png' | url }}">
-  <link rel="stylesheet" href="{{ '/css/global.css' | url }}?v=21">
+  <link rel="stylesheet" href="{{ '/css/global.css' | url }}?v=24">
+  {% if bodyClass == "page-analytics" %}
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css">
+  {% endif %}
   <link rel="stylesheet" href="https://use.typekit.net/xhf1nbc.css">
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
   <!-- Google Analytics -->

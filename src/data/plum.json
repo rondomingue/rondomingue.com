@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T21:18:51.194Z",
+  "generatedAt": "2026-07-29T21:24:16.895Z",
   "source": "sample",
   "summary": [
     {
@@ -55,6 +55,112 @@
       1960,
       210
     ]
+  },
+  "visitRanges": {
+    "day": {
+      "labels": [
+        "00",
+        "04",
+        "08",
+        "12",
+        "16",
+        "20"
+      ],
+      "total": [
+        8,
+        12,
+        19,
+        34,
+        42,
+        28
+      ],
+      "unique": [
+        5,
+        8,
+        13,
+        24,
+        30,
+        19
+      ]
+    },
+    "week": {
+      "labels": [
+        "Th",
+        "F",
+        "Sa",
+        "Su",
+        "M",
+        "Tu",
+        "W"
+      ],
+      "total": [
+        6280,
+        8120,
+        2140,
+        1680,
+        9405,
+        3410,
+        420
+      ],
+      "unique": [
+        4320,
+        5710,
+        1610,
+        1220,
+        5480,
+        1960,
+        210
+      ]
+    },
+    "month": {
+      "labels": [
+        "W1",
+        "W2",
+        "W3",
+        "W4",
+        "Now"
+      ],
+      "total": [
+        1080,
+        1410,
+        1760,
+        1320,
+        980
+      ],
+      "unique": [
+        690,
+        900,
+        1110,
+        840,
+        620
+      ]
+    },
+    "year": {
+      "labels": [
+        "Aug",
+        "Oct",
+        "Dec",
+        "Feb",
+        "Apr",
+        "Jun"
+      ],
+      "total": [
+        1100,
+        1840,
+        1280,
+        2190,
+        2540,
+        3030
+      ],
+      "unique": [
+        690,
+        1130,
+        780,
+        1410,
+        1600,
+        1880
+      ]
+    }
   },
   "referrers": [
     {
@@ -194,6 +300,60 @@
     {
       "name": "Samsung Internet",
       "percent": 3
+    }
+  ],
+  "countries": [
+    {
+      "country": "United States",
+      "countryId": "US",
+      "sessions": 330,
+      "percent": 68
+    },
+    {
+      "country": "Canada",
+      "countryId": "CA",
+      "sessions": 58,
+      "percent": 12
+    },
+    {
+      "country": "United Kingdom",
+      "countryId": "GB",
+      "sessions": 44,
+      "percent": 9
+    },
+    {
+      "country": "Germany",
+      "countryId": "DE",
+      "sessions": 29,
+      "percent": 6
+    },
+    {
+      "country": "France",
+      "countryId": "FR",
+      "sessions": 24,
+      "percent": 5
+    }
+  ],
+  "providers": [
+    {
+      "provider": "Direct",
+      "sessions": 220
+    },
+    {
+      "provider": "Organic Search",
+      "sessions": 144
+    },
+    {
+      "provider": "Referral",
+      "sessions": 88
+    },
+    {
+      "provider": "Organic Social",
+      "sessions": 42
+    },
+    {
+      "provider": "Unassigned",
+      "sessions": 18
     }
   ],
   "searches": [
