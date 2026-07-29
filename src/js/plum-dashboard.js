@@ -38,10 +38,10 @@
       carto: {
         type: "raster",
         tiles: [
-          "https://a.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png",
-          "https://b.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png",
-          "https://c.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png",
-          "https://d.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png"
+          "https://a.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png",
+          "https://b.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png",
+          "https://c.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png",
+          "https://d.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
         ],
         tileSize: 256,
         attribution: "&copy; OpenStreetMap contributors &copy; CARTO"
@@ -213,7 +213,7 @@
         markerElement.style.width = `${size}px`;
         markerElement.style.height = `${size}px`;
         markerElement.title = `${row.country || countryId}: ${formatNumber(row.sessions)} sessions, ${percent}%`;
-        markerElement.innerHTML = `<span>${flagFromCode(countryId)}</span><strong>${percent}%</strong>`;
+        markerElement.innerHTML = `<span>${flagFromCode(countryId)}</span><strong>${percent}%</strong><i></i>`;
 
         return new window.maplibregl.Marker({ anchor: "center", element: markerElement })
           .setLngLat(countryCoordinates[countryId])
