@@ -360,94 +360,105 @@
 
     const chartHost = document.querySelector("[data-plum-visits-chart]");
     const chartNote = document.querySelector("[data-plum-chart-note]");
-    const hasEcharts = Boolean(window.echarts);
-    chartHost?.closest(".analytics-chart")?.classList.toggle("is-echart", hasEcharts);
+    const chartShell = chartHost?.closest(".analytics-chart");
+    chartShell?.classList.remove("is-echart");
     if (chartNote) {
-      chartNote.textContent = hasEcharts
-        ? "Each purple line is one period. Toggle the legend chips to compare or isolate."
-        : "Fresh View fallback keeps the full set: views, users, sessions, engaged sessions, and events.";
+      chartNote.textContent = "Each purple line is one metric: views, users, sessions, engaged sessions, and events.";
     }
     if (chartHost && window.echarts) {
-      if (!visitsChart) {
-        visitsChart = window.echarts.init(chartHost, null, { renderer: "svg" });
-        window.addEventListener("resize", () => visitsChart?.resize());
-      }
-      const chartRows = labels.map((label, index) => ({
-        name: label,
-        color: visitColors[index % visitColors.length],
-        values: [
-          label,
-          total[index] || 0,
-          unique[index] || 0,
-          sessions[index] || 0,
-          engaged[index] || 0,
-          events[index] || 0
-        ]
-      }));
-      visitsChart.setOption({
-        color: chartRows.map(row => row.color),
-        legend: {
-          top: 4,
-          left: "center",
-          type: "scroll",
-          icon: "roundRect",
-          itemWidth: 12,
-          itemHeight: 8,
-          textStyle: {
-            color: "rgba(238,238,240,0.78)",
-            fontFamily: "Space Mono",
-            fontSize: 10
-          }
-        },
-        tooltip: {
-          trigger: "item",
-          formatter: params => {
-            const row = params.value || [];
-            return `${text(row[0])}<br>Views: ${formatNumber(row[1])}<br>Users: ${formatNumber(row[2])}<br>Sessions: ${formatNumber(row[3])}<br>Engaged: ${formatNumber(row[4])}<br>Events: ${formatNumber(row[5])}`;
-          }
-        },
-        parallelAxis: [
-          { dim: 0, name: rangeName === "day" ? "Hour" : "Period", type: "category", data: labels, axisLabel: { color: "rgba(238,238,240,0.54)" } },
-          { dim: 1, name: "Views", max: Math.max(1, ...total), axisLabel: { formatter: compactNumber } },
-          { dim: 2, name: "Users", max: Math.max(1, ...unique), axisLabel: { formatter: compactNumber } },
-          { dim: 3, name: "Sessions", max: Math.max(1, ...sessions), axisLabel: { formatter: compactNumber } },
-          { dim: 4, name: "Engaged", max: Math.max(1, ...engaged), axisLabel: { formatter: compactNumber } },
-          { dim: 5, name: "Events", max: Math.max(1, ...events), axisLabel: { formatter: compactNumber } }
-        ],
-        parallel: {
-          top: 70,
-          right: 64,
-          bottom: 34,
-          left: 58,
-          parallelAxisDefault: {
-            nameGap: 12,
-            nameTextStyle: { color: "rgba(238,238,240,0.82)", fontFamily: "Space Mono", fontSize: 10 },
-            axisLine: { lineStyle: { color: "rgba(238,238,240,0.22)" } },
-            axisTick: { lineStyle: { color: "rgba(238,238,240,0.2)" } },
-            splitLine: { lineStyle: { color: "rgba(238,238,240,0.08)" } },
-            axisLabel: { color: "rgba(238,238,240,0.56)", fontFamily: "Space Mono", fontSize: 9 }
-          }
-        },
-        series: chartRows.map(row => ({
-          name: row.name,
-          type: "parallel",
-          smooth: true,
-          lineStyle: {
-            width: 3,
-            color: row.color,
-            opacity: 0.46
-          },
-          emphasis: {
-            focus: "series",
-            lineStyle: {
-              width: 5,
-              opacity: 0.95
+      try {
+        if (!visitsChart) {
+          visitsChart = window.echarts.init(chartHost, null, { renderer: "svg" });
+          window.addEventListener("resize", () => visitsChart?.resize());
+        }
+        const chartRows = labels.map((label, index) => ({
+          name: label,
+          color: visitColors[index % visitColors.length],
+          values: [
+            label,
+            total[index] || 0,
+            unique[index] || 0,
+            sessions[index] || 0,
+            engaged[index] || 0,
+            events[index] || 0
+          ]
+        }));
+        visitsChart.setOption({
+          color: chartRows.map(row => row.color),
+          legend: {
+            top: 4,
+            left: "center",
+            type: "scroll",
+            icon: "roundRect",
+            itemWidth: 12,
+            itemHeight: 8,
+            textStyle: {
+              color: "rgba(238,238,240,0.78)",
+              fontFamily: "Space Mono",
+              fontSize: 10
             }
           },
-          data: [row.values]
-        }))
-      });
-      visitsChart.resize();
+          tooltip: {
+            trigger: "item",
+            formatter: params => {
+              const row = params.value || [];
+              return `${text(row[0])}<br>Views: ${formatNumber(row[1])}<br>Users: ${formatNumber(row[2])}<br>Sessions: ${formatNumber(row[3])}<br>Engaged: ${formatNumber(row[4])}<br>Events: ${formatNumber(row[5])}`;
+            }
+          },
+          parallelAxis: [
+            { dim: 0, name: rangeName === "day" ? "Hour" : "Period", type: "category", data: labels, axisLabel: { color: "rgba(238,238,240,0.54)" } },
+            { dim: 1, name: "Views", max: Math.max(1, ...total), axisLabel: { formatter: compactNumber } },
+            { dim: 2, name: "Users", max: Math.max(1, ...unique), axisLabel: { formatter: compactNumber } },
+            { dim: 3, name: "Sessions", max: Math.max(1, ...sessions), axisLabel: { formatter: compactNumber } },
+            { dim: 4, name: "Engaged", max: Math.max(1, ...engaged), axisLabel: { formatter: compactNumber } },
+            { dim: 5, name: "Events", max: Math.max(1, ...events), axisLabel: { formatter: compactNumber } }
+          ],
+          parallel: {
+            top: 70,
+            right: 64,
+            bottom: 34,
+            left: 58,
+            parallelAxisDefault: {
+              nameGap: 12,
+              nameTextStyle: { color: "rgba(238,238,240,0.82)", fontFamily: "Space Mono", fontSize: 10 },
+              axisLine: { lineStyle: { color: "rgba(238,238,240,0.22)" } },
+              axisTick: { lineStyle: { color: "rgba(238,238,240,0.2)" } },
+              splitLine: { lineStyle: { color: "rgba(238,238,240,0.08)" } },
+              axisLabel: { color: "rgba(238,238,240,0.56)", fontFamily: "Space Mono", fontSize: 9 }
+            }
+          },
+          series: chartRows.map(row => ({
+            name: row.name,
+            type: "parallel",
+            smooth: true,
+            lineStyle: {
+              width: 3,
+              color: row.color,
+              opacity: 0.46
+            },
+            emphasis: {
+              focus: "series",
+              lineStyle: {
+                width: 5,
+                opacity: 0.95
+              }
+            },
+            data: [row.values]
+          }))
+        });
+        visitsChart.resize();
+        chartShell?.classList.add("is-echart");
+        if (chartNote) {
+          chartNote.textContent = "Each purple line is one period. Toggle the legend chips to compare or isolate.";
+        }
+      } catch (error) {
+        console.warn("Plum Fresh View chart fallback active.", error);
+        visitsChart = null;
+        chartShell?.classList.remove("is-echart");
+        if (chartNote) {
+          chartNote.textContent = "Each purple line is one metric: views, users, sessions, engaged sessions, and events.";
+        }
+      }
     }
   };
 
