@@ -3,10 +3,13 @@
 
   const formatNumber = value => Number(value || 0).toLocaleString("en-US");
   const pieColors = ["#c8289a", "#7a2d74", "#ff77cf", "#5a245e", "#2c7d50", "#79c65a"];
+  const visitColors = ["#4b164f", "#7a2d74", "#a2268d", "#c8289a", "#df53b7", "#f08ed2", "#5a245e", "#8f3b93", "#b740a1", "#e36bc4"];
   const rangeLabels = { day: "Past Day", week: "Past Week", month: "Past Month", year: "Past Year" };
   let countryMap = null;
   let countryMarkers = [];
   let mapResizeObserver = null;
+  let visitsChart = null;
+  let platformChart = null;
   const countryCoordinates = {
     AR: [-64, -34],
     AU: [134, -25],
@@ -54,6 +57,7 @@
 
   const compareNumeric = key => (a, b) => Number(b[key] || 0) - Number(a[key] || 0);
   const reverseRows = rows => Array.isArray(rows) ? [...rows].reverse() : [];
+  const sumValues = rows => (rows || []).reduce((sum, value) => sum + Number(value || 0), 0);
 
   const setActiveTab = button => {
     const group = button.closest(".analytics-panel-tabs");
@@ -201,6 +205,48 @@
     const host = document.querySelector("[data-plum-devices]");
     if (!host || !Array.isArray(rows)) return;
 
+    if (window.echarts) {
+      host.className = "analytics-echart analytics-echart--platform";
+      if (!platformChart) {
+        platformChart = window.echarts.init(host, null, { renderer: "svg" });
+        window.addEventListener("resize", () => platformChart?.resize());
+      }
+      platformChart.setOption({
+        color: pieColors,
+        tooltip: {
+          trigger: "item",
+          formatter: "{b}: {c}%"
+        },
+        series: [{
+          type: "pie",
+          roseType: "radius",
+          radius: ["18%", "78%"],
+          center: ["50%", "52%"],
+          data: rows.map(row => ({
+            name: row.label || "(not set)",
+            value: Math.max(0, Number(row.value) || 0)
+          })),
+          itemStyle: {
+            borderColor: "#f8f8f8",
+            borderWidth: 2,
+            shadowBlur: 12,
+            shadowColor: "rgba(26,29,32,0.18)"
+          },
+          label: {
+            color: "#244026",
+            fontFamily: "Space Mono",
+            fontSize: 10,
+            formatter: "{b}\n{c}%"
+          },
+          labelLine: {
+            lineStyle: { color: "rgba(36,64,38,0.42)" }
+          }
+        }]
+      });
+      platformChart.resize();
+      return;
+    }
+
     const total = rows.reduce((sum, row) => sum + Math.max(0, Number(row.value) || 0), 0) || 1;
     const radius = 42;
     const circumference = 2 * Math.PI * radius;
@@ -253,6 +299,9 @@
     if (!visits?.total?.length) return;
     const total = visits.total.map(Number);
     const unique = (visits.unique || []).map(Number);
+    const sessions = (visits.sessions || total).map(Number);
+    const engaged = (visits.engaged || unique).map(Number);
+    const events = (visits.events || total).map(Number);
     const labels = visits.labels || [];
     const maxValue = Math.max(1, ...total, ...unique);
     const totalPoints = total.map((value, index) => chartPoint(index, value, maxValue, total.length));
@@ -289,9 +338,92 @@
 
     const stats = document.querySelector("[data-plum-visit-stats]");
     if (stats) {
-      const totalCount = total.reduce((sum, value) => sum + value, 0);
-      const uniqueCount = unique.reduce((sum, value) => sum + value, 0);
-      stats.innerHTML = `<span>${text(rangeLabels[rangeName] || rangeName)}</span><strong>${formatNumber(totalCount)} views</strong><em>${formatNumber(uniqueCount)} unique</em>`;
+      stats.innerHTML = `<span>${text(rangeLabels[rangeName] || rangeName)}</span><strong>${formatNumber(sumValues(total))} views</strong><em>${formatNumber(sumValues(unique))} users</em><em>${formatNumber(sumValues(sessions))} sessions</em><em>${formatNumber(sumValues(events))} events</em>`;
+    }
+
+    const chartHost = document.querySelector("[data-plum-visits-chart]");
+    chartHost?.closest(".analytics-chart")?.classList.toggle("is-echart", Boolean(window.echarts));
+    if (chartHost && window.echarts) {
+      if (!visitsChart) {
+        visitsChart = window.echarts.init(chartHost, null, { renderer: "svg" });
+        window.addEventListener("resize", () => visitsChart?.resize());
+      }
+      const chartRows = labels.map((label, index) => ({
+        name: label,
+        color: visitColors[index % visitColors.length],
+        values: [
+          label,
+          total[index] || 0,
+          unique[index] || 0,
+          sessions[index] || 0,
+          engaged[index] || 0,
+          events[index] || 0
+        ]
+      }));
+      visitsChart.setOption({
+        color: chartRows.map(row => row.color),
+        legend: {
+          top: 4,
+          left: "center",
+          type: "scroll",
+          icon: "roundRect",
+          itemWidth: 12,
+          itemHeight: 8,
+          textStyle: {
+            color: "rgba(36,64,38,0.82)",
+            fontFamily: "Space Mono",
+            fontSize: 10
+          }
+        },
+        tooltip: {
+          trigger: "item",
+          formatter: params => {
+            const row = params.value || [];
+            return `${text(row[0])}<br>Views: ${formatNumber(row[1])}<br>Users: ${formatNumber(row[2])}<br>Sessions: ${formatNumber(row[3])}<br>Engaged: ${formatNumber(row[4])}<br>Events: ${formatNumber(row[5])}`;
+          }
+        },
+        parallelAxis: [
+          { dim: 0, name: "Time", type: "category", data: labels, axisLabel: { color: "rgba(26,29,32,0.58)" } },
+          { dim: 1, name: "Views", max: Math.max(1, ...total) },
+          { dim: 2, name: "Users", max: Math.max(1, ...unique) },
+          { dim: 3, name: "Sessions", max: Math.max(1, ...sessions) },
+          { dim: 4, name: "Engaged", max: Math.max(1, ...engaged) },
+          { dim: 5, name: "Events", max: Math.max(1, ...events) }
+        ],
+        parallel: {
+          top: 54,
+          right: 28,
+          bottom: 28,
+          left: 28,
+          parallelAxisDefault: {
+            nameGap: 12,
+            nameTextStyle: { color: "#244026", fontFamily: "Space Mono", fontSize: 10 },
+            axisLine: { lineStyle: { color: "rgba(36,64,38,0.24)" } },
+            axisTick: { lineStyle: { color: "rgba(36,64,38,0.24)" } },
+            splitLine: { lineStyle: { color: "rgba(26,29,32,0.08)" } },
+            axisLabel: { color: "rgba(26,29,32,0.54)", fontFamily: "Space Mono", fontSize: 9 }
+          }
+        },
+        series: chartRows.map(row => ({
+          name: row.name,
+          type: "parallel",
+          smooth: true,
+          lineStyle: {
+            width: 3,
+            color: row.color,
+            opacity: 0.46
+          },
+          emphasis: {
+            focus: "series",
+            lineStyle: {
+              width: 5,
+              opacity: 0.95
+            }
+          },
+          data: [row.values]
+        }))
+      });
+      visitsChart.resize();
     }
   };
 

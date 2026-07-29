@@ -819,6 +819,31 @@ img { display: block; max-width: 100%; }
     #f8f8f8;
 }
 
+.analytics-chart--parallel {
+  padding: 10px 14px 60px;
+}
+
+.analytics-chart--parallel.is-echart > svg,
+.analytics-chart--parallel.is-echart > .analytics-y-axis,
+.analytics-chart--parallel.is-echart > .analytics-x-axis {
+  display: none;
+}
+
+.analytics-echart {
+  width: 100%;
+  min-width: 0;
+}
+
+.analytics-echart--visits {
+  height: 300px;
+}
+
+.analytics-echart--platform {
+  display: block;
+  height: 290px;
+  padding: 10px 4px 12px;
+}
+
 .analytics-chart svg {
   width: 100%;
   height: 260px;
@@ -869,7 +894,7 @@ img { display: block; max-width: 100%; }
   bottom: 16px;
   left: 48px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-columns: minmax(0, 1fr) repeat(4, auto);
   gap: 14px;
   align-items: center;
   padding-top: 12px;
@@ -3025,6 +3050,8 @@ img { display: block; max-width: 100%; }
   .analytics-feed li { grid-template-columns: 1fr auto; }
   .analytics-feed span { grid-column: 1 / -1; }
   .analytics-map { height: clamp(260px, 68vw, 380px); }
+  .analytics-echart--visits { height: 340px; }
+  .analytics-echart--platform { height: 260px; }
   .analytics-pie-wrap { grid-template-columns: 1fr; }
   .analytics-pie { max-width: 170px; }
   .analytics-country-list div { grid-template-columns: 1fr; }

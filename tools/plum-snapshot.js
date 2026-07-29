@@ -25,22 +25,34 @@ const sample = {
     day: {
       labels: ["00", "04", "08", "12", "16", "20"],
       total: [8, 12, 19, 34, 42, 28],
-      unique: [5, 8, 13, 24, 30, 19]
+      unique: [5, 8, 13, 24, 30, 19],
+      sessions: [6, 10, 16, 28, 35, 22],
+      engaged: [4, 7, 11, 21, 26, 16],
+      events: [38, 55, 91, 168, 220, 132]
     },
     week: {
       labels: ["Th", "F", "Sa", "Su", "M", "Tu", "W"],
       total: [6280, 8120, 2140, 1680, 9405, 3410, 420],
-      unique: [4320, 5710, 1610, 1220, 5480, 1960, 210]
+      unique: [4320, 5710, 1610, 1220, 5480, 1960, 210],
+      sessions: [5120, 6900, 1830, 1390, 7480, 2820, 360],
+      engaged: [3820, 5140, 1180, 920, 5910, 1960, 210],
+      events: [28260, 36480, 9120, 7140, 42300, 15680, 1920]
     },
     month: {
       labels: ["W1", "W2", "W3", "W4", "Now"],
       total: [1080, 1410, 1760, 1320, 980],
-      unique: [690, 900, 1110, 840, 620]
+      unique: [690, 900, 1110, 840, 620],
+      sessions: [850, 1120, 1390, 1010, 760],
+      engaged: [590, 790, 980, 710, 520],
+      events: [4860, 6500, 8120, 6040, 4380]
     },
     year: {
       labels: ["Aug", "Oct", "Dec", "Feb", "Apr", "Jun"],
       total: [1100, 1840, 1280, 2190, 2540, 3030],
-      unique: [690, 1130, 780, 1410, 1600, 1880]
+      unique: [690, 1130, 780, 1410, 1600, 1880],
+      sessions: [860, 1450, 1010, 1710, 1980, 2360],
+      engaged: [610, 1020, 690, 1190, 1390, 1670],
+      events: [5120, 8460, 6020, 10380, 11920, 14240]
     }
   },
   referrers: [
@@ -170,11 +182,23 @@ const monthLabel = yyyymm => {
 
 const buildVisitRange = (report, labelFormatter) => {
   const reportRows = rows(report);
-  return {
+  const range = {
     labels: reportRows.map(row => labelFormatter(row.dimensionValues[0]?.value || "")),
     total: reportRows.map(row => numeric(row.metricValues[0]?.value)),
-    unique: reportRows.map(row => numeric(row.metricValues[1]?.value))
+    unique: reportRows.map(row => numeric(row.metricValues[1]?.value)),
+    sessions: reportRows.map(row => numeric(row.metricValues[2]?.value)),
+    engaged: reportRows.map(row => numeric(row.metricValues[3]?.value)),
+    events: reportRows.map(row => numeric(row.metricValues[4]?.value))
   };
+  range.rows = range.labels.map((label, index) => ({
+    label,
+    total: range.total[index] || 0,
+    unique: range.unique[index] || 0,
+    sessions: range.sessions[index] || 0,
+    engaged: range.engaged[index] || 0,
+    events: range.events[index] || 0
+  }));
+  return range;
 };
 
 async function writeSnapshot(snapshot) {
@@ -261,25 +285,25 @@ async function buildSnapshot() {
     runReport(token, {
       dateRanges: [{ startDate: "today", endDate: "today" }],
       dimensions: [{ name: "dateHour" }],
-      metrics: [{ name: "screenPageViews" }, { name: "activeUsers" }],
+      metrics: [{ name: "screenPageViews" }, { name: "activeUsers" }, { name: "sessions" }, { name: "engagedSessions" }, { name: "eventCount" }],
       orderBys: [{ dimension: { dimensionName: "dateHour" } }]
     }),
     runReport(token, {
       dateRanges: [{ startDate: "6daysAgo", endDate: "today" }],
       dimensions: [{ name: "date" }],
-      metrics: [{ name: "screenPageViews" }, { name: "activeUsers" }],
+      metrics: [{ name: "screenPageViews" }, { name: "activeUsers" }, { name: "sessions" }, { name: "engagedSessions" }, { name: "eventCount" }],
       orderBys: [{ dimension: { dimensionName: "date" } }]
     }),
     runReport(token, {
       dateRanges: [{ startDate: "29daysAgo", endDate: "today" }],
       dimensions: [{ name: "date" }],
-      metrics: [{ name: "screenPageViews" }, { name: "activeUsers" }],
+      metrics: [{ name: "screenPageViews" }, { name: "activeUsers" }, { name: "sessions" }, { name: "engagedSessions" }, { name: "eventCount" }],
       orderBys: [{ dimension: { dimensionName: "date" } }]
     }),
     runReport(token, {
       dateRanges: [{ startDate: "365daysAgo", endDate: "today" }],
       dimensions: [{ name: "yearMonth" }],
-      metrics: [{ name: "screenPageViews" }, { name: "activeUsers" }],
+      metrics: [{ name: "screenPageViews" }, { name: "activeUsers" }, { name: "sessions" }, { name: "engagedSessions" }, { name: "eventCount" }],
       orderBys: [{ dimension: { dimensionName: "yearMonth" } }]
     }),
     runReport(token, {

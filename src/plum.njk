@@ -53,7 +53,8 @@ noIndex: true
           <button type="button" data-plum-tab="visits" data-plum-view="year">Past Year</button>
         </div>
       </header>
-      <div class="analytics-chart" role="img" aria-label="Weekly visits line chart with peaks on Friday and Monday">
+      <div class="analytics-chart analytics-chart--parallel" role="img" aria-label="Visit metrics comparison chart">
+        <div class="analytics-echart analytics-echart--visits" data-plum-visits-chart></div>
         <div class="analytics-y-axis" data-plum-y-axis>
           <span>9k</span><span>6k</span><span>3k</span><span>0</span>
         </div>
@@ -269,15 +270,28 @@ noIndex: true
           <button type="button" data-plum-tab="devices" data-plum-view="screen">Screen</button>
         </div>
       </header>
-      <div class="analytics-bars" data-plum-devices>
-        <div><span>390x844</span><span class="analytics-meter" aria-label="34%"><span style="width:34%"></span></span><em>34%</em></div>
-        <div><span>1440x900</span><span class="analytics-meter" aria-label="22%"><span style="width:22%"></span></span><em>22%</em></div>
-        <div><span>1920x1080</span><span class="analytics-meter" aria-label="18%"><span style="width:18%"></span></span><em>18%</em></div>
-        <div><span>unknown</span><span class="analytics-meter" aria-label="9%"><span style="width:9%"></span></span><em>9%</em></div>
+      <div class="analytics-pie-wrap" data-plum-devices>
+        <svg class="analytics-pie" viewBox="0 0 100 100" role="img" aria-label="Platform percentage pie chart">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(26,29,32,0.1)" stroke-width="18" />
+          <g transform="rotate(-90 50 50)">
+            <circle class="analytics-pie-slice" cx="50" cy="50" r="42" fill="none" stroke="#c8289a" stroke-width="18" stroke-dasharray="166 264" />
+            <circle class="analytics-pie-slice" cx="50" cy="50" r="42" fill="none" stroke="#7a2d74" stroke-width="18" stroke-dasharray="55 264" stroke-dashoffset="-166" />
+            <circle class="analytics-pie-slice" cx="50" cy="50" r="42" fill="none" stroke="#ff77cf" stroke-width="18" stroke-dasharray="32 264" stroke-dashoffset="-221" />
+            <circle class="analytics-pie-slice" cx="50" cy="50" r="42" fill="none" stroke="#5a245e" stroke-width="18" stroke-dasharray="11 264" stroke-dashoffset="-253" />
+          </g>
+          <circle cx="50" cy="50" r="25" fill="#f8f8f8" />
+        </svg>
+        <ol class="analytics-pie-legend">
+          <li><span class="analytics-pie-swatch" style="background:#c8289a"></span><strong>Macintosh</strong><em>63%</em></li>
+          <li><span class="analytics-pie-swatch" style="background:#7a2d74"></span><strong>iOS</strong><em>21%</em></li>
+          <li><span class="analytics-pie-swatch" style="background:#ff77cf"></span><strong>Windows</strong><em>12%</em></li>
+          <li><span class="analytics-pie-swatch" style="background:#5a245e"></span><strong>Android</strong><em>4%</em></li>
+        </ol>
       </div>
     </section>
   </div>
 </section>
 
 <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js" defer></script>
-<script src="{{ '/js/plum-dashboard.js' | url }}?v=9" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js" defer></script>
+<script src="{{ '/js/plum-dashboard.js' | url }}?v=11" defer></script>
