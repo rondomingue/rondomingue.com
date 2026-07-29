@@ -23,7 +23,7 @@ const sample = {
   },
   visitRanges: {
     day: {
-      labels: ["00", "04", "08", "12", "16", "20"],
+      labels: ["12 AM", "4 AM", "8 AM", "12 PM", "4 PM", "8 PM"],
       total: [8, 12, 19, 34, 42, 28],
       unique: [5, 8, 13, 24, 30, 19],
       sessions: [6, 10, 16, 28, 35, 22],
@@ -171,7 +171,11 @@ const dateLabel = yyyymmdd => {
 
 const hourLabel = yyyymmddhh => {
   if (!yyyymmddhh || yyyymmddhh.length < 10) return "";
-  return yyyymmddhh.slice(8, 10);
+  const hour = Number(yyyymmddhh.slice(8, 10));
+  if (hour === 0) return "12 AM";
+  if (hour < 12) return `${hour} AM`;
+  if (hour === 12) return "12 PM";
+  return `${hour - 12} PM`;
 };
 
 const monthLabel = yyyymm => {

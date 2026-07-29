@@ -2,6 +2,11 @@
   let currentSnapshot = null;
 
   const formatNumber = value => Number(value || 0).toLocaleString("en-US");
+  const compactNumber = value => {
+    const number = Number(value || 0);
+    if (Math.abs(number) >= 1000) return `${Number((number / 1000).toFixed(number >= 10000 ? 0 : 1))}k`;
+    return formatNumber(number);
+  };
   const pieColors = ["#c8289a", "#7a2d74", "#ff77cf", "#5a245e", "#2c7d50", "#79c65a"];
   const visitColors = ["#4b164f", "#7a2d74", "#a2268d", "#c8289a", "#df53b7", "#f08ed2", "#5a245e", "#8f3b93", "#b740a1", "#e36bc4"];
   const rangeLabels = { day: "Past Day", week: "Past Week", month: "Past Month", year: "Past Year" };
@@ -157,6 +162,20 @@
       return;
     }
 
+    const fitToMarkers = () => {
+      if (!countryMap || !window.maplibregl || !mappableRows.length) return;
+      const bounds = mappableRows.reduce((nextBounds, row) => {
+        const countryId = String(row.countryId || "").toUpperCase();
+        return nextBounds.extend(countryCoordinates[countryId]);
+      }, new window.maplibregl.LngLatBounds(countryCoordinates[String(mappableRows[0].countryId || "").toUpperCase()], countryCoordinates[String(mappableRows[0].countryId || "").toUpperCase()]));
+      const isSmall = window.matchMedia("(max-width: 700px)").matches;
+      countryMap.fitBounds(bounds, {
+        duration: 0,
+        maxZoom: isSmall ? 2.15 : 2.7,
+        padding: isSmall ? 48 : 76
+      });
+    };
+
     if (!countryMap) {
       countryMap = new window.maplibregl.Map({
         attributionControl: false,
@@ -171,10 +190,16 @@
       });
       countryMap.addControl(new window.maplibregl.AttributionControl({ compact: true }), "bottom-right");
       if ("ResizeObserver" in window) {
-        mapResizeObserver = new ResizeObserver(() => countryMap?.resize());
+        mapResizeObserver = new ResizeObserver(() => {
+          countryMap?.resize();
+          fitToMarkers();
+        });
         mapResizeObserver.observe(container);
       } else {
-        window.addEventListener("resize", () => countryMap?.resize());
+        window.addEventListener("resize", () => {
+          countryMap?.resize();
+          fitToMarkers();
+        });
       }
     }
 
@@ -195,6 +220,7 @@
           .setLngLat(countryCoordinates[countryId])
           .addTo(countryMap);
       });
+      fitToMarkers();
     };
 
     if (countryMap.loaded()) placeMarkers();
@@ -227,19 +253,19 @@
             value: Math.max(0, Number(row.value) || 0)
           })),
           itemStyle: {
-            borderColor: "#f8f8f8",
+            borderColor: "rgba(238,238,240,0.88)",
             borderWidth: 2,
             shadowBlur: 12,
-            shadowColor: "rgba(26,29,32,0.18)"
+            shadowColor: "rgba(0,0,0,0.26)"
           },
           label: {
-            color: "#244026",
+            color: "rgba(238,238,240,0.8)",
             fontFamily: "Space Mono",
             fontSize: 10,
             formatter: "{b}\n{c}%"
           },
           labelLine: {
-            lineStyle: { color: "rgba(36,64,38,0.42)" }
+            lineStyle: { color: "rgba(238,238,240,0.28)" }
           }
         }]
       });
@@ -262,9 +288,9 @@
     host.className = "analytics-pie-wrap";
     host.innerHTML = `
       <svg class="analytics-pie" viewBox="0 0 100 100" role="img" aria-label="Platform percentage pie chart">
-        <circle cx="50" cy="50" r="${radius}" fill="none" stroke="rgba(26,29,32,0.1)" stroke-width="18" />
+        <circle cx="50" cy="50" r="${radius}" fill="none" stroke="rgba(238,238,240,0.1)" stroke-width="18" />
         <g transform="rotate(-90 50 50)">${slices}</g>
-        <circle cx="50" cy="50" r="25" fill="#f8f8f8" />
+        <circle cx="50" cy="50" r="25" fill="rgba(13,14,18,0.92)" />
       </svg>
       <ol class="analytics-pie-legend">
         ${rows.map((row, index) => {
@@ -370,7 +396,7 @@
           itemWidth: 12,
           itemHeight: 8,
           textStyle: {
-            color: "rgba(36,64,38,0.82)",
+            color: "rgba(238,238,240,0.78)",
             fontFamily: "Space Mono",
             fontSize: 10
           }
@@ -383,25 +409,25 @@
           }
         },
         parallelAxis: [
-          { dim: 0, name: "Time", type: "category", data: labels, axisLabel: { color: "rgba(26,29,32,0.58)" } },
-          { dim: 1, name: "Views", max: Math.max(1, ...total) },
-          { dim: 2, name: "Users", max: Math.max(1, ...unique) },
-          { dim: 3, name: "Sessions", max: Math.max(1, ...sessions) },
-          { dim: 4, name: "Engaged", max: Math.max(1, ...engaged) },
-          { dim: 5, name: "Events", max: Math.max(1, ...events) }
+          { dim: 0, name: rangeName === "day" ? "Hour" : "Period", type: "category", data: labels, axisLabel: { color: "rgba(238,238,240,0.54)" } },
+          { dim: 1, name: "Views", max: Math.max(1, ...total), axisLabel: { formatter: compactNumber } },
+          { dim: 2, name: "Users", max: Math.max(1, ...unique), axisLabel: { formatter: compactNumber } },
+          { dim: 3, name: "Sessions", max: Math.max(1, ...sessions), axisLabel: { formatter: compactNumber } },
+          { dim: 4, name: "Engaged", max: Math.max(1, ...engaged), axisLabel: { formatter: compactNumber } },
+          { dim: 5, name: "Events", max: Math.max(1, ...events), axisLabel: { formatter: compactNumber } }
         ],
         parallel: {
-          top: 54,
-          right: 28,
-          bottom: 28,
-          left: 28,
+          top: 70,
+          right: 64,
+          bottom: 34,
+          left: 58,
           parallelAxisDefault: {
             nameGap: 12,
-            nameTextStyle: { color: "#244026", fontFamily: "Space Mono", fontSize: 10 },
-            axisLine: { lineStyle: { color: "rgba(36,64,38,0.24)" } },
-            axisTick: { lineStyle: { color: "rgba(36,64,38,0.24)" } },
-            splitLine: { lineStyle: { color: "rgba(26,29,32,0.08)" } },
-            axisLabel: { color: "rgba(26,29,32,0.54)", fontFamily: "Space Mono", fontSize: 9 }
+            nameTextStyle: { color: "rgba(238,238,240,0.82)", fontFamily: "Space Mono", fontSize: 10 },
+            axisLine: { lineStyle: { color: "rgba(238,238,240,0.22)" } },
+            axisTick: { lineStyle: { color: "rgba(238,238,240,0.2)" } },
+            splitLine: { lineStyle: { color: "rgba(238,238,240,0.08)" } },
+            axisLabel: { color: "rgba(238,238,240,0.56)", fontFamily: "Space Mono", fontSize: 9 }
           }
         },
         series: chartRows.map(row => ({

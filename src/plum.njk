@@ -55,6 +55,7 @@ noIndex: true
       </header>
       <div class="analytics-chart analytics-chart--parallel" role="img" aria-label="Visit metrics comparison chart">
         <div class="analytics-echart analytics-echart--visits" data-plum-visits-chart></div>
+        <p class="analytics-chart-note">Each purple line is one period. Toggle the legend chips to compare or isolate.</p>
         <div class="analytics-y-axis" data-plum-y-axis>
           <span>9k</span><span>6k</span><span>3k</span><span>0</span>
         </div>
@@ -246,7 +247,7 @@ noIndex: true
 
     <section class="analytics-panel" id="providers">
       <header>
-        <h2>Providers</h2>
+        <h2>Channels</h2>
         <div class="analytics-panel-tabs">
           <button class="active" type="button">Channels</button>
         </div>
@@ -272,14 +273,14 @@ noIndex: true
       </header>
       <div class="analytics-pie-wrap" data-plum-devices>
         <svg class="analytics-pie" viewBox="0 0 100 100" role="img" aria-label="Platform percentage pie chart">
-          <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(26,29,32,0.1)" stroke-width="18" />
+          <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(238,238,240,0.1)" stroke-width="18" />
           <g transform="rotate(-90 50 50)">
             <circle class="analytics-pie-slice" cx="50" cy="50" r="42" fill="none" stroke="#c8289a" stroke-width="18" stroke-dasharray="166 264" />
             <circle class="analytics-pie-slice" cx="50" cy="50" r="42" fill="none" stroke="#7a2d74" stroke-width="18" stroke-dasharray="55 264" stroke-dashoffset="-166" />
             <circle class="analytics-pie-slice" cx="50" cy="50" r="42" fill="none" stroke="#ff77cf" stroke-width="18" stroke-dasharray="32 264" stroke-dashoffset="-221" />
             <circle class="analytics-pie-slice" cx="50" cy="50" r="42" fill="none" stroke="#5a245e" stroke-width="18" stroke-dasharray="11 264" stroke-dashoffset="-253" />
           </g>
-          <circle cx="50" cy="50" r="25" fill="#f8f8f8" />
+          <circle cx="50" cy="50" r="25" fill="rgba(13,14,18,0.92)" />
         </svg>
         <ol class="analytics-pie-legend">
           <li><span class="analytics-pie-swatch" style="background:#c8289a"></span><strong>Macintosh</strong><em>63%</em></li>
@@ -294,4 +295,4 @@ noIndex: true
 
 <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js" defer></script>
-<script src="{{ '/js/plum-dashboard.js' | url }}?v=11" defer></script>
+<script src="{{ '/js/plum-dashboard.js' | url }}?v=15" defer></script>
