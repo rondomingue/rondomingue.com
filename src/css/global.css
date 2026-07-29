@@ -1108,7 +1108,8 @@ img { display: block; max-width: 100%; }
 
 .analytics-map {
   position: relative;
-  height: 420px;
+  height: clamp(280px, 34vw, 520px);
+  min-height: 0;
   overflow: hidden;
   background:
     radial-gradient(circle at 30% 38%, rgba(200,40,154,0.12), transparent 18rem),
@@ -3023,6 +3024,7 @@ img { display: block; max-width: 100%; }
   }
   .analytics-feed li { grid-template-columns: 1fr auto; }
   .analytics-feed span { grid-column: 1 / -1; }
+  .analytics-map { height: clamp(260px, 68vw, 380px); }
   .analytics-pie-wrap { grid-template-columns: 1fr; }
   .analytics-pie { max-width: 170px; }
   .analytics-country-list div { grid-template-columns: 1fr; }

@@ -6,6 +6,7 @@
   const rangeLabels = { day: "Past Day", week: "Past Week", month: "Past Month", year: "Past Year" };
   let countryMap = null;
   let countryMarkers = [];
+  let mapResizeObserver = null;
   const countryCoordinates = {
     AR: [-64, -34],
     AU: [134, -25],
@@ -165,6 +166,12 @@
         zoom: 1.16
       });
       countryMap.addControl(new window.maplibregl.AttributionControl({ compact: true }), "bottom-right");
+      if ("ResizeObserver" in window) {
+        mapResizeObserver = new ResizeObserver(() => countryMap?.resize());
+        mapResizeObserver.observe(container);
+      } else {
+        window.addEventListener("resize", () => countryMap?.resize());
+      }
     }
 
     const placeMarkers = () => {
@@ -352,7 +359,7 @@
       renderTable("providers", snapshot.providers, ["provider", "sessions"]);
       renderTable("searches", snapshot.searches, ["query", "hits"]);
       renderLive(snapshot.live);
-      renderDeviceBars(snapshot.screens || snapshot.devices);
+      renderPlatformPie(snapshot.platforms || snapshot.devices);
     })
     .catch(() => {});
 })();
