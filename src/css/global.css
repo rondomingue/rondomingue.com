@@ -844,12 +844,16 @@ img { display: block; max-width: 100%; }
 }
 
 .analytics-chart--parallel {
-  padding: 10px 14px 68px;
+  padding: 18px 18px 76px 48px;
 }
 
 .analytics-chart--parallel.is-echart > svg,
 .analytics-chart--parallel.is-echart > .analytics-y-axis,
 .analytics-chart--parallel.is-echart > .analytics-x-axis {
+  display: none;
+}
+
+.analytics-chart--parallel:not(.is-echart) .analytics-echart--visits {
   display: none;
 }
 
@@ -863,6 +867,7 @@ img { display: block; max-width: 100%; }
 }
 
 .analytics-chart-note {
+  display: none;
   margin: -10px 50px 12px;
   color: var(--plum-muted);
   font-family: "Space Mono", monospace;
@@ -876,7 +881,7 @@ img { display: block; max-width: 100%; }
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px 14px;
-  margin: 8px 48px 0;
+  margin: 12px 48px 0;
   padding: 0;
   list-style: none;
   color: var(--plum-muted);
