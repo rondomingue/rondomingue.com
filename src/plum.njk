@@ -55,7 +55,7 @@ noIndex: true
       </header>
       <div class="analytics-chart analytics-chart--parallel" role="img" aria-label="Visit metrics comparison chart">
         <div class="analytics-echart analytics-echart--visits" data-plum-visits-chart></div>
-        <p class="analytics-chart-note">Each purple line is one period. Toggle the legend chips to compare or isolate.</p>
+        <p class="analytics-chart-note" data-plum-chart-note>Each purple line is one period. Toggle the legend chips to compare or isolate.</p>
         <div class="analytics-y-axis" data-plum-y-axis>
           <span>9k</span><span>6k</span><span>3k</span><span>0</span>
         </div>
@@ -73,6 +73,7 @@ noIndex: true
             <circle cx="0" cy="86" r="5" /><circle cx="118" cy="48" r="5" /><circle cx="236" cy="188" r="5" /><circle cx="354" cy="198" r="5" /><circle cx="472" cy="24" r="5" /><circle cx="590" cy="142" r="5" /><circle cx="708" cy="236" r="5" />
           </g>
         </svg>
+        <ol class="analytics-chart-legend" data-plum-visit-legend aria-label="Fresh View metrics"></ol>
         <div class="analytics-x-axis">
           <span>Th</span><span>F</span><span>Sa</span><span>Su</span><span>M</span><span>Tu</span><span>W</span>
         </div>
@@ -295,4 +296,4 @@ noIndex: true
 
 <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js" defer></script>
-<script src="{{ '/js/plum-dashboard.js' | url }}?v=15" defer></script>
+<script src="{{ '/js/plum-dashboard.js' | url }}?v=17" defer></script>

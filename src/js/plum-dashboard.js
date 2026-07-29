@@ -9,12 +9,18 @@
   };
   const pieColors = ["#c8289a", "#7a2d74", "#ff77cf", "#5a245e", "#2c7d50", "#79c65a"];
   const visitColors = ["#4b164f", "#7a2d74", "#a2268d", "#c8289a", "#df53b7", "#f08ed2", "#5a245e", "#8f3b93", "#b740a1", "#e36bc4"];
+  const visitMetricColors = {
+    total: "#df53b7",
+    unique: "#c8289a",
+    sessions: "#a2268d",
+    engaged: "#7a2d74",
+    events: "#f08ed2"
+  };
   const rangeLabels = { day: "Past Day", week: "Past Week", month: "Past Month", year: "Past Year" };
   let countryMap = null;
   let countryMarkers = [];
   let mapResizeObserver = null;
   let visitsChart = null;
-  let platformChart = null;
   const countryCoordinates = {
     AR: [-64, -34],
     AU: [134, -25],
@@ -231,48 +237,6 @@
     const host = document.querySelector("[data-plum-devices]");
     if (!host || !Array.isArray(rows)) return;
 
-    if (window.echarts) {
-      host.className = "analytics-echart analytics-echart--platform";
-      if (!platformChart) {
-        platformChart = window.echarts.init(host, null, { renderer: "svg" });
-        window.addEventListener("resize", () => platformChart?.resize());
-      }
-      platformChart.setOption({
-        color: pieColors,
-        tooltip: {
-          trigger: "item",
-          formatter: "{b}: {c}%"
-        },
-        series: [{
-          type: "pie",
-          roseType: "radius",
-          radius: ["18%", "78%"],
-          center: ["50%", "52%"],
-          data: rows.map(row => ({
-            name: row.label || "(not set)",
-            value: Math.max(0, Number(row.value) || 0)
-          })),
-          itemStyle: {
-            borderColor: "rgba(238,238,240,0.88)",
-            borderWidth: 2,
-            shadowBlur: 12,
-            shadowColor: "rgba(0,0,0,0.26)"
-          },
-          label: {
-            color: "rgba(238,238,240,0.8)",
-            fontFamily: "Space Mono",
-            fontSize: 10,
-            formatter: "{b}\n{c}%"
-          },
-          labelLine: {
-            lineStyle: { color: "rgba(238,238,240,0.28)" }
-          }
-        }]
-      });
-      platformChart.resize();
-      return;
-    }
-
     const total = rows.reduce((sum, row) => sum + Math.max(0, Number(row.value) || 0), 0) || 1;
     const radius = 42;
     const circumference = 2 * Math.PI * radius;
@@ -329,20 +293,47 @@
     const engaged = (visits.engaged || unique).map(Number);
     const events = (visits.events || total).map(Number);
     const labels = visits.labels || [];
-    const maxValue = Math.max(1, ...total, ...unique);
-    const totalPoints = total.map((value, index) => chartPoint(index, value, maxValue, total.length));
-    const uniquePoints = unique.map((value, index) => chartPoint(index, value, maxValue, unique.length));
-    const totalPath = totalPoints.map(([x, y], index) => `${index === 0 ? "M" : "L"}${x} ${y}`).join(" ");
-    const uniquePath = uniquePoints.map(([x, y], index) => `${index === 0 ? "M" : "L"}${x} ${y}`).join(" ");
-    const areaPath = `${totalPath} L760 260 L0 260 Z`;
+    const metricRows = [
+      { key: "total", label: "Views", values: total, color: visitMetricColors.total },
+      { key: "unique", label: "Users", values: unique, color: visitMetricColors.unique },
+      { key: "sessions", label: "Sessions", values: sessions, color: visitMetricColors.sessions },
+      { key: "engaged", label: "Engaged", values: engaged, color: visitMetricColors.engaged },
+      { key: "events", label: "Events", values: events, color: visitMetricColors.events }
+    ].filter(row => row.values.length);
+    const maxValue = Math.max(1, ...metricRows.flatMap(row => row.values));
+    const fallbackRows = metricRows.map(row => {
+      const points = row.values.map((value, index) => chartPoint(index, value, maxValue, row.values.length));
+      return {
+        ...row,
+        points,
+        path: points.map(([x, y], index) => `${index === 0 ? "M" : "L"}${x} ${y}`).join(" ")
+      };
+    });
+    const totalPath = fallbackRows[0]?.path || "";
+    const areaPath = totalPath ? `${totalPath} L760 260 L0 260 Z` : "";
 
-    document.querySelector(".analytics-area")?.setAttribute("d", areaPath);
-    document.querySelector(".analytics-line--total")?.setAttribute("d", totalPath);
-    document.querySelector(".analytics-line--unique")?.setAttribute("d", uniquePath);
+    const svg = document.querySelector(".analytics-chart svg");
+    if (svg) {
+      svg.innerHTML = `
+        <defs>
+          <linearGradient id="plum-area" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="rgba(200,40,154,0.52)" />
+            <stop offset="1" stop-color="rgba(200,40,154,0.1)" />
+          </linearGradient>
+        </defs>
+        ${areaPath ? `<path class="analytics-area" d="${areaPath}" />` : ""}
+        ${fallbackRows.map(row => `<path class="analytics-line" d="${row.path}" style="stroke:${row.color}" />`).join("")}
+        <g class="analytics-points">
+          ${(fallbackRows[0]?.points || []).map(([x, y]) => `<circle cx="${x}" cy="${y}" r="5" />`).join("")}
+        </g>
+      `;
+    }
 
-    const points = document.querySelector(".analytics-points");
-    if (points) {
-      points.innerHTML = totalPoints.map(([x, y]) => `<circle cx="${x}" cy="${y}" r="5" />`).join("");
+    const fallbackLegend = document.querySelector("[data-plum-visit-legend]");
+    if (fallbackLegend) {
+      fallbackLegend.innerHTML = metricRows.map(row => `
+        <li><span style="background:${row.color}"></span>${text(row.label)}</li>
+      `).join("");
     }
 
     const axis = document.querySelector(".analytics-x-axis");
@@ -368,7 +359,14 @@
     }
 
     const chartHost = document.querySelector("[data-plum-visits-chart]");
-    chartHost?.closest(".analytics-chart")?.classList.toggle("is-echart", Boolean(window.echarts));
+    const chartNote = document.querySelector("[data-plum-chart-note]");
+    const hasEcharts = Boolean(window.echarts);
+    chartHost?.closest(".analytics-chart")?.classList.toggle("is-echart", hasEcharts);
+    if (chartNote) {
+      chartNote.textContent = hasEcharts
+        ? "Each purple line is one period. Toggle the legend chips to compare or isolate."
+        : "Fresh View fallback keeps the full set: views, users, sessions, engaged sessions, and events.";
+    }
     if (chartHost && window.echarts) {
       if (!visitsChart) {
         visitsChart = window.echarts.init(chartHost, null, { renderer: "svg" });
