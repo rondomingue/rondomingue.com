@@ -316,7 +316,7 @@
         ${areaPath ? `<path class="analytics-area" d="${areaPath}" />` : ""}
         ${fallbackRows.map(row => `<path class="analytics-line" d="${row.path}" style="stroke:${row.color}" />`).join("")}
         <g class="analytics-points">
-          ${(fallbackRows[0]?.points || []).map(([x, y]) => `<circle cx="${x}" cy="${y}" r="5" />`).join("")}
+          ${(fallbackRows[0]?.points || []).map(([x, y]) => `<circle cx="${x}" cy="${y}" r="3.5" />`).join("")}
         </g>
       `;
     }

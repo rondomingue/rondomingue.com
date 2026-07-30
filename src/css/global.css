@@ -924,16 +924,16 @@ img { display: block; max-width: 100%; }
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-width: 6;
+  stroke-width: 4;
 }
 
 .analytics-line--total { stroke: #c8289a; }
-.analytics-line--unique { stroke: rgba(90,36,94,0.58); stroke-width: 4; }
+.analytics-line--unique { stroke: rgba(90,36,94,0.58); stroke-width: 3; }
 
 .analytics-points circle {
   fill: rgba(238,238,240,0.92);
   stroke: #c8289a;
-  stroke-width: 3;
+  stroke-width: 2;
 }
 
 .analytics-y-axis {
