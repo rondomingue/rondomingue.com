@@ -1677,11 +1677,11 @@
     "liveLinks": [
       {
         "label": "View live dashboard",
-        "url": "https://interfaces.rondomingue.com/outbreaks.html"
+        "url": "https://outbreaks.rondomingue.com"
       },
       {
         "label": "View Epidemic Record",
-        "url": "https://interfaces.rondomingue.com/disease-sunburst.html"
+        "url": "https://outbreaks.rondomingue.com/disease-sunburst.html"
       }
     ],
     "summary": "A multi-page epidemic intelligence and data-visualization system combining current surveillance, outbreak geography, pathogen history, pandemic research, and two millennia of disease records.",
