@@ -65,6 +65,27 @@
   const reverseRows = rows => Array.isArray(rows) ? [...rows].reverse() : [];
   const sumValues = rows => (rows || []).reduce((sum, value) => sum + Number(value || 0), 0);
   const soundTargets = ".page-analytics button, .page-analytics a, .analytics-table tbody tr, .analytics-feed li, .analytics-bars div, .analytics-pie-legend li, .analytics-country-list div, .analytics-map-marker";
+  const pageUrl = row => {
+    const host = String(row?.host || "").trim();
+    const page = String(row?.page || "").trim();
+    if (!host || !page || page === "(not set)" || page === "Active visitor") return "";
+    if (/^https?:\/\//i.test(page)) return page;
+    return `https://${host}${page.startsWith("/") ? page : `/${page}`}`;
+  };
+
+  const pageLabel = row => {
+    const host = String(row?.host || "").trim();
+    const page = String(row?.page || "").trim() || "/";
+    if (!host || host === "rondomingue.com") return page;
+    return `${host}${page.startsWith("/") ? page : `/${page}`}`;
+  };
+
+  const pageLink = row => {
+    const href = pageUrl(row);
+    const label = pageLabel(row);
+    if (!href) return text(label);
+    return `<a class="analytics-page-link" href="${text(href)}" target="_blank" rel="noopener noreferrer">${text(label)}</a>`;
+  };
 
   const playPlumTone = (frequency, duration = 0.035, volume = 0.014) => {
     const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -144,7 +165,7 @@
 
     body.innerHTML = rows.map(row => `
       <tr>
-        <td>${text(row[columns[0]])}</td>
+        <td>${columns[0] === "page" ? pageLink(row) : text(row[columns[0]])}</td>
         <td>${formatNumber(row[columns[1]])}${columns[1] === "percent" ? "%" : ""}</td>
       </tr>
     `).join("");
@@ -161,7 +182,7 @@
     if (!host || !Array.isArray(rows)) return;
 
     host.innerHTML = rows.map(row => `
-      <li><strong>${text(row.label)}</strong><span>${text(row.page)}</span><em>${text(row.when)}</em></li>
+      <li><strong>${text(row.label)}</strong><span>${pageUrl(row) ? pageLink(row) : text(row.page)}</span><em>${text(row.when)}</em></li>
     `).join("");
   };
 

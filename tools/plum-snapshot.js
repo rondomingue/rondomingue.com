@@ -72,31 +72,31 @@ const sample = {
     { source: "vimeo.com", hits: 17 }
   ],
   pages: [
-    { page: "/work/the-colony/", views: 411 },
-    { page: "/work/signal-lattice/", views: 306 },
-    { page: "/photography/", views: 248 },
-    { page: "/work/transit/", views: 219 },
-    { page: "/about/", views: 173 },
-    { page: "/illustration/", views: 149 }
+    { page: "/work/the-colony/", host: "rondomingue.com", views: 411 },
+    { page: "/work/signal-lattice/", host: "rondomingue.com", views: 306 },
+    { page: "/photography/", host: "rondomingue.com", views: 248 },
+    { page: "/work/transit/", host: "rondomingue.com", views: 219 },
+    { page: "/about/", host: "rondomingue.com", views: 173 },
+    { page: "/illustration/", host: "rondomingue.com", views: 149 }
   ],
   crushes: [
-    { page: "/work/signal-lattice/", views: 88 },
-    { page: "/photography/", views: 61 },
-    { page: "/about/", views: 39 },
-    { page: "/work/the-colony/", views: 34 }
+    { page: "/work/signal-lattice/", host: "rondomingue.com", views: 88 },
+    { page: "/photography/", host: "rondomingue.com", views: 61 },
+    { page: "/about/", host: "rondomingue.com", views: 39 },
+    { page: "/work/the-colony/", host: "rondomingue.com", views: 34 }
   ],
   recentPages: [
-    { page: "/plum/", views: 12, when: "30d recent" },
-    { page: "/photography/", views: 8, when: "30d recent" },
-    { page: "/work/the-colony/", views: 5, when: "30d recent" },
-    { page: "/about/", views: 3, when: "30d recent" }
+    { page: "/plum/", host: "rondomingue.com", views: 12, when: "30d recent" },
+    { page: "/photography/", host: "rondomingue.com", views: 8, when: "30d recent" },
+    { page: "/work/the-colony/", host: "rondomingue.com", views: 5, when: "30d recent" },
+    { page: "/about/", host: "rondomingue.com", views: 3, when: "30d recent" }
   ],
   entryPages: [
-    { page: "/", sessions: 188 },
-    { page: "/work/", sessions: 96 },
-    { page: "/photography/", sessions: 72 },
-    { page: "/about/", sessions: 54 },
-    { page: "/illustration/", sessions: 33 }
+    { page: "/", host: "rondomingue.com", sessions: 188 },
+    { page: "/work/", host: "rondomingue.com", sessions: 96 },
+    { page: "/photography/", host: "rondomingue.com", sessions: 72 },
+    { page: "/about/", host: "rondomingue.com", sessions: 54 },
+    { page: "/illustration/", host: "rondomingue.com", sessions: 33 }
   ],
   browsers: [
     { name: "Safari", percent: 46 },
@@ -127,13 +127,13 @@ const sample = {
     { query: "unreal interface concepts", hits: 12 }
   ],
   live: [
-    { label: "New Orleans", country: "United States", page: "/work/black-noise/", when: "snapshot" },
-    { label: "Brooklyn", country: "United States", page: "/work/grid-state/", when: "snapshot" },
-    { label: "Austin", country: "United States", page: "/photography/", when: "snapshot" },
-    { label: "Los Angeles", country: "United States", page: "/work/data-haven/", when: "snapshot" },
-    { label: "Toronto", country: "Canada", page: "/about/", when: "snapshot" },
-    { label: "London", country: "United Kingdom", page: "/work/hud-schema-signal/", when: "snapshot" },
-    { label: "Berlin", country: "Germany", page: "/work/missionlaunch/", when: "snapshot" }
+    { label: "New Orleans", country: "United States", page: "/work/black-noise/", host: "rondomingue.com", when: "snapshot" },
+    { label: "Brooklyn", country: "United States", page: "/work/grid-state/", host: "rondomingue.com", when: "snapshot" },
+    { label: "Austin", country: "United States", page: "/photography/", host: "rondomingue.com", when: "snapshot" },
+    { label: "Los Angeles", country: "United States", page: "/work/data-haven/", host: "rondomingue.com", when: "snapshot" },
+    { label: "Toronto", country: "Canada", page: "/about/", host: "rondomingue.com", when: "snapshot" },
+    { label: "London", country: "United Kingdom", page: "/work/hud-schema-signal/", host: "rondomingue.com", when: "snapshot" },
+    { label: "Berlin", country: "Germany", page: "/work/missionlaunch/", host: "rondomingue.com", when: "snapshot" }
   ],
   cityRollup: [
     { city: "New Orleans", country: "United States", sessions: 88 },
@@ -339,28 +339,28 @@ async function buildSnapshot() {
     }),
     runReport(token, {
       dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
-      dimensions: [{ name: "pagePath" }],
+      dimensions: [{ name: "hostName" }, { name: "pagePath" }],
       metrics: [{ name: "screenPageViews" }],
       limit: 8,
       orderBys: [{ metric: { metricName: "screenPageViews" }, desc: true }]
     }),
     runReport(token, {
       dateRanges: [{ startDate: "today", endDate: "today" }],
-      dimensions: [{ name: "pagePath" }],
+      dimensions: [{ name: "hostName" }, { name: "pagePath" }],
       metrics: [{ name: "screenPageViews" }],
       limit: 6,
       orderBys: [{ metric: { metricName: "screenPageViews" }, desc: true }]
     }),
     runReport(token, {
       dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
-      dimensions: [{ name: "pagePath" }, { name: "dateHourMinute" }],
+      dimensions: [{ name: "hostName" }, { name: "pagePath" }, { name: "dateHourMinute" }],
       metrics: [{ name: "screenPageViews" }],
       limit: 14,
       orderBys: [{ dimension: { dimensionName: "dateHourMinute" }, desc: true }]
     }),
     runReport(token, {
       dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
-      dimensions: [{ name: "landingPagePlusQueryString" }],
+      dimensions: [{ name: "hostName" }, { name: "landingPagePlusQueryString" }],
       metrics: [{ name: "sessions" }],
       limit: 6,
       orderBys: [{ metric: { metricName: "sessions" }, desc: true }]
@@ -470,20 +470,24 @@ async function buildSnapshot() {
       hits: numeric(row.metricValues[0]?.value)
     })),
     pages: rows(pagesReport).map(row => ({
-      page: row.dimensionValues[0]?.value || "/",
+      host: row.dimensionValues[0]?.value || "rondomingue.com",
+      page: row.dimensionValues[1]?.value || "/",
       views: numeric(row.metricValues[0]?.value)
     })),
     crushes: rows(crushesReport).map(row => ({
-      page: row.dimensionValues[0]?.value || "/",
+      host: row.dimensionValues[0]?.value || "rondomingue.com",
+      page: row.dimensionValues[1]?.value || "/",
       views: numeric(row.metricValues[0]?.value)
     })),
     recentPages: rows(recentPagesReport).map(row => ({
-      page: row.dimensionValues[0]?.value || "/",
+      host: row.dimensionValues[0]?.value || "rondomingue.com",
+      page: row.dimensionValues[1]?.value || "/",
       views: numeric(row.metricValues[0]?.value),
-      when: row.dimensionValues[1]?.value || ""
+      when: row.dimensionValues[2]?.value || ""
     })),
     entryPages: rows(entryPagesReport).map(row => ({
-      page: row.dimensionValues[0]?.value || "/",
+      host: row.dimensionValues[0]?.value || "rondomingue.com",
+      page: row.dimensionValues[1]?.value || "/",
       sessions: numeric(row.metricValues[0]?.value)
     })),
     browsers: rows(browsersReport).map(row => ({

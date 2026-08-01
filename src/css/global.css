@@ -1027,6 +1027,24 @@ img { display: block; max-width: 100%; }
     transform 0.18s ease;
 }
 
+.analytics-page-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.analytics-page-link::after {
+  content: "->";
+  display: inline-block;
+  margin-left: 0.45em;
+  color: rgba(255,119,207,0.58);
+  font-size: 0.78em;
+  transform: translateY(-0.08em);
+}
+
+.analytics-page-link:hover {
+  color: #ff77cf;
+}
+
 .analytics-table tr:nth-child(even) td,
 .analytics-feed li:nth-child(even) {
   background: rgba(255,255,255,0.025);
