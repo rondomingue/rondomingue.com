@@ -999,6 +999,7 @@ img { display: block; max-width: 100%; }
   width: 100%;
   border-collapse: collapse;
   font-size: 11px;
+  table-layout: fixed;
 }
 
 .analytics-table th {
@@ -1012,7 +1013,9 @@ img { display: block; max-width: 100%; }
 
 .analytics-table th:last-child,
 .analytics-table td:last-child {
+  width: 78px;
   text-align: right;
+  white-space: nowrap;
 }
 
 .analytics-table td {
@@ -1027,8 +1030,13 @@ img { display: block; max-width: 100%; }
     transform 0.18s ease;
 }
 
+.analytics-table td:first-child {
+  overflow-wrap: anywhere;
+}
+
 .analytics-page-link {
   color: inherit;
+  overflow-wrap: anywhere;
   text-decoration: none;
 }
 

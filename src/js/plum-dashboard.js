@@ -436,7 +436,7 @@
     }
 
     if (tabName === "pages") {
-      const rows = view === "recent" ? reverseRows(currentSnapshot.pages) : currentSnapshot.pages;
+      const rows = view === "recent" ? currentSnapshot.recentPages || reverseRows(currentSnapshot.pages) : currentSnapshot.pages;
       renderTable("pages", rows, ["page", "views"]);
       return;
     }
