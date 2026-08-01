@@ -254,6 +254,35 @@ async function getAccessToken() {
   return (await response.json()).access_token;
 }
 
+const localHostnameFilter = {
+  notExpression: {
+    filter: {
+      fieldName: "hostName",
+      stringFilter: {
+        matchType: "FULL_REGEXP",
+        value: "^(localhost|127\\.0\\.0\\.1|0\\.0\\.0\\.0)$",
+        caseSensitive: false
+      }
+    }
+  }
+};
+
+function withoutLocalHosts(body) {
+  if (!body.dimensionFilter) return { ...body, dimensionFilter: localHostnameFilter };
+
+  return {
+    ...body,
+    dimensionFilter: {
+      andGroup: {
+        expressions: [
+          body.dimensionFilter,
+          localHostnameFilter
+        ]
+      }
+    }
+  };
+}
+
 async function runReport(accessToken, body) {
   const response = await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runReport`, {
     method: "POST",
@@ -261,7 +290,7 @@ async function runReport(accessToken, body) {
       authorization: `Bearer ${accessToken}`,
       "content-type": "application/json"
     },
-    body: JSON.stringify(body)
+    body: JSON.stringify(withoutLocalHosts(body))
   });
 
   if (!response.ok) {
@@ -278,7 +307,7 @@ async function runRealtimeReport(accessToken, body) {
       authorization: `Bearer ${accessToken}`,
       "content-type": "application/json"
     },
-    body: JSON.stringify(body)
+    body: JSON.stringify(withoutLocalHosts(body))
   });
 
   if (!response.ok) return null;

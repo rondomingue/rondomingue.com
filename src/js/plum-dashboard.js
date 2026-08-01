@@ -76,6 +76,7 @@
   const pageLabel = row => {
     const host = String(row?.host || "").trim();
     const page = String(row?.page || "").trim() || "/";
+    if (host && page === "/") return host;
     if (!host || host === "rondomingue.com") return page;
     return `${host}${page.startsWith("/") ? page : `/${page}`}`;
   };
