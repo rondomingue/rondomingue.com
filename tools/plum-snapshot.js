@@ -86,10 +86,10 @@ const sample = {
     { page: "/work/the-colony/", views: 34 }
   ],
   recentPages: [
-    { page: "/plum/", views: 12, when: "snapshot" },
-    { page: "/photography/", views: 8, when: "snapshot" },
-    { page: "/work/the-colony/", views: 5, when: "snapshot" },
-    { page: "/about/", views: 3, when: "snapshot" }
+    { page: "/plum/", views: 12, when: "30d recent" },
+    { page: "/photography/", views: 8, when: "30d recent" },
+    { page: "/work/the-colony/", views: 5, when: "30d recent" },
+    { page: "/about/", views: 3, when: "30d recent" }
   ],
   entryPages: [
     { page: "/", sessions: 188 },
@@ -352,10 +352,10 @@ async function buildSnapshot() {
       orderBys: [{ metric: { metricName: "screenPageViews" }, desc: true }]
     }),
     runReport(token, {
-      dateRanges: [{ startDate: "7daysAgo", endDate: "today" }],
+      dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
       dimensions: [{ name: "pagePath" }, { name: "dateHourMinute" }],
       metrics: [{ name: "screenPageViews" }],
-      limit: 8,
+      limit: 14,
       orderBys: [{ dimension: { dimensionName: "dateHourMinute" }, desc: true }]
     }),
     runReport(token, {
