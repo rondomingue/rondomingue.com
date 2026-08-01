@@ -451,13 +451,12 @@
       if (view === "city") {
         const rows = currentSnapshot.cityRollup;
         if (Array.isArray(rows) && rows.length) renderLive(rows.map(row => ({
-          label: row.city,
-          page: row.country,
+          label: `${flagFromCode(row.countryId)} ${row.city || "(not set)"}`,
+          page: "30 days",
           when: `${formatNumber(row.sessions)} sessions`
         })));
         else renderLocationRollup(currentSnapshot.live, "label");
       }
-      else if (view === "country") renderLocationRollup(currentSnapshot.live, "country");
       else renderLive(currentSnapshot.live);
       return;
     }

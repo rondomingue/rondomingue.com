@@ -136,11 +136,11 @@ const sample = {
     { label: "Berlin", country: "Germany", page: "/work/missionlaunch/", host: "rondomingue.com", when: "snapshot" }
   ],
   cityRollup: [
-    { city: "New Orleans", country: "United States", sessions: 88 },
-    { city: "Birmingham", country: "United States", sessions: 61 },
-    { city: "Boston", country: "United States", sessions: 39 },
-    { city: "London", country: "United Kingdom", sessions: 28 },
-    { city: "Toronto", country: "Canada", sessions: 17 }
+    { city: "New Orleans", country: "United States", countryId: "US", sessions: 88 },
+    { city: "Birmingham", country: "United States", countryId: "US", sessions: 61 },
+    { city: "Boston", country: "United States", countryId: "US", sessions: 39 },
+    { city: "London", country: "United Kingdom", countryId: "GB", sessions: 28 },
+    { city: "Toronto", country: "Canada", countryId: "CA", sessions: 17 }
   ],
   devices: [
     { label: "Desktop", value: 58 },
@@ -410,7 +410,7 @@ async function buildSnapshot() {
     }),
     runReport(token, {
       dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
-      dimensions: [{ name: "city" }, { name: "country" }],
+      dimensions: [{ name: "city" }, { name: "country" }, { name: "countryId" }],
       metrics: [{ name: "sessions" }],
       limit: 14,
       orderBys: [{ metric: { metricName: "sessions" }, desc: true }]
@@ -532,6 +532,7 @@ async function buildSnapshot() {
     cityRollup: rows(cityRollupReport).map(row => ({
       city: row.dimensionValues[0]?.value || "(not set)",
       country: row.dimensionValues[1]?.value || "(not set)",
+      countryId: row.dimensionValues[2]?.value || "",
       sessions: numeric(row.metricValues[0]?.value)
     })),
     providers: rows(providersReport).map(row => ({
