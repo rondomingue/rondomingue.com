@@ -131,7 +131,8 @@ noIndex: true
       <header>
         <h2>Crushes</h2>
         <div class="analytics-panel-tabs">
-          <button class="active" type="button">Today</button>
+          <button class="active" type="button" data-plum-tab="crushes" data-plum-view="today">Today</button>
+          <button type="button" data-plum-tab="crushes" data-plum-view="recent">Recent</button>
         </div>
       </header>
       <table class="analytics-table" data-plum-table="crushes">
@@ -298,4 +299,4 @@ noIndex: true
 
 <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js" defer></script>
-<script src="{{ '/js/plum-dashboard.js' | url }}?v=23" defer></script>
+<script src="{{ '/js/plum-dashboard.js' | url }}?v=24" defer></script>

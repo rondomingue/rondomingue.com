@@ -419,8 +419,22 @@
       return;
     }
 
+    if (tabName === "crushes") {
+      const rows = view === "recent" ? currentSnapshot.recentPages || reverseRows(currentSnapshot.crushes) : currentSnapshot.crushes;
+      renderTable("crushes", rows, ["page", "views"]);
+      return;
+    }
+
     if (tabName === "live") {
-      if (view === "city") renderLocationRollup(currentSnapshot.live, "label");
+      if (view === "city") {
+        const rows = currentSnapshot.cityRollup;
+        if (Array.isArray(rows) && rows.length) renderLive(rows.map(row => ({
+          label: row.city,
+          page: row.country,
+          when: `${formatNumber(row.sessions)} sessions`
+        })));
+        else renderLocationRollup(currentSnapshot.live, "label");
+      }
       else if (view === "country") renderLocationRollup(currentSnapshot.live, "country");
       else renderLive(currentSnapshot.live);
       return;

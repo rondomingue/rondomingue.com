@@ -85,6 +85,12 @@ const sample = {
     { page: "/about/", views: 39 },
     { page: "/work/the-colony/", views: 34 }
   ],
+  recentPages: [
+    { page: "/plum/", views: 12, when: "snapshot" },
+    { page: "/photography/", views: 8, when: "snapshot" },
+    { page: "/work/the-colony/", views: 5, when: "snapshot" },
+    { page: "/about/", views: 3, when: "snapshot" }
+  ],
   entryPages: [
     { page: "/", sessions: 188 },
     { page: "/work/", sessions: 96 },
@@ -128,6 +134,13 @@ const sample = {
     { label: "Toronto", country: "Canada", page: "/about/", when: "snapshot" },
     { label: "London", country: "United Kingdom", page: "/work/hud-schema-signal/", when: "snapshot" },
     { label: "Berlin", country: "Germany", page: "/work/missionlaunch/", when: "snapshot" }
+  ],
+  cityRollup: [
+    { city: "New Orleans", country: "United States", sessions: 88 },
+    { city: "Birmingham", country: "United States", sessions: 61 },
+    { city: "Boston", country: "United States", sessions: 39 },
+    { city: "London", country: "United Kingdom", sessions: 28 },
+    { city: "Toronto", country: "Canada", sessions: 17 }
   ],
   devices: [
     { label: "Desktop", value: 58 },
@@ -281,7 +294,7 @@ async function buildSnapshot() {
   }
 
   const token = accessToken || await getAccessToken();
-  const [summaryReport, dayVisitsReport, visitsReport, monthVisitsReport, yearVisitsReport, referrersReport, referrerRepeatsReport, pagesReport, crushesReport, entryPagesReport, browsersReport, countriesReport, providersReport, devicesReport, platformsReport, screensReport, realtimeReport] = await Promise.all([
+  const [summaryReport, dayVisitsReport, visitsReport, monthVisitsReport, yearVisitsReport, referrersReport, referrerRepeatsReport, pagesReport, crushesReport, recentPagesReport, entryPagesReport, browsersReport, countriesReport, cityRollupReport, providersReport, devicesReport, platformsReport, screensReport, realtimeReport] = await Promise.all([
     runReport(token, {
       dateRanges: [{ startDate: "today", endDate: "today" }, { startDate: "yesterday", endDate: "yesterday" }],
       metrics: [{ name: "screenPageViews" }, { name: "activeUsers" }, { name: "sessions" }]
@@ -339,6 +352,13 @@ async function buildSnapshot() {
       orderBys: [{ metric: { metricName: "screenPageViews" }, desc: true }]
     }),
     runReport(token, {
+      dateRanges: [{ startDate: "7daysAgo", endDate: "today" }],
+      dimensions: [{ name: "pagePath" }, { name: "dateHourMinute" }],
+      metrics: [{ name: "screenPageViews" }],
+      limit: 8,
+      orderBys: [{ dimension: { dimensionName: "dateHourMinute" }, desc: true }]
+    }),
+    runReport(token, {
       dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
       dimensions: [{ name: "landingPagePlusQueryString" }],
       metrics: [{ name: "sessions" }],
@@ -357,6 +377,13 @@ async function buildSnapshot() {
       dimensions: [{ name: "country" }, { name: "countryId" }],
       metrics: [{ name: "sessions" }],
       limit: 6,
+      orderBys: [{ metric: { metricName: "sessions" }, desc: true }]
+    }),
+    runReport(token, {
+      dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
+      dimensions: [{ name: "city" }, { name: "country" }],
+      metrics: [{ name: "sessions" }],
+      limit: 14,
       orderBys: [{ metric: { metricName: "sessions" }, desc: true }]
     }),
     runReport(token, {
@@ -450,6 +477,11 @@ async function buildSnapshot() {
       page: row.dimensionValues[0]?.value || "/",
       views: numeric(row.metricValues[0]?.value)
     })),
+    recentPages: rows(recentPagesReport).map(row => ({
+      page: row.dimensionValues[0]?.value || "/",
+      views: numeric(row.metricValues[0]?.value),
+      when: row.dimensionValues[1]?.value || ""
+    })),
     entryPages: rows(entryPagesReport).map(row => ({
       page: row.dimensionValues[0]?.value || "/",
       sessions: numeric(row.metricValues[0]?.value)
@@ -463,6 +495,11 @@ async function buildSnapshot() {
       countryId: row.dimensionValues[1]?.value || "",
       sessions: numeric(row.metricValues[0]?.value),
       percent: Math.round((numeric(row.metricValues[0]?.value) / countrySessions) * 100)
+    })),
+    cityRollup: rows(cityRollupReport).map(row => ({
+      city: row.dimensionValues[0]?.value || "(not set)",
+      country: row.dimensionValues[1]?.value || "(not set)",
+      sessions: numeric(row.metricValues[0]?.value)
     })),
     providers: rows(providersReport).map(row => ({
       provider: row.dimensionValues[0]?.value || "(not set)",
