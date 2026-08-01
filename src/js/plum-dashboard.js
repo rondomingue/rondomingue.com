@@ -14,6 +14,8 @@
   let countryMap = null;
   let countryMarkers = [];
   let mapResizeObserver = null;
+  let plumAudioContext = null;
+  let lastHoverSoundAt = 0;
   const countryCoordinates = {
     AR: [-64, -34],
     AU: [134, -25],
@@ -62,6 +64,44 @@
   const compareNumeric = key => (a, b) => Number(b[key] || 0) - Number(a[key] || 0);
   const reverseRows = rows => Array.isArray(rows) ? [...rows].reverse() : [];
   const sumValues = rows => (rows || []).reduce((sum, value) => sum + Number(value || 0), 0);
+  const soundTargets = ".page-analytics button, .page-analytics a, .analytics-table tbody tr, .analytics-feed li, .analytics-bars div, .analytics-pie-legend li, .analytics-country-list div, .analytics-map-marker";
+
+  const playPlumTone = (frequency, duration = 0.035, volume = 0.014) => {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+    if (!plumAudioContext) plumAudioContext = new AudioContext();
+    if (plumAudioContext.state === "suspended") {
+      plumAudioContext.resume().catch(() => {});
+    }
+
+    const now = plumAudioContext.currentTime;
+    const oscillator = plumAudioContext.createOscillator();
+    const gain = plumAudioContext.createGain();
+    oscillator.type = "sine";
+    oscillator.frequency.setValueAtTime(frequency, now);
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.exponentialRampToValueAtTime(volume, now + 0.006);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+    oscillator.connect(gain).connect(plumAudioContext.destination);
+    oscillator.start(now);
+    oscillator.stop(now + duration + 0.01);
+  };
+
+  const setupPlumSounds = () => {
+    document.addEventListener("pointerover", event => {
+      if (!event.target.closest(soundTargets)) return;
+      if (!plumAudioContext) return;
+      const now = performance.now();
+      if (now - lastHoverSoundAt < 90) return;
+      lastHoverSoundAt = now;
+      playPlumTone(520, 0.026, 0.01);
+    }, { passive: true });
+
+    document.addEventListener("click", event => {
+      if (!event.target.closest(soundTargets)) return;
+      playPlumTone(740, 0.045, 0.016);
+    }, true);
+  };
 
   const setActiveTab = button => {
     const group = button.closest(".analytics-panel-tabs");
@@ -206,7 +246,7 @@
       countryMarkers.forEach(marker => marker.remove());
       countryMarkers = mappableRows.map(row => {
         const percent = Math.max(0, Math.min(100, Number(row.percent) || 0));
-        const size = Math.max(22, Math.min(64, 20 + percent * 0.65));
+        const size = Math.max(20, Math.min(54, 18 + percent * 0.52));
         const countryId = String(row.countryId || "").toUpperCase();
         const markerElement = document.createElement("div");
         markerElement.className = "analytics-map-marker";
@@ -397,6 +437,8 @@
       else renderDeviceBars(currentSnapshot.screens || currentSnapshot.devices);
     }
   };
+
+  setupPlumSounds();
 
   document.addEventListener("click", event => {
     const button = event.target.closest("[data-plum-tab]");
