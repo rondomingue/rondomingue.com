@@ -24,6 +24,7 @@ bodyClass: page-home
     <iframe
       id="vimeo-bg"
       class="hero-video"
+      title="Ron Domingue background reel"
       src="https://player.vimeo.com/video/{{ site.vimeoReel }}?background=1&autoplay=1&loop=1&muted=1&autopause=0&playsinline=1&transparent=0&quality=1080p"
       allow="autoplay; fullscreen; picture-in-picture"
       allowfullscreen
@@ -294,6 +295,7 @@ bodyClass: page-home
 
   function dismissPreloader(showVideo = false) {
     if (showVideo) document.body.classList.add('hero-video-ready');
+    else document.body.classList.add('hero-video-fallback');
     if (preloaderDismissed || !preloader) return;
     preloaderDismissed = true;
     clearInterval(preloaderTimer);
@@ -318,8 +320,8 @@ bodyClass: page-home
     }
   });
 
-  // Fallback — dismiss after 4s regardless
-  setTimeout(() => dismissPreloader(true), 4200);
+  // Fallback: keep the local still visible if Vimeo never confirms playback.
+  setTimeout(() => dismissPreloader(false), 4200);
 
   // ── Featured reel shadowbox ────────────────────────────────────
   const reelOpen = document.getElementById('reel-open');

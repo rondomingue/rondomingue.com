@@ -1612,7 +1612,10 @@ img { display: block; max-width: 100%; }
 /* Vimeo background */
 .hero-video-wrap {
   position: absolute;
-  background: #050507;
+  background:
+    linear-gradient(90deg, rgba(5,5,7,0.52), rgba(5,5,7,0.18) 46%, rgba(5,5,7,0.04)),
+    url('/images/work/dark-star/image_720.webp') center / cover no-repeat,
+    #050507;
   inset: 0;
   z-index: 0;
   overflow: hidden;
@@ -1634,6 +1637,10 @@ img { display: block; max-width: 100%; }
 
 .hero-video-ready .hero-video {
   opacity: 1;
+}
+
+.hero-video-fallback .hero-video {
+  opacity: 0;
 }
 
 /* Gradient scrim */
@@ -3429,9 +3436,6 @@ img { display: block; max-width: 100%; }
   }
   .header-logo span { display: none; }
   .page-home .hero { min-height: 560px; }
-.page-home .hero-video {
-  opacity: 1;
-}
 .page-home .hero-overlay {
   background:
     linear-gradient(to right,
