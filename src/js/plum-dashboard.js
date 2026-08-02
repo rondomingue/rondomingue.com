@@ -158,16 +158,45 @@
     host.textContent = `Snapshot ${formatted}`;
   };
 
-  const renderTable = (name, rows, columns) => {
+  const formatRecentTime = value => {
+    const stamp = String(value || "");
+    if (!/^\d{12}$/.test(stamp)) return stamp || "snapshot";
+
+    const date = new Date(
+      Number(stamp.slice(0, 4)),
+      Number(stamp.slice(4, 6)) - 1,
+      Number(stamp.slice(6, 8)),
+      Number(stamp.slice(8, 10)),
+      Number(stamp.slice(10, 12))
+    );
+    return new Intl.DateTimeFormat("en-US", {
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "2-digit"
+    }).format(date);
+  };
+
+  const tableValue = (row, column) => {
+    if (column === "when") return formatRecentTime(row[column]);
+    return `${formatNumber(row[column])}${column === "percent" ? "%" : ""}`;
+  };
+
+  const renderTable = (name, rows, columns, labels) => {
     const table = document.querySelector(`[data-plum-table="${name}"]`);
     if (!table || !Array.isArray(rows)) return;
     const body = table.querySelector("tbody");
     if (!body) return;
+    const headers = table.querySelectorAll("thead th");
+    if (labels && headers.length >= 2) {
+      headers[0].textContent = labels[0];
+      headers[1].textContent = labels[1];
+    }
 
     body.innerHTML = rows.map(row => `
       <tr>
         <td>${columns[0] === "page" ? pageLink(row) : text(row[columns[0]])}</td>
-        <td>${formatNumber(row[columns[1]])}${columns[1] === "percent" ? "%" : ""}</td>
+        <td>${text(tableValue(row, columns[1]))}</td>
       </tr>
     `).join("");
   };
@@ -437,13 +466,13 @@
 
     if (tabName === "pages") {
       const rows = view === "recent" ? currentSnapshot.recentPages || reverseRows(currentSnapshot.pages) : currentSnapshot.pages;
-      renderTable("pages", rows, ["page", "views"]);
+      renderTable("pages", rows, view === "recent" ? ["page", "when"] : ["page", "views"], ["Page", view === "recent" ? "Time" : "Views"]);
       return;
     }
 
     if (tabName === "crushes") {
       const rows = view === "recent" ? currentSnapshot.recentPages || reverseRows(currentSnapshot.crushes) : currentSnapshot.crushes;
-      renderTable("crushes", rows, ["page", "views"]);
+      renderTable("crushes", rows, view === "recent" ? ["page", "when"] : ["page", "views"], ["Page", view === "recent" ? "Time" : "Views"]);
       return;
     }
 
