@@ -2751,15 +2751,19 @@ img { display: block; max-width: 100%; }
 }
 
 .about-body .about-cv-text a {
-  color: var(--cyan);
-  border-bottom: 1px solid rgba(79,200,232,0.36);
-  transition: color 180ms ease, border-color 180ms ease;
+  color: var(--text);
+  font-weight: 400;
+  text-decoration: underline;
+  text-decoration-color: var(--cyan);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
 }
 
 .about-body .about-cv-text a:hover,
 .about-body .about-cv-text a:focus-visible {
-  color: var(--text);
-  border-color: var(--cyan);
+  color: var(--cyan);
+  text-decoration-color: currentColor;
   outline: none;
 }
 
