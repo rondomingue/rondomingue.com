@@ -2746,6 +2746,23 @@ img { display: block; max-width: 100%; }
   line-height: 1.75;
 }
 
+.about-body .about-cv-text {
+  color: var(--text-dim);
+}
+
+.about-body .about-cv-text a {
+  color: var(--cyan);
+  border-bottom: 1px solid rgba(79,200,232,0.36);
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.about-body .about-cv-text a:hover,
+.about-body .about-cv-text a:focus-visible {
+  color: var(--text);
+  border-color: var(--cyan);
+  outline: none;
+}
+
 .about-email-block {
   display: flex;
   align-items: center;
@@ -2769,67 +2786,6 @@ img { display: block; max-width: 100%; }
   transition: opacity 0.2s;
 }
 .about-email-link:hover { opacity: 0.75; }
-
-.about-cv-link {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 14px;
-  align-items: center;
-  padding: 16px 18px;
-  border: 1px solid rgba(79,200,232,0.28);
-  border-radius: 4px;
-  background:
-    linear-gradient(135deg, rgba(79,200,232,0.08), rgba(200,40,154,0.045)),
-    var(--surface);
-  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
-}
-
-.about-cv-link:hover,
-.about-cv-link:focus-visible {
-  border-color: rgba(79,200,232,0.58);
-  background:
-    linear-gradient(135deg, rgba(79,200,232,0.12), rgba(200,40,154,0.075)),
-    var(--surface-2);
-  outline: none;
-}
-
-.about-cv-link:active { transform: translateY(1px) scale(0.995); }
-
-.about-cv-label {
-  width: 42px;
-  height: 42px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(79,200,232,0.42);
-  border-radius: 999px;
-  color: var(--cyan);
-  font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-}
-
-.about-cv-link strong,
-.about-cv-link em {
-  display: block;
-}
-
-.about-cv-link strong {
-  color: var(--text);
-  font-family: 'din-2014', sans-serif;
-  font-size: 18px;
-  font-weight: 300;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.about-cv-link em {
-  margin-top: 4px;
-  color: var(--text-dim);
-  font-size: 12px;
-  font-style: normal;
-  line-height: 1.45;
-}
 
 .about-social {
   display: flex;
