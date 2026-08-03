@@ -2438,25 +2438,32 @@ img { display: block; max-width: 100%; }
 }
 
 .project-player {
+  position: relative;
   max-width: 1440px;
   margin: 42px auto 0;
-  aspect-ratio: 16 / 9;
-  background:
-    radial-gradient(circle at 20% 24%, rgba(200,40,154,0.22), transparent 30%),
-    linear-gradient(135deg, #101116, #040405);
-  border: 1px solid rgba(255,255,255,0.08);
+  aspect-ratio: var(--project-video-aspect-ratio, 16 / 9);
+  background: #050507;
+  border: 1px solid rgba(238,238,240,0.045);
+  box-shadow:
+    inset 0 0 0 1px rgba(5,5,7,0.92),
+    0 24px 80px rgba(0,0,0,0.18);
   overflow: hidden;
 }
 .project-player iframe {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   display: block;
   border: 0;
+  background: #050507;
+  color-scheme: dark;
 }
 
 .project-video,
 .project-video-poster {
-  position: relative;
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
 }

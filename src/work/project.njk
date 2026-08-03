@@ -55,8 +55,9 @@ bodyClass: page-work page-project
   {% set videoProvider = project.video.provider if project.video and project.video.id else ('youtube' if project.vimeo else '') %}
   {% set videoId = project.video.id if project.video and project.video.id else project.vimeo %}
   {% set videoPoster = project.thumb or (project.images[0].src if project.images and project.images[0].src else project.images[0]) %}
+  {% set videoAspectRatio = project.video.aspectRatio if project.video and project.video.aspectRatio else (project.videoAspectRatio or '16 / 9') %}
   {% if videoId %}
-  <div class="project-player">
+  <div class="project-player" style="--project-video-aspect-ratio: {{ videoAspectRatio }};">
     <div class="project-video" data-project-video>
       <button
         class="project-video-poster"

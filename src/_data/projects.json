@@ -107,7 +107,8 @@
     "thumb": "images/work/resonance-field/resonance-field-hero.jpg",
     "video": {
       "provider": "youtube",
-      "id": "90BRjP9TOF4"
+      "id": "90BRjP9TOF4",
+      "aspectRatio": "21 / 9"
     },
     "summary": "Resonance Field is an audio-reactive motion study created in TouchDesigner, translating the Blade Runner 2049 theme into a living field of procedural movement, light, and signal-like texture.",
     "description": [
@@ -140,7 +141,8 @@
     "thumb": "images/work/the-sinner-in-me/sinner-signal-field-04.webp",
     "video": {
       "provider": "youtube",
-      "id": "BouqB2I5-4w"
+      "id": "BouqB2I5-4w",
+      "aspectRatio": "21 / 9"
     },
     "summary": "The Sinner in Me is an audio-reactive TouchDesigner visual built to Depeche Mode's song of the same name, turning the track's dark pulse into a live field of signal paths, distortion, and unstable light.",
     "description": [
@@ -329,7 +331,8 @@
     "thumb": "images/work/the-four-of-us-are-dying/the-four-of-us-are-dying-hero.jpg",
     "video": {
       "provider": "vimeo",
-      "id": "272964657"
+      "id": "272964657",
+      "aspectRatio": "21 / 9"
     },
     "summary": "The Four of Us Are Dying is an audio-driven motion piece built to Nine Inch Nails, using Cinema 4D sound modifiers, X-Particles, and After Effects to translate the track into procedural movement and atmosphere.",
     "description": [
@@ -362,7 +365,8 @@
     "thumb": "images/work/black-noise/black-noise-hero.jpg",
     "video": {
       "provider": "youtube",
-      "id": "WVcxJ9BOwYY"
+      "id": "WVcxJ9BOwYY",
+      "aspectRatio": "21 / 9"
     },
     "summary": "Black Noise is an audio-reactive TouchDesigner piece built to Nine Inch Nails song of the same name, translating the track into procedural motion, distortion, and dense signal texture.",
     "description": [
@@ -396,7 +400,8 @@
     "thumb": "images/work/when-im-small/when-im-small-hero.jpg",
     "video": {
       "provider": "vimeo",
-      "id": "645771009"
+      "id": "645771009",
+      "aspectRatio": "21 / 9"
     },
     "summary": "When I'm Small is an audio-driven motion piece built to Phantogram, using Cinema 4D, X-Particles, and After Effects to turn the track into procedural movement, particle behavior, and layered atmosphere.",
     "description": [
@@ -427,7 +432,8 @@
     "thumb": "images/work/long-after-dark/long-after-dark-hero.jpg",
     "video": {
       "provider": "vimeo",
-      "id": "1015330502"
+      "id": "1015330502",
+      "aspectRatio": "21 / 9"
     },
     "liveLinks": [
       {
