@@ -279,12 +279,37 @@ bodyClass: page-home
 
   loadExposure();
 
+  // ── Random work hero fallback ──────────────────────────────────
+  const fallbackHeroImages = [
+    "{{ '/images/work/overcast/overcast-hero.jpg' | url }}",
+    "{{ '/images/work/black-noise/black-noise-hero.jpg' | url }}",
+    "{{ '/images/work/long-after-dark/long-after-dark-hero.jpg' | url }}",
+    "{{ '/images/work/resonance-field/resonance-field-hero.jpg' | url }}",
+    "{{ '/images/work/the-sinner-in-me/the-sinner-in-me-hero.jpg' | url }}",
+    "{{ '/images/work/the-four-of-us-are-dying/the-four-of-us-are-dying-hero.jpg' | url }}",
+    "{{ '/images/work/field-guide/field-guide-hero.jpg' | url }}",
+    "{{ '/images/work/cargo-meridian/cargo-hero.jpg' | url }}",
+    "{{ '/images/work/transit/transit-hero.jpg' | url }}",
+    "{{ '/images/work/missionlaunch/missionlaunch-hero.jpg' | url }}",
+    "{{ '/images/work/landfall/landfall-hero.jpg' | url }}",
+    "{{ '/images/work/elemental-blocks/elemental-hero.jpg' | url }}",
+    "{{ '/images/work/lexicon-vocabulary/lexicon-hero.jpg' | url }}",
+    "{{ '/images/work/outbreaks-global-epidemic-intelligence/outbreaks-hero.jpg' | url }}"
+  ];
+  const heroVideoWrap = document.querySelector('.hero-video-wrap');
+  const fallbackHeroImage = fallbackHeroImages[Math.floor(Math.random() * fallbackHeroImages.length)];
+  if (heroVideoWrap && fallbackHeroImage) {
+    heroVideoWrap.style.setProperty('--hero-fallback-image', `url('${fallbackHeroImage}')`);
+  }
+
   // ── Vimeo preloader ─────────────────────────────────────────────
   const preloader = document.getElementById('preloader');
   const preloaderProgress = document.getElementById('preloader-progress');
   const preloaderBarFill = document.getElementById('preloader-bar-fill');
+  const vimeoBackgroundFrame = document.getElementById('vimeo-bg');
   let preloaderValue = 0;
   let preloaderDismissed = false;
+  let backgroundVideoConfirmed = false;
 
   const preloaderTimer = setInterval(() => {
     if (preloaderDismissed) return;
@@ -293,9 +318,18 @@ bodyClass: page-home
     preloaderBarFill.style.width = `${preloaderValue}%`;
   }, 180);
 
+  function showBackgroundVideo() {
+    backgroundVideoConfirmed = true;
+    document.body.classList.remove('hero-video-fallback');
+    document.body.classList.add('hero-video-ready');
+  }
+
   function dismissPreloader(showVideo = false) {
-    if (showVideo) document.body.classList.add('hero-video-ready');
-    else document.body.classList.add('hero-video-fallback');
+    if (showVideo) {
+      showBackgroundVideo();
+    } else if (!backgroundVideoConfirmed) {
+      document.body.classList.add('hero-video-fallback');
+    }
     if (preloaderDismissed || !preloader) return;
     preloaderDismissed = true;
     clearInterval(preloaderTimer);
@@ -320,8 +354,26 @@ bodyClass: page-home
     }
   });
 
+  async function tryPlayBackgroundReel() {
+    if (!window.Vimeo || !window.Vimeo.Player || !vimeoBackgroundFrame) return;
+    try {
+      const player = new window.Vimeo.Player(vimeoBackgroundFrame);
+      await player.ready();
+      await player.setMuted(true);
+      await player.setLoop(true);
+      await player.play();
+      dismissPreloader(true);
+    } catch (error) {
+      // Keep the still fallback available when Vimeo privacy, network, or autoplay blocks playback.
+    }
+  }
+
+  tryPlayBackgroundReel();
+
   // Fallback: keep the local still visible if Vimeo never confirms playback.
-  setTimeout(() => dismissPreloader(false), 4200);
+  setTimeout(() => {
+    if (!backgroundVideoConfirmed) dismissPreloader(false);
+  }, 4200);
 
   // ── Featured reel shadowbox ────────────────────────────────────
   const reelOpen = document.getElementById('reel-open');

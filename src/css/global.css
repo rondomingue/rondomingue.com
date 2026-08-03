@@ -1614,7 +1614,7 @@ img { display: block; max-width: 100%; }
   position: absolute;
   background:
     linear-gradient(90deg, rgba(5,5,7,0.52), rgba(5,5,7,0.18) 46%, rgba(5,5,7,0.04)),
-    url('/images/work/dark-star/image_720.webp') center / cover no-repeat,
+    var(--hero-fallback-image, url('/images/work/overcast/overcast-hero.jpg')) center / cover no-repeat,
     #050507;
   inset: 0;
   z-index: 0;
