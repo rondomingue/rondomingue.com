@@ -57,31 +57,23 @@ bodyClass: page-work page-project
   {% set videoPoster = project.thumb or (project.images[0].src if project.images and project.images[0].src else project.images[0]) %}
   {% if videoId %}
   <div class="project-player">
-    {% if videoProvider == 'vimeo' %}
-    <iframe
-      src="https://player.vimeo.com/video/{{ videoId }}"
-      title="{{ project.title }}"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      loading="lazy"
-      allowfullscreen>
-    </iframe>
-    {% else %}
-    <div class="project-youtube" data-youtube-player>
+    <div class="project-video" data-project-video>
       <button
-        class="project-youtube-poster"
+        class="project-video-poster"
         type="button"
-        data-youtube-embed="https://www.youtube-nocookie.com/embed/{{ videoId }}?rel=0&modestbranding=1&autoplay=1&mute=1&playsinline=1&enablejsapi=1"
+        data-project-video-embed="{% if videoProvider == 'vimeo' %}https://player.vimeo.com/video/{{ videoId }}?autoplay=1&title=0&byline=0&portrait=0{% else %}https://www.youtube-nocookie.com/embed/{{ videoId }}?rel=0&modestbranding=1&autoplay=1&mute=1&playsinline=1&enablejsapi=1{% endif %}"
         aria-label="Play {{ project.title }} video">
         {% if videoPoster %}
         <img src="{{ ('/' + videoPoster) | url }}" alt="" loading="lazy">
         {% endif %}
-        <span class="project-youtube-overlay" aria-hidden="true">
-          <span class="project-youtube-play">Play video</span>
+        <span class="project-video-overlay" aria-hidden="true">
+          <span class="project-video-play">Play video</span>
         </span>
       </button>
-      <a class="project-youtube-link" href="https://www.youtube.com/watch?v={{ videoId }}" target="_blank" rel="noopener">Open on YouTube ↗</a>
+      <a class="project-video-link" href="{% if videoProvider == 'vimeo' %}https://vimeo.com/{{ videoId }}{% else %}https://www.youtube.com/watch?v={{ videoId }}{% endif %}" target="_blank" rel="noopener">
+        Open on {% if videoProvider == 'vimeo' %}Vimeo{% else %}YouTube{% endif %} ↗
+      </a>
     </div>
-    {% endif %}
   </div>
   {% endif %}
 
@@ -223,13 +215,13 @@ bodyClass: page-work page-project
 
 <script>
   (() => {
-    document.querySelectorAll('[data-youtube-player]').forEach(player => {
-      const button = player.querySelector('[data-youtube-embed]');
+    document.querySelectorAll('[data-project-video]').forEach(player => {
+      const button = player.querySelector('[data-project-video-embed]');
       if (!button) return;
 
       button.addEventListener('click', () => {
         const iframe = document.createElement('iframe');
-        iframe.src = button.dataset.youtubeEmbed;
+        iframe.src = button.dataset.projectVideoEmbed;
         iframe.title = button.getAttribute('aria-label') || 'Project video';
         iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
         iframe.allowFullscreen = true;

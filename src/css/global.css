@@ -2454,18 +2454,18 @@ img { display: block; max-width: 100%; }
   border: 0;
 }
 
-.project-youtube,
-.project-youtube-poster {
+.project-video,
+.project-video-poster {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-.project-youtube {
+.project-video {
   background: #050507;
 }
 
-.project-youtube-poster {
+.project-video-poster {
   display: block;
   overflow: hidden;
   border: 0;
@@ -2474,7 +2474,7 @@ img { display: block; max-width: 100%; }
   cursor: pointer;
 }
 
-.project-youtube-poster img {
+.project-video-poster img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -2483,13 +2483,13 @@ img { display: block; max-width: 100%; }
   transition: opacity 180ms ease, transform 220ms ease;
 }
 
-.project-youtube-poster:hover img,
-.project-youtube-poster:focus-visible img {
+.project-video-poster:hover img,
+.project-video-poster:focus-visible img {
   opacity: 0.92;
   transform: scale(1.012);
 }
 
-.project-youtube-overlay {
+.project-video-overlay {
   position: absolute;
   inset: 0;
   display: grid;
@@ -2499,7 +2499,7 @@ img { display: block; max-width: 100%; }
     linear-gradient(180deg, rgba(5,5,7,0.08), rgba(5,5,7,0.36));
 }
 
-.project-youtube-play {
+.project-video-play {
   min-width: 112px;
   min-height: 44px;
   display: inline-flex;
@@ -2517,7 +2517,7 @@ img { display: block; max-width: 100%; }
   box-shadow: 0 16px 40px rgba(0,0,0,0.28);
 }
 
-.project-youtube-link {
+.project-video-link {
   position: absolute;
   right: 14px;
   bottom: 12px;
@@ -2530,8 +2530,8 @@ img { display: block; max-width: 100%; }
   transition: color 180ms ease;
 }
 
-.project-youtube-link:hover,
-.project-youtube-link:focus-visible {
+.project-video-link:hover,
+.project-video-link:focus-visible {
   color: var(--cyan);
   outline: none;
 }
