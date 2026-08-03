@@ -70,7 +70,7 @@ bodyClass: page-work page-project
       <button
         class="project-youtube-poster"
         type="button"
-        data-youtube-embed="https://www.youtube-nocookie.com/embed/{{ videoId }}?rel=0&modestbranding=1&autoplay=1"
+        data-youtube-embed="https://www.youtube-nocookie.com/embed/{{ videoId }}?rel=0&modestbranding=1&autoplay=1&mute=1&playsinline=1&enablejsapi=1"
         aria-label="Play {{ project.title }} video">
         {% if videoPoster %}
         <img src="{{ ('/' + videoPoster) | url }}" alt="" loading="lazy">
@@ -234,6 +234,7 @@ bodyClass: page-work page-project
         iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
         iframe.allowFullscreen = true;
         iframe.loading = 'lazy';
+        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
         player.replaceChildren(iframe);
       });
     });
