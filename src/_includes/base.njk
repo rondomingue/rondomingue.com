@@ -19,6 +19,22 @@
   </script>
   <title>{% if title %}{{ title }} — {% endif %}{{ site.siteName }}</title>
   <meta name="description" content="{{ description or site.description }}">
+  <link rel="canonical" href="{{ site.siteUrl }}{{ page.url | url }}">
+  <meta property="og:site_name" content="{{ site.siteName }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{% if title %}{{ title }} — {% endif %}{{ site.siteName }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:url" content="{{ site.siteUrl }}{{ page.url | url }}">
+  <meta property="og:image" content="{{ site.siteUrl }}{{ socialImage or site.socialImage }}">
+  <meta property="og:image:secure_url" content="{{ site.siteUrl }}{{ socialImage or site.socialImage }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ socialImageAlt or site.siteName }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% if title %}{{ title }} — {% endif %}{{ site.siteName }}">
+  <meta name="twitter:description" content="{{ description or site.description }}">
+  <meta name="twitter:image" content="{{ site.siteUrl }}{{ socialImage or site.socialImage }}">
+  <meta name="twitter:image:alt" content="{{ socialImageAlt or site.siteName }}">
   {% if noIndex %}<meta name="robots" content="noindex, nofollow">{% endif %}
   <link rel="icon" type="image/png" href="{{ '/images/favicon.png' | url }}">
   <link rel="stylesheet" href="{{ '/css/global.css' | url }}?v=49">
