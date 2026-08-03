@@ -52,23 +52,36 @@ bodyClass: page-work page-project
     </div>
   </header>
 
-  {% if project.video and project.video.id %}
+  {% set videoProvider = project.video.provider if project.video and project.video.id else ('youtube' if project.vimeo else '') %}
+  {% set videoId = project.video.id if project.video and project.video.id else project.vimeo %}
+  {% set videoPoster = project.thumb or (project.images[0].src if project.images and project.images[0].src else project.images[0]) %}
+  {% if videoId %}
   <div class="project-player">
+    {% if videoProvider == 'vimeo' %}
     <iframe
-      src="{% if project.video.provider == 'vimeo' %}https://player.vimeo.com/video/{{ project.video.id }}{% else %}https://www.youtube.com/embed/{{ project.video.id }}?rel=0&modestbranding=1{% endif %}"
+      src="https://player.vimeo.com/video/{{ videoId }}"
       title="{{ project.title }}"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      loading="lazy"
       allowfullscreen>
     </iframe>
-  </div>
-  {% elif project.vimeo %}
-  <div class="project-player">
-    <iframe
-      src="https://www.youtube.com/embed/{{ project.vimeo }}?rel=0&modestbranding=1"
-      title="{{ project.title }}"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
+    {% else %}
+    <div class="project-youtube" data-youtube-player>
+      <button
+        class="project-youtube-poster"
+        type="button"
+        data-youtube-embed="https://www.youtube-nocookie.com/embed/{{ videoId }}?rel=0&modestbranding=1&autoplay=1"
+        aria-label="Play {{ project.title }} video">
+        {% if videoPoster %}
+        <img src="{{ ('/' + videoPoster) | url }}" alt="" loading="lazy">
+        {% endif %}
+        <span class="project-youtube-overlay" aria-hidden="true">
+          <span class="project-youtube-play">Play video</span>
+        </span>
+      </button>
+      <a class="project-youtube-link" href="https://www.youtube.com/watch?v={{ videoId }}" target="_blank" rel="noopener">Open on YouTube ↗</a>
+    </div>
+    {% endif %}
   </div>
   {% endif %}
 
@@ -207,3 +220,22 @@ bodyClass: page-work page-project
   })();
 </script>
 {% endif %}
+
+<script>
+  (() => {
+    document.querySelectorAll('[data-youtube-player]').forEach(player => {
+      const button = player.querySelector('[data-youtube-embed]');
+      if (!button) return;
+
+      button.addEventListener('click', () => {
+        const iframe = document.createElement('iframe');
+        iframe.src = button.dataset.youtubeEmbed;
+        iframe.title = button.getAttribute('aria-label') || 'Project video';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.allowFullscreen = true;
+        iframe.loading = 'lazy';
+        player.replaceChildren(iframe);
+      });
+    });
+  })();
+</script>
