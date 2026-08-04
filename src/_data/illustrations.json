@@ -112,17 +112,18 @@
   },
   {
     "src": "images/illustration/paul.png",
-    "alt": "Untitled Artwork",
+    "alt": "Paul",
     "width": 2200,
     "height": 2153,
-    "orientation": "square"
+    "orientation": "square",
+    "caption": "Paul"
   },
   {
     "src": "images/illustration/walton-goggins.png",
-    "alt": "Walton Goggins",
-    "width": 2200,
-    "height": 1649,
-    "orientation": "landscape"
+    "alt": "Walton",
+    "width": 827,
+    "height": 1471,
+    "orientation": "portait"
   },
   {
     "src": "images/illustration/background.png",
@@ -148,7 +149,7 @@
   },
   {
     "src": "images/illustration/illustration-1620315536921.webp",
-    "alt": "Illustration 6",
+    "alt": "Zoe",
     "width": 1424,
     "height": 2200,
     "orientation": "portrait"
@@ -231,7 +232,7 @@
   },
   {
     "src": "images/illustration/111317_Epictetus_Poster_Blue.webp",
-    "alt": "111317 Epictetus Poster Blue",
+    "alt": "Epictetus Poster Blue",
     "width": 1200,
     "height": 1800,
     "orientation": "portrait"
