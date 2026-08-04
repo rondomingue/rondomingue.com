@@ -1,17 +1,27 @@
 [
   {
+    "src": "images/illustration/Eva.png",
+    "alt": "Eva",
+    "width": 1152,
+    "height": 2047,
+    "orientation": "portrait",
+    "caption": "Procreate"
+  },
+  {
     "src": "images/illustration/anne.png",
     "alt": "Anne",
     "width": 1237,
     "height": 2200,
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "caption": "Procreate"
   },
   {
     "src": "images/illustration/Spinner2049.jpg",
     "alt": "Blade Runner 2049 Spinner",
     "width": 1500,
     "height": 628,
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "caption": "Photoshop + C4D"
   },
   {
     "src": "images/illustration/cityscape-002.png",
