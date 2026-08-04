@@ -1,11 +1,19 @@
 [
   {
+    "src": "images/illustration/Thom.jpg",
+    "alt": "Thom",
+    "width": 1877,
+    "height": 2503,
+    "orientation": "portrait",
+    "caption": "Thom"
+  },
+  {
     "src": "images/illustration/Eva.png",
     "alt": "Eva",
     "width": 1152,
     "height": 2047,
-    "orientation": "portrait",
-    "caption": "Procreate"
+    "orientation": "portait",
+    "caption": "Eva"
   },
   {
     "src": "images/illustration/anne.png",
@@ -13,7 +21,7 @@
     "width": 1237,
     "height": 2200,
     "orientation": "portrait",
-    "caption": "Procreate"
+    "caption": "Anne"
   },
   {
     "src": "images/illustration/Spinner2049.jpg",
@@ -21,7 +29,7 @@
     "width": 1500,
     "height": 628,
     "orientation": "landscape",
-    "caption": "Photoshop + C4D"
+    "caption": "Blade Runner 2049 Spinner, Photoshop + C4D"
   },
   {
     "src": "images/illustration/cityscape-002.png",
