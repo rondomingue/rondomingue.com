@@ -509,6 +509,12 @@
     }
   };
 
+  const renderActivePanels = () => {
+    document.querySelectorAll("[data-plum-tab].active").forEach(button => {
+      renderPanelView(button.dataset.plumTab, button.dataset.plumView);
+    });
+  };
+
   setupPlumSounds();
 
   document.addEventListener("click", event => {
@@ -525,18 +531,12 @@
       currentSnapshot = snapshot;
       renderGenerated(snapshot.generatedAt);
       renderSummary(snapshot.summary);
-      renderVisits(snapshot.visitRanges?.week || snapshot.visits, "week");
-      renderTable("referrers", snapshot.referrers, ["source", "hits"]);
-      renderTable("pages", snapshot.pages, ["page", "views"]);
-      renderTable("crushes", snapshot.crushes, ["page", "views"]);
       renderTable("entryPages", snapshot.entryPages, ["page", "sessions"]);
       renderTable("browsers", snapshot.browsers, ["name", "percent"]);
       renderCountries(snapshot.countries);
       renderMap(snapshot.countries);
       renderTable("providers", snapshot.providers, ["provider", "sessions"]);
-      renderTable("searches", snapshot.searches, ["query", "hits"]);
-      renderLive(snapshot.live);
-      renderPlatformPie(snapshot.platforms || snapshot.devices);
+      renderActivePanels();
     })
     .catch(() => {});
 })();
