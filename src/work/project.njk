@@ -12,10 +12,9 @@ bodyClass: page-work page-project
 ---
 
 <article class="project-detail">
-  <a class="project-back" href="{{ '/work/' | url }}">Back to Work</a>
-
   <header class="project-intro">
     <div class="project-title-block">
+      <a class="project-back" href="{{ '/work/' | url }}">Back to Work</a>
       <div class="project-kicker">
         <span>{{ project.year }}</span>
         {% for tag in project.tags %}{% if loop.index <= 3 %}<span>{{ tag }}</span>{% endif %}{% endfor %}
