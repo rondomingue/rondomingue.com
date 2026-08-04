@@ -135,6 +135,11 @@ const sample = {
     { label: "London", country: "United Kingdom", page: "/work/hud-schema-signal/", host: "rondomingue.com", when: "snapshot" },
     { label: "Berlin", country: "Germany", page: "/work/missionlaunch/", host: "rondomingue.com", when: "snapshot" }
   ],
+  recentCities: [
+    { city: "New Orleans", countryId: "US", host: "rondomingue.com", page: "/photography/", when: "snapshot" },
+    { city: "Birmingham", countryId: "US", host: "rondomingue.com", page: "/work/outbreak/", when: "snapshot" },
+    { city: "London", countryId: "GB", host: "rondomingue.com", page: "/about/", when: "snapshot" }
+  ],
   cityRollup: [
     { city: "New Orleans", country: "United States", countryId: "US", sessions: 88 },
     { city: "Birmingham", country: "United States", countryId: "US", sessions: 61 },
@@ -300,6 +305,16 @@ async function runReport(accessToken, body) {
   return response.json();
 }
 
+async function runOptionalReport(accessToken, body) {
+  try {
+    return await runReport(accessToken, body);
+  }
+  catch (error) {
+    console.warn(`Optional GA report failed: ${error.message}`);
+    return { rows: [] };
+  }
+}
+
 async function runRealtimeReport(accessToken, body) {
   const response = await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runRealtimeReport`, {
     method: "POST",
@@ -323,7 +338,7 @@ async function buildSnapshot() {
   }
 
   const token = accessToken || await getAccessToken();
-  const [summaryReport, dayVisitsReport, visitsReport, monthVisitsReport, yearVisitsReport, referrersReport, referrerRepeatsReport, pagesReport, crushesReport, recentPagesReport, entryPagesReport, browsersReport, countriesReport, cityRollupReport, providersReport, devicesReport, platformsReport, screensReport, realtimeReport] = await Promise.all([
+  const [summaryReport, dayVisitsReport, visitsReport, monthVisitsReport, yearVisitsReport, referrersReport, referrerRepeatsReport, pagesReport, crushesReport, recentPagesReport, entryPagesReport, browsersReport, countriesReport, cityRollupReport, recentCitiesReport, providersReport, devicesReport, platformsReport, screensReport, realtimeReport] = await Promise.all([
     runReport(token, {
       dateRanges: [{ startDate: "today", endDate: "today" }, { startDate: "yesterday", endDate: "yesterday" }],
       metrics: [{ name: "screenPageViews" }, { name: "activeUsers" }, { name: "sessions" }]
@@ -414,6 +429,13 @@ async function buildSnapshot() {
       metrics: [{ name: "sessions" }],
       limit: 14,
       orderBys: [{ metric: { metricName: "sessions" }, desc: true }]
+    }),
+    runOptionalReport(token, {
+      dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
+      dimensions: [{ name: "city" }, { name: "countryId" }, { name: "hostName" }, { name: "pagePath" }, { name: "dateHourMinute" }],
+      metrics: [{ name: "screenPageViews" }],
+      limit: 14,
+      orderBys: [{ dimension: { dimensionName: "dateHourMinute" }, desc: true }]
     }),
     runReport(token, {
       dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
@@ -534,6 +556,13 @@ async function buildSnapshot() {
       country: row.dimensionValues[1]?.value || "(not set)",
       countryId: row.dimensionValues[2]?.value || "",
       sessions: numeric(row.metricValues[0]?.value)
+    })),
+    recentCities: rows(recentCitiesReport).map(row => ({
+      city: row.dimensionValues[0]?.value || "(not set)",
+      countryId: row.dimensionValues[1]?.value || "",
+      host: row.dimensionValues[2]?.value || "rondomingue.com",
+      page: row.dimensionValues[3]?.value || "/",
+      when: row.dimensionValues[4]?.value || ""
     })),
     providers: rows(providersReport).map(row => ({
       provider: row.dimensionValues[0]?.value || "(not set)",

@@ -484,7 +484,16 @@
         })));
         else renderLocationRollup(currentSnapshot.live, "label");
       }
-      else renderLive(currentSnapshot.live);
+      else {
+        const recentRows = currentSnapshot.recentCities;
+        const rows = Array.isArray(recentRows) && recentRows.length ? recentRows : currentSnapshot.live || [];
+        renderLive(rows.map(row => ({
+          label: row.label || `${flagFromCode(row.countryId)} ${row.city || "(not set)"}`,
+          host: row.host,
+          page: row.page,
+          when: formatRecentTime(row.when)
+        })));
+      }
       return;
     }
 
