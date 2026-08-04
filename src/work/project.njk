@@ -17,7 +17,7 @@ bodyClass: page-work page-project
       <a class="project-back" href="{{ '/work/' | url }}">Back to Work</a>
       <div class="project-kicker">
         <span>{{ project.year }}</span>
-        {% for tag in project.tags %}{% if loop.index <= 3 %}<span>{{ tag }}</span>{% endif %}{% endfor %}
+        {% for tag in project.tags %}<span>{{ tag }}</span>{% endfor %}
       </div>
       <h1>{{ project.title }}</h1>
       {% if project.subtitle %}<p class="project-subtitle">{{ project.subtitle }}</p>{% endif %}
@@ -45,7 +45,7 @@ bodyClass: page-work page-project
       {% endfor %}
       <div class="project-tags">
         {% for tag in project.processTags %}
-        {% if loop.index <= 3 %}<span>{{ tag }}</span>{% endif %}
+        <span>{{ tag }}</span>
         {% endfor %}
       </div>
     </div>
@@ -101,7 +101,7 @@ bodyClass: page-work page-project
     </div>
     <div>
       <span class="project-meta-label">Tools</span>
-      <p>{% for tag in project.tags %}{% if loop.index <= 3 %}{% if not loop.first %}, {% endif %}{{ tag }}{% endif %}{% endfor %}</p>
+      <p>{% for tag in project.tags %}{% if not loop.first %}, {% endif %}{{ tag }}{% endfor %}</p>
     </div>
     <div>
       <span class="project-meta-label">Year</span>
