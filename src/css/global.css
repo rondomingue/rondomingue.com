@@ -3332,6 +3332,7 @@ img { display: block; max-width: 100%; }
   .analytics-map { height: clamp(320px, 48vw, 500px); }
   .project-intro { grid-template-columns: 1fr; gap: 28px; padding-bottom: 32px; }
   .project-kicker { margin-bottom: 18px; }
+  .project-copy { padding-top: 0; }
   .project-copy p { font-size: 14px; }
   .project-player { margin-top: 32px; }
   .project-gallery { grid-template-columns: 1fr; margin-top: 8px; }
