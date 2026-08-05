@@ -399,7 +399,7 @@ async function buildSnapshot() {
       dateRanges: [{ startDate: "yesterday", endDate: "today" }],
       dimensions: [{ name: "hostName" }, { name: "pagePath" }, { name: "dateHourMinute" }],
       metrics: [{ name: "screenPageViews" }],
-      limit: 50,
+      limit: 100,
       orderBys: [{ dimension: { dimensionName: "dateHourMinute" }, desc: true }]
     }),
     runReport(token, {
@@ -434,7 +434,7 @@ async function buildSnapshot() {
       dateRanges: [{ startDate: "yesterday", endDate: "today" }],
       dimensions: [{ name: "city" }, { name: "countryId" }, { name: "hostName" }, { name: "pagePath" }, { name: "dateHourMinute" }],
       metrics: [{ name: "screenPageViews" }],
-      limit: 50,
+      limit: 100,
       orderBys: [{ dimension: { dimensionName: "dateHourMinute" }, desc: true }]
     }),
     runReport(token, {
