@@ -304,7 +304,7 @@
       "Fishing Conditions",
       "NOAA / NWS Data",
       "Mapbox GL",
-      "Cinematic UI"
+      "UI"
     ],
     "format": "Live fishing and marine conditions dashboard",
     "images": [
@@ -324,8 +324,7 @@
       "After Effects",
       "Motion Design",
       "Audio Reactive",
-      "Procedural",
-      "Cinematic"
+      "Procedural"
     ],
     "thumb": "images/work/the-four-of-us-are-dying/the-four-of-us-are-dying-hero.jpg",
     "video": {
