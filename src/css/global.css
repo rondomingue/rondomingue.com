@@ -999,6 +999,30 @@ img { display: block; max-width: 100%; }
   font-style: normal;
 }
 
+.analytics-scroll {
+  max-height: 880px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,119,207,0.4) rgba(255,255,255,0.04);
+}
+
+.analytics-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.analytics-scroll::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.04);
+}
+
+.analytics-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255,119,207,0.4);
+  border-radius: 999px;
+}
+
+.analytics-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,119,207,0.6);
+}
+
 .analytics-table {
   width: 100%;
   border-collapse: collapse;
@@ -1007,9 +1031,12 @@ img { display: block; max-width: 100%; }
 }
 
 .analytics-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   padding: 8px 10px;
   border-bottom: 1px solid rgba(200,40,154,0.24);
-  background: rgba(200,40,154,0.14);
+  background: rgba(24,10,20,0.96);
   color: rgba(238,238,240,0.8);
   text-align: left;
   text-transform: uppercase;
