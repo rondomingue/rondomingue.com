@@ -425,14 +425,14 @@ async function buildSnapshot() {
     }),
     runReport(token, {
       dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
-      dimensions: [{ name: "city" }, { name: "country" }, { name: "countryId" }],
+      dimensions: [{ name: "city" }, { name: "region" }, { name: "country" }, { name: "countryId" }],
       metrics: [{ name: "sessions" }],
       limit: 14,
       orderBys: [{ metric: { metricName: "sessions" }, desc: true }]
     }),
     runOptionalReport(token, {
       dateRanges: [{ startDate: "yesterday", endDate: "today" }],
-      dimensions: [{ name: "city" }, { name: "countryId" }, { name: "hostName" }, { name: "pagePath" }, { name: "dateHourMinute" }],
+      dimensions: [{ name: "city" }, { name: "region" }, { name: "countryId" }, { name: "hostName" }, { name: "pagePath" }, { name: "dateHourMinute" }],
       metrics: [{ name: "screenPageViews" }],
       limit: 200,
       orderBys: [{ dimension: { dimensionName: "dateHourMinute" }, desc: true }]
@@ -553,16 +553,18 @@ async function buildSnapshot() {
     })),
     cityRollup: rows(cityRollupReport).map(row => ({
       city: row.dimensionValues[0]?.value || "(not set)",
-      country: row.dimensionValues[1]?.value || "(not set)",
-      countryId: row.dimensionValues[2]?.value || "",
+      region: row.dimensionValues[1]?.value || "",
+      country: row.dimensionValues[2]?.value || "(not set)",
+      countryId: row.dimensionValues[3]?.value || "",
       sessions: numeric(row.metricValues[0]?.value)
     })),
     recentCities: rows(recentCitiesReport).map(row => ({
       city: row.dimensionValues[0]?.value || "(not set)",
-      countryId: row.dimensionValues[1]?.value || "",
-      host: row.dimensionValues[2]?.value || "rondomingue.com",
-      page: row.dimensionValues[3]?.value || "/",
-      when: row.dimensionValues[4]?.value || ""
+      region: row.dimensionValues[1]?.value || "",
+      countryId: row.dimensionValues[2]?.value || "",
+      host: row.dimensionValues[3]?.value || "rondomingue.com",
+      page: row.dimensionValues[4]?.value || "/",
+      when: row.dimensionValues[5]?.value || ""
     })),
     providers: rows(providersReport).map(row => ({
       provider: row.dimensionValues[0]?.value || "(not set)",

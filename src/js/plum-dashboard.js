@@ -205,6 +205,12 @@
     return [...normalized].map(character => String.fromCodePoint(character.charCodeAt(0) + 127397)).join("");
   };
 
+  const cityRegionLabel = row => {
+    const city = row.city || "(not set)";
+    const region = row.region && row.region !== "(not set)" && row.region !== city ? row.region : "";
+    return region ? `${city}, ${region}` : city;
+  };
+
   const renderLive = rows => {
     const host = document.querySelector("[data-plum-live]");
     if (!host || !Array.isArray(rows)) return;
@@ -478,7 +484,7 @@
       if (view === "city") {
         const rows = currentSnapshot.cityRollup;
         if (Array.isArray(rows) && rows.length) renderLive(rows.map(row => ({
-          label: `${flagFromCode(row.countryId)} ${row.city || "(not set)"}`,
+          label: `${flagFromCode(row.countryId)} ${cityRegionLabel(row)}`,
           page: "30 days",
           when: `${formatNumber(row.sessions)} sessions`
         })));
@@ -488,7 +494,7 @@
         const recentRows = currentSnapshot.recentCities;
         const rows = Array.isArray(recentRows) && recentRows.length ? recentRows : currentSnapshot.live || [];
         renderLive(rows.map(row => ({
-          label: row.label || `${flagFromCode(row.countryId)} ${row.city || "(not set)"}`,
+          label: row.label || `${flagFromCode(row.countryId)} ${cityRegionLabel(row)}`,
           host: row.host,
           page: row.page,
           when: formatRecentTime(row.when)
