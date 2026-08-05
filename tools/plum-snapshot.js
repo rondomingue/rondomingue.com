@@ -396,7 +396,7 @@ async function buildSnapshot() {
       orderBys: [{ metric: { metricName: "screenPageViews" }, desc: true }]
     }),
     runReport(token, {
-      dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
+      dateRanges: [{ startDate: "yesterday", endDate: "today" }],
       dimensions: [{ name: "hostName" }, { name: "pagePath" }, { name: "dateHourMinute" }],
       metrics: [{ name: "screenPageViews" }],
       limit: 14,
