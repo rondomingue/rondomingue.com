@@ -6,7 +6,7 @@ pagination:
   alias: project
 permalink: "work/{{ project.slug }}/index.html"
 eleventyComputed:
-  title: "{{ project.title }}"
+  title: "{{ project.title | safe }}"
 navActive: work
 bodyClass: page-work page-project
 ---
