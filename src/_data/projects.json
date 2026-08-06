@@ -140,7 +140,7 @@
       "Cinematic",
       "Concept Art"
     ],
-    "thumb": "images/work/the-sinner-in-me/sinner-signal-field-04.webp",
+    "thumb": "images/work/the-sinner-in-me/SinnerInMe00.png",
     "video": {
       "provider": "youtube",
       "id": "BouqB2I5-4w",
@@ -162,19 +162,19 @@
     "format": "Audio-reactive music visualization",
     "images": [
       {
-        "src": "images/work/the-sinner-in-me/sinner-signal-field-01.webp",
+        "src": "images/work/the-sinner-in-me/SinnerInMe01.png",
         "alt": "Dark blue audio-reactive signal field with sparse procedural traces"
       },
       {
-        "src": "images/work/the-sinner-in-me/sinner-signal-field-02.webp",
+        "src": "images/work/the-sinner-in-me/SinnerInMe02.png",
         "alt": "Circular procedural line network emerging from a dark signal map"
       },
       {
-        "src": "images/work/the-sinner-in-me/sinner-signal-field-03.webp",
+        "src": "images/work/the-sinner-in-me/SinnerInMe03.png",
         "alt": "Dense reactive line structure with chromatic distortion over a dark map"
       },
       {
-        "src": "images/work/the-sinner-in-me/sinner-signal-field-04.webp",
+        "src": "images/work/the-sinner-in-me/SinnerInMe04.png",
         "alt": "Bright circular web of procedural paths surrounding the word free"
       }
     ]
@@ -208,7 +208,7 @@
       "Creative Coding",
       "Generative Systems",
       "Educational Visualization",
-      "Mathematics"
+      "Mathematics",
       "Cinematic UI"
     ],
     "format": "Interactive educational interface studies",
