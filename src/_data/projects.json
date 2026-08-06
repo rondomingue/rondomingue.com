@@ -144,7 +144,7 @@
     "video": {
       "provider": "youtube",
       "id": "BouqB2I5-4w",
-      "aspectRatio": "21 / 9"
+      "aspectRatio": "16 / 9"
     },
     "summary": "The Sinner in Me is an audio-reactive TouchDesigner visual built to Depeche Mode's song of the same name, turning the track's dark pulse into a live field of signal paths, distortion, and unstable light.",
     "description": [
