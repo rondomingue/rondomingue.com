@@ -4594,6 +4594,11 @@ img { display: block; max-width: 100%; }
   background: rgba(181,28,131,0.07);
 }
 
+:root[data-theme="light"] .styleguide-number,
+:root[data-theme="light"] .styleguide-card-index {
+  color: rgba(24,25,29,0.18);
+}
+
 :root[data-theme="light"] .styleguide-ui-row button,
 :root[data-theme="light"] .styleguide-ui-row a,
 :root[data-theme="light"] .styleguide-field-grid input,
@@ -4916,5 +4921,92 @@ img { display: block; max-width: 100%; }
 
   .styleguide-font-stack pre {
     font-size: 11px;
+  }
+}
+
+.styleguide-text-scale {
+  margin-top: 16px;
+  padding: clamp(20px, 2.6vw, 34px);
+  border: 1px solid rgba(238,238,240,0.12);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.052), rgba(255,255,255,0.012)),
+    rgba(9,10,13,0.78);
+}
+
+.styleguide-text-scale-header {
+  display: grid;
+  gap: 8px;
+  max-width: 640px;
+  margin-bottom: 22px;
+}
+
+.styleguide-text-scale-header p {
+  color: var(--text-dim);
+  font-size: 15px;
+  line-height: 1.56;
+}
+
+.styleguide-text-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid rgba(238,238,240,0.12);
+  background: rgba(238,238,240,0.12);
+}
+
+.styleguide-text-swatch {
+  display: grid;
+  gap: 10px;
+  padding: clamp(18px, 2.2vw, 26px);
+  background: rgba(14,15,17,0.86);
+}
+
+.styleguide-text-sample {
+  font-family: 'din-2014', sans-serif;
+  font-size: 44px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.styleguide-text-swatch strong {
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.styleguide-text-value {
+  color: var(--cyan);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
+.styleguide-text-swatch p {
+  color: rgba(238,238,240,0.62);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+:root[data-theme="light"] .styleguide-text-scale {
+  border-color: rgba(24,25,29,0.12);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.62), rgba(255,255,255,0.18)),
+    rgba(245,243,239,0.64);
+}
+
+:root[data-theme="light"] .styleguide-text-scale-header p {
+  color: var(--text-dim);
+}
+
+@media (max-width: 1100px) {
+  .styleguide-text-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .styleguide-text-grid {
+    grid-template-columns: 1fr;
   }
 }
