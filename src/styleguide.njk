@@ -1,0 +1,376 @@
+---
+layout: base.njk
+title: Styleguide
+description: Brand, typography, color, and interface rules for Ron Domingue.
+bodyClass: page-styleguide
+permalink: /styleguide/
+---
+
+<section class="styleguide-shell">
+  <header class="styleguide-hero">
+    <div class="styleguide-hero-copy">
+      <p class="styleguide-kicker">Brand System / 2026</p>
+      <h1>Ron Domingue Styleguide</h1>
+      <p>Identity rules for the portfolio, field notes, case studies, and experimental interfaces. The system balances cinematic darkness, precise technical typography, and a controlled set of saturated signal colors.</p>
+    </div>
+    <div class="styleguide-logo-stage" aria-label="Ron Domingue primary logo lockup">
+      <div class="styleguide-logo-card styleguide-logo-card--primary">
+        <img src="{{ '/images/misc/Thai-Emblem_white.png' | url }}" alt="" class="styleguide-logo-mark">
+        <span>Ron Domingue</span>
+      </div>
+      <div class="styleguide-logo-meta">
+        <span>Primary Lockup</span>
+        <span>Mark + Wordmark</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="styleguide-toc" aria-label="Styleguide sections">
+    <a href="#logo">01 Logo</a>
+    <a href="#type">02 Typography</a>
+    <a href="#color">03 Color</a>
+    <a href="#components">04 Interface</a>
+  </nav>
+
+  <section class="styleguide-section" id="logo">
+    <div class="styleguide-section-header">
+      <span class="styleguide-number">01</span>
+      <div>
+        <p class="styleguide-kicker">Brand Logo</p>
+        <h2>Logo System</h2>
+      </div>
+    </div>
+
+    <div class="styleguide-logo-grid">
+      <article class="styleguide-panel styleguide-panel--dark">
+        <div class="styleguide-logo-lockup">
+          <img src="{{ '/images/misc/Thai-Emblem_white.png' | url }}" alt="" class="styleguide-logo-mark">
+          <span>Ron Domingue</span>
+        </div>
+        <p>Use the full lockup when there is enough horizontal room and the brand needs a clear first-read presence.</p>
+      </article>
+
+      <article class="styleguide-panel">
+        <div class="styleguide-mark-demo">
+          <img src="{{ '/images/misc/Thai-Emblem_white.png' | url }}" alt="" class="styleguide-logo-mark">
+        </div>
+        <p>Use the symbol alone for compact navigation, favicons, social avatars, loading states, and small persistent UI.</p>
+      </article>
+
+      <article class="styleguide-panel styleguide-clearspace">
+        <div class="styleguide-clearspace-box">
+          <span class="styleguide-measure styleguide-measure--top">1x</span>
+          <span class="styleguide-measure styleguide-measure--left">1x</span>
+          <div class="styleguide-clearspace-logo">
+            <img src="{{ '/images/misc/Thai-Emblem_white.png' | url }}" alt="">
+          </div>
+        </div>
+        <p>Keep clear space equal to the mark width around the logo. Minimum digital mark size is 24px.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="styleguide-section" id="type">
+    <div class="styleguide-section-header">
+      <span class="styleguide-number">02</span>
+      <div>
+        <p class="styleguide-kicker">Type Setting</p>
+        <h2>Typography Rules</h2>
+      </div>
+    </div>
+
+    <div class="styleguide-type-grid">
+      <article class="styleguide-type-sample styleguide-type-sample--display">
+        <span class="styleguide-type-label">Display / DIN 2014 Light</span>
+        <strong>Signal driven visual systems.</strong>
+        <p>Use for hero titles, project names, section headers, and high-impact numerals.</p>
+      </article>
+
+      <article class="styleguide-type-sample styleguide-type-sample--body">
+        <span class="styleguide-type-label">Body / Barlow Light</span>
+        <strong>Atmosphere, systems, and cinematic detail.</strong>
+        <p>Primary paragraphs use Barlow at 16-20px with relaxed line height. Keep body copy direct, visual, and grounded in the work.</p>
+      </article>
+
+      <article class="styleguide-type-sample styleguide-type-sample--mono">
+        <span class="styleguide-type-label">Utility / Space Mono</span>
+        <strong>EXPOSURE 01 / FIELD NOTE</strong>
+        <p>Use for metadata, tags, labels, timestamps, measurements, technical captions, and UI telemetry.</p>
+      </article>
+    </div>
+
+    <div class="styleguide-rule-grid">
+      <div>
+        <span>Hero H1</span>
+        <strong>clamp(44px, 8vw, 104px)</strong>
+      </div>
+      <div>
+        <span>Section H2</span>
+        <strong>clamp(34px, 5vw, 68px)</strong>
+      </div>
+      <div>
+        <span>Body</span>
+        <strong>18px / 1.55</strong>
+      </div>
+      <div>
+        <span>Metadata</span>
+        <strong>10px / uppercase / 0.14em</strong>
+      </div>
+    </div>
+
+    <div class="styleguide-size-usage" aria-label="Typography size and usage examples">
+      <article class="styleguide-size-panel">
+        <div class="styleguide-size-panel-header">
+          <span class="styleguide-type-label">Digital Scale / CSS</span>
+          <p>Use these values for screen layouts. Scale type by role, not by decoration.</p>
+        </div>
+        <div class="styleguide-size-stack">
+          <div class="styleguide-size-row styleguide-size-row--hero">
+            <span>Hero / 104px max</span>
+            <strong>Ron Domingue</strong>
+            <p>Homepage identity and major campaign covers.</p>
+          </div>
+          <div class="styleguide-size-row styleguide-size-row--section">
+            <span>Section / 68px max</span>
+            <strong>Selected Work</strong>
+            <p>Top-level page sections and case-study chapter titles.</p>
+          </div>
+          <div class="styleguide-size-row styleguide-size-row--card">
+            <span>Card / 30px</span>
+            <strong>Deep Orbit Studies</strong>
+            <p>Project cards, feature modules, and compact editorial headings.</p>
+          </div>
+          <div class="styleguide-size-row styleguide-size-row--body">
+            <span>Body / 18px / 1.55</span>
+            <p>Ron is a New Orleans-based art director and visual artist working across cinematic 3D, motion, fictional interfaces, and systems-driven design.</p>
+          </div>
+          <div class="styleguide-size-row styleguide-size-row--meta">
+            <span>Metadata / 10px</span>
+            <strong>PROJECT / MOTION / 2026</strong>
+            <p>Tags, timestamps, labels, coordinates, and short technical captions.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="styleguide-size-panel styleguide-size-panel--print">
+        <div class="styleguide-size-panel-header">
+          <span class="styleguide-type-label">Print Scale / Points</span>
+          <p>Use these values for PDF, booklet, and leave-behind layouts.</p>
+        </div>
+        <div class="styleguide-print-sheet">
+          <div class="styleguide-print-line styleguide-print-line--cover">
+            <span>Cover Title / 72pt</span>
+            <strong>Brand Guidelines</strong>
+          </div>
+          <div class="styleguide-print-line styleguide-print-line--chapter">
+            <span>Chapter / 36pt</span>
+            <strong>Typography</strong>
+          </div>
+          <div class="styleguide-print-line styleguide-print-line--subhead">
+            <span>Subhead / 18pt</span>
+            <strong>Visual systems with cinematic restraint</strong>
+          </div>
+          <div class="styleguide-print-line styleguide-print-line--body">
+            <span>Body / 10.5pt on 15pt</span>
+            <p>Print text should hold a calm measure with enough leading for image-heavy layouts, captions, and project context.</p>
+          </div>
+          <div class="styleguide-print-line styleguide-print-line--caption">
+            <span>Caption / 7pt</span>
+            <strong>FIG. 02 / FINAL RENDER / NEW ORLEANS</strong>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="styleguide-print-rules" aria-label="Print typography rules">
+      <article class="styleguide-print-panel styleguide-print-panel--specimen">
+        <span class="styleguide-type-label">Print Specimen / DIN 2014 + Barlow</span>
+        <h3>Field Guide Notes</h3>
+        <p>Printed pages should feel quiet, precise, and editorial. Use the brand colors as measured signals, not full-page decoration unless the spread is acting as a divider or cover.</p>
+      </article>
+
+      <article class="styleguide-print-panel">
+        <span class="styleguide-type-label">Page Grid</span>
+        <ul>
+          <li>Use a 12-column grid for letter and tabloid layouts.</li>
+          <li>Keep outer margins at 0.5in minimum; use 0.75in for text-heavy documents.</li>
+          <li>Align captions, rules, and metadata to the same vertical column as the image or text block they describe.</li>
+          <li>Leave one generous quiet edge on covers, dividers, and portfolio plates.</li>
+        </ul>
+      </article>
+
+      <article class="styleguide-print-panel">
+        <span class="styleguide-type-label">Print Type Scale</span>
+        <ul>
+          <li>Cover title: 54-96pt DIN 2014 Light, tight leading.</li>
+          <li>Section title: 28-44pt DIN 2014 Light.</li>
+          <li>Body copy: 9.5-11pt Barlow Light with 14-16pt leading.</li>
+          <li>Captions and metadata: 6.5-8pt Space Mono, uppercase only when brief.</li>
+        </ul>
+      </article>
+
+      <article class="styleguide-print-panel">
+        <span class="styleguide-type-label">Composition</span>
+        <ul>
+          <li>Keep paragraphs between 45 and 70 characters per line.</li>
+          <li>Avoid widows, orphans, and single-word last lines.</li>
+          <li>Use optical alignment for large display type, especially at page edges.</li>
+          <li>Use hairline rules at 0.25pt to 0.5pt; never below 0.25pt for production print.</li>
+        </ul>
+      </article>
+
+      <article class="styleguide-print-panel">
+        <span class="styleguide-type-label">Print Color</span>
+        <ul>
+          <li>Convert RGB brand values to CMYK with proofing before press output.</li>
+          <li>Use rich black for full-bleed black fields; use 100K for small text.</li>
+          <li>Keep small reversed text at 8pt or larger and avoid thin weights over busy imagery.</li>
+          <li>Use magenta and cyan as spot-like accents: rules, folios, tags, and data marks.</li>
+        </ul>
+      </article>
+
+      <article class="styleguide-print-panel">
+        <span class="styleguide-type-label">Export</span>
+        <ul>
+          <li>Export PDF/X-4 when transparency or image-heavy work is involved.</li>
+          <li>Use 0.125in bleed for full-bleed pages and keep live text 0.25in from trim.</li>
+          <li>Raster imagery should be 300ppi at final size; line art should stay vector.</li>
+          <li>Embed or outline fonts only at final handoff, preserving editable source files separately.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="styleguide-section" id="color">
+    <div class="styleguide-section-header">
+      <span class="styleguide-number">03</span>
+      <div>
+        <p class="styleguide-kicker">Color Scheme</p>
+        <h2>Palette</h2>
+      </div>
+    </div>
+
+    <div class="styleguide-color-grid">
+      <article class="styleguide-swatch styleguide-swatch--bg">
+        <span>#0E0F11</span>
+        <strong>Ink Black</strong>
+        <em>45%</em>
+        <p>Primary dark background.</p>
+      </article>
+      <article class="styleguide-swatch styleguide-swatch--surface">
+        <span>#141518</span>
+        <strong>Graphite</strong>
+        <em>25%</em>
+        <p>Panels and elevated surfaces.</p>
+      </article>
+      <article class="styleguide-swatch styleguide-swatch--accent">
+        <span>#C8289A</span>
+        <strong>Magenta Signal</strong>
+        <em>12%</em>
+        <p>Primary highlight and active states.</p>
+      </article>
+      <article class="styleguide-swatch styleguide-swatch--cyan">
+        <span>#4FC8E8</span>
+        <strong>Cyan Readout</strong>
+        <em>8%</em>
+        <p>Links, data, and secondary callouts.</p>
+      </article>
+      <article class="styleguide-swatch styleguide-swatch--green">
+        <span>#7AC45A</span>
+        <strong>Field Green</strong>
+        <em>5%</em>
+        <p>Success, positive status, and live signals.</p>
+      </article>
+      <article class="styleguide-swatch styleguide-swatch--amber">
+        <span>#E8A020</span>
+        <strong>Amber Warning</strong>
+        <em>5%</em>
+        <p>Warnings, emphasis, and temporal notes.</p>
+      </article>
+    </div>
+
+    <div class="styleguide-gradient-strip" aria-label="Brand gradient combinations">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="styleguide-color-rules" aria-label="Color usage and print rules">
+      <article class="styleguide-color-rule styleguide-color-rule--mix">
+        <span class="styleguide-type-label">Usage Ratio</span>
+        <div class="styleguide-color-ratio" aria-label="Recommended color usage ratio">
+          <span style="--ratio: 45%; --ratio-color: #0e0f11;">45</span>
+          <span style="--ratio: 25%; --ratio-color: #141518;">25</span>
+          <span style="--ratio: 12%; --ratio-color: #c8289a;">12</span>
+          <span style="--ratio: 8%; --ratio-color: #4fc8e8;">8</span>
+          <span style="--ratio: 5%; --ratio-color: #7ac45a;">5</span>
+          <span style="--ratio: 5%; --ratio-color: #e8a020;">5</span>
+        </div>
+        <p>Let black and graphite do the atmospheric work. Use magenta as the main signal, cyan for secondary readouts, and green or amber only when the content needs status meaning.</p>
+      </article>
+
+      <article class="styleguide-color-rule">
+        <span class="styleguide-type-label">Screen Rules</span>
+        <ul>
+          <li>Use no more than two accent colors in a single UI section.</li>
+          <li>Reserve magenta for active states, key links, selected filters, and focal data.</li>
+          <li>Use cyan for supporting data, external links, and technical readouts.</li>
+          <li>Do not set long body text in accent colors.</li>
+        </ul>
+      </article>
+
+      <article class="styleguide-color-rule">
+        <span class="styleguide-type-label">Print Rules</span>
+        <ul>
+          <li>Proof RGB-to-CMYK conversions before final output; expect cyan and magenta to dull on uncoated stock.</li>
+          <li>Use 100K black for small text and rich black only for large fields, covers, and full-bleed panels.</li>
+          <li>Keep reversed body copy at 8pt or larger, and avoid reversing thin Space Mono captions from saturated color.</li>
+          <li>For brand-critical pieces, specify spot magenta or run a press proof instead of trusting screen color.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="styleguide-section" id="components">
+    <div class="styleguide-section-header">
+      <span class="styleguide-number">04</span>
+      <div>
+        <p class="styleguide-kicker">Interface Rules</p>
+        <h2>Common Elements</h2>
+      </div>
+    </div>
+
+    <div class="styleguide-component-board">
+      <div class="styleguide-ui-row">
+        <button type="button">Primary Action</button>
+        <a href="{{ '/work/' | url }}">Text Link</a>
+        <span class="styleguide-tag">Motion</span>
+        <span class="styleguide-tag styleguide-tag--cyan">FUI</span>
+      </div>
+
+      <div class="styleguide-field-grid">
+        <label>
+          <span>Input</span>
+          <input type="text" value="New Orleans, LA">
+        </label>
+        <label>
+          <span>Select</span>
+          <select>
+            <option>Dark Interface</option>
+            <option>Light Interface</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="styleguide-example-card">
+        <div>
+          <span class="styleguide-kicker">Project Card</span>
+          <h3>Deep Orbit Studies</h3>
+          <p>Use compact metadata, strong imagery, and calm spacing. Avoid ornamental decoration that competes with the work.</p>
+        </div>
+        <span class="styleguide-card-index">01</span>
+      </div>
+    </div>
+  </section>
+</section>
