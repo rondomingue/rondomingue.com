@@ -28,8 +28,9 @@ permalink: /styleguide/
   <nav class="styleguide-toc" aria-label="Styleguide sections">
     <a href="#logo">01 Logo</a>
     <a href="#type">02 Typography</a>
-    <a href="#color">03 Color</a>
-    <a href="#components">04 Interface</a>
+    <a href="#fonts">03 Fonts</a>
+    <a href="#color">04 Color</a>
+    <a href="#components">05 Interface</a>
   </nav>
 
   <section class="styleguide-section" id="logo">
@@ -67,6 +68,18 @@ permalink: /styleguide/
         </div>
         <p>Keep clear space equal to the mark width around the logo. Minimum digital mark size is 24px.</p>
       </article>
+    </div>
+
+    <div class="styleguide-origin-panel">
+      <div class="styleguide-origin-media">
+        <img src="{{ '/images/misc/Thai-Emblem_white.png' | url }}" alt="Garuda, the Thai royal emblem, as printed in a Thai passport" class="styleguide-origin-mark">
+      </div>
+      <div class="styleguide-origin-copy">
+        <span class="styleguide-type-label">Origin & Symbolism</span>
+        <h3>Garuda</h3>
+        <p>The mark is the Garuda, or Phra Khrut Pha — the emblem printed in a Thai passport and used as the official seal of the Thai monarchy and government. In Hindu mythology, Garuda is a divine being, half man and half eagle, the king of birds and the vahana, or mount, of the god Vishnu. Thai tradition adopted Garuda as a symbol of the monarchy itself, framing the king as an earthly extension of Vishnu's protection.</p>
+        <p>Garuda's mythology carries specific traits: speed, elevated vision, and standing as the natural enemy of the Naga, the serpent beings of the underworld — a recurring struggle between sky and ground, clarity and concealment. Carried into a personal mark, it reads as an origin marker rather than a borrowed royal symbol: a fixed point back to a Thai passport and a lineage, translated into a system built on precision, altitude, and signal over noise.</p>
+      </div>
     </div>
   </section>
 
@@ -241,9 +254,67 @@ permalink: /styleguide/
     </div>
   </section>
 
-  <section class="styleguide-section" id="color">
+  <section class="styleguide-section" id="fonts">
     <div class="styleguide-section-header">
       <span class="styleguide-number">03</span>
+      <div>
+        <p class="styleguide-kicker">Font Family</p>
+        <h2>Fonts</h2>
+      </div>
+    </div>
+
+    <div class="styleguide-font-grid">
+      <article class="styleguide-font-card">
+        <div class="styleguide-font-card-header">
+          <span class="styleguide-type-label">Display / Adobe Fonts</span>
+          <strong class="styleguide-font-name" style="font-family: 'din-2014', sans-serif;">DIN 2014</strong>
+        </div>
+        <p class="styleguide-font-glyphs" style="font-family: 'din-2014', sans-serif;">ABCDEFGHIJKLM<br>NOPQRSTUVWXYZ<br>0123456789</p>
+        <ul class="styleguide-font-weights">
+          <li><span>Light 300</span><em style="font-family: 'din-2014', sans-serif; font-weight: 300;">Ag</em></li>
+        </ul>
+        <p>Loaded via Typekit. Used only at weight 300 for hero titles, section numerals, and large display type — never set bold.</p>
+      </article>
+
+      <article class="styleguide-font-card">
+        <div class="styleguide-font-card-header">
+          <span class="styleguide-type-label">Body / Google Fonts</span>
+          <strong class="styleguide-font-name" style="font-family: 'Barlow', sans-serif;">Barlow</strong>
+        </div>
+        <p class="styleguide-font-glyphs" style="font-family: 'Barlow', sans-serif; font-weight: 300;">ABCDEFGHIJKLM<br>NOPQRSTUVWXYZ<br>0123456789</p>
+        <ul class="styleguide-font-weights">
+          <li><span>Light 300</span><em style="font-family: 'Barlow', sans-serif; font-weight: 300;">Ag</em></li>
+          <li><span>Regular 400</span><em style="font-family: 'Barlow', sans-serif; font-weight: 400;">Ag</em></li>
+          <li><span>Medium 500</span><em style="font-family: 'Barlow', sans-serif; font-weight: 500;">Ag</em></li>
+        </ul>
+        <p>Primary paragraph and UI typeface. Light for long-form copy, Regular for labels and controls, Medium for emphasis within text.</p>
+      </article>
+
+      <article class="styleguide-font-card">
+        <div class="styleguide-font-card-header">
+          <span class="styleguide-type-label">Utility / Google Fonts</span>
+          <strong class="styleguide-font-name" style="font-family: 'Space Mono', monospace;">Space Mono</strong>
+        </div>
+        <p class="styleguide-font-glyphs" style="font-family: 'Space Mono', monospace;">ABCDEFGHIJKLM<br>NOPQRSTUVWXYZ<br>0123456789</p>
+        <ul class="styleguide-font-weights">
+          <li><span>Regular 400</span><em style="font-family: 'Space Mono', monospace; font-weight: 400;">Ag</em></li>
+          <li><span>Bold 700</span><em style="font-family: 'Space Mono', monospace; font-weight: 700;">Ag</em></li>
+        </ul>
+        <p>Fixed-width utility type for metadata, tags, timestamps, telemetry, and any label that should read as machine output.</p>
+      </article>
+    </div>
+
+    <div class="styleguide-font-stack">
+      <span class="styleguide-type-label">CSS Font Stack</span>
+      <pre>font-family: 'din-2014', sans-serif;   /* display, weight 300 only */
+font-family: 'Barlow', sans-serif;     /* body + UI, weights 300 / 400 / 500 */
+font-family: 'Space Mono', monospace;  /* utility + metadata, weights 400 / 700 */</pre>
+    </div>
+  </section>
+
+  <section class="styleguide-section" id="color">
+    <div class="styleguide-section-header">
+      <span class="styleguide-number">04</span>
       <div>
         <p class="styleguide-kicker">Color Scheme</p>
         <h2>Palette</h2>
@@ -334,7 +405,7 @@ permalink: /styleguide/
 
   <section class="styleguide-section" id="components">
     <div class="styleguide-section-header">
-      <span class="styleguide-number">04</span>
+      <span class="styleguide-number">05</span>
       <div>
         <p class="styleguide-kicker">Interface Rules</p>
         <h2>Common Elements</h2>
