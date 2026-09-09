@@ -6,6 +6,7 @@ const propertyId = process.env.GA_PROPERTY_ID;
 const clientEmail = process.env.GA_CLIENT_EMAIL;
 const privateKey = process.env.GA_PRIVATE_KEY?.replace(/\\n/g, "\n");
 const accessToken = process.env.GA_ACCESS_TOKEN;
+const searchConsoleSiteUrl = process.env.SEARCH_CONSOLE_SITE_URL || "sc-domain:rondomingue.com";
 
 const sample = {
   generatedAt: new Date().toISOString(),
@@ -125,6 +126,11 @@ const sample = {
     { query: "fui hud artist", hits: 21 },
     { query: "ron domingue reel", hits: 18 },
     { query: "unreal interface concepts", hits: 12 }
+  ],
+  recentSearches: [
+    { query: "cinematic ui design", hits: 11 },
+    { query: "new orleans art director", hits: 7 },
+    { query: "ron domingue reel", hits: 5 }
   ],
   live: [
     { label: "New Orleans", country: "United States", page: "/work/black-noise/", host: "rondomingue.com", when: "snapshot" },
@@ -329,6 +335,40 @@ async function runRealtimeReport(accessToken, body) {
   return response.json();
 }
 
+async function runSearchConsoleReport(accessToken, body) {
+  try {
+    const encodedSiteUrl = encodeURIComponent(searchConsoleSiteUrl);
+    const response = await fetch(`https://www.googleapis.com/webmasters/v3/sites/${encodedSiteUrl}/searchAnalytics/query`, {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${accessToken}`,
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(body)
+    });
+
+    if (!response.ok) {
+      throw new Error(`${response.status} ${await response.text()}`);
+    }
+
+    return response.json();
+  }
+  catch (error) {
+    console.warn(`Optional Search Console report failed: ${error.message}`);
+    return { rows: [] };
+  }
+}
+
+const searchConsoleDate = daysAgo => {
+  const date = new Date(Date.now() - daysAgo * 86400000);
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Los_Angeles",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).format(date);
+};
+
 const rows = report => report.rows || [];
 
 async function buildSnapshot() {
@@ -338,7 +378,7 @@ async function buildSnapshot() {
   }
 
   const token = accessToken || await getAccessToken();
-  const [summaryReport, dayVisitsReport, visitsReport, monthVisitsReport, yearVisitsReport, referrersReport, referrerRepeatsReport, pagesReport, crushesReport, recentPagesReport, entryPagesReport, browsersReport, countriesReport, cityRollupReport, recentCitiesReport, providersReport, devicesReport, platformsReport, screensReport, realtimeReport] = await Promise.all([
+  const [summaryReport, dayVisitsReport, visitsReport, monthVisitsReport, yearVisitsReport, referrersReport, referrerRepeatsReport, pagesReport, crushesReport, recentPagesReport, entryPagesReport, browsersReport, countriesReport, cityRollupReport, recentCitiesReport, providersReport, devicesReport, platformsReport, screensReport, realtimeReport, searchesReport, recentSearchesReport] = await Promise.all([
     runReport(token, {
       dateRanges: [{ startDate: "today", endDate: "today" }, { startDate: "yesterday", endDate: "yesterday" }],
       metrics: [{ name: "screenPageViews" }, { name: "activeUsers" }, { name: "sessions" }]
@@ -470,6 +510,22 @@ async function buildSnapshot() {
       metrics: [{ name: "activeUsers" }],
       limit: 8,
       orderBys: [{ metric: { metricName: "activeUsers" }, desc: true }]
+    }),
+    runSearchConsoleReport(token, {
+      startDate: searchConsoleDate(29),
+      endDate: searchConsoleDate(0),
+      dimensions: ["query"],
+      type: "web",
+      dataState: "all",
+      rowLimit: 8
+    }),
+    runSearchConsoleReport(token, {
+      startDate: searchConsoleDate(6),
+      endDate: searchConsoleDate(0),
+      dimensions: ["query"],
+      type: "web",
+      dataState: "all",
+      rowLimit: 8
     })
   ]);
 
@@ -570,7 +626,14 @@ async function buildSnapshot() {
       provider: row.dimensionValues[0]?.value || "(not set)",
       sessions: numeric(row.metricValues[0]?.value)
     })),
-    searches: sample.searches,
+    searches: rows(searchesReport).map(row => ({
+      query: row.keys?.[0] || "(not set)",
+      hits: Math.round(Number(row.clicks || 0))
+    })),
+    recentSearches: rows(recentSearchesReport).map(row => ({
+      query: row.keys?.[0] || "(not set)",
+      hits: Math.round(Number(row.clicks || 0))
+    })),
     live: rows(realtimeReport || {}).map(row => ({
       label: row.dimensionValues[0]?.value || "(not set)",
       country: row.dimensionValues[1]?.value || "(not set)",

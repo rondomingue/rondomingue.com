@@ -34,25 +34,7 @@
     SE: [15, 62],
     US: [-98, 39]
   };
-  const plumMapStyle = {
-    version: 8,
-    sources: {
-      carto: {
-        type: "raster",
-        tiles: [
-          "https://a.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png",
-          "https://b.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png",
-          "https://c.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png",
-          "https://d.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
-        ],
-        tileSize: 256,
-        attribution: "&copy; OpenStreetMap contributors &copy; CARTO"
-      }
-    },
-    layers: [
-      { id: "carto", type: "raster", source: "carto" }
-    ]
-  };
+  const plumMapStyle = "https://tiles.openfreemap.org/styles/dark";
   const text = value => String(value ?? "").replace(/[&<>"']/g, character => ({
     "&": "&amp;",
     "<": "&lt;",
@@ -504,7 +486,7 @@
     }
 
     if (tabName === "searches") {
-      const rows = view === "recent" ? reverseRows(currentSnapshot.searches) : currentSnapshot.searches;
+      const rows = view === "recent" ? currentSnapshot.recentSearches || [] : currentSnapshot.searches;
       renderTable("searches", rows, ["query", "hits"]);
       return;
     }
