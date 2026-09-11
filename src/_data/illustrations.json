@@ -145,7 +145,6 @@
     "width": 1466,
     "height": 2200,
     "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1633811038218-5KP8XPHL9E7ERZUSLFX8/image-asset.jpeg"
   },
   {
     "src": "images/illustration/illustration-1620315536921.webp",
@@ -167,7 +166,6 @@
     "width": 1612,
     "height": 1763,
     "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1566518006516-NZFE0EDARCNGTHRR6WSG/ECa38H1UwAAiMhK.jpeg"
   },
   {
     "src": "images/illustration/Louis_print_02.webp",
@@ -182,15 +180,13 @@
     "width": 1920,
     "height": 1080,
     "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1545850265777-5W6KPSI6HD2RJS3UC1AX/MagazineStreet_01.jpg"
-  },
+ },
   {
     "src": "images/illustration/IMG_0576.webp",
     "alt": "Illustration 13",
     "width": 2048,
     "height": 1362,
     "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1544802823185-3QG11CW0IUBQHQGAITD3/IMG_0576.jpg"
   },
   {
     "src": "images/illustration/IMG_0577.webp",
@@ -198,7 +194,6 @@
     "width": 2048,
     "height": 1366,
     "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1544803287221-Y5XIM6X4ETFE1LKOMRWD/IMG_0577.jpg"
   },
   {
     "src": "images/illustration/IMG_0578.webp",
@@ -206,7 +201,6 @@
     "width": 2048,
     "height": 1463,
     "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1544808988290-76S3A0YR9AHNOCTXV80M/IMG_0578.jpg"
   },
   {
     "src": "images/illustration/Bourdain01.webp",
@@ -214,7 +208,6 @@
     "width": 1200,
     "height": 1500,
     "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1544225787319-EE8S9TUJY2Z3STXADQQU/Bourdain01.jpg"
   },
   {
     "src": "images/illustration/MFS007.webp",
@@ -320,7 +313,6 @@
     "width": 1649,
     "height": 2200,
     "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1544823928235-6Q6ZP64X19VGWLFQNEB8/IMG_0579.png"
   },
   {
     "src": "images/illustration/illustration-1447188354626.webp",
@@ -328,7 +320,6 @@
     "width": 1200,
     "height": 1641,
     "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1447188354626-8MVR516NE7RSQ29H2EUM/image-asset.jpeg"
   },
   {
     "src": "images/illustration/illustration-1447187068767.webp",
@@ -336,7 +327,6 @@
     "width": 800,
     "height": 1236,
     "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1447187068767-YW0N54HJ290GA2HGFXKN/image-asset.jpeg"
   },
   {
     "src": "images/illustration/Khaleesi.webp",
@@ -344,7 +334,6 @@
     "width": 612,
     "height": 612,
     "orientation": "square",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1400263234847-QOSAC7SJ2VUQA5KGD504/Khaleesi.jpg"
   },
   {
     "src": "images/illustration/illustration-1430147306286.webp",
@@ -352,7 +341,6 @@
     "width": 1200,
     "height": 1855,
     "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1430147306286-KX1K35353ONM0V4SIXY2/image-asset.jpeg"
   },
   {
     "src": "images/illustration/StarWars.webp",
@@ -360,7 +348,6 @@
     "width": 1200,
     "height": 1680,
     "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1400101515233-9IYU3AFZ4G4E6X0B02I6/StarWars.jpg"
   },
   {
     "src": "images/illustration/illustration-1427928100224.webp",
@@ -368,7 +355,6 @@
     "width": 1200,
     "height": 1800,
     "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1427928100224-D4WD8FCC9PAMT5BGLPMB/image-asset.jpeg"
   },
   {
     "src": "images/illustration/Pan.webp",
@@ -376,7 +362,6 @@
     "width": 1024,
     "height": 653,
     "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1400262246892-A0G1DY0JKQZHFMS39Q6K/Pan.jpg"
   },
   {
     "src": "images/illustration/Jimi.webp",
@@ -384,7 +369,6 @@
     "width": 736,
     "height": 1003,
     "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1400105109443-9M4HGRZQUH5J6MFALCBZ/Jimi.jpg"
   },
   {
     "src": "images/illustration/blondie.webp",
@@ -392,7 +376,6 @@
     "width": 750,
     "height": 1023,
     "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1400263560227-XPF4237S9GB4TOJVXWBS/blondie.jpg"
   },
   {
     "src": "images/illustration/Plant.webp",
@@ -400,7 +383,6 @@
     "width": 750,
     "height": 1023,
     "orientation": "portrait",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1400263673372-E8GXLFUF8DA5P6YO5FVY/Plant.jpg"
   },
   {
     "src": "images/illustration/Indy.webp",
@@ -408,7 +390,6 @@
     "width": 736,
     "height": 730,
     "orientation": "square",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1400261931722-V8J5GQG02CA6TF0GQM27/Indy.jpg"
   },
   {
     "src": "images/illustration/Breaking-Bad.webp",
@@ -416,6 +397,5 @@
     "width": 736,
     "height": 499,
     "orientation": "landscape",
-    "sourceUrl": "https://images.squarespace-cdn.com/content/v1/53722934e4b07d0c6bf053c2/1400262162084-EGFN2QY7QHBHAFIUVD0Q/Breaking+Bad.jpg"
   }
 ]
