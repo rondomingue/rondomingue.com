@@ -23,6 +23,7 @@ jobs:
       GA_PROPERTY_ID: ${{ secrets.GA_PROPERTY_ID }}
       GA_CLIENT_EMAIL: ${{ secrets.GA_CLIENT_EMAIL }}
       GA_PRIVATE_KEY: ${{ secrets.GA_PRIVATE_KEY }}
+      SEARCH_CONSOLE_SITE_URL: ${{ vars.SEARCH_CONSOLE_SITE_URL || 'sc-domain:rondomingue.com' }}
       GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
       GCP_WORKLOAD_IDENTITY_PROVIDER: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
     steps:
@@ -48,7 +49,7 @@ jobs:
           workload_identity_provider: ${{ env.GCP_WORKLOAD_IDENTITY_PROVIDER }}
           service_account: ${{ env.GA_CLIENT_EMAIL }}
           token_format: access_token
-          access_token_scopes: https://www.googleapis.com/auth/analytics.readonly
+          access_token_scopes: https://www.googleapis.com/auth/analytics.readonly,https://www.googleapis.com/auth/webmasters.readonly
 
       - name: Refresh Plum snapshot
         run: npm run plum:snapshot
