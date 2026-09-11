@@ -144,7 +144,7 @@
     "alt": "Dune Poster",
     "width": 1466,
     "height": 2200,
-    "orientation": "portrait",
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/illustration-1620315536921.webp",
@@ -165,7 +165,7 @@
     "alt": "ECa38H1Uw AAi Mh K",
     "width": 1612,
     "height": 1763,
-    "orientation": "portrait",
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/Louis_print_02.webp",
@@ -179,35 +179,35 @@
     "alt": "Magazine Street 01",
     "width": 1920,
     "height": 1080,
-    "orientation": "landscape",
+    "orientation": "landscape"
  },
   {
     "src": "images/illustration/IMG_0576.webp",
     "alt": "Illustration 13",
     "width": 2048,
     "height": 1362,
-    "orientation": "landscape",
+    "orientation": "landscape"
   },
   {
     "src": "images/illustration/IMG_0577.webp",
     "alt": "Illustration 14",
     "width": 2048,
     "height": 1366,
-    "orientation": "landscape",
+    "orientation": "landscape"
   },
   {
     "src": "images/illustration/IMG_0578.webp",
     "alt": "Illustration 15",
     "width": 2048,
     "height": 1463,
-    "orientation": "landscape",
+    "orientation": "landscape"
   },
   {
     "src": "images/illustration/Bourdain01.webp",
     "alt": "Anthony Bourdain",
     "width": 1200,
     "height": 1500,
-    "orientation": "portrait",
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/MFS007.webp",
@@ -312,90 +312,90 @@
     "alt": "Eva",
     "width": 1649,
     "height": 2200,
-    "orientation": "portrait",
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/illustration-1447188354626.webp",
     "alt": "Khalessi & Drogo",
     "width": 1200,
     "height": 1641,
-    "orientation": "portrait",
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/illustration-1447187068767.webp",
     "alt": "Illustration 36",
     "width": 800,
     "height": 1236,
-    "orientation": "portrait",
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/Khaleesi.webp",
     "alt": "Khaleesi",
     "width": 612,
     "height": 612,
-    "orientation": "square",
+    "orientation": "square"
   },
   {
     "src": "images/illustration/illustration-1430147306286.webp",
     "alt": "Illustration 38",
     "width": 1200,
     "height": 1855,
-    "orientation": "portrait",
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/StarWars.webp",
     "alt": "Star Wars",
     "width": 1200,
     "height": 1680,
-    "orientation": "portrait",
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/illustration-1427928100224.webp",
     "alt": "Illustration 40",
     "width": 1200,
     "height": 1800,
-    "orientation": "portrait",
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/Pan.webp",
     "alt": "Pan",
     "width": 1024,
     "height": 653,
-    "orientation": "landscape",
+    "orientation": "landscape"
   },
   {
     "src": "images/illustration/Jimi.webp",
     "alt": "Jimi",
     "width": 736,
     "height": 1003,
-    "orientation": "portrait",
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/blondie.webp",
     "alt": "blondie",
     "width": 750,
     "height": 1023,
-    "orientation": "portrait",
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/Plant.webp",
     "alt": "Plant",
     "width": 750,
     "height": 1023,
-    "orientation": "portrait",
+    "orientation": "portrait"
   },
   {
     "src": "images/illustration/Indy.webp",
     "alt": "Indy",
     "width": 736,
     "height": 730,
-    "orientation": "square",
+    "orientation": "square"
   },
   {
     "src": "images/illustration/Breaking-Bad.webp",
     "alt": "Breaking Bad",
     "width": 736,
     "height": 499,
-    "orientation": "landscape",
+    "orientation": "landscape"
   }
 ]

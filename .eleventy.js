@@ -35,6 +35,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addWatchTarget("src/css/");
   eleventyConfig.addWatchTarget("src/js/");
+  eleventyConfig.addWatchTarget("src/_data/projects.json");
 
   return {
     pathPrefix: "/",

@@ -16,6 +16,9 @@ bodyClass: page-work
 
   <div class="work-filters" aria-label="Filter work by tag">
     <button class="work-filter active" type="button" data-filter="all">All</button>
+    {% for tag in workFilters %}
+    <button class="work-filter" type="button" data-filter="{{ tag }}">{{ tag }}</button>
+    {% endfor %}
   </div>
 
   <div class="work-grid work-grid--full" aria-live="polite">
@@ -57,19 +60,8 @@ bodyClass: page-work
     }
     workCards.forEach(({ card }) => workGrid.appendChild(card));
 
-    const tags = [...new Set(workCards.flatMap(({ card }) => card.dataset.tags.split('|')))].sort((a, b) => a.localeCompare(b));
-
-    tags.forEach(tag => {
-      const button = document.createElement('button');
-      button.className = 'work-filter';
-      button.type = 'button';
-      button.dataset.filter = tag;
-      button.textContent = tag;
-      button.setAttribute('aria-pressed', 'false');
-      filterHost.appendChild(button);
-    });
-
     const filterButtons = [...filterHost.querySelectorAll('.work-filter')];
+    const tags = [...new Set(workCards.flatMap(({ tags }) => tags))];
     filterButtons.forEach(button => button.setAttribute('aria-pressed', button.classList.contains('active') ? 'true' : 'false'));
 
     const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
