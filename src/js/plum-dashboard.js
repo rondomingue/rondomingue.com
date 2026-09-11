@@ -384,12 +384,6 @@
     const svg = document.querySelector(".analytics-chart svg");
     if (svg) {
       svg.innerHTML = `
-        <defs>
-          <linearGradient id="plum-area" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0" stop-color="rgba(200,40,154,0.52)" />
-            <stop offset="1" stop-color="rgba(200,40,154,0.1)" />
-          </linearGradient>
-        </defs>
         ${areaPath ? `<path class="analytics-area" d="${areaPath}" />` : ""}
         ${fallbackRows.map(row => `<path class="analytics-line" d="${row.path}" style="stroke:${row.color}" />`).join("")}
         <g class="analytics-points">
