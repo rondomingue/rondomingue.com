@@ -2555,6 +2555,25 @@ img { display: block; max-width: 100%; }
   outline: none;
 }
 
+.project-video-section {
+  max-width: 1440px;
+  margin: 54px auto 0;
+}
+
+.project-video-section h2 {
+  margin: 0;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(238,238,240,0.68);
+}
+
+.project-video-section .project-player {
+  margin-top: 14px;
+}
+
 .project-gallery {
   max-width: 1440px;
   margin: 10px auto 0;

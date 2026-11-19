@@ -128,6 +128,56 @@
     "images": []
   },
   {
+    "title": "The Shortening of the Way",
+    "slug": "the-shortening-of-the-way",
+    "year": "2026",
+    "tags": [
+      "TouchDesigner",
+      "Motion Design",
+      "Generative Design",
+      "Procedural",
+      "Cinematic",
+      "Concept Art"
+    ],
+    "thumb": "images/work/the-shortening-of-the-way/the-shortening-of-the-way-hero.png",
+    "video": {
+      "provider": "youtube",
+      "id": "crDeDAkkLSk",
+      "aspectRatio": "16 / 9"
+    },
+    "supplementalVideos": [
+      {
+        "title": "Shortening of the Way Breakdown",
+        "provider": "youtube",
+        "id": "UA6ENvfctMc",
+        "aspectRatio": "16 / 9"
+      }
+    ],
+    "summary": "The Shortening of the Way is a generative motion study built around concentric systems, signal paths, and monumental circular forms rendered at an intimate, tactile scale.",
+    "description": [
+      "The piece moves across a dark procedural field of engraved rings, orbital structures, and fine connective lines. Dense surface detail and shallow focus turn the system into something between an ancient instrument, a planetary map, and a machine viewed from impossibly close range.",
+      "Restrained red accents travel through the otherwise monochrome image, giving the composition a sense of energy moving across a vast network. The result balances mathematical order with cinematic atmosphere and material texture."
+    ],
+    "processTags": [
+      "TouchDesigner",
+      "Procedural Animation",
+      "Generative Visuals",
+      "Motion Design",
+      "Cinematic Rendering"
+    ],
+    "format": "Generative cinematic motion study",
+    "images": [
+      {
+        "src": "images/work/the-shortening-of-the-way/the-shortening-of-the-way-f0170.png",
+        "alt": "Close view of layered concentric structures and fine engraved geometry"
+      },
+      {
+        "src": "images/work/the-shortening-of-the-way/the-shortening-of-the-way-f0640.png",
+        "alt": "Wide procedural field of circular forms connected by fine signal paths"
+      }
+    ]
+  },
+  {
     "title": "The Sinner in Me",
     "slug": "the-sinner-in-me",
     "year": "2026",

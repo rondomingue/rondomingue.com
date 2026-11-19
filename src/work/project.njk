@@ -77,6 +77,33 @@ bodyClass: page-work page-project
   </div>
   {% endif %}
 
+  {% if project.supplementalVideos and project.supplementalVideos.length %}
+  {% for supplementalVideo in project.supplementalVideos %}
+  <section class="project-video-section" aria-labelledby="supplemental-video-{{ loop.index }}">
+    <h2 id="supplemental-video-{{ loop.index }}">{{ supplementalVideo.title }}</h2>
+    <div class="project-player" style="--project-video-aspect-ratio: {{ supplementalVideo.aspectRatio or '16 / 9' }};">
+      <div class="project-video" data-project-video>
+        <button
+          class="project-video-poster"
+          type="button"
+          data-project-video-embed="{% if supplementalVideo.provider == 'vimeo' %}https://player.vimeo.com/video/{{ supplementalVideo.id }}?autoplay=1&title=0&byline=0&portrait=0{% else %}https://www.youtube-nocookie.com/embed/{{ supplementalVideo.id }}?rel=0&modestbranding=1&autoplay=1&mute=1&playsinline=1&enablejsapi=1{% endif %}"
+          aria-label="Play {{ supplementalVideo.title }} video">
+          {% if videoPoster %}
+          <img src="{{ ('/' + videoPoster) | url }}" alt="" loading="lazy">
+          {% endif %}
+          <span class="project-video-overlay" aria-hidden="true">
+            <span class="project-video-play">Play breakdown</span>
+          </span>
+        </button>
+        <a class="project-video-link" href="{% if supplementalVideo.provider == 'vimeo' %}https://vimeo.com/{{ supplementalVideo.id }}{% else %}https://www.youtube.com/watch?v={{ supplementalVideo.id }}{% endif %}" target="_blank" rel="noopener">
+          Open on {% if supplementalVideo.provider == 'vimeo' %}Vimeo{% else %}YouTube{% endif %} ↗
+        </a>
+      </div>
+    </div>
+  </section>
+  {% endfor %}
+  {% endif %}
+
 
   {% if project.images and project.images.length %}
   <section class="project-gallery" aria-label="{{ project.title }} image gallery">
